@@ -2,7 +2,8 @@
 
 IOImage::IOImage(string inputPath, string outputPath)
 {
-    _image = MatrixConverter::readFromFile(inputPath);
+    MatrixConverter converter;
+    _image = converter.readFromFile(inputPath);
     _outputPath = outputPath;
 }
 

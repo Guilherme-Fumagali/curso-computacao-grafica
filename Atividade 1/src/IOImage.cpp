@@ -10,11 +10,11 @@ IOImage::IOImage(string inputPath, string outputPath)
 void IOImage::convertToPng()
 {
     ImageGenerator generator(_image);
-    generator.saveAsPng(this->_outputPath);
+    generator.saveAs(ImageGenerator::PNG, this->_outputPath);
 }
 
 void IOImage::convertToPpm()
 {
     ImageGenerator generator(_image);
-    generator.saveAsPpm(this->_outputPath);
+    generator.saveAs(ImageGenerator::PPM, this->_outputPath);
 }

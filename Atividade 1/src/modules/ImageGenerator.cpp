@@ -5,25 +5,19 @@ ImageGenerator::ImageGenerator(Image image)
     _image = image;
 }
 
-void ImageGenerator::saveAsPng(string filePath)
+void ImageGenerator::saveAs(ImageType type, string filePath)
 {
-    _image.magick("PNG");
-    _image.write(filePath);
-}
-
-void ImageGenerator::saveAsPpm(string filePath)
-{
-    ofstream file(filePath);
-    file << "P3" << endl;
-    file << _image.columns() << " " << _image.rows() << endl;
-    file << "255" << endl;
-
-    for (int i = 0; i < _image.rows(); i++)
+    switch (type)
     {
-        for (int j = 0; j < _image.columns(); j++)
-        {
-            ColorRGB color = _image.pixelColor(j, i);
-            file << color.red() << " " << color.green() << " " << color.blue() << endl;
-        }
+        case PNG:
+            _image.magick("PNG");
+            break;
+        case PPM:
+            _image.magick("PPM");
+            break;
+        default:
+            break;
     }
+
+    _image.write(filePath);
 }

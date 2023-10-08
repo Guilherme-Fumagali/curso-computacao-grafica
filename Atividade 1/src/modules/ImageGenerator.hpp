@@ -8,9 +8,12 @@ class ImageGenerator {
     private:
         Image _image;
     public:
+        enum ImageType {
+            PNG,
+            PPM
+        };
+
         ImageGenerator(Image image);
 
-        void saveAsPng(string filePath);
-
-        void saveAsPpm(string filePath);
+        void saveAs(ImageType type, string filePath);
 };

@@ -9,7 +9,7 @@ Image MatrixConverter::readFromFile(string filePath)
     int width = stoi(line.substr(0, line.find(" ")));
     int height = stoi(line.substr(line.find(" ") + 1, line.length()));
 
-    Image image(Geometry(width, height));
+    Image image(Geometry(width, height), ColorRGB(0, 0, 0));
 
     for (int i = 0; i < height; i++)
     {
@@ -17,8 +17,12 @@ Image MatrixConverter::readFromFile(string filePath)
         for (int j = 0; j < width; j++)
         {
             int r = stoi(line.substr(0, line.find(" ")));
-            int g = stoi(line.substr(line.find(" ") + 1, line.find(" ")));
-            int b = stoi(line.substr(line.find(" ") + 1, line.length()));
+            line = line.substr(line.find(" ") + 1, line.length());
+            int g = stoi(line.substr(0, line.find(" ")));
+            line = line.substr(line.find(" ") + 1, line.length());
+            int b = stoi(line.substr(0, line.find(" ")));
+            line = line.substr(line.find(" ") + 1, line.length());
+
             ColorRGB color(r, g, b);
             image.pixelColor(j, i, color);
         }

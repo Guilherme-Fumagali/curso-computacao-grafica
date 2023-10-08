@@ -1,4 +1,4 @@
-#include "MatrixConverter.hpp"
+#include "MatrixReader.hpp"
 
 Image MatrixConverter::readFromFile(string filePath)
 {

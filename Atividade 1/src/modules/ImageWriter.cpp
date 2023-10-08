@@ -1,4 +1,4 @@
-#include "ImageGenerator.hpp"
+#include "ImageWriter.hpp"
 
 ImageGenerator::ImageGenerator(Image image)
 {

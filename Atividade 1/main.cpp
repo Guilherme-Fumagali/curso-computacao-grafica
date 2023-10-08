@@ -1,4 +1,4 @@
-#include "src/IOImage.hpp"
+#include "src/MatrixIOImage.hpp"
 #include <iostream>
 
 /**

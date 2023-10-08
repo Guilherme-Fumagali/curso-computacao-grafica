@@ -1,21 +1,24 @@
-main: main.o ioImage.o matrixConverter.o imageGenerator.o
-	gcc -o main build/main.o build/ioImage.o build/modules/matrixConverter.o build/modules/imageGenerator.o `Magick++-config --cppflags --cxxflags --ldflags --libs` -lstdc++
+all: main.o MatrixIOImage.o MatrixReader.o ImageWriter.o
+	gcc -o build/main build/main.o build/MatrixIOImage.o build/modules/MatrixReader.o build/modules/ImageWriter.o `Magick++-config --cppflags --cxxflags --ldflags --libs` -lstdc++
 
 main.o: main.cpp 
 	mkdir -p build
 	gcc -c main.cpp -o build/main.o `Magick++-config --cppflags --cxxflags --ldflags --libs`
 
-ioImage.o: src/IOImage.cpp src/IOImage.hpp
+MatrixIOImage.o: src/MatrixIOImage.cpp src/MatrixIOImage.hpp
 	mkdir -p build
-	gcc -c src/IOImage.cpp -o build/ioImage.o `Magick++-config --cppflags --cxxflags --ldflags --libs` 
+	gcc -c src/MatrixIOImage.cpp -o build/MatrixIOImage.o `Magick++-config --cppflags --cxxflags --ldflags --libs` 
 
-matrixConverter.o: src/modules/MatrixConverter.cpp src/modules/MatrixConverter.hpp
+MatrixReader.o: src/modules/MatrixReader.cpp src/modules/MatrixReader.hpp
 	mkdir -p build/modules
-	gcc -c src/modules/MatrixConverter.cpp -o build/modules/matrixConverter.o `Magick++-config --cppflags --cxxflags --ldflags --libs`
+	gcc -c src/modules/MatrixReader.cpp -o build/modules/MatrixReader.o `Magick++-config --cppflags --cxxflags --ldflags --libs`
 
-imageGenerator.o: src/modules/ImageGenerator.cpp src/modules/ImageGenerator.hpp
+ImageWriter.o: src/modules/ImageWriter.cpp src/modules/ImageWriter.hpp
 	mkdir -p build/modules
-	gcc -c src/modules/ImageGenerator.cpp -o build/modules/imageGenerator.o `Magick++-config --cppflags --cxxflags --ldflags --libs`
+	gcc -c src/modules/ImageWriter.cpp -o build/modules/ImageWriter.o `Magick++-config --cppflags --cxxflags --ldflags --libs`
+
+docs:
+	doxygen Doxyfile
 
 clean:
 	rm -rf build

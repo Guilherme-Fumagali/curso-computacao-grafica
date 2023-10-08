@@ -1,5 +1,5 @@
-#include "modules/MatrixConverter.hpp"
-#include "modules/ImageGenerator.hpp"
+#include "modules/MatrixReader.hpp"
+#include "modules/ImageWriter.hpp"
 
 class IOImage
 {

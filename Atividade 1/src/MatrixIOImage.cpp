@@ -1,4 +1,4 @@
-#include "IOImage.hpp"
+#include "MatrixIOImage.hpp"
 
 IOImage::IOImage(string inputPath, string outputPath)
 {

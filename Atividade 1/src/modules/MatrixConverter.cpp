@@ -16,11 +16,13 @@ Image MatrixConverter::readFromFile(string filePath)
         getline(file, line);
         for (int j = 0; j < width; j++)
         {
-            int r = stoi(line.substr(0, line.find(" ")));
+            double r = stoi(line.substr(0, line.find(" "))) / 255;
             line = line.substr(line.find(" ") + 1, line.length());
-            int g = stoi(line.substr(0, line.find(" ")));
+
+            double g = stoi(line.substr(0, line.find(" "))) / 255;
             line = line.substr(line.find(" ") + 1, line.length());
-            int b = stoi(line.substr(0, line.find(" ")));
+            
+            double b = stoi(line.substr(0, line.find(" "))) / 255;
             line = line.substr(line.find(" ") + 1, line.length());
 
             ColorRGB color(r, g, b);

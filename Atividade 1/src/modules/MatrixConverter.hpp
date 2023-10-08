@@ -1,5 +1,6 @@
 #include <Magick++.h>
 #include <fstream>
+#include <iostream>
 
 using namespace Magick;
 using namespace std;

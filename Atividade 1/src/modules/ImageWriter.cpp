@@ -5,19 +5,24 @@ ImageWriter::ImageWriter(Image image)
     _image = image;
 }
 
-void ImageWriter::saveAs(ImageType type, string filePath)
+void ImageWriter::saveAs(string type, string filePath)
 {
-    switch (type)
+    try
     {
-        case PNG:
-            _image.magick("PNG"); // Set the image format to PNG
-            break;
-        case PPM:
-            _image.magick("PPM"); // Set the image format to PPM
-            break;
-        default:
-            break;
+        _image.magick(type); // Set the image format
+        _image.write(filePath); // Write the image to a file
+        cout << "Converted to " << type << "..." << endl;
     }
-
-    _image.write(filePath); // Write the image to a file
+    catch(const Magick::ErrorMissingDelegate &e)
+    {
+        cout << "Format not specified, saving in default format (PNG)." << endl;
+        _image.magick("PNG");
+        _image.write(filePath + ".png");
+    }
+    catch(const Magick::Error &e)
+    {
+        cout << "Error: " << e.what() << endl;
+        return;
+    } 
+    
 }

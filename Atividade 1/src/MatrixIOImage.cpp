@@ -7,14 +7,9 @@ IOImage::IOImage(string inputPath, string outputPath)
     _outputPath = outputPath;
 }
 
-void IOImage::convertToPng()
+void IOImage::convert()
 {
-    ImageWriter generator(_image);
-    generator.saveAs(ImageWriter::PNG, this->_outputPath);
-}
-
-void IOImage::convertToPpm()
-{
-    ImageWriter generator(_image);
-    generator.saveAs(ImageWriter::PPM, this->_outputPath);
+    string extension = _outputPath.substr(_outputPath.find_last_of(".") + 1);
+    ImageWriter writer(_image);
+    writer.saveAs(extension, _outputPath);
 }

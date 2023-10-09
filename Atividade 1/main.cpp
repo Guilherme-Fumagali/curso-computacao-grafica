@@ -17,6 +17,6 @@ int main(int argc, char const *argv[])
     }
 
     IOImage ioImage(argv[1], argv[2]); // Create an IOImage object.
-    ioImage.convertToPng(); // Convert the matrix to a PNG image.
+    ioImage.convert(); // Convert the matrix to a PNG image.
     return 0;
 }

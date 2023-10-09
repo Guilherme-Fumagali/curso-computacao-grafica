@@ -1,4 +1,5 @@
 #include <Magick++.h>
+#include <iostream>
 #include <fstream>
 
 using namespace Magick;
@@ -34,5 +35,5 @@ public:
      * @param type The format in which the image should be saved.
      * @param filePath The file path where the image should be saved.
      */
-    void saveAs(ImageType type, string filePath);
+    void saveAs(string type, string filePath);
 };

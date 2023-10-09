@@ -1,5 +1,9 @@
 #include "modules/MatrixReader.hpp"
 #include "modules/ImageWriter.hpp"
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 class IOImage
 {
@@ -10,7 +14,5 @@ private:
 public:
     IOImage(string inputPath, string outputPath);
 
-    void convertToPng();
-
-    void convertToPpm();
+    void convert();
 };

@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Esta atividade tem como objetivo a implementação de uma classe que permita a leitura de matrizes em um arquivo texto com um formato pré-definido e o converta para algum formato de imagem, como (PNG)[https://www.adobe.com/br/creativecloud/file-types/image/raster/png-file.html].
+Esta atividade tem como objetivo a implementação de uma classe que permita a leitura de matrizes em um arquivo texto com um formato pré-definido e o converta para algum formato de imagem, como [PNG](https://www.adobe.com/br/creativecloud/file-types/image/raster/png-file.html).
 
 ## Formato da Matriz de Entrada
 
@@ -35,7 +35,7 @@ Dessa forma, o fluxo de execução da aplicação é ilustrado pelo diagrama aba
 
 A abordagem em módulos possibilita a extensão da aplicação para outros formatos de entrada e saída, sem a necessidade de alterar a classe `MatrixIOImage`.  Assim, caso seja necessário ler um formato hexadecimal ao invés de decimal, na matriz de entrada, basta criar um novo módulo que implemente a interface `MatrixReader` com um novo método `readFromFile`, que leia o arquivo de entrada e o converta para um objeto do tipo `Image`. O mesmo vale para o módulo `ImageWriter`, onde por exemplo pode ser implementado métodos que realizem algum tipo de tratamento na imagem antes de escrevê-la no arquivo de saída.
 
-Atualmente, o módulo `ImageWriter` possibilita a escrita no formato PNG e PPM, e o código principal utiliza o método de conversão para PNG.
+Atualmente, o módulo `ImageWriter` possibilita a escrita em qualquer formato suportado pela biblioteca ImageMagick, porém, para a leitura, foi implementado apenas o módulo `MatrixReader`, que lê arquivos no formato descrito na seção [Formato da Matriz de Entrada](#formato-da-matriz-de-entrada).
 
 ## Compilação
 
@@ -74,6 +74,8 @@ Para executar o programa, basta executar o comando abaixo:
 ```
 
 Onde `<input_file>` é o nome do arquivo que contém a matriz de entrada e `<output_file>` é o nome do arquivo de saída que conterá a imagem gerada.
+
+É válido ressaltar que o formato do arquivo de saída é definido pela extensão do nome do arquivo. Por exemplo, se o nome do arquivo de saída for `image.png`, a imagem gerada será no formato PNG.
 
 ## Testes
 

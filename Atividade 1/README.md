@@ -16,24 +16,24 @@ Abaixo, há um exemplo de I/O:
 
 | Matriz de entrada | Imagem de saída |
 |:-----------------:|:---------------:|
-|3 3<br>255 0 0 0 255 0 0 0 255<br>255 0 0 0 255 0 0 0 255<br>255 0 0 0 255 0 0 0 255 | <img src="./static/example_readme_resized.png" width="100"> |
+|3 3<br>255 0 0 0 255 0 0 0 255<br>255 0 0 0 255 0 0 0 255<br>255 0 0 0 255 0 0 0 255 | <img src="static/example_readme_resized.png" width="100"> |
 
 ## Arquitetura da Aplicação
 
 A aplicação foi implmentada em C++ com o auxílio da biblioteca [ImageMagick](https://imagemagick.org/index.php), para codificação das imagens.
 
-A interface do conversor é definida pela classe [`MatrixIOImage`](./src/MatrixIOImage.hpp), que recebe no construtor o nome do arquivo de entrada e o nome do arquivo de saída, e possui métodos para conversão da matriz para imagem em diferentes formatos.
+A interface do conversor é definida pela classe [`MatrixIOImage`](src/MatrixIOImage.hpp), que recebe no construtor o nome do arquivo de entrada e o nome do arquivo de saída, e possui métodos para conversão da matriz para imagem em diferentes formatos.
 
 #### Módulos
 
 Para realizar a conversão da matriz para imagem, a classe `MatrixIOImage` utiliza dois módulos:
 
-- ['MatrixReader'](./src/modules/MatrixReader.hpp): responsável por ler o arquivo de entrada e o converter para o formato [`Image`](https://imagemagick.org/api/Image++.php) da biblioteca ImageMagick.
-- ['ImageWriter'](./src/modules/ImageWriter.hpp): responsável por escrever o arquivo de saída a partir de um objeto do tipo [`Image`](https://imagemagick.org/api/Image++.php) da biblioteca ImageMagick.
+- ['MatrixReader'](src/modules/MatrixReader.hpp): responsável por ler o arquivo de entrada e o converter para o formato [`Image`](https://imagemagick.org/api/Image++.php) da biblioteca ImageMagick.
+- ['ImageWriter'](src/modules/ImageWriter.hpp): responsável por escrever o arquivo de saída a partir de um objeto do tipo [`Image`](https://imagemagick.org/api/Image++.php) da biblioteca ImageMagick.
 
 Dessa forma, o fluxo de execução da aplicação é ilustrado pelo diagrama abaixo:
 
-![Fluxo de execução da aplicação](./static/fluxo_dados.png)
+![Fluxo de execução da aplicação](static/fluxo_dados.png)
 
 A abordagem em módulos possibilita a extensão da aplicação para outros formatos de entrada e saída, sem a necessidade de alterar a classe `MatrixIOImage`.  Assim, caso seja necessário ler um formato hexadecimal ao invés de decimal, na matriz de entrada, basta criar um novo módulo que implemente a interface `MatrixReader` com um novo método `readFromFile`, que leia o arquivo de entrada e o converta para um objeto do tipo `Image`. O mesmo vale para o módulo `ImageWriter`, onde por exemplo pode ser implementado métodos que realizem algum tipo de tratamento na imagem antes de escrevê-la no arquivo de saída.
 
@@ -55,7 +55,7 @@ Para compilar classe `MatrixIOImage`, junto aos módulos `MatrixReader` e `Image
 make all
 ``` 
 
-Os arquivos compilados serão gerados na pasta `./build`.
+Os arquivos compilados serão gerados na pasta `build`.
 
 #### Gerando documentação
 
@@ -65,7 +65,7 @@ Para gerar a documentação do código, execute o comando abaixo:
 make docs
 ```
 
-A documentação será gerada na pasta `./docs`.
+A documentação será gerada na pasta `docs`.
 
 ## Execução
 
@@ -81,13 +81,13 @@ Onde `<input_file>` é o nome do arquivo que contém a matriz de entrada e `<out
 
 ## Testes
 
-No diretório [`utils`](./src/utils/) há códigos fonte que podem ser utilizados para gerar diferentes matrizes de entrada para testar a classe conversora. 
+No diretório [`utils`](src/utils/) há códigos fonte que podem ser utilizados para gerar diferentes matrizes de entrada para testar a classe conversora. 
 
-Os arquivos gerados pelos códigos se encontram no diretório [`static/tests`](./static/tests/). Mas, caso deseje executar os códigos fonte, é necessário compilar os mesmos.
+Os arquivos gerados pelos códigos se encontram no diretório [`static/tests`](static/tests/). Mas, caso deseje executar os códigos fonte, é necessário compilar os mesmos.
 
 #### Compilando os códigos fonte
 
-Para compilar, dentro do diretório [`utils`](./src/utils/), execute o comando abaixo:
+Para compilar, dentro do diretório [`utils`](src/utils/), execute o comando abaixo:
 
 ```bash
 make all
@@ -101,4 +101,4 @@ Foram implementados três códigos geradores de matrizes de entrada, um que gera
 
 | Degradê | Círculo | Quadrado |
 |:-------:|:-------:|:--------:|
-| <img src="./static/tests/gradient.png" width="120"> | <img src="./static/tests/circle.png" width="120"> | <img src="./static/tests/square.png" width="120"> |
+| <img src="static/tests/gradient.png" width="120"> | <img src="static/tests/circle.png" width="120"> | <img src="static/tests/square.png" width="120"> |

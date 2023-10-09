@@ -4,6 +4,8 @@
 
 Esta atividade tem como objetivo a implementação de uma classe que permita a leitura de matrizes em um arquivo texto com um formato pré-definido e o converta para algum formato de imagem, como [PNG](https://www.adobe.com/br/creativecloud/file-types/image/raster/png-file.html).
 
+Documentação do código gerada pelo Doxygen: [https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade%201/docs/html/index.html](https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade%201/docs/html/index.html)
+
 ## Formato da Matriz de Entrada
 
 Na primeira linha do arquivo de entrada, deve haver dois números inteiros separados por espaço, que representam a quantidade de linhas e colunas da matriz, respectivamente. Nas linhas seguintes, deve haver uma sequência de números inteiros separados por espaço, que representam os valores de cada pixel da matriz, da esquerda para a direita e de cima para baixo.

@@ -2,12 +2,12 @@
 #include <iostream>
 
 /**
- * @brief Main function that converts an matrix to a PNG image.
+ * @brief Função principal que converte uma matriz para uma imagem PNG.
  * 
- * @param input_file path to the input file that contains the matrix.
- * @param output_file path to the output file that will contain the PNG image.
+ * @param input_file caminho para o arquivo de entrada que contém a matriz.
+ * @param output_file caminho para o arquivo de saída que conterá a imagem.
  * 
- * @return 0 if the conversion was successful, 1 otherwise.
+ * @return int 0 se a conversão foi bem sucedida, 1 caso contrário.
  */
 int main(int argc, char const *argv[])
 {

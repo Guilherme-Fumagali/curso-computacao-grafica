@@ -1,23 +1,23 @@
 #include "ImageWriter.hpp"
 
-ImageGenerator::ImageGenerator(Image image)
+ImageWriter::ImageWriter(Image image)
 {
     _image = image;
 }
 
-void ImageGenerator::saveAs(ImageType type, string filePath)
+void ImageWriter::saveAs(ImageType type, string filePath)
 {
     switch (type)
     {
         case PNG:
-            _image.magick("PNG");
+            _image.magick("PNG"); // Set the image format to PNG
             break;
         case PPM:
-            _image.magick("PPM");
+            _image.magick("PPM"); // Set the image format to PPM
             break;
         default:
             break;
     }
 
-    _image.write(filePath);
+    _image.write(filePath); // Write the image to a file
 }

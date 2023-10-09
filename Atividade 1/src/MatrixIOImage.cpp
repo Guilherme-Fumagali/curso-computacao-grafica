@@ -9,12 +9,12 @@ IOImage::IOImage(string inputPath, string outputPath)
 
 void IOImage::convertToPng()
 {
-    ImageGenerator generator(_image);
-    generator.saveAs(ImageGenerator::PNG, this->_outputPath);
+    ImageWriter generator(_image);
+    generator.saveAs(ImageWriter::PNG, this->_outputPath);
 }
 
 void IOImage::convertToPpm()
 {
-    ImageGenerator generator(_image);
-    generator.saveAs(ImageGenerator::PPM, this->_outputPath);
+    ImageWriter generator(_image);
+    generator.saveAs(ImageWriter::PPM, this->_outputPath);
 }

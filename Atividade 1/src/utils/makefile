@@ -12,3 +12,4 @@ generate_gradient: generate_gradient.cpp
 clean:
 	rm -f generate_gradient
 	rm -f generate_circle
+	rm -f generate_two_colors_square

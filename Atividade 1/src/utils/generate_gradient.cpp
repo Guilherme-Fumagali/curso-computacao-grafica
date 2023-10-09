@@ -4,19 +4,18 @@
 
 using namespace std;
 
-
 /**
- * @brief Esse programa gera uma matriz de gradiente no formato da aplicação com dimensões 255x255.
- * O gradiente é gerado da direita para a esquerda, começando com a cor ciano (0, 255, 255) e 
- * terminando com a cor rosa claro (255, 0, 255).
- * 
- * @param output_file O caminho para o arquivo de saída que conterá a imagem.
- * 
- * @return int 0 se a geração da imagem foi bem sucedida, 1 caso contrário.
+ * @brief This program generates a matrix at the format of the application of a gradient with dimensions 255x255.
+ * This gradient is generated from right to left, starting with the color cyan (0, 255, 255) and ending with the color light pink (255, 0, 255).
+ *
+ * @param output_file path to the output file.
+ *
+ * @return int 0 if the program was executed successfully, 1 otherwise.
  */
 int main(int argc, char const *argv[])
 {
-    if (argc != 2){
+    if (argc != 2)
+    {
         cout << "Usage: " << argv[0] << " output_file" << endl;
         return 1;
     }
@@ -30,7 +29,7 @@ int main(int argc, char const *argv[])
 
     file << height << " " << width << endl;
 
-    /* Inicializando a cor ciano */
+    /* Initializate the color cyan */
     int r = 0;
     int g = 255;
     int b = 255;
@@ -39,13 +38,17 @@ int main(int argc, char const *argv[])
     {
         for (int j = 0; j < width; j++)
         {
-            // Soma 1 no vermelho e subtrai 1 no verde, indo em direção a cor rosa claro.
+            /**
+             * Sum 1 to the red color and subtract 1 from the green color
+             * How the pink color is (255, 0, 255), and the cyan color is (0, 255, 255),
+             * we can generate the gradient from right to left by summing 1 to the red color and subtracting 1 from the green color.
+             */
             r += 1;
             g -= 1;
             file << r << " " << g << " " << b << " ";
         }
 
-        // Reinicia a cor ciano.
+        /* Reset the cyan color */
         r = 0;
         g = 255;
         b = 255;

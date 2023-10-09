@@ -2,12 +2,12 @@
 #include <iostream>
 
 /**
- * @brief Função principal que converte uma matriz para uma imagem PNG.
+ * @brief Main function that converts a matrix to a image. The format of the output image is determined by the extension of the output file.
  * 
- * @param input_file caminho para o arquivo de entrada que contém a matriz.
- * @param output_file caminho para o arquivo de saída que conterá a imagem.
+ * @param input_file path to the input file containing the matrix.
+ * @param output_file path to the output file.
  * 
- * @return int 0 se a conversão foi bem sucedida, 1 caso contrário.
+ * @return int 0 if the program was executed successfully, 1 otherwise.
  */
 int main(int argc, char const *argv[])
 {
@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
         return 1;
     }
 
-    IOImage ioImage(argv[1], argv[2]); // Create an IOImage object.
+    MatrixIOImage ioImage(argv[1], argv[2]); // Create an MatrixIOImage object.
     ioImage.convert(); // Convert the matrix to a PNG image.
     return 0;
 }

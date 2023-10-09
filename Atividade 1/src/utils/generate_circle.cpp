@@ -5,12 +5,12 @@
 using namespace std;
 
 /**
- * @brief Esse programa gera uma matriz de um círculo no formato da aplicação com dimensões 500x500.
- * Esse círculo é gerado com o centro na posição (250, 250) e raio 200, na cor laranja (255, 155, 0).
+ * @brief This program generates a matrix at the format of the application of a circle with dimensions 500x500.
+ * This circle is generated with center at position (250, 250) and radius 200, in the color orange (255, 155, 0).
  * 
- * @param output_file O caminho para o arquivo de saída que conterá a imagem.
+ * @param output_file path to the output file.
  * 
- * @return int 0 se a geração da imagem foi bem sucedida, 1 caso contrário.
+ * @return int 0 if the program was executed successfully, 1 otherwise.
  */
 int main(int argc, char const *argv[])
 {
@@ -38,11 +38,11 @@ int main(int argc, char const *argv[])
     {
         for (int j = 0; j < width; j++) 
         {
-            /* Coordenadas do pixel em relação ao centro do círculo */
+            /* Calculate the distance from the center of the circle to the current pixel */
             int x = i - center_x; 
             int y = j - center_y;
 
-            /* Verifica se o pixel está dentro do círculo */
+            /* verify if the current pixel is inside the circle */
             if (x * x + y * y <= radius * radius)
                 file << color_circle[0] << " " << color_circle[1] << " " << color_circle[2] << " ";
             else

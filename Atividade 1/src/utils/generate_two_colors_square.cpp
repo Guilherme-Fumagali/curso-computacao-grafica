@@ -4,12 +4,12 @@
 
 using namespace std;
 /**
- * @brief Esse programa gera uma matriz de um quadrado no formato da aplicação com dimensões 500x500.
- * Esse quadrado é gerado com o centro na posição (250, 250) e lado 250, metade da imagem é preta e a outra metade é branca.
+ * @brief This program generates a matrix at the format of the application of a square with dimensions 500x500.
+ * This square is generated with center at position (250, 250) and side 250, half of the image is black and the other half is white.
  *
- * @param output_file O caminho para o arquivo de saída que conterá a imagem.
+ * @param output_file path to the output file.
  *
- * @return int 0 se a geração da imagem foi bem sucedida, 1 caso contrário.
+ * @return int 0 if the program was executed successfully, 1 otherwise.
  */
 int main(int argc, char const *argv[])
 {

@@ -1,13 +1,13 @@
 #include "MatrixIOImage.hpp"
 
-IOImage::IOImage(string inputPath, string outputPath)
+MatrixIOImage::MatrixIOImage(string inputPath, string outputPath)
 {
     MatrixConverter converter;
     _image = converter.readFromFile(inputPath);
     _outputPath = outputPath;
 }
 
-void IOImage::convert()
+void MatrixIOImage::convert()
 {
     string extension = _outputPath.substr(_outputPath.find_last_of(".") + 1);
     ImageWriter writer(_image);

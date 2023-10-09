@@ -5,13 +5,13 @@ ImageWriter::ImageWriter(Image image)
     _image = image;
 }
 
-void ImageWriter::saveAs(string type, string filePath)
+void ImageWriter::saveAs(string format, string filePath)
 {
     try
     {
-        _image.magick(type);    // Set the image format
+        _image.magick(format);    // Set the image format
         _image.write(filePath); // Write the image to a file
-        cout << "Converted to " << type << "..." << endl;
+        cout << "Converted to " << format << "..." << endl;
     }
     catch (const Magick::ErrorMissingDelegate &e) // If format not specified
     {

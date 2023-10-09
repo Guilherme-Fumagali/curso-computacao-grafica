@@ -1,6 +1,6 @@
 #include "MatrixReader.hpp"
 
-Image MatrixConverter::readFromFile(string filePath)
+Image MatrixReader::readFromFile(string filePath)
 {
     ifstream file(filePath);
     string line;
@@ -24,7 +24,7 @@ Image MatrixConverter::readFromFile(string filePath)
 
             double g = stod(line.substr(0, line.find(" "))) / 255;
             line = line.substr(line.find(" ") + 1, line.length());
-            
+
             double b = stod(line.substr(0, line.find(" "))) / 255;
             line = line.substr(line.find(" ") + 1, line.length());
 

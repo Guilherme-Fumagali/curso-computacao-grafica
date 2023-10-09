@@ -2,7 +2,7 @@
 
 MatrixIOImage::MatrixIOImage(string inputPath, string outputPath)
 {
-    MatrixConverter converter;
+    MatrixReader converter;
     _image = converter.readFromFile(inputPath);
     _outputPath = outputPath;
 }

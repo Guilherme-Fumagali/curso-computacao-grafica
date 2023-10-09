@@ -15,14 +15,6 @@ private:
     Image _image;
 
 public:
-    /**
-     * @brief Enum for specifying all formats in which an image can be saved.
-     */
-    enum ImageType
-    {
-        PNG,
-        PPM
-    };
 
     /**
      * @brief Constructor for ImageGenerator class.
@@ -32,8 +24,8 @@ public:
 
     /**
      * @brief Saves the image in the specified format and file path.
-     * @param type The format in which the image should be saved.
+     * @param format The format in which the image should be saved.
      * @param filePath The file path where the image should be saved.
      */
-    void saveAs(string type, string filePath);
+    void saveAs(string format, string filePath);
 };

@@ -1,0 +1,44 @@
+\doxysection{Matrix\+Reader.\+cpp}
+\hypertarget{MatrixReader_8cpp_source}{}\label{MatrixReader_8cpp_source}\index{src/modules/MatrixReader.cpp@{src/modules/MatrixReader.cpp}}
+\mbox{\hyperlink{MatrixReader_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MatrixReader_8hpp}{MatrixReader.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00003}\mbox{\hyperlink{classMatrixReader_a13cd3c92515169ebfca4eb21797e504d}{00003}}\ Image\ \mbox{\hyperlink{classMatrixReader_a13cd3c92515169ebfca4eb21797e504d}{MatrixReader::readFromFile}}(\textcolor{keywordtype}{string}\ filePath)}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00005}00005\ \ \ \ \ ifstream\ file(filePath);}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{comment}{/*\ Read\ the\ width\ and\ height\ of\ the\ first\ line\ of\ the\ file.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00009}00009\ \ \ \ \ getline(file,\ line);}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{int}\ width\ =\ stoi(line.substr(0,\ line.find(\textcolor{stringliteral}{"{}\ "{}})));}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ stoi(line.substr(line.find(\textcolor{stringliteral}{"{}\ "{}})\ +\ 1,\ line.length()));}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{comment}{/*\ Create\ a\ new\ image\ with\ the\ specified\ width\ and\ height,\ and\ fill\ it\ with\ black.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00014}00014\ \ \ \ \ Image\ image(Geometry(width,\ height),\ ColorRGB(0,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ i++)}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00017}00017\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ getline(file,\ line);}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ j++)}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ the\ RGB\ values\ of\ each\ pixel.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r\ =\ stod(line.substr(0,\ line.find(\textcolor{stringliteral}{"{}\ "{}})))\ /\ 255;}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ line\ =\ line.substr(line.find(\textcolor{stringliteral}{"{}\ "{}})\ +\ 1,\ line.length());}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ g\ =\ stod(line.substr(0,\ line.find(\textcolor{stringliteral}{"{}\ "{}})))\ /\ 255;}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ line\ =\ line.substr(line.find(\textcolor{stringliteral}{"{}\ "{}})\ +\ 1,\ line.length());}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ b\ =\ stod(line.substr(0,\ line.find(\textcolor{stringliteral}{"{}\ "{}})))\ /\ 255;}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ line\ =\ line.substr(line.find(\textcolor{stringliteral}{"{}\ "{}})\ +\ 1,\ line.length());}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ pixel\ color.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ ColorRGB\ color(r,\ g,\ b);}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ image.pixelColor(j,\ i,\ color);}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ image;}
+\DoxyCodeLine{\Hypertarget{MatrixReader_8cpp_source_l00038}00038\ \}}
+
+\end{DoxyCode}

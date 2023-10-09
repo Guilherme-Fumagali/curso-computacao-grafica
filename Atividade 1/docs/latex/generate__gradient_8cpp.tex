@@ -1,0 +1,35 @@
+\doxysection{src/utils/generate\+\_\+gradient.cpp File Reference}
+\hypertarget{generate__gradient_8cpp}{}\label{generate__gradient_8cpp}\index{src/utils/generate\_gradient.cpp@{src/utils/generate\_gradient.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{generate__gradient_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This program generates a matrix at the format of the application of a gradient with dimensions 255x255. This gradient is generated from right to left, starting with the color cyan (0, 255, 255) and ending with the color light pink (255, 0, 255). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{generate__gradient_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{generate__gradient_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
+\index{generate\_gradient.cpp@{generate\_gradient.cpp}!main@{main}}
+\index{main@{main}!generate\_gradient.cpp@{generate\_gradient.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This program generates a matrix at the format of the application of a gradient with dimensions 255x255. This gradient is generated from right to left, starting with the color cyan (0, 255, 255) and ending with the color light pink (255, 0, 255). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+\_\+file} & path to the output file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if the program was executed successfully, 1 otherwise. 
+\end{DoxyReturn}
+Sum 1 to the red color and subtract 1 from the green color How the pink color is (255, 0, 255), and the cyan color is (0, 255, 255), we can generate the gradient from right to left by summing 1 to the red color and subtracting 1 from the green color.
+
+Definition at line \mbox{\hyperlink{generate__gradient_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{generate__gradient_8cpp_source}{generate\+\_\+gradient.\+cpp}}.
+

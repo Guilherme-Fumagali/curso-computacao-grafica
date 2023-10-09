@@ -1,0 +1,54 @@
+\doxysection{generate\+\_\+gradient.\+cpp}
+\hypertarget{generate__gradient_8cpp_source}{}\label{generate__gradient_8cpp_source}\index{src/utils/generate\_gradient.cpp@{src/utils/generate\_gradient.cpp}}
+\mbox{\hyperlink{generate__gradient_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00005}00005\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00015}\mbox{\hyperlink{generate__gradient_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{00015}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{section__2__example_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *argv[])}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ !=\ 2)}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Usage:\ "{}}\ <<\ argv[0]\ <<\ \textcolor{stringliteral}{"{}\ output\_file"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{int}\ width\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{string}\ output\_file\ =\ argv[1];}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00027}00027\ \ \ \ \ ofstream\ file;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00028}00028\ \ \ \ \ file.open(output\_file);}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00030}00030\ \ \ \ \ file\ <<\ height\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ width\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{/*\ Initializate\ the\ color\ cyan\ */}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ g\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{int}\ b\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ i++)}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ j++)}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ r\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ g\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ file\ <<\ r\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ g\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ b\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Reset\ the\ cyan\ color\ */}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ r\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ g\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ b\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ file\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00058}00058\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{generate__gradient_8cpp_source_l00061}00061\ \}}
+
+\end{DoxyCode}

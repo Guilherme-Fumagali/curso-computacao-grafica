@@ -1,0 +1,77 @@
+\doxysection{Image\+Writer Class Reference}
+\hypertarget{classImageWriter}{}\label{classImageWriter}\index{ImageWriter@{ImageWriter}}
+
+
+Module responsible for saving an image in a file with a specified format. As an interface, this module receives an \doxylink{}{Magick\+::\+Image} object and saves it in a file.  
+
+
+
+
+{\ttfamily \#include $<$Image\+Writer.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImageWriter_ab4fdff999febbeb17068e8b546ad14b3}{Image\+Writer}} (Image image)
+\begin{DoxyCompactList}\small\item\em Constructor for Image\+Generator class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImageWriter_a729cef7d37d71219a7981ad302e2f7be}{save\+As}} (string format, string file\+Path)
+\begin{DoxyCompactList}\small\item\em Saves the image in the specified format and file path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module responsible for saving an image in a file with a specified format. As an interface, this module receives an \doxylink{}{Magick\+::\+Image} object and saves it in a file. 
+
+Definition at line \mbox{\hyperlink{ImageWriter_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{ImageWriter_8hpp_source}{Image\+Writer.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classImageWriter_ab4fdff999febbeb17068e8b546ad14b3}\label{classImageWriter_ab4fdff999febbeb17068e8b546ad14b3} 
+\index{ImageWriter@{ImageWriter}!ImageWriter@{ImageWriter}}
+\index{ImageWriter@{ImageWriter}!ImageWriter@{ImageWriter}}
+\doxysubsubsection{\texorpdfstring{ImageWriter()}{ImageWriter()}}
+{\footnotesize\ttfamily Image\+Writer\+::\+Image\+Writer (\begin{DoxyParamCaption}\item[{Image}]{image }\end{DoxyParamCaption})}
+
+
+
+Constructor for Image\+Generator class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The image to be generated and saved. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ImageWriter_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{ImageWriter_8cpp_source}{Image\+Writer.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classImageWriter_a729cef7d37d71219a7981ad302e2f7be}\label{classImageWriter_a729cef7d37d71219a7981ad302e2f7be} 
+\index{ImageWriter@{ImageWriter}!saveAs@{saveAs}}
+\index{saveAs@{saveAs}!ImageWriter@{ImageWriter}}
+\doxysubsubsection{\texorpdfstring{saveAs()}{saveAs()}}
+{\footnotesize\ttfamily void Image\+Writer\+::save\+As (\begin{DoxyParamCaption}\item[{string}]{format,  }\item[{string}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Saves the image in the specified format and file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The format in which the image should be saved. \\
+\hline
+{\em file\+Path} & The file path where the image should be saved. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ImageWriter_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{ImageWriter_8cpp_source}{Image\+Writer.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/modules/\mbox{\hyperlink{ImageWriter_8hpp}{Image\+Writer.\+hpp}}\item 
+src/modules/\mbox{\hyperlink{ImageWriter_8cpp}{Image\+Writer.\+cpp}}\end{DoxyCompactItemize}

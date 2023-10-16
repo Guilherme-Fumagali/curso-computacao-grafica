@@ -26,6 +26,14 @@ public:
         return *this;
     }
 
+    mat4& operator-=(const mat4 &m) {
+        e[0] -= m.e[0];
+        e[1] -= m.e[1];
+        e[2] -= m.e[2];
+        e[3] -= m.e[3];
+        return *this;
+    }
+
     mat4& operator*=(double t) {
         e[0] *= t;
         e[1] *= t;
@@ -71,10 +79,6 @@ inline mat4 operator*(double t, const mat4 &m) {
     return m * t;
 }
 
-inline mat4 operator/(const mat4 &m, double t) {
-    return m * (1/t);
-}
-
 inline vec4 operator*(const mat4 &m, const vec4 &v) {
     return {m.e[0].x() * v.x() + m.e[0].y() * v.y() + m.e[0].z() * v.z() + m.e[0].w() * v.w(),
             m.e[1].x() * v.x() + m.e[1].y() * v.y() + m.e[1].z() * v.z() + m.e[1].w() * v.w(),
@@ -84,6 +88,10 @@ inline vec4 operator*(const mat4 &m, const vec4 &v) {
 
 inline vec4 operator*(const vec4 &v, const mat4 &m) {
     return m * v;
+}
+
+inline mat4 operator/(const mat4 &m, double t) {
+    return m * (1/t);
 }
 
 #endif //MAT4_H

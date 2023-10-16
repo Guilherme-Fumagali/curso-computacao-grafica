@@ -6,6 +6,9 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(Vec_lib)
 add_subdirectory(Vec_lib)
 
+include_directories(Mat_lib)
+add_subdirectory(Mat_lib)
+
 add_subdirectory(tests)
 
 add_executable(Atividade_2

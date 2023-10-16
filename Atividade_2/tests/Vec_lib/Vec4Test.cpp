@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../Vec_lib/vec4.h"
+#include "vec4.h"
 
 /* -------------- */
 /* Vec4 Functions */

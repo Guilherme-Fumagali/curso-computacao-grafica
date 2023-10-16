@@ -24,6 +24,12 @@ public:
         return *this;
     }
 
+    mat2& operator-=(const mat2 &m) {
+        e[0] -= m.e[0];
+        e[1] -= m.e[1];
+        return *this;
+    }
+
     mat2& operator*=(double t) {
         e[0] *= t;
         e[1] *= t;
@@ -61,10 +67,6 @@ inline mat2 operator*(double t, const mat2 &m) {
     return m * t;
 }
 
-inline mat2 operator/(const mat2 &m, double t) {
-    return m * (1/t);
-}
-
 inline vec2 operator*(const mat2 &m, const vec2 &v) {
     return {m.e[0].x() * v.x() + m.e[0].y() * v.y(),
             m.e[1].x() * v.x() + m.e[1].y() * v.y()};
@@ -72,6 +74,10 @@ inline vec2 operator*(const mat2 &m, const vec2 &v) {
 
 inline vec2 operator*(const vec2 &v, const mat2 &m) {
     return m * v;
+}
+
+inline mat2 operator/(const mat2 &m, double t) {
+    return m * (1/t);
 }
 
 #endif //MAT2_H

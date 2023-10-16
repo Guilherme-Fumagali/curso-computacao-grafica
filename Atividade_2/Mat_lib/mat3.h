@@ -25,6 +25,13 @@ public:
         return *this;
     }
 
+    mat3& operator-=(const mat3 &m) {
+        e[0] -= m.e[0];
+        e[1] -= m.e[1];
+        e[2] -= m.e[2];
+        return *this;
+    }
+
     mat3& operator*=(double t) {
         e[0] *= t;
         e[1] *= t;
@@ -66,10 +73,6 @@ inline mat3 operator*(double t, const mat3 &m) {
     return m * t;
 }
 
-inline mat3 operator/(const mat3 &m, double t) {
-    return m * (1/t);
-}
-
 inline vec3 operator*(const mat3 &m, const vec3 &v) {
     return {m.e[0].x() * v.x() + m.e[0].y() * v.y() + m.e[0].z() * v.z(),
             m.e[1].x() * v.x() + m.e[1].y() * v.y() + m.e[1].z() * v.z(),
@@ -78,6 +81,10 @@ inline vec3 operator*(const mat3 &m, const vec3 &v) {
 
 inline vec3 operator*(const vec3 &v, const mat3 &m) {
     return m * v;
+}
+
+inline mat3 operator/(const mat3 &m, double t) {
+    return m * (1/t);
 }
 
 #endif //MAT3_H

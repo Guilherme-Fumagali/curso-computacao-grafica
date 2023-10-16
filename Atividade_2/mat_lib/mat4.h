@@ -4,7 +4,7 @@
 #include <cmath>
 #include <iostream>
 
-#include "../Vec_lib/vec4.h"
+#include "../vec_lib/vec4.h"
 
 using std::sqrt;
 

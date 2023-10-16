@@ -1,0 +1,198 @@
+\doxysection{mat2 Class Reference}
+\hypertarget{classmat2}{}\label{classmat2}\index{mat2@{mat2}}
+
+
+Class for 2x2 matrix and its operations.  
+
+
+
+
+{\ttfamily \#include $<$mat2.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat2_a16c2f59c181807c930eca7955a17e6ed}{mat2}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat2_ad7227fc571cbffb3f4e00e163f5cce99}{mat2}} (\mbox{\hyperlink{classvec2}{vec2}} e0, \mbox{\hyperlink{classvec2}{vec2}} e1)
+\begin{DoxyCompactList}\small\item\em Constructor with two vectors as arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec2}{vec2}} \mbox{\hyperlink{classmat2_ada1eac93bf4c7a736426d3de0e934852}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Returns the vector at the given index. \end{DoxyCompactList}\item 
+\Hypertarget{classmat2_a3fbb84dac945936f316cb330821eb43c}\label{classmat2_a3fbb84dac945936f316cb330821eb43c} 
+\mbox{\hyperlink{classvec2}{vec2}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+\mbox{\hyperlink{classmat2}{mat2}} \& \mbox{\hyperlink{classmat2_a19ed994d43642ae4b5dd92d88ed6f266}{operator+=}} (const \mbox{\hyperlink{classmat2}{mat2}} \&m)
+\begin{DoxyCompactList}\small\item\em Adds the given matrix to this matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat2}{mat2}} \& \mbox{\hyperlink{classmat2_a3876c52db838c063c033252d80f0eeb7}{operator-\/=}} (const \mbox{\hyperlink{classmat2}{mat2}} \&m)
+\begin{DoxyCompactList}\small\item\em Subtracts the given matrix from this matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat2}{mat2}} \& \mbox{\hyperlink{classmat2_ad1d02e604bd84f68864d0598f004221e}{operator\texorpdfstring{$\ast$}{*}=}} (double t)
+\begin{DoxyCompactList}\small\item\em Multiplies this matrix by the given scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat2}{mat2}} \& \mbox{\hyperlink{classmat2_aa86666c7b6e52c23327b902bd1fee527}{operator/=}} (double t)
+\begin{DoxyCompactList}\small\item\em Divides this matrix by the given scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvec2}{vec2}} \mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em The elements of the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for 2x2 matrix and its operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmat2_a16c2f59c181807c930eca7955a17e6ed}\label{classmat2_a16c2f59c181807c930eca7955a17e6ed} 
+\index{mat2@{mat2}!mat2@{mat2}}
+\index{mat2@{mat2}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{mat2()}{mat2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mat2\+::mat2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat2}{mat2} with all elements set to 0. 
+\end{DoxyReturn}
+\Hypertarget{classmat2_ad7227fc571cbffb3f4e00e163f5cce99}\label{classmat2_ad7227fc571cbffb3f4e00e163f5cce99} 
+\index{mat2@{mat2}!mat2@{mat2}}
+\index{mat2@{mat2}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{mat2()}{mat2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mat2\+::mat2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvec2}{vec2}}}]{e0,  }\item[{\mbox{\hyperlink{classvec2}{vec2}}}]{e1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with two vectors as arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e0} & The first \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec2}{vec2}\} vector. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em e1} & The second \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec2}{vec2}\} vector. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat2}{mat2} with the given vectors as elements. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmat2_ad1d02e604bd84f68864d0598f004221e}\label{classmat2_ad1d02e604bd84f68864d0598f004221e} 
+\index{mat2@{mat2}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat2}{mat2}} \& mat2\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiplies this matrix by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to multiply by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat2}{mat2}\& with each element multiplied by t. 
+\end{DoxyReturn}
+\Hypertarget{classmat2_a19ed994d43642ae4b5dd92d88ed6f266}\label{classmat2_a19ed994d43642ae4b5dd92d88ed6f266} 
+\index{mat2@{mat2}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat2}{mat2}} \& mat2\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmat2}{mat2}} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the given matrix to this matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat2}{mat2}\& with each element of m added to the corresponding element of this matrix. 
+\end{DoxyReturn}
+\Hypertarget{classmat2_a3876c52db838c063c033252d80f0eeb7}\label{classmat2_a3876c52db838c063c033252d80f0eeb7} 
+\index{mat2@{mat2}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat2}{mat2}} \& mat2\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmat2}{mat2}} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtracts the given matrix from this matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat2}{mat2}\& with each element of m subtracted from the corresponding element of this matrix. 
+\end{DoxyReturn}
+\Hypertarget{classmat2_aa86666c7b6e52c23327b902bd1fee527}\label{classmat2_aa86666c7b6e52c23327b902bd1fee527} 
+\index{mat2@{mat2}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat2}{mat2}} \& mat2\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Divides this matrix by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to divide by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat2}{mat2}\& with each element divided by t. 
+\end{DoxyReturn}
+\Hypertarget{classmat2_ada1eac93bf4c7a736426d3de0e934852}\label{classmat2_ada1eac93bf4c7a736426d3de0e934852} 
+\index{mat2@{mat2}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec2}{vec2}} mat2\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the vector at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the vector to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2} at the given index. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}\label{classmat2_a5dd8b16c106342f03a6ac0248c627e1f} 
+\index{mat2@{mat2}!e@{e}}
+\index{e@{e}!mat2@{mat2}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec2}{vec2}} mat2\+::e\mbox{[}2\mbox{]}}
+
+
+
+The elements of the matrix. 
+
+The elements are stored in a 2x2 array of \{\begin{DoxySeeAlso}{See also}
+\doxylink{classvec2}{vec2}\} vectors. Each vector represents a row of the matrix. 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mat\+\_\+lib/mat2.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,95 @@
+\doxysection{mat3.\+h}
+\hypertarget{mat3_8h_source}{}\label{mat3_8h_source}\index{src/mat\_lib/mat3.h@{src/mat\_lib/mat3.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAT3\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAT3\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../vec\_lib/vec3.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }std::sqrt;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmat3}{mat3}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classvec3}{vec3}}\ \mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[3];}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classmat3_a463027040addb1c56fe84c91b74b8d79}{mat3}}()\ :\ \mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}\{\{0,0,0\},\{0,0,0\},\{0,0,0\}\}\ \{\}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classmat3_a5dc49ea0130d996367cc66a47edde04c}{mat3}}(\mbox{\hyperlink{classvec3}{vec3}}\ e0,\ \mbox{\hyperlink{classvec3}{vec3}}\ e1,\ \mbox{\hyperlink{classvec3}{vec3}}\ e2)\ :\ e\{e0,\ e1,\ e2\}\ \{\}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvec3}{vec3}}\ \mbox{\hyperlink{classmat3_a4f2b918406d6f13a164e32d87db60fc1}{operator[]}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ e[i];\ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvec3}{vec3}}\&\ operator[](\textcolor{keywordtype}{int}\ i)\ \{\ \textcolor{keywordflow}{return}\ e[i];\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classmat3}{mat3}}\&\ \mbox{\hyperlink{classmat3_a5afea6651ce57716e6e80f90c1001bbd}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ e[0]\ +=\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0];}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ e[1]\ +=\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1];}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ e[2]\ +=\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2];}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classmat3}{mat3}}\&\ \mbox{\hyperlink{classmat3_af99c2cc186192a7a89ece245ed071762}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ e[0]\ -\/=\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0];}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ e[1]\ -\/=\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1];}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ e[2]\ -\/=\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2];}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classmat3}{mat3}}\&\ \mbox{\hyperlink{classmat3_addda74746fd3055e1a015089b1e0256d}{operator*=}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ e[0]\ *=\ t;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ e[1]\ *=\ t;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ e[2]\ *=\ t;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmat3}{mat3}}\&\ \mbox{\hyperlink{classmat3_a6b2c07d1df367a5e26a66a8e01d4d473}{operator/=}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ *=\ 1/t;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{inline}\ std::ostream\&\ operator<<(std::ostream\ \&out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0]\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1]\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2];}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat3}{mat3}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&u,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&v)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ \{u.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0]\ +\ v.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0],}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ u.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1]\ +\ v.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1],}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ u.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2]\ +\ v.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2]\};}
+\DoxyCodeLine{00114\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat3}{mat3}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&u,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&v)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{return}\ \{u.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0]\ -\/\ v.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0],}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ u.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1]\ -\/\ v.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1],}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ u.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2]\ -\/\ v.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2]\};}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat3}{mat3}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ \{m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0]\ *\ t,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1]\ *\ t,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2]\ *\ t\};}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat3}{mat3}}\ operator*(\textcolor{keywordtype}{double}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ t;}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classvec3}{vec3}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvec3}{vec3}}\ \&v)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ \{m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0].\mbox{\hyperlink{classvec3_a6c771306ba110c6fc430ff08b7b188a5}{x}}()\ *\ v.\mbox{\hyperlink{classvec3_a6c771306ba110c6fc430ff08b7b188a5}{x}}()\ +\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0].\mbox{\hyperlink{classvec3_a83d2fd06769d2993a94720f5fed1135b}{y}}()\ *\ v.\mbox{\hyperlink{classvec3_a83d2fd06769d2993a94720f5fed1135b}{y}}()\ +\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[0].\mbox{\hyperlink{classvec3_adf1b790d975cd19e6090f3cc15365f0b}{z}}()\ *\ v.\mbox{\hyperlink{classvec3_adf1b790d975cd19e6090f3cc15365f0b}{z}}(),}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1].\mbox{\hyperlink{classvec3_a6c771306ba110c6fc430ff08b7b188a5}{x}}()\ *\ v.\mbox{\hyperlink{classvec3_a6c771306ba110c6fc430ff08b7b188a5}{x}}()\ +\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1].\mbox{\hyperlink{classvec3_a83d2fd06769d2993a94720f5fed1135b}{y}}()\ *\ v.\mbox{\hyperlink{classvec3_a83d2fd06769d2993a94720f5fed1135b}{y}}()\ +\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[1].\mbox{\hyperlink{classvec3_adf1b790d975cd19e6090f3cc15365f0b}{z}}()\ *\ v.\mbox{\hyperlink{classvec3_adf1b790d975cd19e6090f3cc15365f0b}{z}}(),}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2].\mbox{\hyperlink{classvec3_a6c771306ba110c6fc430ff08b7b188a5}{x}}()\ *\ v.\mbox{\hyperlink{classvec3_a6c771306ba110c6fc430ff08b7b188a5}{x}}()\ +\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2].\mbox{\hyperlink{classvec3_a83d2fd06769d2993a94720f5fed1135b}{y}}()\ *\ v.\mbox{\hyperlink{classvec3_a83d2fd06769d2993a94720f5fed1135b}{y}}()\ +\ m.\mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}}[2].\mbox{\hyperlink{classvec3_adf1b790d975cd19e6090f3cc15365f0b}{z}}()\ *\ v.\mbox{\hyperlink{classvec3_adf1b790d975cd19e6090f3cc15365f0b}{z}}()\};}
+\DoxyCodeLine{00160\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classvec3}{vec3}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvec3}{vec3}}\ \&v,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ v;}
+\DoxyCodeLine{00170\ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat3}{mat3}}\ operator/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat3}{mat3}}\ \&m,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ (1/t);}
+\DoxyCodeLine{00180\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAT3\_H}}
+
+\end{DoxyCode}

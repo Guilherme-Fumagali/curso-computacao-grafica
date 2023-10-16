@@ -1,0 +1,88 @@
+\doxysection{mat2.\+h}
+\hypertarget{mat2_8h_source}{}\label{mat2_8h_source}\index{src/mat\_lib/mat2.h@{src/mat\_lib/mat2.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAT2\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAT2\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../vec\_lib/vec2.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }std::sqrt;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmat2}{mat2}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classvec2}{vec2}}\ \mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[2];}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classmat2_a16c2f59c181807c930eca7955a17e6ed}{mat2}}()\ :\ \mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}\{\{0,0\},\{0,0\}\}\ \{\}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classmat2_ad7227fc571cbffb3f4e00e163f5cce99}{mat2}}(\mbox{\hyperlink{classvec2}{vec2}}\ e0,\ \mbox{\hyperlink{classvec2}{vec2}}\ e1)\ :\ e\{e0,\ e1\}\ \{\}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvec2}{vec2}}\ \mbox{\hyperlink{classmat2_ada1eac93bf4c7a736426d3de0e934852}{operator[]}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ e[i];\ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvec2}{vec2}}\&\ operator[](\textcolor{keywordtype}{int}\ i)\ \{\ \textcolor{keywordflow}{return}\ e[i];\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmat2}{mat2}}\&\ \mbox{\hyperlink{classmat2_a19ed994d43642ae4b5dd92d88ed6f266}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ e[0]\ +=\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0];}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ e[1]\ +=\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1];}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classmat2}{mat2}}\&\ \mbox{\hyperlink{classmat2_a3876c52db838c063c033252d80f0eeb7}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ e[0]\ -\/=\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0];}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ e[1]\ -\/=\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1];}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmat2}{mat2}}\&\ \mbox{\hyperlink{classmat2_ad1d02e604bd84f68864d0598f004221e}{operator*=}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ e[0]\ *=\ t;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ e[1]\ *=\ t;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classmat2}{mat2}}\&\ \mbox{\hyperlink{classmat2_aa86666c7b6e52c23327b902bd1fee527}{operator/=}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ *=\ 1/t;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{inline}\ std::ostream\&\ operator<<(std::ostream\ \&out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ out\ <<\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0]\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1];}
+\DoxyCodeLine{00098\ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat2}{mat2}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&u,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&v)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ \{u.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0]\ +\ v.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0],}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ u.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1]\ +\ v.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1]\};}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat2}{mat2}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&u,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&v)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{return}\ \{u.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0]\ -\/\ v.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0],}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ u.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1]\ -\/\ v.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1]\};}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat2}{mat2}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ \{m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0]\ *\ t,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1]\ *\ t\};}
+\DoxyCodeLine{00131\ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat2}{mat2}}\ operator*(\textcolor{keywordtype}{double}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ t;}
+\DoxyCodeLine{00141\ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classvec2}{vec2}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvec2}{vec2}}\ \&v)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ \{m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0].\mbox{\hyperlink{classvec2_abc51f5fd08c348ba584bedaedcbb88db}{x}}()\ *\ v.\mbox{\hyperlink{classvec2_abc51f5fd08c348ba584bedaedcbb88db}{x}}()\ +\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[0].\mbox{\hyperlink{classvec2_a9fa1acc7d8e1de30e62cc0c0ecc8151c}{y}}()\ *\ v.\mbox{\hyperlink{classvec2_a9fa1acc7d8e1de30e62cc0c0ecc8151c}{y}}(),}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1].\mbox{\hyperlink{classvec2_abc51f5fd08c348ba584bedaedcbb88db}{x}}()\ *\ v.\mbox{\hyperlink{classvec2_abc51f5fd08c348ba584bedaedcbb88db}{x}}()\ +\ m.\mbox{\hyperlink{classmat2_a5dd8b16c106342f03a6ac0248c627e1f}{e}}[1].\mbox{\hyperlink{classvec2_a9fa1acc7d8e1de30e62cc0c0ecc8151c}{y}}()\ *\ v.\mbox{\hyperlink{classvec2_a9fa1acc7d8e1de30e62cc0c0ecc8151c}{y}}()\};}
+\DoxyCodeLine{00152\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classvec2}{vec2}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvec2}{vec2}}\ \&v,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ v;}
+\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00170\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classmat2}{mat2}}\ operator/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmat2}{mat2}}\ \&m,\ \textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ (1/t);}
+\DoxyCodeLine{00172\ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAT2\_H}}
+
+\end{DoxyCode}

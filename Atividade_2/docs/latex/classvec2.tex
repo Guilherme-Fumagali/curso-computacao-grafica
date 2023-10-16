@@ -1,0 +1,261 @@
+\doxysection{vec2 Class Reference}
+\hypertarget{classvec2}{}\label{classvec2}\index{vec2@{vec2}}
+
+
+Class for 2D vector and its operations.  
+
+
+
+
+{\ttfamily \#include $<$vec2.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvec2_ae12a1a221eca3561809600a11b58eaa3}{vec2}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec2_af6da02a3f16a49dbd642aca2eaace1ea}{vec2}} (double e0, double e1)
+\begin{DoxyCompactList}\small\item\em Constructor with two doubles as arguments. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec2_abc51f5fd08c348ba584bedaedcbb88db}{x}} () const
+\begin{DoxyCompactList}\small\item\em Returns the x-\/coordinate of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec2_a9fa1acc7d8e1de30e62cc0c0ecc8151c}{y}} () const
+\begin{DoxyCompactList}\small\item\em Returns the y-\/coordinate of the vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec2}{vec2}} \mbox{\hyperlink{classvec2_abb9c2601c0d42c5ce7dd8350c6dfe6ff}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Inverts the signs of the elements of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec2_a3c1dffdb37446759a40164f61f62ea95}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Returns the element at the given index. \end{DoxyCompactList}\item 
+\Hypertarget{classvec2_ab599f3207691a6d36ef50e3a4b3bbf76}\label{classvec2_ab599f3207691a6d36ef50e3a4b3bbf76} 
+double \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+\mbox{\hyperlink{classvec2}{vec2}} \& \mbox{\hyperlink{classvec2_a67b9be8b71f13abba9d2cf7a41540a9d}{operator+=}} (const \mbox{\hyperlink{classvec2}{vec2}} \&v)
+\begin{DoxyCompactList}\small\item\em Adds the given vector to this vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec2}{vec2}} \& \mbox{\hyperlink{classvec2_aeb9ecb6878a3d8a04ecb5a00daf19742}{operator-\/=}} (const \mbox{\hyperlink{classvec2}{vec2}} \&v)
+\begin{DoxyCompactList}\small\item\em Subtracts the given vector from this vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec2}{vec2}} \& \mbox{\hyperlink{classvec2_a97d3a6383c79c23b1af77825e48ebd81}{operator\texorpdfstring{$\ast$}{*}=}} (double t)
+\begin{DoxyCompactList}\small\item\em Multiplies this vector by the given scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec2}{vec2}} \& \mbox{\hyperlink{classvec2_abcefc7240c172647b5f1a8bf3e0d0684}{operator/=}} (double t)
+\begin{DoxyCompactList}\small\item\em Divides this vector by the given scalar. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec2_ae30b6dfb3feb9aa9d6051fdb3b50ea90}{length}} () const
+\begin{DoxyCompactList}\small\item\em Returns the length of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec2_a3e03510c7d57d60f39bda468e12be093}{length\+\_\+squared}} () const
+\begin{DoxyCompactList}\small\item\em Returns the squared length of the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classvec2_a64854c94ebaf66adeb77a44cf5c2ff98}{e}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em The elements of the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for 2D vector and its operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvec2_ae12a1a221eca3561809600a11b58eaa3}\label{classvec2_ae12a1a221eca3561809600a11b58eaa3} 
+\index{vec2@{vec2}!vec2@{vec2}}
+\index{vec2@{vec2}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{vec2()}{vec2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily vec2\+::vec2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2} with all elements set to 0. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_af6da02a3f16a49dbd642aca2eaace1ea}\label{classvec2_af6da02a3f16a49dbd642aca2eaace1ea} 
+\index{vec2@{vec2}!vec2@{vec2}}
+\index{vec2@{vec2}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{vec2()}{vec2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily vec2\+::vec2 (\begin{DoxyParamCaption}\item[{double}]{e0,  }\item[{double}]{e1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with two doubles as arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e0} & The first double. \\
+\hline
+{\em e1} & The second double. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2} with the given doubles as elements. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvec2_ae30b6dfb3feb9aa9d6051fdb3b50ea90}\label{classvec2_ae30b6dfb3feb9aa9d6051fdb3b50ea90} 
+\index{vec2@{vec2}!length@{length}}
+\index{length@{length}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily double vec2\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the length of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The length of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_a3e03510c7d57d60f39bda468e12be093}\label{classvec2_a3e03510c7d57d60f39bda468e12be093} 
+\index{vec2@{vec2}!length\_squared@{length\_squared}}
+\index{length\_squared@{length\_squared}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{length\_squared()}{length\_squared()}}
+{\footnotesize\ttfamily double vec2\+::length\+\_\+squared (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the squared length of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The squared length of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_a97d3a6383c79c23b1af77825e48ebd81}\label{classvec2_a97d3a6383c79c23b1af77825e48ebd81} 
+\index{vec2@{vec2}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec2}{vec2}} \& vec2\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiplies this vector by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to multiply by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2}\& with each element of this vector multiplied by t. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_a67b9be8b71f13abba9d2cf7a41540a9d}\label{classvec2_a67b9be8b71f13abba9d2cf7a41540a9d} 
+\index{vec2@{vec2}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec2}{vec2}} \& vec2\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvec2}{vec2}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the given vector to this vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2}\& with each element of v added to the corresponding element of this vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_abb9c2601c0d42c5ce7dd8350c6dfe6ff}\label{classvec2_abb9c2601c0d42c5ce7dd8350c6dfe6ff} 
+\index{vec2@{vec2}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec2}{vec2}} vec2\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inverts the signs of the elements of the vector. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2} with the values with inverted signs. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_aeb9ecb6878a3d8a04ecb5a00daf19742}\label{classvec2_aeb9ecb6878a3d8a04ecb5a00daf19742} 
+\index{vec2@{vec2}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec2}{vec2}} \& vec2\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvec2}{vec2}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtracts the given vector from this vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2}\& with each element of v subtracted from the corresponding element of this vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_abcefc7240c172647b5f1a8bf3e0d0684}\label{classvec2_abcefc7240c172647b5f1a8bf3e0d0684} 
+\index{vec2@{vec2}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec2}{vec2}} \& vec2\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Divides this vector by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to divide by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec2}{vec2}\& with each element of this vector divided by t. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_a3c1dffdb37446759a40164f61f62ea95}\label{classvec2_a3c1dffdb37446759a40164f61f62ea95} 
+\index{vec2@{vec2}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily double vec2\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the element at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the element to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element at the given index. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_abc51f5fd08c348ba584bedaedcbb88db}\label{classvec2_abc51f5fd08c348ba584bedaedcbb88db} 
+\index{vec2@{vec2}!x@{x}}
+\index{x@{x}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{x()}{x()}}
+{\footnotesize\ttfamily double vec2\+::x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the x-\/coordinate of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The x-\/coordinate of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec2_a9fa1acc7d8e1de30e62cc0c0ecc8151c}\label{classvec2_a9fa1acc7d8e1de30e62cc0c0ecc8151c} 
+\index{vec2@{vec2}!y@{y}}
+\index{y@{y}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{y()}{y()}}
+{\footnotesize\ttfamily double vec2\+::y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the y-\/coordinate of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The y-\/coordinate of the vector. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvec2_a64854c94ebaf66adeb77a44cf5c2ff98}\label{classvec2_a64854c94ebaf66adeb77a44cf5c2ff98} 
+\index{vec2@{vec2}!e@{e}}
+\index{e@{e}!vec2@{vec2}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily double vec2\+::e\mbox{[}2\mbox{]}}
+
+
+
+The elements of the vector. 
+
+The elements are stored in a 2x1 array of doubles. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vec\+\_\+lib/vec2.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,214 @@
+\doxysection{mat4 Class Reference}
+\hypertarget{classmat4}{}\label{classmat4}\index{mat4@{mat4}}
+
+
+Class for 4x4 matrix and its operations.  
+
+
+
+
+{\ttfamily \#include $<$mat4.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat4_acf3f0c37ff5c16e8fb1bfdde2bf87a0f}{mat4}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat4_a0e08f33682d459b13e315f17e71468d6}{mat4}} (\mbox{\hyperlink{classvec4}{vec4}} e0, \mbox{\hyperlink{classvec4}{vec4}} e1, \mbox{\hyperlink{classvec4}{vec4}} e2, \mbox{\hyperlink{classvec4}{vec4}} e3)
+\begin{DoxyCompactList}\small\item\em Constructor with four vectors as arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec4}{vec4}} \mbox{\hyperlink{classmat4_a0f9188fe9e89c9910e95662b64940585}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Returns the vector at the given index. \end{DoxyCompactList}\item 
+\Hypertarget{classmat4_a856496a5770f27f58e19064d27a05722}\label{classmat4_a856496a5770f27f58e19064d27a05722} 
+\mbox{\hyperlink{classvec4}{vec4}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+\mbox{\hyperlink{classmat4}{mat4}} \& \mbox{\hyperlink{classmat4_ac8c480dafab0488e1b8a907685903f49}{operator+=}} (const \mbox{\hyperlink{classmat4}{mat4}} \&m)
+\begin{DoxyCompactList}\small\item\em Adds the given matrix to this matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat4}{mat4}} \& \mbox{\hyperlink{classmat4_a1676d34abda52da8b3a0949a9be5bc78}{operator-\/=}} (const \mbox{\hyperlink{classmat4}{mat4}} \&m)
+\begin{DoxyCompactList}\small\item\em Subtracts the given matrix from this matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat4}{mat4}} \& \mbox{\hyperlink{classmat4_a07a6c4ddd59fb19bcf98d9b9a14cea10}{operator\texorpdfstring{$\ast$}{*}=}} (double t)
+\begin{DoxyCompactList}\small\item\em Multiplies this matrix by the given scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat4}{mat4}} \& \mbox{\hyperlink{classmat4_a80d8edbdc0486d52d27a077575b365ae}{operator/=}} (double t)
+\begin{DoxyCompactList}\small\item\em Divides this matrix by the given scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvec4}{vec4}} \mbox{\hyperlink{classmat4_a4b4431738c260b56bc611342235e03b8}{e}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em The elements of the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for 4x4 matrix and its operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmat4_acf3f0c37ff5c16e8fb1bfdde2bf87a0f}\label{classmat4_acf3f0c37ff5c16e8fb1bfdde2bf87a0f} 
+\index{mat4@{mat4}!mat4@{mat4}}
+\index{mat4@{mat4}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{mat4()}{mat4()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mat4\+::mat4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat4}{mat4} with all elements set to 0. 
+\end{DoxyReturn}
+\Hypertarget{classmat4_a0e08f33682d459b13e315f17e71468d6}\label{classmat4_a0e08f33682d459b13e315f17e71468d6} 
+\index{mat4@{mat4}!mat4@{mat4}}
+\index{mat4@{mat4}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{mat4()}{mat4()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mat4\+::mat4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvec4}{vec4}}}]{e0,  }\item[{\mbox{\hyperlink{classvec4}{vec4}}}]{e1,  }\item[{\mbox{\hyperlink{classvec4}{vec4}}}]{e2,  }\item[{\mbox{\hyperlink{classvec4}{vec4}}}]{e3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with four vectors as arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e0} & The first \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec4}{vec4}\} vector. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em e1} & The second \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec4}{vec4}\} vector. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em e2} & The third \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec4}{vec4}\} vector. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em e3} & The fourth \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec4}{vec4}\} vector. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat4}{mat4} with the given vectors as elements. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmat4_a07a6c4ddd59fb19bcf98d9b9a14cea10}\label{classmat4_a07a6c4ddd59fb19bcf98d9b9a14cea10} 
+\index{mat4@{mat4}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat4}{mat4}} \& mat4\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiplies this matrix by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to be multiplied by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat4}{mat4}\& with each element of this matrix multiplied by t. 
+\end{DoxyReturn}
+\Hypertarget{classmat4_ac8c480dafab0488e1b8a907685903f49}\label{classmat4_ac8c480dafab0488e1b8a907685903f49} 
+\index{mat4@{mat4}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat4}{mat4}} \& mat4\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmat4}{mat4}} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the given matrix to this matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat4}{mat4}\& with each element of m added to the corresponding element of this matrix. 
+\end{DoxyReturn}
+\Hypertarget{classmat4_a1676d34abda52da8b3a0949a9be5bc78}\label{classmat4_a1676d34abda52da8b3a0949a9be5bc78} 
+\index{mat4@{mat4}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat4}{mat4}} \& mat4\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmat4}{mat4}} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtracts the given matrix from this matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat4}{mat4}\& with each element of m subtracted from the corresponding element of this matrix. 
+\end{DoxyReturn}
+\Hypertarget{classmat4_a80d8edbdc0486d52d27a077575b365ae}\label{classmat4_a80d8edbdc0486d52d27a077575b365ae} 
+\index{mat4@{mat4}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat4}{mat4}} \& mat4\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Divides this matrix by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to be divided by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat4}{mat4}\& with each element of this matrix divided by t. 
+\end{DoxyReturn}
+\Hypertarget{classmat4_a0f9188fe9e89c9910e95662b64940585}\label{classmat4_a0f9188fe9e89c9910e95662b64940585} 
+\index{mat4@{mat4}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec4}{vec4}} mat4\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the vector at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the vector to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4} at the given index. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmat4_a4b4431738c260b56bc611342235e03b8}\label{classmat4_a4b4431738c260b56bc611342235e03b8} 
+\index{mat4@{mat4}!e@{e}}
+\index{e@{e}!mat4@{mat4}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec4}{vec4}} mat4\+::e\mbox{[}4\mbox{]}}
+
+
+
+The elements of the matrix. 
+
+The elements are stored in a 4x4 array of \{\begin{DoxySeeAlso}{See also}
+\doxylink{classvec4}{vec4}\} vectors. Each vector represents a row of the matrix. 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mat\+\_\+lib/mat4.\+h\end{DoxyCompactItemize}

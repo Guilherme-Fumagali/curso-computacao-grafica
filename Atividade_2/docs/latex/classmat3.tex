@@ -1,0 +1,206 @@
+\doxysection{mat3 Class Reference}
+\hypertarget{classmat3}{}\label{classmat3}\index{mat3@{mat3}}
+
+
+Class for 3x3 matrix and its operations.  
+
+
+
+
+{\ttfamily \#include $<$mat3.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat3_a463027040addb1c56fe84c91b74b8d79}{mat3}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat3_a5dc49ea0130d996367cc66a47edde04c}{mat3}} (\mbox{\hyperlink{classvec3}{vec3}} e0, \mbox{\hyperlink{classvec3}{vec3}} e1, \mbox{\hyperlink{classvec3}{vec3}} e2)
+\begin{DoxyCompactList}\small\item\em Constructor with three vectors as arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec3}{vec3}} \mbox{\hyperlink{classmat3_a4f2b918406d6f13a164e32d87db60fc1}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Returns the vector at the given index. \end{DoxyCompactList}\item 
+\Hypertarget{classmat3_ae44b2c7da5e1d0fa87b30d7d00f4e4f3}\label{classmat3_ae44b2c7da5e1d0fa87b30d7d00f4e4f3} 
+\mbox{\hyperlink{classvec3}{vec3}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+\mbox{\hyperlink{classmat3}{mat3}} \& \mbox{\hyperlink{classmat3_a5afea6651ce57716e6e80f90c1001bbd}{operator+=}} (const \mbox{\hyperlink{classmat3}{mat3}} \&m)
+\begin{DoxyCompactList}\small\item\em Adds the given matrix to this matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat3}{mat3}} \& \mbox{\hyperlink{classmat3_af99c2cc186192a7a89ece245ed071762}{operator-\/=}} (const \mbox{\hyperlink{classmat3}{mat3}} \&m)
+\begin{DoxyCompactList}\small\item\em Subtracts the given matrix from this matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat3}{mat3}} \& \mbox{\hyperlink{classmat3_addda74746fd3055e1a015089b1e0256d}{operator\texorpdfstring{$\ast$}{*}=}} (double t)
+\begin{DoxyCompactList}\small\item\em Multiplies this matrix by the given scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmat3}{mat3}} \& \mbox{\hyperlink{classmat3_a6b2c07d1df367a5e26a66a8e01d4d473}{operator/=}} (double t)
+\begin{DoxyCompactList}\small\item\em Divides this matrix by the given scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvec3}{vec3}} \mbox{\hyperlink{classmat3_af2ee320b2a109d67e3360d15cf25fa19}{e}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em The elements of the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for 3x3 matrix and its operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmat3_a463027040addb1c56fe84c91b74b8d79}\label{classmat3_a463027040addb1c56fe84c91b74b8d79} 
+\index{mat3@{mat3}!mat3@{mat3}}
+\index{mat3@{mat3}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{mat3()}{mat3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mat3\+::mat3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat3}{mat3} with all elements set to 0. 
+\end{DoxyReturn}
+\Hypertarget{classmat3_a5dc49ea0130d996367cc66a47edde04c}\label{classmat3_a5dc49ea0130d996367cc66a47edde04c} 
+\index{mat3@{mat3}!mat3@{mat3}}
+\index{mat3@{mat3}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{mat3()}{mat3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mat3\+::mat3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvec3}{vec3}}}]{e0,  }\item[{\mbox{\hyperlink{classvec3}{vec3}}}]{e1,  }\item[{\mbox{\hyperlink{classvec3}{vec3}}}]{e2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with three vectors as arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e0} & The first \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec3}{vec3}\} vector. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em e1} & The second \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec3}{vec3}\} vector. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em e2} & The third \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvec3}{vec3}\} vector. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat3}{mat3} with the given vectors as elements. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmat3_addda74746fd3055e1a015089b1e0256d}\label{classmat3_addda74746fd3055e1a015089b1e0256d} 
+\index{mat3@{mat3}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat3}{mat3}} \& mat3\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiplies this matrix by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to multiply by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat3}{mat3}\& with each element multiplied by t. 
+\end{DoxyReturn}
+\Hypertarget{classmat3_a5afea6651ce57716e6e80f90c1001bbd}\label{classmat3_a5afea6651ce57716e6e80f90c1001bbd} 
+\index{mat3@{mat3}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat3}{mat3}} \& mat3\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmat3}{mat3}} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the given matrix to this matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat3}{mat3}\& with each element of m added to the corresponding element of this matrix. 
+\end{DoxyReturn}
+\Hypertarget{classmat3_af99c2cc186192a7a89ece245ed071762}\label{classmat3_af99c2cc186192a7a89ece245ed071762} 
+\index{mat3@{mat3}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat3}{mat3}} \& mat3\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmat3}{mat3}} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtracts the given matrix from this matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat3}{mat3}\& with each element of m subtracted from the corresponding element of this matrix. 
+\end{DoxyReturn}
+\Hypertarget{classmat3_a6b2c07d1df367a5e26a66a8e01d4d473}\label{classmat3_a6b2c07d1df367a5e26a66a8e01d4d473} 
+\index{mat3@{mat3}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmat3}{mat3}} \& mat3\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Divides this matrix by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to divide by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classmat3}{mat3}\& with each element divided by t. 
+\end{DoxyReturn}
+\Hypertarget{classmat3_a4f2b918406d6f13a164e32d87db60fc1}\label{classmat3_a4f2b918406d6f13a164e32d87db60fc1} 
+\index{mat3@{mat3}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec3}{vec3}} mat3\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the vector at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the vector to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec3}{vec3} at the given index. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmat3_af2ee320b2a109d67e3360d15cf25fa19}\label{classmat3_af2ee320b2a109d67e3360d15cf25fa19} 
+\index{mat3@{mat3}!e@{e}}
+\index{e@{e}!mat3@{mat3}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec3}{vec3}} mat3\+::e\mbox{[}3\mbox{]}}
+
+
+
+The elements of the matrix. 
+
+The elements are stored in a 3x3 array of \{\begin{DoxySeeAlso}{See also}
+\doxylink{classvec3}{vec3}\} vectors. Each vector represents a row of the matrix. 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/mat\+\_\+lib/mat3.\+h\end{DoxyCompactItemize}

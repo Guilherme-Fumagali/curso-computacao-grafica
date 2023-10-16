@@ -1,0 +1,295 @@
+\doxysection{vec4 Class Reference}
+\hypertarget{classvec4}{}\label{classvec4}\index{vec4@{vec4}}
+
+
+Class for 4D vector and its operations.  
+
+
+
+
+{\ttfamily \#include $<$vec4.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvec4_aa29685cf2528dae6ad7d74a7e01c1d6f}{vec4}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec4_aab75403b358eade4f3fd059819858b96}{vec4}} (double e0, double e1, double e2, double e3)
+\begin{DoxyCompactList}\small\item\em Constructor with four doubles as arguments. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec4_a25d847358270626b627d4a61923f3cbe}{x}} () const
+\begin{DoxyCompactList}\small\item\em Returns the x-\/coordinate of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec4_adce71e1986b04f4245efcf6e3e84ef59}{y}} () const
+\begin{DoxyCompactList}\small\item\em Returns the y-\/coordinate of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec4_af155ae027f00d8ac0663d0fe10fe5dd8}{z}} () const
+\begin{DoxyCompactList}\small\item\em Returns the z-\/coordinate of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec4_a143f8f4b5ef372195a2eb20b91958cf4}{w}} () const
+\begin{DoxyCompactList}\small\item\em Returns the w-\/coordinate of the vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec4}{vec4}} \mbox{\hyperlink{classvec4_ad70d259308c10779ca37fa100084e33b}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Inverts the signs of the elements of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec4_acacb6da88d4a0c92d585ee7c61658acf}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Returns the element at the given index. \end{DoxyCompactList}\item 
+\Hypertarget{classvec4_afc5b954c340a9f40be2f181dcc7f07cc}\label{classvec4_afc5b954c340a9f40be2f181dcc7f07cc} 
+double \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+\mbox{\hyperlink{classvec4}{vec4}} \& \mbox{\hyperlink{classvec4_a16d10f2ed44304fb1309f959f245ca52}{operator+=}} (const \mbox{\hyperlink{classvec4}{vec4}} \&v)
+\begin{DoxyCompactList}\small\item\em Adds the given vector to this vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec4}{vec4}} \& \mbox{\hyperlink{classvec4_a88f2ead88470beaa5204573d3862166e}{operator-\/=}} (const \mbox{\hyperlink{classvec4}{vec4}} \&v)
+\begin{DoxyCompactList}\small\item\em Subtracts the given vector from this vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec4}{vec4}} \& \mbox{\hyperlink{classvec4_aa94397f407157c06f6d82e4667b2b169}{operator\texorpdfstring{$\ast$}{*}=}} (double t)
+\begin{DoxyCompactList}\small\item\em Multiplies this vector by the given scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvec4}{vec4}} \& \mbox{\hyperlink{classvec4_a14bd8aee70c80e5ca0bc019a4e86c797}{operator/=}} (double t)
+\begin{DoxyCompactList}\small\item\em Divides this vector by the given scalar. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec4_a55e485d22f9ee137f383304b962489b1}{length}} () const
+\begin{DoxyCompactList}\small\item\em Returns the length of the vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvec4_a73437e8e0ec221f1d6587f871848320d}{length\+\_\+squared}} () const
+\begin{DoxyCompactList}\small\item\em Returns the squared length of the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classvec4_af33f44f3aadf308d577e85b4c131cbac}{e}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em The elements of the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for 4D vector and its operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvec4_aa29685cf2528dae6ad7d74a7e01c1d6f}\label{classvec4_aa29685cf2528dae6ad7d74a7e01c1d6f} 
+\index{vec4@{vec4}!vec4@{vec4}}
+\index{vec4@{vec4}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{vec4()}{vec4()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily vec4\+::vec4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4} with all elements set to 0. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_aab75403b358eade4f3fd059819858b96}\label{classvec4_aab75403b358eade4f3fd059819858b96} 
+\index{vec4@{vec4}!vec4@{vec4}}
+\index{vec4@{vec4}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{vec4()}{vec4()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily vec4\+::vec4 (\begin{DoxyParamCaption}\item[{double}]{e0,  }\item[{double}]{e1,  }\item[{double}]{e2,  }\item[{double}]{e3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with four doubles as arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e0} & The first double. \\
+\hline
+{\em e1} & The second double. \\
+\hline
+{\em e2} & The third double. \\
+\hline
+{\em e3} & The fourth double. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4} with the given doubles as elements. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvec4_a55e485d22f9ee137f383304b962489b1}\label{classvec4_a55e485d22f9ee137f383304b962489b1} 
+\index{vec4@{vec4}!length@{length}}
+\index{length@{length}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily double vec4\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the length of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The length of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_a73437e8e0ec221f1d6587f871848320d}\label{classvec4_a73437e8e0ec221f1d6587f871848320d} 
+\index{vec4@{vec4}!length\_squared@{length\_squared}}
+\index{length\_squared@{length\_squared}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{length\_squared()}{length\_squared()}}
+{\footnotesize\ttfamily double vec4\+::length\+\_\+squared (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the squared length of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The squared length of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_aa94397f407157c06f6d82e4667b2b169}\label{classvec4_aa94397f407157c06f6d82e4667b2b169} 
+\index{vec4@{vec4}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec4}{vec4}} \& vec4\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiplies this vector by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to multiply by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4}\& with each element of this vector multiplied by t. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_a16d10f2ed44304fb1309f959f245ca52}\label{classvec4_a16d10f2ed44304fb1309f959f245ca52} 
+\index{vec4@{vec4}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec4}{vec4}} \& vec4\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvec4}{vec4}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the given vector to this vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4}\& with each element of v added to the corresponding element of this vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_ad70d259308c10779ca37fa100084e33b}\label{classvec4_ad70d259308c10779ca37fa100084e33b} 
+\index{vec4@{vec4}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec4}{vec4}} vec4\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inverts the signs of the elements of the vector. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4} with the values with inverted signs. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_a88f2ead88470beaa5204573d3862166e}\label{classvec4_a88f2ead88470beaa5204573d3862166e} 
+\index{vec4@{vec4}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec4}{vec4}} \& vec4\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvec4}{vec4}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtracts the given vector from this vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4}\& with each element of v subtracted from the corresponding element of this vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_a14bd8aee70c80e5ca0bc019a4e86c797}\label{classvec4_a14bd8aee70c80e5ca0bc019a4e86c797} 
+\index{vec4@{vec4}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvec4}{vec4}} \& vec4\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Divides this vector by the given scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar to divide by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classvec4}{vec4}\& with each element of this vector divided by t. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_acacb6da88d4a0c92d585ee7c61658acf}\label{classvec4_acacb6da88d4a0c92d585ee7c61658acf} 
+\index{vec4@{vec4}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily double vec4\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the element at the given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the element to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element at the given index. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_a143f8f4b5ef372195a2eb20b91958cf4}\label{classvec4_a143f8f4b5ef372195a2eb20b91958cf4} 
+\index{vec4@{vec4}!w@{w}}
+\index{w@{w}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{w()}{w()}}
+{\footnotesize\ttfamily double vec4\+::w (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the w-\/coordinate of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The w-\/coordinate of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_a25d847358270626b627d4a61923f3cbe}\label{classvec4_a25d847358270626b627d4a61923f3cbe} 
+\index{vec4@{vec4}!x@{x}}
+\index{x@{x}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{x()}{x()}}
+{\footnotesize\ttfamily double vec4\+::x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the x-\/coordinate of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The x-\/coordinate of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_adce71e1986b04f4245efcf6e3e84ef59}\label{classvec4_adce71e1986b04f4245efcf6e3e84ef59} 
+\index{vec4@{vec4}!y@{y}}
+\index{y@{y}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{y()}{y()}}
+{\footnotesize\ttfamily double vec4\+::y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the y-\/coordinate of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The y-\/coordinate of the vector. 
+\end{DoxyReturn}
+\Hypertarget{classvec4_af155ae027f00d8ac0663d0fe10fe5dd8}\label{classvec4_af155ae027f00d8ac0663d0fe10fe5dd8} 
+\index{vec4@{vec4}!z@{z}}
+\index{z@{z}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{z()}{z()}}
+{\footnotesize\ttfamily double vec4\+::z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the z-\/coordinate of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The z-\/coordinate of the vector. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvec4_af33f44f3aadf308d577e85b4c131cbac}\label{classvec4_af33f44f3aadf308d577e85b4c131cbac} 
+\index{vec4@{vec4}!e@{e}}
+\index{e@{e}!vec4@{vec4}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily double vec4\+::e\mbox{[}4\mbox{]}}
+
+
+
+The elements of the vector. 
+
+The elements are stored in a 4x1 array of doubles. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vec\+\_\+lib/vec4.\+h\end{DoxyCompactItemize}

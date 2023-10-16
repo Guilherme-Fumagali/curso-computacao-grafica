@@ -1,0 +1,52 @@
+\chapter{Biblioteca de vetores e matrizes}
+\hypertarget{index}{}\label{index}\index{Biblioteca de vetores e matrizes@{Biblioteca de vetores e matrizes}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Visão geral}{Visão geral}}\label{index_autotoc_md1}
+Esse projeto fornece uma biblioteca de vetores (\doxylink{classvec2}{vec2}, \doxylink{classvec3}{vec3} e \doxylink{classvec4}{vec4}) e matrizes (\doxylink{classmat2}{mat2}, \doxylink{classmat3}{mat3} e \doxylink{classmat4}{mat4}) para C++. Consulta a documentação do código-\/fonte para mais detalhes sobre as classes e as funções implementadas\+: \href{https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_2/docs/html/index.html}{\texttt{ https\+://guilherme-\/fumagali.\+github.\+io/curso-\/computacao-\/grafica/\+Atividade\+\_\+2/docs/html/index.\+html}}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Compilação}{Compilação}}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Dependências}{Dependências}}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item \href{https://gcc.gnu.org/}{\texttt{ gcc}}, compilador C++.
+\item \href{https://cmake.org/}{\texttt{ CMake}}, ferramenta para geração de arquivos de compilação.
+\item \href{https://www.doxygen.nl/index.html}{\texttt{ Doxygen}}, ferramenta para geração de documentação.
+\end{DoxyItemize}
+
+Compile o código-\/fonte com o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build\ CMakeLists.txt\ \&\&\ cmake\ -\/-\/build\ build}
+
+\end{DoxyCode}
+
+
+Os arquivos compilados serão gerados na pasta {\ttfamily ./build}.\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Gerando documentação}{Gerando documentação}}\label{index_autotoc_md4}
+Para gerar a documentação do código, execute o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ docs}
+
+\end{DoxyCode}
+
+
+A documentação será gerada na pasta {\ttfamily ./docs}.\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Testes}{Testes}}\label{index_autotoc_md5}
+Com a biblioteca compilada, execute o comando abaixo para executar os testes\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/tests/Google\_Tests\_run}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{Exemplos}{Exemplos}}\label{index_autotoc_md6}
+Em \href{src/main.cpp}{\texttt{ {\ttfamily main.\+cpp}}} há um código de exemplo exemplificado em \href{https://raytracing.github.io/books/RayTracingInOneWeekend.html\#thevec3class}{\texttt{ Ray\+Tracing\+In\+One\+Weekend}}, que em suma gerará uma imagem degradê utilizando o objeto \doxylink{classvec3}{vec3} da biblioteca.
+
+Para executá-\/lo, execute o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/main\ >\ image.ppm}
+
+\end{DoxyCode}
+ 

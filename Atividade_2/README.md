@@ -26,7 +26,7 @@ Os arquivos compilados serão gerados na pasta `./build`.
 Para gerar a documentação do código, execute o comando abaixo:
 
 ```bash
-make docs
+Doxygen Doxyfile
 ```
 
 A documentação será gerada na pasta `./docs`.

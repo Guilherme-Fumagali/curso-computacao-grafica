@@ -18,6 +18,8 @@ add_executable(Atividade_2
         "Mat_lib/mat2.h"
         "Mat_lib/mat3.h"
         "Mat_lib/mat4.h"
+        color.h
+        main.cpp
 )
 
 set_target_properties(Atividade_2 PROPERTIES LINKER_LANGUAGE CXX)

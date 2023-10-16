@@ -5,5 +5,5 @@ set(HEADER_FILES
         mat3.h
         mat4.h)
 
-add_library(mat_lib STATIC ${HEADER_FILES})
-set_target_properties(mat_lib PROPERTIES LINKER_LANGUAGE CXX)
+add_library(mat_headers STATIC ${HEADER_FILES})
+set_target_properties(mat_headers PROPERTIES LINKER_LANGUAGE CXX)

@@ -5,5 +5,5 @@ set(HEADER_FILES
         vec3.h
         vec4.h)
 
-add_library(vec_lib STATIC ${HEADER_FILES})
-set_target_properties(vec_lib PROPERTIES LINKER_LANGUAGE CXX)
+add_library(vec_headers STATIC ${HEADER_FILES})
+set_target_properties(vec_headers PROPERTIES LINKER_LANGUAGE CXX)

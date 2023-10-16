@@ -215,7 +215,8 @@ inline double dot(const vec2 &u, const vec2 &v) {
  */
 inline double cross(const vec2 &u, const vec2 &v) {
     return u.e[0] * v.e[1]
-         - u.e[1] * v.e[0];
+           - u.e[1] * v.e[0];
+}
 
 /**
  * @brief Returns the unit vector of the given vector.

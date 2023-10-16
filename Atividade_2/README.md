@@ -36,7 +36,7 @@ A documentação será gerada na pasta `./docs`.
 Com a biblioteca compilada, execute o comando abaixo para executar os testes:
 
 ```bash
-./build/tests/Google_Tests_run
+./build/tests/tests
 ```
 
 ## Exemplos

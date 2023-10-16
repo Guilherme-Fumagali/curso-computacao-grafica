@@ -8,6 +8,3 @@ CMakeFiles/
 *Cache*
 *.a
 *.cmake
-
-# Output files
-*.ppm

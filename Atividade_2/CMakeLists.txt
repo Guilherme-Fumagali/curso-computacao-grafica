@@ -11,7 +11,7 @@ add_subdirectory(Mat_lib)
 
 add_subdirectory(tests)
 
-add_executable(Atividade_2
+add_executable(main
         "Vec_lib/vec3.h"
         "Vec_lib/vec2.h"
         "Vec_lib/vec4.h"
@@ -22,4 +22,4 @@ add_executable(Atividade_2
         main.cpp
 )
 
-set_target_properties(Atividade_2 PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(main PROPERTIES LINKER_LANGUAGE CXX)

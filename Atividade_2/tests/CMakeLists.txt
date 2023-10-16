@@ -11,7 +11,7 @@ add_executable(Google_Tests_run Vec_lib/Vec2Test.cpp
         Mat_lib/mat3Test.cpp
         Mat_lib/mat4Test.cpp)
 
-# linking Google_Tests_run with Vec_lib which will be tested
+# linking Google_Tests_run with vec_lib which will be tested
 target_link_libraries(Google_Tests_run vec_lib)
 
 target_link_libraries(Google_Tests_run gtest gtest_main)

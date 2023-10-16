@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../src/vec2.h"
+#include "../Vec_lib/vec2.h"
 
 TEST(Vec2, Constructor) {
     vec2 v1;

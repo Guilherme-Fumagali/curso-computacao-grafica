@@ -4,18 +4,52 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MatrixIOImage_8hpp}{MatrixIOImage.hpp}}"{}}}
 \DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00003}\mbox{\hyperlink{classMatrixIOImage_a8f01711328f97f3a1071e54791265288}{00003}}\ \mbox{\hyperlink{classMatrixIOImage_a8f01711328f97f3a1071e54791265288}{MatrixIOImage::MatrixIOImage}}(\textcolor{keywordtype}{string}\ inputPath,\ \textcolor{keywordtype}{string}\ outputPath)}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00004}00004\ \{}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00005}00005\ \ \ \ \ \mbox{\hyperlink{classMatrixReader}{MatrixReader}}\ converter;}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00006}00006\ \ \ \ \ \_image\ =\ converter.\mbox{\hyperlink{classMatrixReader_a13cd3c92515169ebfca4eb21797e504d}{readFromFile}}(inputPath);}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00007}00007\ \ \ \ \ \_outputPath\ =\ outputPath;}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00008}00008\ \}}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00009}00009\ }
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00010}\mbox{\hyperlink{classMatrixIOImage_ac2863f941d997f8648bfafcdeb1fcdf4}{00010}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMatrixIOImage_ac2863f941d997f8648bfafcdeb1fcdf4}{MatrixIOImage::convert}}()}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00011}00011\ \{}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{string}\ extension\ =\ \_outputPath.substr(\_outputPath.find\_last\_of(\textcolor{stringliteral}{"{}."{}})\ +\ 1);}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{classImageWriter}{ImageWriter}}\ writer(\_image);}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00014}00014\ \ \ \ \ writer.\mbox{\hyperlink{classImageWriter_a729cef7d37d71219a7981ad302e2f7be}{saveAs}}(extension,\ \_outputPath);}
-\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00003}\mbox{\hyperlink{classMatrixIOImage_a91d047e93a3a43622fb317d078b43b19}{00003}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMatrixIOImage_a91d047e93a3a43622fb317d078b43b19}{MatrixIOImage::generateImageFromMatrix}}(\textcolor{keywordtype}{int}\ **matrix,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ outputPath)\ \{}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00004}00004\ \ \ \ \ Image\ image\ =\ convertMatrix(matrix,\ width,\ height);}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00005}00005\ \ \ \ \ \textcolor{keywordtype}{string}\ extension\ =\ outputPath.substr(outputPath.find\_last\_of(\textcolor{charliteral}{'.'})\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keywordflow}{if}\ (extension\ ==\ outputPath)\ extension\ =\ \textcolor{stringliteral}{"{}png"{}};\ \textcolor{comment}{//\ If\ no\ extension\ is\ specified,\ save\ as\ PNG}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00008}00008\ \ \ \ \ saveImage(image,\ extension,\ outputPath);}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00011}00011\ Image\ MatrixIOImage::convertMatrix(\textcolor{keywordtype}{int}**\ matrix,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \{}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{comment}{/*\ Create\ a\ new\ image\ with\ the\ specified\ width\ and\ height,\ and\ fill\ it\ with\ black.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00013}00013\ \ \ \ \ Image\ image(Geometry(width,\ height),\ ColorRGB(0,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{comment}{/*\ Iterate\ through\ the\ matrix\ and\ set\ the\ color\ of\ each\ pixel.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ i++)}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width\ *\ 3;\ j\ +=\ 3)}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ the\ RGB\ values\ of\ each\ pixel.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r\ =\ matrix[i][j]\ /\ 255.0;}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ g\ =\ matrix[i][j+1]\ /\ 255.0;}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ b\ =\ matrix[i][j+2]\ /\ 255.0;}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ pixel\ color.\ */}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ ColorRGB\ color(r,\ g,\ b);}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ image.pixelColor(j\ /\ 3,\ i,\ color);}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ image;}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00032}00032\ \textcolor{keywordtype}{void}\ MatrixIOImage::saveImage(Image\ image,\ \textcolor{keywordtype}{string}\ format,\ \textcolor{keywordtype}{string}\ filePath)\ \{}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ image.magick(format);\ \ \ \ \textcolor{comment}{//\ Set\ the\ image\ format}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ image.write(filePath);\ \textcolor{comment}{//\ Write\ the\ image\ to\ a\ file}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Converted\ to\ "{}}\ <<\ format\ <<\ \textcolor{stringliteral}{"{}..."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ ErrorMissingDelegate\ \&e)\ \textcolor{comment}{//\ If\ format\ not\ specified}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00039}00039\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Format\ not\ specified,\ saving\ in\ default\ format\ (PNG)."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ image.magick(\textcolor{stringliteral}{"{}PNG"{}});}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ image.write(filePath\ +\ \textcolor{stringliteral}{"{}.png"{}});}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ Error\ \&e)\ \textcolor{comment}{//\ If\ format\ not\ supported}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00045}00045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Error:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MatrixIOImage_8cpp_source_l00049}00049\ \}}
 
 \end{DoxyCode}

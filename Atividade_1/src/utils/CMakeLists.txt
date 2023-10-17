@@ -1,0 +1,3 @@
+add_executable(generate_circle generate_circle.cpp)
+add_executable(generate_gradient generate_gradient.cpp)
+add_executable(generate_two_colors_square generate_two_colors_square.cpp)

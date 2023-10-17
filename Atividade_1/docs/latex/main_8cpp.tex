@@ -1,36 +1,37 @@
-\doxysection{main.\+cpp File Reference}
-\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
-{\ttfamily \#include "{}src/\+Matrix\+IOImage.\+hpp"{}}\newline
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}Matrix\+IOImage.\+hpp"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
-\begin{DoxyCompactList}\small\item\em Main function that converts a matrix to a image. The format of the output image is determined by the extension of the output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\begin{DoxyCompactList}\small\item\em This is the main function for a program that reads an input file containing image data, processes it, and generates an output image. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
+\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
 \index{main.cpp@{main.cpp}!main@{main}}
 \index{main@{main}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
 
 
 
-Main function that converts a matrix to a image. The format of the output image is determined by the extension of the output file. 
+This is the main function for a program that reads an input file containing image data, processes it, and generates an output image. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em input\+\_\+file} & path to the input file containing the matrix. \\
+{\em argc} & The number of command-\/line arguments. \\
 \hline
-{\em output\+\_\+file} & path to the output file.\\
+{\em argv} & An array of command-\/line arguments. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-int 0 if the program was executed successfully, 1 otherwise. 
+0 if the program executed successfully; otherwise, a non-\/zero value. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 

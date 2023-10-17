@@ -77,72 +77,73 @@ $(function() {
 <div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Visão Geral</h1>
-<p>Esta atividade tem como objetivo a implementação de uma classe que permita a leitura de matrizes em um arquivo texto com um formato pré-definido e o converta para algum formato de imagem, como <a href="https://www.adobe.com/br/creativecloud/file-types/image/raster/png-file.html">PNG</a>.</p>
-<p>Documentação do código gerada pelo Doxygen: <a href="https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade%201/docs/html/index.html">https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade%201/docs/html/index.html</a></p>
+<p>Esta atividade visa a implementação de uma classe que receba como entrada uma matriz com um formato pré-definido e o converta para algum formato de imagem, como <a href="https://www.adobe.com/br/creativecloud/file-types/image/raster/png-file.html">PNG</a>.</p>
+<p>Documentação do código gerada pelo Doxygen: <a href="https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade%201/docs/html/index.html">https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_1/docs/html/index.html</a></p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Formato da Matriz de Entrada</h1>
-<p>Na primeira linha do arquivo de entrada, deve haver dois números inteiros separados por espaço, que representam a quantidade de linhas e colunas da matriz, respectivamente. Nas linhas seguintes, deve haver uma sequência de números inteiros separados por espaço, que representam os valores de cada pixel da matriz, da esquerda para a direita e de cima para baixo.</p>
-<p>Os valores dos pixels são descritos por três números inteiros, que representam os valores de vermelho, verde e azul, respectivamente. Os valores de cada pixel devem estar entre 0 e 255, inclusive.</p>
-<p>Abaixo, há um exemplo de I/O:</p>
+<p>A matriz é formada por 'M' linhas e 'N' colunas com valores inteiros entre 0 e 255.</p>
+<p>Cada três valores inteiros representam um pixel da imagem, onde o primeiro valor é o canal vermelho, o segundo o canal verde e o terceiro o canal azul.</p>
+<p>Dessa forma, para gerar uma imagem de 500 pixels de largura por 500 pixels de altura, a matriz de entrada deve ter 500 linhas e 1500 colunas, visto que cada pixel é representado por três valores inteiros.</p>
+<p>Abaixo, há um exemplo de matriz de entrada e a imagem gerada a partir da mesma.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">Matriz de entrada   </th><th class="markdownTableHeadCenter">Imagem de saída    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">3 3<br  />
-255 0 0 0 255 0 0 0 255<br  />
+<td class="markdownTableBodyCenter">255 0 0 0 255 0 0 0 255<br  />
 255 0 0 0 255 0 0 0 255<br  />
 255 0 0 0 255 0 0 0 255   </td><td class="markdownTableBodyCenter"><img src="./static/example_readme_resized.png" alt="" width="100" class="inline"/>   </td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Arquitetura da Aplicação</h1>
-<p>A aplicação foi implmentada em C++ com o auxílio da biblioteca <a href="https://imagemagick.org/index.php">ImageMagick</a>, para codificação das imagens.</p>
-<p>A interface do conversor é definida pela classe <a href="./src/MatrixIOImage.hpp"><code>MatrixIOImage</code></a>, que recebe no construtor o nome do arquivo de entrada e o nome do arquivo de saída, e possui métodos para conversão da matriz para imagem em diferentes formatos.</p>
+<p>A aplicação foi implementada em C++ com o auxílio da biblioteca <a href="https://imagemagick.org/index.php">ImageMagick</a>, para codificação das imagens.</p>
+<p>A interface do conversor é definida pela classe <a href="./src/main.hpp"><code>MatrixIOImage</code></a>, que recebe como entrada a matriz e a converte para uma imagem, que é escrita em um arquivo de saída.</p>
 <h3><a class="anchor" id="autotoc_md4"></a>
-Módulos</h3>
-<p>Para realizar a conversão da matriz para imagem, a classe <code><a class="el" href="classMatrixIOImage.html" title="Class for input/output of images using a matrix representation. Uses the MatrixReader module to read ...">MatrixIOImage</a></code> utiliza dois módulos:</p>
+Métodos</h3>
+<p>Para realizar a conversão da matriz para imagem, a classe <code><a class="el" href="classMatrixIOImage.html" title="Class responsible for converting a matrix and saving it in a file.">MatrixIOImage</a></code> utiliza dois módulos:</p>
 <ul>
-<li><a href="./src/modules/MatrixReader.hpp">'MatrixReader'</a>: responsável por ler o arquivo de entrada e o converter para o formato <a href="https://imagemagick.org/api/Image++.php"><code>Image</code></a> da biblioteca ImageMagick.</li>
-<li><a href="./src/modules/ImageWriter.hpp">'ImageWriter'</a>: responsável por escrever o arquivo de saída a partir de um objeto do tipo <a href="https://imagemagick.org/api/Image++.php"><code>Image</code></a> da biblioteca ImageMagick.</li>
+<li><code>convertMatrix</code>: responsável por iterar sobre a matriz de entrada e gerar um objeto do tipo <a href="https://imagemagick.org/api/Image++.php"><code>Image</code></a> da biblioteca ImageMagick.</li>
+<li><code>saveImage</code>: responsável por escrever o arquivo de saída a partir de um objeto do tipo <a href="https://imagemagick.org/api/Image++.php"><code>Image</code></a> da biblioteca ImageMagick.</li>
 </ul>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Leitura da matriz de entrada a partir de um arquivo</h3>
+<p>Com viés de testes, no arquivo <a href="./src/main.cpp"><code>main.cpp</code></a> há um código que lê a matriz de entrada a partir de um arquivo e a converte para uma imagem, escrita em um arquivo de saída.</p>
 <p>Dessa forma, o fluxo de execução da aplicação é ilustrado pelo diagrama abaixo:</p>
 <p><img src="./static/fluxo_dados.png" alt="Fluxo de execução da aplicação" class="inline"/></p>
-<p>A abordagem em módulos possibilita a extensão da aplicação para outros formatos de entrada e saída, sem a necessidade de alterar a classe <code><a class="el" href="classMatrixIOImage.html" title="Class for input/output of images using a matrix representation. Uses the MatrixReader module to read ...">MatrixIOImage</a></code>. Assim, caso seja necessário ler um formato hexadecimal ao invés de decimal, na matriz de entrada, basta criar um novo módulo que implemente a interface <code><a class="el" href="classMatrixReader.html" title="Module responsible for converting a matrix from a file to an Magick::Image.">MatrixReader</a></code> com um novo método <code>readFromFile</code>, que leia o arquivo de entrada e o converta para um objeto do tipo <code>Image</code>. O mesmo vale para o módulo <code><a class="el" href="classImageWriter.html" title="Module responsible for saving an image in a file with a specified format. As an interface,...">ImageWriter</a></code>, onde por exemplo pode ser implementado métodos que realizem algum tipo de tratamento na imagem antes de escrevê-la no arquivo de saída.</p>
-<p>Atualmente, o módulo <code><a class="el" href="classImageWriter.html" title="Module responsible for saving an image in a file with a specified format. As an interface,...">ImageWriter</a></code> possibilita a escrita em qualquer formato suportado pela biblioteca ImageMagick, porém, para a leitura, foi implementado apenas o módulo <code><a class="el" href="classMatrixReader.html" title="Module responsible for converting a matrix from a file to an Magick::Image.">MatrixReader</a></code>, que lê arquivos no formato descrito na seção Formato da Matriz de Entrada.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<p>A abordagem dos métodos possibilita a extensão da aplicação para outros formatos de entrada e saída, sem a necessidade de alterar a interface da classe <code><a class="el" href="classMatrixIOImage.html" title="Class responsible for converting a matrix and saving it in a file.">MatrixIOImage</a></code>. Assim, caso seja necessário ler uma matriz em formato hexadecimal ao invés de decimal, basta criar um novo código-fonte que implemente a interface com um novo método <code>convertMatrix</code>, que leia uma matriz de strings e a converta para um objeto do tipo <code>Image</code>. O mesmo vale para o método <code>saveImage</code>, onde, por exemplo, pode ser implementada lógicas que realizem algum tipo de tratamento na imagem antes de escrevê-la no arquivo de saída.</p>
+<p>Atualmente, o método <code>saveImage</code> possibilita a escrita em qualquer formato suportado pela biblioteca ImageMagick, porém, para a leitura, o método <code>convertMatrix</code> lê somente matrizes no formato descrito na seção Formato da Matriz de Entrada.</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Compilação</h1>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Dependências</h3>
 <ul>
 <li><a href="https://gcc.gnu.org/">gcc</a>, compilador C++.</li>
-<li><a href="https://imagemagick.org/index.php">ImageMagick</a>, biblioteca para codificação de imagens.</li>
+<li><a href="https://cmake.org/">CMake</a>, ferramenta para geração de arquivos de compilação.</li>
 <li><a href="https://www.doxygen.nl/index.html">Doxygen</a>, ferramenta para geração de documentação.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md7"></a>
-Compilando</h3>
-<p>Para compilar classe <code><a class="el" href="classMatrixIOImage.html" title="Class for input/output of images using a matrix representation. Uses the MatrixReader module to read ...">MatrixIOImage</a></code>, junto aos módulos <code><a class="el" href="classMatrixReader.html" title="Module responsible for converting a matrix from a file to an Magick::Image.">MatrixReader</a></code> e <code><a class="el" href="classImageWriter.html" title="Module responsible for saving an image in a file with a specified format. As an interface,...">ImageWriter</a></code> e ao programa principal, basta executar o comando abaixo:</p>
-<div class="fragment"><div class="line">make all</div>
-</div><!-- fragment --><p>Os arquivos compilados serão gerados na pasta <code>./build</code>.</p>
 <h3><a class="anchor" id="autotoc_md8"></a>
+Compilando</h3>
+<p>Para compilar todos os códigos fonte com CMake, execute o comando abaixo:</p>
+<div class="fragment"><div class="line">cmake -B build CMakeLists.txt &amp;&amp; cmake --build build</div>
+</div><!-- fragment --><p>Os arquivos compilados serão gerados na pasta <code>./build</code>.</p>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Gerando documentação</h3>
 <p>Para gerar a documentação do código, execute o comando abaixo:</p>
-<div class="fragment"><div class="line">make docs</div>
+<div class="fragment"><div class="line">doxygen Doxyfile</div>
 </div><!-- fragment --><p>A documentação será gerada na pasta <code>./docs</code>.</p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Execução</h1>
-<p>Para executar o programa, basta executar o comando abaixo:</p>
-<div class="fragment"><div class="line">./build/main &lt;input_file&gt; &lt;output_file&gt;</div>
+<p>Para executar o programa que lê a matriz de entrada a partir de um arquivo e a converte para uma imagem, execute o comando abaixo:</p>
+<div class="fragment"><div class="line">./build/src/main &lt;input_file&gt; &lt;output_file&gt;</div>
 </div><!-- fragment --><p>Onde <code>&lt;input_file&gt;</code> é o nome do arquivo que contém a matriz de entrada e <code>&lt;output_file&gt;</code> é o nome do arquivo de saída que conterá a imagem gerada.</p>
 <p>É válido ressaltar que o formato do arquivo de saída é definido pela extensão do nome do arquivo. Por exemplo, se o nome do arquivo de saída for <code>image.png</code>, a imagem gerada será no formato PNG.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Testes</h1>
 <p>No diretório <a href="./src/utils/"><code>utils</code></a> há códigos fonte que podem ser utilizados para gerar diferentes matrizes de entrada para testar a classe conversora.</p>
-<p>Os arquivos gerados pelos códigos se encontram no diretório <a href="./static/tests/"><code>static/tests</code></a>. Mas, caso deseje executar os códigos fonte, é necessário compilar os mesmos.</p>
-<h3><a class="anchor" id="autotoc_md11"></a>
-Compilando os códigos fonte</h3>
-<p>Para compilar, dentro do diretório <a href="./src/utils/"><code>utils</code></a>, execute o comando abaixo:</p>
-<div class="fragment"><div class="line">make all</div>
-</div><!-- fragment --><p>Os arquivos compilados serão gerados na mesma pasta, com o mesmo nome do arquivo fonte, porém sem a extensão <code>.cpp</code>. Comum a ambos os códiggos, há uma parâmetro de linha de comando que define o nome do arquivo de saída.</p>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<p>Os arquivos gerados pelos códigos se encontram no diretório <a href="./static/tests/"><code>static/tests</code></a>. Mas, caso deseje executar os códigos fonte, execute o comando abaixo:</p>
+<div class="fragment"><div class="line">./build/src/utils/generate_circle &lt;output_file&gt;</div>
+</div><!-- fragment --><div class="fragment"><div class="line">./build/src/utils/generate_gradient &lt;output_file&gt;</div>
+</div><!-- fragment --><div class="fragment"><div class="line">./build/src/utils/generate_two_colors_square &lt;output_file&gt;</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
 Imagens geradas</h2>
 <p>Foram implementados três códigos geradores de matrizes de entrada, um que gera um degradê, outro que gera um círculo e outro que gera um quadrado. Abaixo é mostrado os PNGs gerados após a conversão das matrizes geradas pelos códigos fonte.</p>
 <table class="markdownTable">

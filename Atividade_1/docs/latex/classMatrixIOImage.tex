@@ -2,67 +2,59 @@
 \hypertarget{classMatrixIOImage}{}\label{classMatrixIOImage}\index{MatrixIOImage@{MatrixIOImage}}
 
 
-Class for input/output of images using a matrix representation. Uses the \doxylink{classMatrixReader}{Matrix\+Reader} module to read the input matrix and the \doxylink{classImageWriter}{Image\+Writer} module to write the output image.  
+Class responsible for converting a matrix and saving it in a file.  
 
 
 
 
 {\ttfamily \#include $<$Matrix\+IOImage.\+hpp$>$}
 
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classMatrixIOImage_a8f01711328f97f3a1071e54791265288}{Matrix\+IOImage}} (string input\+Path, string output\+Path)
-\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classMatrixIOImage}{Matrix\+IOImage} object with the given input and output paths. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatrixIOImage_ac2863f941d997f8648bfafcdeb1fcdf4}{convert}} ()
-\begin{DoxyCompactList}\small\item\em Converts the input matrix to the output format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static void \mbox{\hyperlink{classMatrixIOImage_a91d047e93a3a43622fb317d078b43b19}{generate\+Image\+From\+Matrix}} (int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}matrix, int width, int height, const string \&output\+Path)
+\begin{DoxyCompactList}\small\item\em Generates an image from a matrix and saves it in a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Class for input/output of images using a matrix representation. Uses the \doxylink{classMatrixReader}{Matrix\+Reader} module to read the input matrix and the \doxylink{classImageWriter}{Image\+Writer} module to write the output image. 
+Class responsible for converting a matrix and saving it in a file. 
 
-Definition at line \mbox{\hyperlink{MatrixIOImage_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{MatrixIOImage_8hpp_source}{Matrix\+IOImage.\+hpp}}.
+This class uses the \doxylink{}{Magick\+::\+Image} class to convert a matrix and save it in a file. \begin{DoxySeeAlso}{See also}
+\href{https://imagemagick.org/Magick++/Image++.html}{\texttt{ https\+://imagemagick.\+org/\+Magick++/\+Image++.\+html}} for more information about the \doxylink{}{Magick\+::\+Image} class. 
+\end{DoxySeeAlso}
 
 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classMatrixIOImage_a8f01711328f97f3a1071e54791265288}\label{classMatrixIOImage_a8f01711328f97f3a1071e54791265288} 
-\index{MatrixIOImage@{MatrixIOImage}!MatrixIOImage@{MatrixIOImage}}
-\index{MatrixIOImage@{MatrixIOImage}!MatrixIOImage@{MatrixIOImage}}
-\doxysubsubsection{\texorpdfstring{MatrixIOImage()}{MatrixIOImage()}}
-{\footnotesize\ttfamily Matrix\+IOImage\+::\+Matrix\+IOImage (\begin{DoxyParamCaption}\item[{string}]{input\+Path,  }\item[{string}]{output\+Path }\end{DoxyParamCaption})}
+Definition at line \mbox{\hyperlink{MatrixIOImage_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{MatrixIOImage_8hpp_source}{Matrix\+IOImage.\+hpp}}.
 
 
 
-Constructs an \doxylink{classMatrixIOImage}{Matrix\+IOImage} object with the given input and output paths. 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMatrixIOImage_a91d047e93a3a43622fb317d078b43b19}\label{classMatrixIOImage_a91d047e93a3a43622fb317d078b43b19} 
+\index{MatrixIOImage@{MatrixIOImage}!generateImageFromMatrix@{generateImageFromMatrix}}
+\index{generateImageFromMatrix@{generateImageFromMatrix}!MatrixIOImage@{MatrixIOImage}}
+\doxysubsubsection{\texorpdfstring{generateImageFromMatrix()}{generateImageFromMatrix()}}
+{\footnotesize\ttfamily void Matrix\+IOImage\+::generate\+Image\+From\+Matrix (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{matrix,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{const string \&}]{output\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates an image from a matrix and saves it in a file. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em input\+Path} & The path to the input matrix. \\
+{\em matrix} & The matrix to be converted. \\
 \hline
-{\em output\+Path} & The path to write the output image. \\
+{\em width} & The width of the matrix. \\
+\hline
+{\em height} & The height of the matrix. \\
+\hline
+{\em format} & The format in which the image should be saved. \\
+\hline
+{\em output\+Path} & The file path where the image should be saved. \\
 \hline
 \end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{MatrixIOImage_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{MatrixIOImage_8cpp_source}{Matrix\+IOImage.\+cpp}}.
-
-
-
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classMatrixIOImage_ac2863f941d997f8648bfafcdeb1fcdf4}\label{classMatrixIOImage_ac2863f941d997f8648bfafcdeb1fcdf4} 
-\index{MatrixIOImage@{MatrixIOImage}!convert@{convert}}
-\index{convert@{convert}!MatrixIOImage@{MatrixIOImage}}
-\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
-{\footnotesize\ttfamily void Matrix\+IOImage\+::convert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Converts the input matrix to the output format. 
-
-
-
-Definition at line \mbox{\hyperlink{MatrixIOImage_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{MatrixIOImage_8cpp_source}{Matrix\+IOImage.\+cpp}}.
 
 
 

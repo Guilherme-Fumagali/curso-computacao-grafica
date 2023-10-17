@@ -83,30 +83,27 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">MatrixIOImage.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="MatrixIOImage_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="MatrixReader_8hpp.html">modules/MatrixReader.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="ImageWriter_8hpp.html">modules/ImageWriter.hpp</a>&quot;</span></div>
+<a href="MatrixIOImage_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;ImageMagick-7/Magick++.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using namespace </span>Magick;</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classMatrixIOImage.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classMatrixIOImage.html">MatrixIOImage</a></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    Image _image;       <span class="comment">// The image to be converted.</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">string</span> _outputPath; <span class="comment">// The path to write the output image.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="classMatrixIOImage.html">MatrixIOImage</a>(<span class="keywordtype">string</span> inputPath, <span class="keywordtype">string</span> outputPath);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMatrixIOImage.html#ac2863f941d997f8648bfafcdeb1fcdf4">convert</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classMatrixIOImage.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classMatrixIOImage.html">MatrixIOImage</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classMatrixIOImage.html#a91d047e93a3a43622fb317d078b43b19">generateImageFromMatrix</a>(<span class="keywordtype">int</span>** matrix, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; outputPath);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">static</span> Image convertMatrix(<span class="keywordtype">int</span>** matrix, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> saveImage(Image image, <span class="keywordtype">string</span> format, <span class="keywordtype">string</span> filePath);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
 </div>
-<div class="ttc" id="aImageWriter_8hpp_html"><div class="ttname"><a href="ImageWriter_8hpp.html">ImageWriter.hpp</a></div></div>
-<div class="ttc" id="aMatrixReader_8hpp_html"><div class="ttname"><a href="MatrixReader_8hpp.html">MatrixReader.hpp</a></div></div>
-<div class="ttc" id="aclassMatrixIOImage_html"><div class="ttname"><a href="classMatrixIOImage.html">MatrixIOImage</a></div><div class="ttdoc">Class for input/output of images using a matrix representation. Uses the MatrixReader module to read ...</div><div class="ttdef"><b>Definition</b> <a href="MatrixIOImage_8hpp_source.html#l00012">MatrixIOImage.hpp:13</a></div></div>
-<div class="ttc" id="aclassMatrixIOImage_html_ac2863f941d997f8648bfafcdeb1fcdf4"><div class="ttname"><a href="classMatrixIOImage.html#ac2863f941d997f8648bfafcdeb1fcdf4">MatrixIOImage::convert</a></div><div class="ttdeci">void convert()</div><div class="ttdoc">Converts the input matrix to the output format.</div><div class="ttdef"><b>Definition</b> <a href="MatrixIOImage_8cpp_source.html#l00010">MatrixIOImage.cpp:10</a></div></div>
+<div class="ttc" id="aclassMatrixIOImage_html"><div class="ttname"><a href="classMatrixIOImage.html">MatrixIOImage</a></div><div class="ttdoc">Class responsible for converting a matrix and saving it in a file.</div><div class="ttdef"><b>Definition</b> <a href="MatrixIOImage_8hpp_source.html#l00014">MatrixIOImage.hpp:14</a></div></div>
+<div class="ttc" id="aclassMatrixIOImage_html_a91d047e93a3a43622fb317d078b43b19"><div class="ttname"><a href="classMatrixIOImage.html#a91d047e93a3a43622fb317d078b43b19">MatrixIOImage::generateImageFromMatrix</a></div><div class="ttdeci">static void generateImageFromMatrix(int **matrix, int width, int height, const string &amp;outputPath)</div><div class="ttdoc">Generates an image from a matrix and saves it in a file.</div><div class="ttdef"><b>Definition</b> <a href="MatrixIOImage_8cpp_source.html#l00003">MatrixIOImage.cpp:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

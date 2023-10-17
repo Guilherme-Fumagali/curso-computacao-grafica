@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imagewriter_0',['ImageWriter',['../classImageWriter.html',1,'']]]
+  ['matrixioimage_0',['MatrixIOImage',['../classMatrixIOImage.html',1,'']]]
 ];

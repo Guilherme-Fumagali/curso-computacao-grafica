@@ -86,29 +86,56 @@ $(document).ready(function() { init_codefold(0); });
 <a href="MatrixIOImage_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="MatrixIOImage_8hpp.html">MatrixIOImage.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classMatrixIOImage.html#a8f01711328f97f3a1071e54791265288">    3</a></span><a class="code hl_function" href="classMatrixIOImage.html#a8f01711328f97f3a1071e54791265288">MatrixIOImage::MatrixIOImage</a>(<span class="keywordtype">string</span> inputPath, <span class="keywordtype">string</span> outputPath)</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <a class="code hl_class" href="classMatrixReader.html">MatrixReader</a> converter;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    _image = converter.<a class="code hl_function" href="classMatrixReader.html#a13cd3c92515169ebfca4eb21797e504d">readFromFile</a>(inputPath);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    _outputPath = outputPath;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classMatrixIOImage.html#a91d047e93a3a43622fb317d078b43b19">    3</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classMatrixIOImage.html#a91d047e93a3a43622fb317d078b43b19">MatrixIOImage::generateImageFromMatrix</a>(<span class="keywordtype">int</span> **matrix, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; outputPath) {</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    Image image = convertMatrix(matrix, width, height);</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordtype">string</span> extension = outputPath.substr(outputPath.find_last_of(<span class="charliteral">&#39;.&#39;</span>) + 1);</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">if</span> (extension == outputPath) extension = <span class="stringliteral">&quot;png&quot;</span>; <span class="comment">// If no extension is specified, save as PNG</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    saveImage(image, extension, outputPath);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
 </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classMatrixIOImage.html#ac2863f941d997f8648bfafcdeb1fcdf4">   10</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classMatrixIOImage.html#ac2863f941d997f8648bfafcdeb1fcdf4">MatrixIOImage::convert</a>()</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">string</span> extension = _outputPath.substr(_outputPath.find_last_of(<span class="stringliteral">&quot;.&quot;</span>) + 1);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="classImageWriter.html">ImageWriter</a> writer(_image);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    writer.<a class="code hl_function" href="classImageWriter.html#a729cef7d37d71219a7981ad302e2f7be">saveAs</a>(extension, _outputPath);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
-</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>Image MatrixIOImage::convertMatrix(<span class="keywordtype">int</span>** matrix, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">/* Create a new image with the specified width and height, and fill it with black. */</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    Image image(Geometry(width, height), ColorRGB(0, 0, 0));</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">/* Iterate through the matrix and set the color of each pixel. */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; i++)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; width * 3; j += 3)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="comment">/* Read the RGB values of each pixel. */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keywordtype">double</span> r = matrix[i][j] / 255.0;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordtype">double</span> g = matrix[i][j+1] / 255.0;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordtype">double</span> b = matrix[i][j+2] / 255.0;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="comment">/* Set the pixel color. */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            ColorRGB color(r, g, b);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            image.pixelColor(j / 3, i, color);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> image;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> MatrixIOImage::saveImage(Image image, <span class="keywordtype">string</span> format, <span class="keywordtype">string</span> filePath) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        image.magick(format);    <span class="comment">// Set the image format</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        image.write(filePath); <span class="comment">// Write the image to a file</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        cout &lt;&lt; <span class="stringliteral">&quot;Converted to &quot;</span> &lt;&lt; format &lt;&lt; <span class="stringliteral">&quot;...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">catch</span> (<span class="keyword">const</span> ErrorMissingDelegate &amp;e) <span class="comment">// If format not specified</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        cout &lt;&lt; <span class="stringliteral">&quot;Format not specified, saving in default format (PNG).&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        image.magick(<span class="stringliteral">&quot;PNG&quot;</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        image.write(filePath + <span class="stringliteral">&quot;.png&quot;</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">catch</span> (<span class="keyword">const</span> Error &amp;e) <span class="comment">// If format not supported</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        cout &lt;&lt; <span class="stringliteral">&quot;Error: &quot;</span> &lt;&lt; e.what() &lt;&lt; endl;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
 <div class="ttc" id="aMatrixIOImage_8hpp_html"><div class="ttname"><a href="MatrixIOImage_8hpp.html">MatrixIOImage.hpp</a></div></div>
-<div class="ttc" id="aclassImageWriter_html"><div class="ttname"><a href="classImageWriter.html">ImageWriter</a></div><div class="ttdoc">Module responsible for saving an image in a file with a specified format. As an interface,...</div><div class="ttdef"><b>Definition</b> <a href="ImageWriter_8hpp_source.html#l00012">ImageWriter.hpp:13</a></div></div>
-<div class="ttc" id="aclassImageWriter_html_a729cef7d37d71219a7981ad302e2f7be"><div class="ttname"><a href="classImageWriter.html#a729cef7d37d71219a7981ad302e2f7be">ImageWriter::saveAs</a></div><div class="ttdeci">void saveAs(string format, string filePath)</div><div class="ttdoc">Saves the image in the specified format and file path.</div><div class="ttdef"><b>Definition</b> <a href="ImageWriter_8cpp_source.html#l00008">ImageWriter.cpp:8</a></div></div>
-<div class="ttc" id="aclassMatrixIOImage_html_a8f01711328f97f3a1071e54791265288"><div class="ttname"><a href="classMatrixIOImage.html#a8f01711328f97f3a1071e54791265288">MatrixIOImage::MatrixIOImage</a></div><div class="ttdeci">MatrixIOImage(string inputPath, string outputPath)</div><div class="ttdoc">Constructs an MatrixIOImage object with the given input and output paths.</div><div class="ttdef"><b>Definition</b> <a href="MatrixIOImage_8cpp_source.html#l00003">MatrixIOImage.cpp:3</a></div></div>
-<div class="ttc" id="aclassMatrixIOImage_html_ac2863f941d997f8648bfafcdeb1fcdf4"><div class="ttname"><a href="classMatrixIOImage.html#ac2863f941d997f8648bfafcdeb1fcdf4">MatrixIOImage::convert</a></div><div class="ttdeci">void convert()</div><div class="ttdoc">Converts the input matrix to the output format.</div><div class="ttdef"><b>Definition</b> <a href="MatrixIOImage_8cpp_source.html#l00010">MatrixIOImage.cpp:10</a></div></div>
-<div class="ttc" id="aclassMatrixReader_html"><div class="ttname"><a href="classMatrixReader.html">MatrixReader</a></div><div class="ttdoc">Module responsible for converting a matrix from a file to an Magick::Image.</div><div class="ttdef"><b>Definition</b> <a href="MatrixReader_8hpp_source.html#l00012">MatrixReader.hpp:12</a></div></div>
-<div class="ttc" id="aclassMatrixReader_html_a13cd3c92515169ebfca4eb21797e504d"><div class="ttname"><a href="classMatrixReader.html#a13cd3c92515169ebfca4eb21797e504d">MatrixReader::readFromFile</a></div><div class="ttdeci">Image readFromFile(string filePath)</div><div class="ttdoc">Reads a matrix from a file and converts it to an image.</div><div class="ttdef"><b>Definition</b> <a href="MatrixReader_8cpp_source.html#l00003">MatrixReader.cpp:3</a></div></div>
+<div class="ttc" id="aclassMatrixIOImage_html_a91d047e93a3a43622fb317d078b43b19"><div class="ttname"><a href="classMatrixIOImage.html#a91d047e93a3a43622fb317d078b43b19">MatrixIOImage::generateImageFromMatrix</a></div><div class="ttdeci">static void generateImageFromMatrix(int **matrix, int width, int height, const string &amp;outputPath)</div><div class="ttdoc">Generates an image from a matrix and saves it in a file.</div><div class="ttdef"><b>Definition</b> <a href="MatrixIOImage_8cpp_source.html#l00003">MatrixIOImage.cpp:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

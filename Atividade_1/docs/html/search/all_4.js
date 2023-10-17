@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['fonte_0',['Compilando os códigos fonte',['../index.html#autotoc_md11',1,'']]],
-  ['formato_20da_20matriz_20de_20entrada_1',['Formato da Matriz de Entrada',['../index.html#autotoc_md2',1,'']]]
+  ['entrada_0',['Formato da Matriz de Entrada',['../index.html#autotoc_md2',1,'']]],
+  ['entrada_20a_20partir_20de_20um_20arquivo_1',['Leitura da matriz de entrada a partir de um arquivo',['../index.html#autotoc_md5',1,'']]],
+  ['execução_2',['Execução',['../index.html#autotoc_md10',1,'']]]
 ];

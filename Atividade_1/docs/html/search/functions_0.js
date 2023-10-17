@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['convert_0',['convert',['../classMatrixIOImage.html#ac2863f941d997f8648bfafcdeb1fcdf4',1,'MatrixIOImage']]]
+  ['generateimagefrommatrix_0',['generateImageFromMatrix',['../classMatrixIOImage.html#a91d047e93a3a43622fb317d078b43b19',1,'MatrixIOImage']]]
 ];

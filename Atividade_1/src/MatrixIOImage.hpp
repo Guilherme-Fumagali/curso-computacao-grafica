@@ -1,31 +1,47 @@
-#include "modules/MatrixReader.hpp"
-#include "modules/ImageWriter.hpp"
+#include <ImageMagick-7/Magick++.h>
+#include <fstream>
 #include <iostream>
-#include <string>
 
+using namespace Magick;
 using namespace std;
 
 /**
- * @brief Class for input/output of images using a matrix representation.
- * Uses the @ref MatrixReader module to read the input matrix and the @ref ImageWriter module to write the output image.
+ * @brief Class responsible for converting a matrix and saving it in a file.
+ *
+ * This class uses the @link Magick::Image @endlink class to convert a matrix and save it in a file.
+ * @see https://imagemagick.org/Magick++/Image++.html for more information about the @link Magick::Image @endlink class.
  */
-class MatrixIOImage
-{
-private:
-    Image _image;       // The image to be converted.
-    string _outputPath; // The path to write the output image.
+class MatrixIOImage {
+    public:
 
-public:
-    /**
-     * @brief Constructs an MatrixIOImage object with the given input and output paths.
-     *
-     * @param inputPath The path to the input matrix.
-     * @param outputPath The path to write the output image.
-     */
-    MatrixIOImage(string inputPath, string outputPath);
+        /**
+         * @brief Generates an image from a matrix and saves it in a file.
+         *
+         * @param matrix The matrix to be converted.
+         * @param width The width of the matrix.
+         * @param height The height of the matrix.
+         * @param format The format in which the image should be saved.
+         * @param outputPath The file path where the image should be saved.
+         */
+        static void generateImageFromMatrix(int** matrix, int width, int height, const string& outputPath);
 
-    /**
-     * @brief Converts the input matrix to the output format.
-     */
-    void convert();
+    private:
+        /**
+         * @brief Reads a matrix and converts it to an image.
+         * 
+         * @param matrix The matrix to be converted.
+         * @param width The width of the matrix.
+         * @param height The height of the matrix.
+         *
+         * @return The converted @link Magick::Image @endlink.
+         */
+        static Image convertMatrix(int** matrix, int width, int height);
+
+        /**
+        * @brief Saves the image in the specified format and file path.
+        *
+        * @param format The format in which the image should be saved.
+        * @param filePath The file path where the image should be saved.
+        */
+        static void saveImage(Image image, string format, string filePath);
 };

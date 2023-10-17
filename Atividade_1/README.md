@@ -4,7 +4,7 @@
 
 Esta atividade visa a implementação de uma classe que receba como entrada uma matriz com um formato pré-definido e o converta para algum formato de imagem, como [PNG](https://www.adobe.com/br/creativecloud/file-types/image/raster/png-file.html).
 
-Documentação do código gerada pelo Doxygen: [https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_1/docs/html/index.html](https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade%201/docs/html/index.html)
+Documentação do código gerada pelo Doxygen: [https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_1/docs/html/index.html](https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_1/docs/html/index.html)
 
 ## Formato da Matriz de Entrada
 
@@ -24,7 +24,7 @@ Abaixo, há um exemplo de matriz de entrada e a imagem gerada a partir da mesma.
 
 A aplicação foi implementada em C++ com o auxílio da biblioteca [ImageMagick](https://imagemagick.org/index.php), para codificação das imagens.
 
-A interface do conversor é definida pela classe [`MatrixIOImage`](./src/main.hpp), que recebe como entrada a matriz e a converte para uma imagem, que é escrita em um arquivo de saída.
+A interface do conversor é definida pela classe [`MatrixIOImage`](./src/MatrixIOImage.hpp), que recebe como entrada a matriz e a converte para uma imagem, que é escrita em um arquivo de saída.
 
 #### Métodos
 

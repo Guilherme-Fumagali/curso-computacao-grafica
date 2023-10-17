@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C++ Vec and Mat Classes: tests/lib/googlemock/include/gmock/gmock-more-actions.h Source File</title>
+<title>C++ Vec and Mat Classes: cmake-build-debug/_deps/googletest-src/googlemock/include/gmock/gmock-more-actions.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,7 +75,7 @@ $(document).ready(function() { init_codefold(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li><li class="navelem"><a class="el" href="dir_3ec2b398f3478d447c19fb226973d6f4.html">lib</a></li><li class="navelem"><a class="el" href="dir_657276952bc6610ee67580ca12aca296.html">googlemock</a></li><li class="navelem"><a class="el" href="dir_4907f5bb2b08a54455c4178593073b99.html">include</a></li><li class="navelem"><a class="el" href="dir_febf20bee05dddf6e0ef5a3fb74d2914.html">gmock</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_95e29a8b8ee7c54052c171a88bb95675.html">cmake-build-debug</a></li><li class="navelem"><a class="el" href="dir_5ed36b38ab1e0b9b742fc01309e4e757.html">_deps</a></li><li class="navelem"><a class="el" href="dir_24655302de266b7dee5d60163f030803.html">googletest-src</a></li><li class="navelem"><a class="el" href="dir_ed45d3f6106031d277dd979af121d650.html">googlemock</a></li><li class="navelem"><a class="el" href="dir_89e3dd3fed54cd3e1c4cf77ab438ce44.html">include</a></li><li class="navelem"><a class="el" href="dir_fd26e9b8c34bdd01c88f36811aedce7e.html">gmock</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -610,141 +610,145 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span><span class="preprocessor">                        GMOCK_INTERNAL_LIST_##value_params)){})                \</span></div>
 <div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span><span class="preprocessor">            GMOCK_ACTION_CLASS_(name, value_params)(const GMOCK_ACTION_CLASS_( \</span></div>
 <div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span><span class="preprocessor">                name, value_params) &amp;) noexcept GMOCK_INTERNAL_DEFN_COPY_      \</span></div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span><span class="preprocessor">        ##value_params                                                         \</span></div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span><span class="preprocessor">        GMOCK_ACTION_CLASS_(name, value_params)(GMOCK_ACTION_CLASS_(           \</span></div>
-<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span><span class="preprocessor">            name, value_params) &amp;&amp;) noexcept GMOCK_INTERNAL_DEFN_COPY_         \</span></div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span><span class="preprocessor">        ##value_params template &lt;typename F&gt;                                   \</span></div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span><span class="preprocessor">        operator ::testing::Action&lt;F&gt;() const {                                \</span></div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span><span class="preprocessor">      return GMOCK_PP_IF(                                                      \</span></div>
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span><span class="preprocessor">          GMOCK_PP_IS_EMPTY(GMOCK_INTERNAL_COUNT_##value_params),              \</span></div>
-<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span><span class="preprocessor">          (::testing::internal::MakeAction&lt;F, gmock_Impl&gt;()),                  \</span></div>
-<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span><span class="preprocessor">          (::testing::internal::MakeAction&lt;F&gt;(impl_)));                        \</span></div>
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span><span class="preprocessor">    }                                                                          \</span></div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span><span class="preprocessor">                                                                               \</span></div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span><span class="preprocessor">   private:                                                                    \</span></div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span><span class="preprocessor">    class gmock_Impl {                                                         \</span></div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span><span class="preprocessor">     public:                                                                   \</span></div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span><span class="preprocessor">      explicit gmock_Impl GMOCK_INTERNAL_INIT_##value_params {}                \</span></div>
-<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span><span class="preprocessor">      template &lt;typename function_type, typename return_type,                  \</span></div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span><span class="preprocessor">                typename args_type, GMOCK_ACTION_TEMPLATE_ARGS_NAMES_&gt;         \</span></div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span><span class="preprocessor">      return_type gmock_PerformImpl(GMOCK_ACTION_ARG_TYPES_AND_NAMES_) const;  \</span></div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span><span class="preprocessor">      GMOCK_INTERNAL_DEFN_##value_params                                       \</span></div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span><span class="preprocessor">    };                                                                         \</span></div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span><span class="preprocessor">    GMOCK_PP_IF(GMOCK_PP_IS_EMPTY(GMOCK_INTERNAL_COUNT_##value_params), ,      \</span></div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span><span class="preprocessor">                std::shared_ptr&lt;const gmock_Impl&gt; impl_;)                      \</span></div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span><span class="preprocessor">  };                                                                           \</span></div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span><span class="preprocessor">  template &lt;GMOCK_INTERNAL_DECL_##template_params                              \</span></div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span><span class="preprocessor">                GMOCK_INTERNAL_DECL_TYPE_##value_params&gt;                       \</span></div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span><span class="preprocessor">  GMOCK_ACTION_CLASS_(                                                         \</span></div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span><span class="preprocessor">      name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params                \</span></div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span><span class="preprocessor">                              GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;         \</span></div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span><span class="preprocessor">      name(GMOCK_INTERNAL_DECL_##value_params) GTEST_MUST_USE_RESULT_;         \</span></div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span><span class="preprocessor">  template &lt;GMOCK_INTERNAL_DECL_##template_params                              \</span></div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span><span class="preprocessor">                GMOCK_INTERNAL_DECL_TYPE_##value_params&gt;                       \</span></div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span><span class="preprocessor">  inline GMOCK_ACTION_CLASS_(                                                  \</span></div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span><span class="preprocessor">      name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params                \</span></div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span><span class="preprocessor">                              GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;         \</span></div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span><span class="preprocessor">  name(GMOCK_INTERNAL_DECL_##value_params) {                                   \</span></div>
-<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span><span class="preprocessor">    return GMOCK_ACTION_CLASS_(                                                \</span></div>
-<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span><span class="preprocessor">        name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params              \</span></div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span><span class="preprocessor">                                GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;(      \</span></div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span><span class="preprocessor">        GMOCK_INTERNAL_LIST_##value_params);                                   \</span></div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span><span class="preprocessor">  }                                                                            \</span></div>
-<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span><span class="preprocessor">  template &lt;GMOCK_INTERNAL_DECL_##template_params                              \</span></div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span><span class="preprocessor">                GMOCK_INTERNAL_DECL_TYPE_##value_params&gt;                       \</span></div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span><span class="preprocessor">  template &lt;typename function_type, typename return_type, typename args_type,  \</span></div>
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span><span class="preprocessor">            GMOCK_ACTION_TEMPLATE_ARGS_NAMES_&gt;                                 \</span></div>
-<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span><span class="preprocessor">  return_type GMOCK_ACTION_CLASS_(                                             \</span></div>
-<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span><span class="preprocessor">      name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params                \</span></div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span><span class="preprocessor">                              GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;::       \</span></div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span><span class="preprocessor">      gmock_Impl::gmock_PerformImpl(GMOCK_ACTION_ARG_TYPES_AND_NAMES_UNUSED_)  \</span></div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span><span class="preprocessor">          const</span></div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span> </div>
-<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span><span class="keyword">namespace </span>testing {</div>
-<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span> </div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span><span class="comment">// The ACTION*() macros trigger warning C4100 (unreferenced formal</span></div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span><span class="comment">// parameter) in MSVC with -W4.  Unfortunately they cannot be fixed in</span></div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span><span class="comment">// the macro definition, as the warnings are generated when the macro</span></div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span><span class="comment">// is expanded and macro expansion cannot contain #pragma.  Therefore</span></div>
-<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span><span class="comment">// we suppress them here.</span></div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>GTEST_DISABLE_MSC_WARNINGS_PUSH_(4100)</div>
-<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span> </div>
-<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>namespace internal {</div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span><span class="preprocessor">        ##value_params GMOCK_ACTION_CLASS_(name, value_params)(                \</span></div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span><span class="preprocessor">            GMOCK_ACTION_CLASS_(name, value_params) &amp;&amp;) noexcept               \</span></div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span><span class="preprocessor">        GMOCK_INTERNAL_DEFN_COPY_##value_params template &lt;typename F&gt;          \</span></div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span><span class="preprocessor">        operator ::testing::Action&lt;F&gt;() const {                                \</span></div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span><span class="preprocessor">      return GMOCK_PP_IF(                                                      \</span></div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span><span class="preprocessor">          GMOCK_PP_IS_EMPTY(GMOCK_INTERNAL_COUNT_##value_params),              \</span></div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span><span class="preprocessor">          (::testing::internal::MakeAction&lt;F, gmock_Impl&gt;()),                  \</span></div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span><span class="preprocessor">          (::testing::internal::MakeAction&lt;F&gt;(impl_)));                        \</span></div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span><span class="preprocessor">    }                                                                          \</span></div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span><span class="preprocessor">                                                                               \</span></div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span><span class="preprocessor">   private:                                                                    \</span></div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span><span class="preprocessor">    class gmock_Impl {                                                         \</span></div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span><span class="preprocessor">     public:                                                                   \</span></div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span><span class="preprocessor">      explicit gmock_Impl GMOCK_INTERNAL_INIT_##value_params {}                \</span></div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span><span class="preprocessor">      template &lt;typename function_type, typename return_type,                  \</span></div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span><span class="preprocessor">                typename args_type, GMOCK_ACTION_TEMPLATE_ARGS_NAMES_&gt;         \</span></div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span><span class="preprocessor">      return_type gmock_PerformImpl(GMOCK_ACTION_ARG_TYPES_AND_NAMES_) const;  \</span></div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span><span class="preprocessor">      GMOCK_INTERNAL_DEFN_##value_params                                       \</span></div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span><span class="preprocessor">    };                                                                         \</span></div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span><span class="preprocessor">    GMOCK_PP_IF(GMOCK_PP_IS_EMPTY(GMOCK_INTERNAL_COUNT_##value_params), ,      \</span></div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span><span class="preprocessor">                std::shared_ptr&lt;const gmock_Impl&gt; impl_;)                      \</span></div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span><span class="preprocessor">  };                                                                           \</span></div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span><span class="preprocessor">  template &lt;GMOCK_INTERNAL_DECL_##template_params                              \</span></div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span><span class="preprocessor">                GMOCK_INTERNAL_DECL_TYPE_##value_params&gt;                       \</span></div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span><span class="preprocessor">  GMOCK_ACTION_CLASS_(                                                         \</span></div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span><span class="preprocessor">      name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params                \</span></div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span><span class="preprocessor">                              GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;         \</span></div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span><span class="preprocessor">      name(GMOCK_INTERNAL_DECL_##value_params) GTEST_MUST_USE_RESULT_;         \</span></div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span><span class="preprocessor">  template &lt;GMOCK_INTERNAL_DECL_##template_params                              \</span></div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span><span class="preprocessor">                GMOCK_INTERNAL_DECL_TYPE_##value_params&gt;                       \</span></div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span><span class="preprocessor">  inline GMOCK_ACTION_CLASS_(                                                  \</span></div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span><span class="preprocessor">      name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params                \</span></div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span><span class="preprocessor">                              GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;         \</span></div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span><span class="preprocessor">  name(GMOCK_INTERNAL_DECL_##value_params) {                                   \</span></div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span><span class="preprocessor">    return GMOCK_ACTION_CLASS_(                                                \</span></div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span><span class="preprocessor">        name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params              \</span></div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span><span class="preprocessor">                                GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;(      \</span></div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span><span class="preprocessor">        GMOCK_INTERNAL_LIST_##value_params);                                   \</span></div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span><span class="preprocessor">  }                                                                            \</span></div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span><span class="preprocessor">  template &lt;GMOCK_INTERNAL_DECL_##template_params                              \</span></div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span><span class="preprocessor">                GMOCK_INTERNAL_DECL_TYPE_##value_params&gt;                       \</span></div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span><span class="preprocessor">  template &lt;typename function_type, typename return_type, typename args_type,  \</span></div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span><span class="preprocessor">            GMOCK_ACTION_TEMPLATE_ARGS_NAMES_&gt;                                 \</span></div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span><span class="preprocessor">  return_type GMOCK_ACTION_CLASS_(                                             \</span></div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span><span class="preprocessor">      name, value_params)&lt;GMOCK_INTERNAL_LIST_##template_params                \</span></div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span><span class="preprocessor">                              GMOCK_INTERNAL_LIST_TYPE_##value_params&gt;::       \</span></div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span><span class="preprocessor">      gmock_Impl::gmock_PerformImpl(GMOCK_ACTION_ARG_TYPES_AND_NAMES_UNUSED_)  \</span></div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span><span class="preprocessor">          const</span></div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span> </div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span><span class="keyword">namespace </span>testing {</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span> </div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span><span class="comment">// The ACTION*() macros trigger warning C4100 (unreferenced formal</span></div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span><span class="comment">// parameter) in MSVC with -W4.  Unfortunately they cannot be fixed in</span></div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span><span class="comment">// the macro definition, as the warnings are generated when the macro</span></div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span><span class="comment">// is expanded and macro expansion cannot contain #pragma.  Therefore</span></div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span><span class="comment">// we suppress them here.</span></div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span><span class="preprocessor">#ifdef _MSC_VER</span></div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span><span class="preprocessor">#pragma warning(push)</span></div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span><span class="preprocessor">#pragma warning(disable : 4100)</span></div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span> </div>
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span><span class="comment">// internal::InvokeArgument - a helper for InvokeArgument action.</span></div>
-<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span><span class="comment">// The basic overloads are provided here for generic functors.</span></div>
-<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span><span class="comment">// Overloads for other custom-callables are provided in the</span></div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span><span class="comment">// internal/custom/gmock-generated-actions.h header.</span></div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span><span class="keyword">auto</span> InvokeArgument(F f, Args... args) -&gt; <span class="keyword">decltype</span>(f(args...)) {</div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>  <span class="keywordflow">return</span> f(args...);</div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>}</div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span> </div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span><span class="keyword">template</span> &lt;std::size_t index, <span class="keyword">typename</span>... Params&gt;</div>
-<div class="foldopen" id="foldopen00600" data-start="{" data-end="};">
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno"><a class="line" href="structtesting_1_1internal_1_1InvokeArgumentAction.html">  600</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structtesting_1_1internal_1_1InvokeArgumentAction.html">InvokeArgumentAction</a> {</div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args,</div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>            <span class="keyword">typename</span> = <span class="keyword">typename</span> std::enable_if&lt;(index &lt; <span class="keyword">sizeof</span>...(Args))&gt;::type&gt;</div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>  <span class="keyword">auto</span> operator()(Args &amp;&amp;...args) <span class="keyword">const</span> -&gt; <span class="keyword">decltype</span>(internal::InvokeArgument(</div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>      std::get&lt;index&gt;(std::forward_as_tuple(std::forward&lt;Args&gt;(args)...)),</div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>      std::declval&lt;const Params &amp;&gt;()...)) {</div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>    <a class="code hl_class" href="classtesting_1_1internal_1_1FlatTuple.html">internal::FlatTuple</a>&lt;Args &amp;&amp;...&gt; args_tuple(<a class="code hl_struct" href="structtesting_1_1internal_1_1FlatTupleConstructTag.html">FlatTupleConstructTag</a>{},</div>
-<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>                                               std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    <span class="keywordflow">return</span> params.Apply([&amp;](<span class="keyword">const</span> Params &amp;...unpacked_params) {</div>
-<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>      <span class="keyword">auto</span> &amp;&amp;callable = args_tuple.template Get&lt;index&gt;();</div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>      <span class="keywordflow">return</span> internal::InvokeArgument(</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>          std::forward&lt;<span class="keyword">decltype</span>(callable)&gt;(callable), unpacked_params...);</div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    });</div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>  }</div>
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span> </div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>  <a class="code hl_class" href="classtesting_1_1internal_1_1FlatTuple.html">internal::FlatTuple</a>&lt;Params...&gt; params;</div>
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>};</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span><span class="keyword">namespace </span>internal {</div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span> </div>
+<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span><span class="comment">// internal::InvokeArgument - a helper for InvokeArgument action.</span></div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span><span class="comment">// The basic overloads are provided here for generic functors.</span></div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span><span class="comment">// Overloads for other custom-callables are provided in the</span></div>
+<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span><span class="comment">// internal/custom/gmock-generated-actions.h header.</span></div>
+<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><span class="keyword">auto</span> InvokeArgument(F f, Args... args) -&gt; <span class="keyword">decltype</span>(f(args...)) {</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>  <span class="keywordflow">return</span> f(args...);</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>}</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span><span class="keyword">template</span> &lt;std::size_t index, <span class="keyword">typename</span>... Params&gt;</div>
+<div class="foldopen" id="foldopen00602" data-start="{" data-end="};">
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno"><a class="line" href="structtesting_1_1internal_1_1InvokeArgumentAction.html">  602</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structtesting_1_1internal_1_1InvokeArgumentAction.html">InvokeArgumentAction</a> {</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args,</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>            <span class="keyword">typename</span> = <span class="keyword">typename</span> std::enable_if&lt;(index &lt; <span class="keyword">sizeof</span>...(Args))&gt;::type&gt;</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>  <span class="keyword">auto</span> operator()(Args&amp;&amp;... args) <span class="keyword">const</span> -&gt; <span class="keyword">decltype</span>(internal::InvokeArgument(</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>      std::get&lt;index&gt;(std::forward_as_tuple(std::forward&lt;Args&gt;(args)...)),</div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>      std::declval&lt;const Params&amp;&gt;()...)) {</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    <a class="code hl_class" href="classtesting_1_1internal_1_1FlatTuple.html">internal::FlatTuple</a>&lt;Args&amp;&amp;...&gt; args_tuple(<a class="code hl_struct" href="structtesting_1_1internal_1_1FlatTupleConstructTag.html">FlatTupleConstructTag</a>{},</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>                                              std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>    <span class="keywordflow">return</span> params.Apply([&amp;](<span class="keyword">const</span> Params&amp;... unpacked_params) {</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>      <span class="keyword">auto</span>&amp;&amp; callable = args_tuple.template Get&lt;index&gt;();</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>      <span class="keywordflow">return</span> internal::InvokeArgument(</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>          std::forward&lt;<span class="keyword">decltype</span>(callable)&gt;(callable), unpacked_params...);</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>    });</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>  }</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span> </div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>  <a class="code hl_class" href="classtesting_1_1internal_1_1FlatTuple.html">internal::FlatTuple</a>&lt;Params...&gt; params;</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>};</div>
 </div>
-<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span> </div>
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>}  <span class="comment">// namespace internal</span></div>
 <div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span> </div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span><span class="comment">// The InvokeArgument&lt;N&gt;(a1, a2, ..., a_k) action invokes the N-th</span></div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span><span class="comment">// (0-based) argument, which must be a k-ary callable, of the mock</span></div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span><span class="comment">// function, with arguments a1, a2, ..., a_k.</span></div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span><span class="comment">//</span></div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span><span class="comment">// Notes:</span></div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>}  <span class="comment">// namespace internal</span></div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span> </div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span><span class="comment">// The InvokeArgument&lt;N&gt;(a1, a2, ..., a_k) action invokes the N-th</span></div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span><span class="comment">// (0-based) argument, which must be a k-ary callable, of the mock</span></div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span><span class="comment">// function, with arguments a1, a2, ..., a_k.</span></div>
 <div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span><span class="comment">//</span></div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span><span class="comment">//   1. The arguments are passed by value by default.  If you need to</span></div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span><span class="comment">//   pass an argument by reference, wrap it inside std::ref().  For</span></div>
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span><span class="comment">//   example,</span></div>
-<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span><span class="comment">//</span></div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span><span class="comment">//     InvokeArgument&lt;1&gt;(5, string(&quot;Hello&quot;), std::ref(foo))</span></div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span><span class="comment">// Notes:</span></div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span><span class="comment">//</span></div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span><span class="comment">//   1. The arguments are passed by value by default.  If you need to</span></div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span><span class="comment">//   pass an argument by reference, wrap it inside std::ref().  For</span></div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span><span class="comment">//   example,</span></div>
 <div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span><span class="comment">//</span></div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span><span class="comment">//   passes 5 and string(&quot;Hello&quot;) by value, and passes foo by</span></div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span><span class="comment">//   reference.</span></div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span><span class="comment">//</span></div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span><span class="comment">//   2. If the callable takes an argument by reference but std::ref() is</span></div>
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span><span class="comment">//   not used, it will receive the reference to a copy of the value,</span></div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span><span class="comment">//   instead of the original value.  For example, when the 0-th</span></div>
-<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span><span class="comment">//   argument of the mock function takes a const string&amp;, the action</span></div>
-<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span><span class="comment">//</span></div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span><span class="comment">//     InvokeArgument&lt;0&gt;(string(&quot;Hello&quot;))</span></div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span><span class="comment">//     InvokeArgument&lt;1&gt;(5, string(&quot;Hello&quot;), std::ref(foo))</span></div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span><span class="comment">//</span></div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span><span class="comment">//   passes 5 and string(&quot;Hello&quot;) by value, and passes foo by</span></div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span><span class="comment">//   reference.</span></div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span><span class="comment">//</span></div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span><span class="comment">//   2. If the callable takes an argument by reference but std::ref() is</span></div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span><span class="comment">//   not used, it will receive the reference to a copy of the value,</span></div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span><span class="comment">//   instead of the original value.  For example, when the 0-th</span></div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span><span class="comment">//   argument of the mock function takes a const string&amp;, the action</span></div>
 <div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span><span class="comment">//</span></div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span><span class="comment">//   makes a copy of the temporary string(&quot;Hello&quot;) object and passes a</span></div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span><span class="comment">//   reference of the copy, instead of the original temporary object,</span></div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span><span class="comment">//   to the callable.  This makes it easy for a user to define an</span></div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span><span class="comment">//   InvokeArgument action from temporary values and have it performed</span></div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span><span class="comment">//   later.</span></div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span><span class="keyword">template</span> &lt;std::size_t index, <span class="keyword">typename</span>... Params&gt;</div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span><a class="code hl_struct" href="structtesting_1_1internal_1_1InvokeArgumentAction.html">internal::InvokeArgumentAction&lt;index, typename std::decay&lt;Params&gt;::type</a>...&gt;</div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>InvokeArgument(Params &amp;&amp;...params) {</div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>  <span class="keywordflow">return</span> {<a class="code hl_class" href="classtesting_1_1internal_1_1FlatTuple.html">internal::FlatTuple&lt;typename std::decay&lt;Params&gt;::type</a>...&gt;(</div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>      <a class="code hl_struct" href="structtesting_1_1internal_1_1FlatTupleConstructTag.html">internal::FlatTupleConstructTag</a>{}, std::forward&lt;Params&gt;(params)...)};</div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>}</div>
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span> </div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>GTEST_DISABLE_MSC_WARNINGS_POP_()  <span class="comment">// 4100</span></div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span><span class="comment">//     InvokeArgument&lt;0&gt;(string(&quot;Hello&quot;))</span></div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span><span class="comment">//</span></div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span><span class="comment">//   makes a copy of the temporary string(&quot;Hello&quot;) object and passes a</span></div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span><span class="comment">//   reference of the copy, instead of the original temporary object,</span></div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span><span class="comment">//   to the callable.  This makes it easy for a user to define an</span></div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span><span class="comment">//   InvokeArgument action from temporary values and have it performed</span></div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span><span class="comment">//   later.</span></div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span><span class="keyword">template</span> &lt;std::size_t index, <span class="keyword">typename</span>... Params&gt;</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span><a class="code hl_struct" href="structtesting_1_1internal_1_1InvokeArgumentAction.html">internal::InvokeArgumentAction&lt;index, typename std::decay&lt;Params&gt;::type</a>...&gt;</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>InvokeArgument(Params&amp;&amp;... params) {</div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>  <span class="keywordflow">return</span> {<a class="code hl_class" href="classtesting_1_1internal_1_1FlatTuple.html">internal::FlatTuple&lt;typename std::decay&lt;Params&gt;::type</a>...&gt;(</div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>      <a class="code hl_struct" href="structtesting_1_1internal_1_1FlatTupleConstructTag.html">internal::FlatTupleConstructTag</a>{}, std::forward&lt;Params&gt;(params)...)};</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>}</div>
 <div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span> </div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>}  <span class="comment">// namespace testing</span></div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span> </div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span><span class="preprocessor">#endif  </span><span class="comment">// GOOGLEMOCK_INCLUDE_GMOCK_GMOCK_MORE_ACTIONS_H_</span></div>
-<div class="ttc" id="aclasstesting_1_1internal_1_1FlatTuple_html"><div class="ttname"><a href="classtesting_1_1internal_1_1FlatTuple.html">testing::internal::FlatTuple</a></div><div class="ttdef"><b>Definition</b> gtest-internal.h:1267</div></div>
-<div class="ttc" id="astructtesting_1_1internal_1_1FlatTupleConstructTag_html"><div class="ttname"><a href="structtesting_1_1internal_1_1FlatTupleConstructTag.html">testing::internal::FlatTupleConstructTag</a></div><div class="ttdef"><b>Definition</b> gtest-internal.h:1203</div></div>
-<div class="ttc" id="astructtesting_1_1internal_1_1InvokeArgumentAction_html"><div class="ttname"><a href="structtesting_1_1internal_1_1InvokeArgumentAction.html">testing::internal::InvokeArgumentAction</a></div><div class="ttdef"><b>Definition</b> gmock-more-actions.h:600</div></div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span><span class="preprocessor">#ifdef _MSC_VER</span></div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span><span class="preprocessor">#pragma warning(pop)</span></div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span> </div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>}  <span class="comment">// namespace testing</span></div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span> </div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span><span class="preprocessor">#endif  </span><span class="comment">// GOOGLEMOCK_INCLUDE_GMOCK_GMOCK_MORE_ACTIONS_H_</span></div>
+<div class="ttc" id="aclasstesting_1_1internal_1_1FlatTuple_html"><div class="ttname"><a href="classtesting_1_1internal_1_1FlatTuple.html">testing::internal::FlatTuple</a></div><div class="ttdef"><b>Definition</b> gtest-internal.h:1279</div></div>
+<div class="ttc" id="astructtesting_1_1internal_1_1FlatTupleConstructTag_html"><div class="ttname"><a href="structtesting_1_1internal_1_1FlatTupleConstructTag.html">testing::internal::FlatTupleConstructTag</a></div><div class="ttdef"><b>Definition</b> gtest-internal.h:1215</div></div>
+<div class="ttc" id="astructtesting_1_1internal_1_1InvokeArgumentAction_html"><div class="ttname"><a href="structtesting_1_1internal_1_1InvokeArgumentAction.html">testing::internal::InvokeArgumentAction</a></div><div class="ttdef"><b>Definition</b> gmock-more-actions.h:602</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

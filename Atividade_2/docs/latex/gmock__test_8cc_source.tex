@@ -1,5 +1,5 @@
 \doxysection{gmock\+\_\+test.\+cc}
-\hypertarget{gmock__test_8cc_source}{}\label{gmock__test_8cc_source}\index{tests/lib/googlemock/test/gmock\_test.cc@{tests/lib/googlemock/test/gmock\_test.cc}}
+\hypertarget{gmock__test_8cc_source}{}\label{gmock__test_8cc_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/test/gmock\_test.cc@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/test/gmock\_test.cc}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2008,\ Google\ Inc.}}
@@ -178,7 +178,7 @@
 \DoxyCodeLine{00174\ \textcolor{comment}{//\ Makes\ sure\ Google\ Mock\ flags\ can\ be\ accessed\ in\ code.}}
 \DoxyCodeLine{00175\ TEST(FlagTest,\ IsAccessibleInCode)\ \{}
 \DoxyCodeLine{00176\ \ \ \textcolor{keywordtype}{bool}\ dummy\ =}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ GMOCK\_FLAG\_GET(catch\_leaked\_mocks)\ \&\&\ GMOCK\_FLAG\_GET(verbose).empty();}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ GMOCK\_FLAG\_GET(catch\_leaked\_mocks)\ \&\&\ GMOCK\_FLAG\_GET(verbose)\ ==\ \textcolor{stringliteral}{"{}"{}};}
 \DoxyCodeLine{00178\ \ \ (void)dummy;\ \ \textcolor{comment}{//\ Avoids\ the\ "{}unused\ local\ variable"{}\ warning.}}
 \DoxyCodeLine{00179\ \}}
 

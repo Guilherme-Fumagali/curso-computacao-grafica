@@ -3,7 +3,8 @@
 ## Visão geral
 
 Esse projeto fornece uma biblioteca de vetores (vec2, vec3 e vec4) e matrizes (mat2, mat3 e mat4) para C++.
-Consulta a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_2/docs/html/index.html
+
+Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_2/docs/html/index.html
 
 ## Compilação
 
@@ -26,7 +27,7 @@ Os arquivos compilados serão gerados na pasta `./build`.
 Para gerar a documentação do código, execute o comando abaixo:
 
 ```bash
-Doxygen Doxyfile
+doxygen Doxyfile
 ```
 
 A documentação será gerada na pasta `./docs`.

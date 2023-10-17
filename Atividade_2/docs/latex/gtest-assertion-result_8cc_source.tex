@@ -1,5 +1,5 @@
 \doxysection{gtest-\/assertion-\/result.cc}
-\hypertarget{gtest-assertion-result_8cc_source}{}\label{gtest-assertion-result_8cc_source}\index{tests/lib/googletest/src/gtest-\/assertion-\/result.cc@{tests/lib/googletest/src/gtest-\/assertion-\/result.cc}}
+\hypertarget{gtest-assertion-result_8cc_source}{}\label{gtest-assertion-result_8cc_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/src/gtest-\/assertion-\/result.cc@{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/src/gtest-\/assertion-\/result.cc}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2005,\ Google\ Inc.}}
@@ -48,7 +48,7 @@
 \DoxyCodeLine{00044\ \textcolor{comment}{//\ Used\ in\ EXPECT\_TRUE/FALSE(assertion\_result).}}
 \DoxyCodeLine{00045\ AssertionResult::AssertionResult(\textcolor{keyword}{const}\ AssertionResult\&\ other)}
 \DoxyCodeLine{00046\ \ \ \ \ :\ success\_(other.success\_),}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ message\_(other.message\_\ !=\ nullptr}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ message\_(other.message\_.get()\ !=\ nullptr}
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ new\ ::std::string(*other.message\_)}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ static\_cast<\ ::std::string*>(nullptr))\ \{\}}
 \DoxyCodeLine{00050\ }
@@ -62,7 +62,7 @@
 \DoxyCodeLine{00058\ \textcolor{comment}{//\ Returns\ the\ assertion's\ negation.\ Used\ with\ EXPECT/ASSERT\_FALSE.}}
 \DoxyCodeLine{00059\ AssertionResult\ AssertionResult::operator!()\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{00060\ \ \ AssertionResult\ negation(!success\_);}
-\DoxyCodeLine{00061\ \ \ \textcolor{keywordflow}{if}\ (message\_\ !=\ \textcolor{keyword}{nullptr})\ negation\ <<\ *message\_;}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordflow}{if}\ (message\_.get()\ !=\ \textcolor{keyword}{nullptr})\ negation\ <<\ *message\_;}
 \DoxyCodeLine{00062\ \ \ \textcolor{keywordflow}{return}\ negation;}
 \DoxyCodeLine{00063\ \}}
 \DoxyCodeLine{00064\ }

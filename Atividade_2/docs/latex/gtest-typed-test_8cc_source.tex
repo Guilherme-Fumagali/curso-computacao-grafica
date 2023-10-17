@@ -1,5 +1,5 @@
 \doxysection{gtest-\/typed-\/test.cc}
-\hypertarget{gtest-typed-test_8cc_source}{}\label{gtest-typed-test_8cc_source}\index{tests/lib/googletest/src/gtest-\/typed-\/test.cc@{tests/lib/googletest/src/gtest-\/typed-\/test.cc}}
+\hypertarget{gtest-typed-test_8cc_source}{}\label{gtest-typed-test_8cc_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/src/gtest-\/typed-\/test.cc@{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/src/gtest-\/typed-\/test.cc}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2008\ Google\ Inc.}}
@@ -33,82 +33,78 @@
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}gtest/gtest-\/typed-\/test.h"{}}}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <set>}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}gtest/gtest.h"{}}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }testing\ \{}
-\DoxyCodeLine{00039\ \textcolor{keyword}{namespace\ }internal\ \{}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{comment}{//\ Skips\ to\ the\ first\ non-\/space\ char\ in\ str.\ Returns\ an\ empty\ string\ if\ str}}
-\DoxyCodeLine{00042\ \textcolor{comment}{//\ contains\ only\ whitespace\ characters.}}
-\DoxyCodeLine{00043\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SkipSpaces(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str)\ \{}
-\DoxyCodeLine{00044\ \ \ \textcolor{keywordflow}{while}\ (IsSpace(*str))\ str++;}
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordflow}{return}\ str;}
-\DoxyCodeLine{00046\ \}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{static}\ std::vector<std::string>\ SplitIntoTestNames(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src)\ \{}
-\DoxyCodeLine{00049\ \ \ std::vector<std::string>\ name\_vec;}
-\DoxyCodeLine{00050\ \ \ src\ =\ SkipSpaces(src);}
-\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{for}\ (;\ src\ !=\ \textcolor{keyword}{nullptr};\ src\ =\ SkipComma(src))\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ name\_vec.push\_back(StripTrailingSpaces(GetPrefixUntilComma(src)));}
-\DoxyCodeLine{00053\ \ \ \}}
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{return}\ name\_vec;}
-\DoxyCodeLine{00055\ \}}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{comment}{//\ Verifies\ that\ registered\_tests\ match\ the\ test\ names\ in}}
-\DoxyCodeLine{00058\ \textcolor{comment}{//\ registered\_tests\_;\ returns\ registered\_tests\ if\ successful,\ or}}
-\DoxyCodeLine{00059\ \textcolor{comment}{//\ aborts\ the\ program\ otherwise.}}
-\DoxyCodeLine{00060\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ TypedTestSuitePState::VerifyRegisteredTestNames(}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ test\_suite\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ \textcolor{keywordtype}{int}\ line,}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ registered\_tests)\ \{}
-\DoxyCodeLine{00063\ \ \ RegisterTypeParameterizedTestSuite(test\_suite\_name,\ CodeLocation(file,\ line));}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{typedef}\ RegisteredTestsMap::const\_iterator\ RegisteredTestIter;}
-\DoxyCodeLine{00066\ \ \ registered\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}gtest/gtest.h"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }testing\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }internal\ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Skips\ to\ the\ first\ non-\/space\ char\ in\ str.\ Returns\ an\ empty\ string\ if\ str}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ contains\ only\ whitespace\ characters.}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SkipSpaces(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str)\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{while}\ (IsSpace(*str))\ str++;}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{return}\ str;}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ std::vector<std::string>\ SplitIntoTestNames(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src)\ \{}
+\DoxyCodeLine{00045\ \ \ std::vector<std::string>\ name\_vec;}
+\DoxyCodeLine{00046\ \ \ src\ =\ SkipSpaces(src);}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordflow}{for}\ (;\ src\ !=\ \textcolor{keyword}{nullptr};\ src\ =\ SkipComma(src))\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ name\_vec.push\_back(StripTrailingSpaces(GetPrefixUntilComma(src)));}
+\DoxyCodeLine{00049\ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordflow}{return}\ name\_vec;}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ Verifies\ that\ registered\_tests\ match\ the\ test\ names\ in}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ registered\_tests\_;\ returns\ registered\_tests\ if\ successful,\ or}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ aborts\ the\ program\ otherwise.}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ TypedTestSuitePState::VerifyRegisteredTestNames(}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ test\_suite\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ registered\_tests)\ \{}
+\DoxyCodeLine{00059\ \ \ RegisterTypeParameterizedTestSuite(test\_suite\_name,\ CodeLocation(file,\ line));}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{typedef}\ RegisteredTestsMap::const\_iterator\ RegisteredTestIter;}
+\DoxyCodeLine{00062\ \ \ registered\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ std::vector<std::string>\ name\_vec\ =\ SplitIntoTestNames(registered\_tests);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ Message\ errors;}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ std::vector<std::string>\ name\_vec\ =\ SplitIntoTestNames(registered\_tests);}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ Message\ errors;}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ std::set<std::string>\ tests;}
-\DoxyCodeLine{00073\ \ \ \textcolor{keywordflow}{for}\ (std::vector<std::string>::const\_iterator\ name\_it\ =\ name\_vec.begin();}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ name\_it\ !=\ name\_vec.end();\ ++name\_it)\ \{}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ name\ =\ *name\_it;}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (tests.count(name)\ !=\ 0)\ \{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ errors\ <<\ \textcolor{stringliteral}{"{}Test\ "{}}\ <<\ name\ <<\ \textcolor{stringliteral}{"{}\ is\ listed\ more\ than\ once.\(\backslash\)n"{}};}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00079\ \ \ \ \ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (registered\_tests\_.count(name)\ !=\ 0)\ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ tests.insert(name);}
-\DoxyCodeLine{00083\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ errors\ <<\ \textcolor{stringliteral}{"{}No\ test\ named\ "{}}\ <<\ name}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ can\ be\ found\ in\ this\ test\ suite.\(\backslash\)n"{}};}
-\DoxyCodeLine{00086\ \ \ \ \ \}}
-\DoxyCodeLine{00087\ \ \ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \textcolor{keywordflow}{for}\ (RegisteredTestIter\ it\ =\ registered\_tests\_.begin();}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ it\ !=\ registered\_tests\_.end();\ ++it)\ \{}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (tests.count(it-\/>first)\ ==\ 0)\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ errors\ <<\ \textcolor{stringliteral}{"{}You\ forgot\ to\ list\ test\ "{}}\ <<\ it-\/>first\ <<\ \textcolor{stringliteral}{"{}.\(\backslash\)n"{}};}
-\DoxyCodeLine{00093\ \ \ \ \ \}}
-\DoxyCodeLine{00094\ \ \ \}}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{const}\ std::string\&\ errors\_str\ =\ errors.GetString();}
-\DoxyCodeLine{00097\ \ \ \textcolor{keywordflow}{if}\ (!errors\_str.empty())\ \{}
-\DoxyCodeLine{00098\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}\%s\ \%s"{}},\ FormatFileLocation(file,\ line).c\_str(),}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ errors\_str.c\_str());}
-\DoxyCodeLine{00100\ \ \ \ \ fflush(stderr);}
-\DoxyCodeLine{00101\ \ \ \ \ posix::Abort();}
-\DoxyCodeLine{00102\ \ \ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \textcolor{keywordflow}{return}\ registered\_tests;}
-\DoxyCodeLine{00105\ \}}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
-\DoxyCodeLine{00108\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
+\DoxyCodeLine{00068\ \ \ std::set<std::string>\ tests;}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{for}\ (std::vector<std::string>::const\_iterator\ name\_it\ =\ name\_vec.begin();}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ name\_it\ !=\ name\_vec.end();\ ++name\_it)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ name\ =\ *name\_it;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (tests.count(name)\ !=\ 0)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ errors\ <<\ \textcolor{stringliteral}{"{}Test\ "{}}\ <<\ name\ <<\ \textcolor{stringliteral}{"{}\ is\ listed\ more\ than\ once.\(\backslash\)n"{}};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (registered\_tests\_.count(name)\ !=\ 0)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ tests.insert(name);}
+\DoxyCodeLine{00079\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ errors\ <<\ \textcolor{stringliteral}{"{}No\ test\ named\ "{}}\ <<\ name}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ can\ be\ found\ in\ this\ test\ suite.\(\backslash\)n"{}};}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{for}\ (RegisteredTestIter\ it\ =\ registered\_tests\_.begin();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ it\ !=\ registered\_tests\_.end();\ ++it)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (tests.count(it-\/>first)\ ==\ 0)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ errors\ <<\ \textcolor{stringliteral}{"{}You\ forgot\ to\ list\ test\ "{}}\ <<\ it-\/>first\ <<\ \textcolor{stringliteral}{"{}.\(\backslash\)n"{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{const}\ std::string\&\ errors\_str\ =\ errors.GetString();}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{if}\ (errors\_str\ !=\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}\%s\ \%s"{}},\ FormatFileLocation(file,\ line).c\_str(),}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ errors\_str.c\_str());}
+\DoxyCodeLine{00096\ \ \ \ \ fflush(stderr);}
+\DoxyCodeLine{00097\ \ \ \ \ posix::Abort();}
+\DoxyCodeLine{00098\ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{return}\ registered\_tests;}
+\DoxyCodeLine{00101\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00104\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
 
 \end{DoxyCode}

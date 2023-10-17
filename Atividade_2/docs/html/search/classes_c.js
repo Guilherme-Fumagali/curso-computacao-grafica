@@ -12,7 +12,7 @@ var searchData=
   ['nicemock_9',['NiceMock',['../classtesting_1_1NiceMock.html',1,'testing']]],
   ['nicemockimpl_10',['NiceMockImpl',['../classtesting_1_1internal_1_1NiceMockImpl.html',1,'testing::internal']]],
   ['nicemockimpl_3c_20mockclass_20_3e_11',['NiceMockImpl&lt; MockClass &gt;',['../classtesting_1_1internal_1_1NiceMockImpl.html',1,'testing::internal']]],
-  ['nodefaultconstructor_12',['NoDefaultConstructor',['../classtesting_1_1internal_1_1NoDefaultConstructor.html',1,'testing::internal']]],
+  ['nodefaultcontructor_12',['NoDefaultContructor',['../classtesting_1_1internal_1_1NoDefaultContructor.html',1,'testing::internal']]],
   ['noncontainer_13',['NonContainer',['../classNonContainer.html',1,'']]],
   ['nondefaultconstructassignstring_14',['NonDefaultConstructAssignString',['../classNonDefaultConstructAssignString.html',1,'']]],
   ['none_15',['None',['../structtesting_1_1internal_1_1None.html',1,'testing::internal']]],

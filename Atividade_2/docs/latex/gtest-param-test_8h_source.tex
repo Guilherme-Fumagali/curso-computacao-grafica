@@ -1,5 +1,5 @@
 \doxysection{gtest-\/param-\/test.h}
-\hypertarget{gtest-param-test_8h_source}{}\label{gtest-param-test_8h_source}\index{tests/lib/googletest/include/gtest/gtest-\/param-\/test.h@{tests/lib/googletest/include/gtest/gtest-\/param-\/test.h}}
+\hypertarget{gtest-param-test_8h_source}{}\label{gtest-param-test_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/include/gtest/gtest-\/param-\/test.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/include/gtest/gtest-\/param-\/test.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2008,\ Google\ Inc.}}
@@ -411,7 +411,7 @@
 \DoxyCodeLine{00407\ \ \ \textcolor{keywordflow}{return}\ internal::CartesianProductHolder<Generator...>(g...);}
 \DoxyCodeLine{00408\ \}}
 \DoxyCodeLine{00409\ }
-\DoxyCodeLine{00410\ \textcolor{comment}{//\ ConvertGenerator()\ wraps\ a\ parameter\ generator\ in\ order\ to\ cast\ each\ produced}}
+\DoxyCodeLine{00410\ \textcolor{comment}{//\ ConvertGenerator()\ wraps\ a\ parameter\ generator\ in\ order\ to\ cast\ each\ prduced}}
 \DoxyCodeLine{00411\ \textcolor{comment}{//\ value\ through\ a\ known\ type\ before\ supplying\ it\ to\ the\ test\ suite}}
 \DoxyCodeLine{00412\ \textcolor{comment}{//}}
 \DoxyCodeLine{00413\ \textcolor{comment}{//\ Synopsis:}}
@@ -453,100 +453,99 @@
 \DoxyCodeLine{00449\ }
 \DoxyCodeLine{00450\ \textcolor{preprocessor}{\#define\ TEST\_P(test\_suite\_name,\ test\_name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
 \DoxyCodeLine{00451\ \textcolor{preprocessor}{\ \ class\ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ test\_name)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00452\ \textcolor{preprocessor}{\ \ \ \ \ \ :\ public\ test\_suite\_name,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00453\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ private\ ::testing::internal::GTestNonCopyable\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00454\ \textcolor{preprocessor}{\ \ \ public:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00455\ \textcolor{preprocessor}{\ \ \ \ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ test\_name)()\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00456\ \textcolor{preprocessor}{\ \ \ \ void\ TestBody()\ override;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00457\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00458\ \textcolor{preprocessor}{\ \ \ private:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \ static\ int\ AddToRegistry()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00460\ \textcolor{preprocessor}{\ \ \ \ \ \ ::testing::UnitTest::GetInstance()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00461\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ -\/>parameterized\_test\_registry()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00462\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ .GetTestSuitePatternHolder<test\_suite\_name>(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(test\_suite\_name),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ ::testing::internal::CodeLocation(\_\_FILE\_\_,\ \_\_LINE\_\_))\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ -\/>AddTestPattern(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(test\_suite\_name),\ GTEST\_STRINGIFY\_(test\_name),\ \ \(\backslash\)}}
-\DoxyCodeLine{00467\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ new\ ::testing::internal::TestMetaFactory<GTEST\_TEST\_CLASS\_NAME\_(\ \(\backslash\)}}
-\DoxyCodeLine{00468\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ test\_suite\_name,\ test\_name)>(),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00469\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ ::testing::internal::CodeLocation(\_\_FILE\_\_,\ \_\_LINE\_\_));\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00470\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00471\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \ \ static\ int\ gtest\_registering\_dummy\_\ GTEST\_ATTRIBUTE\_UNUSED\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00473\ \textcolor{preprocessor}{\ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00474\ \textcolor{preprocessor}{\ \ int\ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00475\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ test\_name)::gtest\_registering\_dummy\_\ =\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00476\ \textcolor{preprocessor}{\ \ \ \ \ \ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ test\_name)::AddToRegistry();\ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00477\ \textcolor{preprocessor}{\ \ void\ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ test\_name)::TestBody()}}
-\DoxyCodeLine{00478\ }
-\DoxyCodeLine{00479\ \textcolor{comment}{//\ The\ last\ argument\ to\ INSTANTIATE\_TEST\_SUITE\_P\ allows\ the\ user\ to\ specify}}
-\DoxyCodeLine{00480\ \textcolor{comment}{//\ generator\ and\ an\ optional\ function\ or\ functor\ that\ generates\ custom\ test\ name}}
-\DoxyCodeLine{00481\ \textcolor{comment}{//\ suffixes\ based\ on\ the\ test\ parameters.\ Such\ a\ function\ or\ functor\ should}}
-\DoxyCodeLine{00482\ \textcolor{comment}{//\ accept\ one\ argument\ of\ type\ testing::TestParamInfo<class\ ParamType>,\ and}}
-\DoxyCodeLine{00483\ \textcolor{comment}{//\ return\ std::string.}}
-\DoxyCodeLine{00484\ \textcolor{comment}{//}}
-\DoxyCodeLine{00485\ \textcolor{comment}{//\ testing::PrintToStringParamName\ is\ a\ builtin\ test\ suffix\ generator\ that}}
-\DoxyCodeLine{00486\ \textcolor{comment}{//\ returns\ the\ value\ of\ testing::PrintToString(GetParam()).}}
-\DoxyCodeLine{00487\ \textcolor{comment}{//}}
-\DoxyCodeLine{00488\ \textcolor{comment}{//\ Note:\ test\ names\ must\ be\ non-\/empty,\ unique,\ and\ may\ only\ contain\ ASCII}}
-\DoxyCodeLine{00489\ \textcolor{comment}{//\ alphanumeric\ characters\ or\ underscore.\ Because\ PrintToString\ adds\ quotes}}
-\DoxyCodeLine{00490\ \textcolor{comment}{//\ to\ std::string\ and\ C\ strings,\ it\ won't\ work\ for\ these\ types.}}
-\DoxyCodeLine{00491\ }
-\DoxyCodeLine{00492\ \textcolor{preprocessor}{\#define\ GTEST\_EXPAND\_(arg)\ arg}}
-\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#define\ GTEST\_GET\_FIRST\_(first,\ ...)\ first}}
-\DoxyCodeLine{00494\ \textcolor{preprocessor}{\#define\ GTEST\_GET\_SECOND\_(first,\ second,\ ...)\ second}}
-\DoxyCodeLine{00495\ }
-\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#define\ INSTANTIATE\_TEST\_SUITE\_P(prefix,\ test\_suite\_name,\ ...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00497\ \textcolor{preprocessor}{\ \ static\ ::testing::internal::ParamGenerator<test\_suite\_name::ParamType>\ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00498\ \textcolor{preprocessor}{\ \ \ \ \ \ gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerator\_()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00499\ \textcolor{preprocessor}{\ \ \ \ return\ GTEST\_EXPAND\_(GTEST\_GET\_FIRST\_(\_\_VA\_ARGS\_\_,\ DUMMY\_PARAM\_));\ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00500\ \textcolor{preprocessor}{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00501\ \textcolor{preprocessor}{\ \ static\ ::std::string\ gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerateName\_(\ \ \(\backslash\)}}
-\DoxyCodeLine{00502\ \textcolor{preprocessor}{\ \ \ \ \ \ const\ ::testing::TestParamInfo<test\_suite\_name::ParamType>\&\ info)\ \{\ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00503\ \textcolor{preprocessor}{\ \ \ \ if\ (::testing::internal::AlwaysFalse())\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00504\ \textcolor{preprocessor}{\ \ \ \ \ \ ::testing::internal::TestNotEmpty(GTEST\_EXPAND\_(GTEST\_GET\_SECOND\_(\ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00505\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \_\_VA\_ARGS\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00506\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ ::testing::internal::DefaultParamName<test\_suite\_name::ParamType>,\ \(\backslash\)}}
-\DoxyCodeLine{00507\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ DUMMY\_PARAM\_)));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00508\ \textcolor{preprocessor}{\ \ \ \ \ \ auto\ t\ =\ std::make\_tuple(\_\_VA\_ARGS\_\_);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00509\ \textcolor{preprocessor}{\ \ \ \ \ \ static\_assert(std::tuple\_size<decltype(t)>::value\ <=\ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00510\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Too\ Many\ Args!"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00511\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00512\ \textcolor{preprocessor}{\ \ \ \ return\ ((GTEST\_EXPAND\_(GTEST\_GET\_SECOND\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00513\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_\_VA\_ARGS\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00514\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ ::testing::internal::DefaultParamName<test\_suite\_name::ParamType>,\ \ \ \(\backslash\)}}
-\DoxyCodeLine{00515\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ DUMMY\_PARAM\_))))(info);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00516\ \textcolor{preprocessor}{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00517\ \textcolor{preprocessor}{\ \ static\ int\ gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_dummy\_\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00518\ \textcolor{preprocessor}{\ \ \ \ \ \ GTEST\_ATTRIBUTE\_UNUSED\_\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00519\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ ::testing::UnitTest::GetInstance()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00520\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>parameterized\_test\_registry()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ .GetTestSuitePatternHolder<test\_suite\_name>(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(test\_suite\_name),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00523\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::testing::internal::CodeLocation(\_\_FILE\_\_,\ \_\_LINE\_\_))\ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00524\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>AddTestSuiteInstantiation(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00525\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(prefix),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerator\_,\ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerateName\_,\ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00528\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \_\_LINE\_\_)}}
-\DoxyCodeLine{00529\ }
-\DoxyCodeLine{00530\ \textcolor{comment}{//\ Allow\ Marking\ a\ Parameterized\ test\ class\ as\ not\ needing\ to\ be\ instantiated.}}
-\DoxyCodeLine{00531\ \textcolor{preprocessor}{\#define\ GTEST\_ALLOW\_UNINSTANTIATED\_PARAMETERIZED\_TEST(T)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00532\ \textcolor{preprocessor}{\ \ namespace\ gtest\_do\_not\_use\_outside\_namespace\_scope\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00533\ \textcolor{preprocessor}{\ \ static\ const\ ::testing::internal::MarkAsIgnored\ gtest\_allow\_ignore\_\#\#T(\ \(\backslash\)}}
-\DoxyCodeLine{00534\ \textcolor{preprocessor}{\ \ \ \ \ \ GTEST\_STRINGIFY\_(T))}}
-\DoxyCodeLine{00535\ }
-\DoxyCodeLine{00536\ \textcolor{comment}{//\ Legacy\ API\ is\ deprecated\ but\ still\ available}}
-\DoxyCodeLine{00537\ \textcolor{preprocessor}{\#ifndef\ GTEST\_REMOVE\_LEGACY\_TEST\_CASEAPI\_}}
-\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#define\ INSTANTIATE\_TEST\_CASE\_P\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00539\ \textcolor{preprocessor}{\ \ static\_assert(::testing::internal::InstantiateTestCase\_P\_IsDeprecated(),\ \(\backslash\)}}
-\DoxyCodeLine{00540\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00541\ \textcolor{preprocessor}{\ \ INSTANTIATE\_TEST\_SUITE\_P}}
-\DoxyCodeLine{00542\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GTEST\_REMOVE\_LEGACY\_TEST\_CASEAPI\_}}
-\DoxyCodeLine{00543\ }
-\DoxyCodeLine{00544\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
-\DoxyCodeLine{00545\ }
-\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLETEST\_INCLUDE\_GTEST\_GTEST\_PARAM\_TEST\_H\_}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\ \ \ \ \ \ :\ public\ test\_suite\_name,\ private\ ::testing::internal::GTestNonCopyable\ \{\(\backslash\)}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\ \ \ public:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\ \ \ \ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ test\_name)()\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\ \ \ \ void\ TestBody()\ override;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\ \ \ private:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\ \ \ \ static\ int\ AddToRegistry()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \ \ \ ::testing::UnitTest::GetInstance()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ -\/>parameterized\_test\_registry()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ .GetTestSuitePatternHolder<test\_suite\_name>(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(test\_suite\_name),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ ::testing::internal::CodeLocation(\_\_FILE\_\_,\ \_\_LINE\_\_))\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ -\/>AddTestPattern(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(test\_suite\_name),\ GTEST\_STRINGIFY\_(test\_name),\ \ \(\backslash\)}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ new\ ::testing::internal::TestMetaFactory<GTEST\_TEST\_CLASS\_NAME\_(\ \(\backslash\)}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ test\_suite\_name,\ test\_name)>(),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ ::testing::internal::CodeLocation(\_\_FILE\_\_,\ \_\_LINE\_\_));\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\ \ \ \ static\ int\ gtest\_registering\_dummy\_\ GTEST\_ATTRIBUTE\_UNUSED\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\ \ int\ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ test\_name)::gtest\_registering\_dummy\_\ =\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\ \ \ \ \ \ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ test\_name)::AddToRegistry();\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\ \ void\ GTEST\_TEST\_CLASS\_NAME\_(test\_suite\_name,\ test\_name)::TestBody()}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \textcolor{comment}{//\ The\ last\ argument\ to\ INSTANTIATE\_TEST\_SUITE\_P\ allows\ the\ user\ to\ specify}}
+\DoxyCodeLine{00479\ \textcolor{comment}{//\ generator\ and\ an\ optional\ function\ or\ functor\ that\ generates\ custom\ test\ name}}
+\DoxyCodeLine{00480\ \textcolor{comment}{//\ suffixes\ based\ on\ the\ test\ parameters.\ Such\ a\ function\ or\ functor\ should}}
+\DoxyCodeLine{00481\ \textcolor{comment}{//\ accept\ one\ argument\ of\ type\ testing::TestParamInfo<class\ ParamType>,\ and}}
+\DoxyCodeLine{00482\ \textcolor{comment}{//\ return\ std::string.}}
+\DoxyCodeLine{00483\ \textcolor{comment}{//}}
+\DoxyCodeLine{00484\ \textcolor{comment}{//\ testing::PrintToStringParamName\ is\ a\ builtin\ test\ suffix\ generator\ that}}
+\DoxyCodeLine{00485\ \textcolor{comment}{//\ returns\ the\ value\ of\ testing::PrintToString(GetParam()).}}
+\DoxyCodeLine{00486\ \textcolor{comment}{//}}
+\DoxyCodeLine{00487\ \textcolor{comment}{//\ Note:\ test\ names\ must\ be\ non-\/empty,\ unique,\ and\ may\ only\ contain\ ASCII}}
+\DoxyCodeLine{00488\ \textcolor{comment}{//\ alphanumeric\ characters\ or\ underscore.\ Because\ PrintToString\ adds\ quotes}}
+\DoxyCodeLine{00489\ \textcolor{comment}{//\ to\ std::string\ and\ C\ strings,\ it\ won't\ work\ for\ these\ types.}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#define\ GTEST\_EXPAND\_(arg)\ arg}}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\#define\ GTEST\_GET\_FIRST\_(first,\ ...)\ first}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#define\ GTEST\_GET\_SECOND\_(first,\ second,\ ...)\ second}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#define\ INSTANTIATE\_TEST\_SUITE\_P(prefix,\ test\_suite\_name,\ ...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\ \ static\ ::testing::internal::ParamGenerator<test\_suite\_name::ParamType>\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\ \ \ \ \ \ gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerator\_()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\ \ \ \ return\ GTEST\_EXPAND\_(GTEST\_GET\_FIRST\_(\_\_VA\_ARGS\_\_,\ DUMMY\_PARAM\_));\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\ \ static\ ::std::string\ gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerateName\_(\ \ \(\backslash\)}}
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\ \ \ \ \ \ const\ ::testing::TestParamInfo<test\_suite\_name::ParamType>\&\ info)\ \{\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\ \ \ \ if\ (::testing::internal::AlwaysFalse())\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\ \ \ \ \ \ ::testing::internal::TestNotEmpty(GTEST\_EXPAND\_(GTEST\_GET\_SECOND\_(\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \_\_VA\_ARGS\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ ::testing::internal::DefaultParamName<test\_suite\_name::ParamType>,\ \(\backslash\)}}
+\DoxyCodeLine{00506\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ DUMMY\_PARAM\_)));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\ \ \ \ \ \ auto\ t\ =\ std::make\_tuple(\_\_VA\_ARGS\_\_);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\ \ \ \ \ \ static\_assert(std::tuple\_size<decltype(t)>::value\ <=\ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Too\ Many\ Args!"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\ \ \ \ return\ ((GTEST\_EXPAND\_(GTEST\_GET\_SECOND\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00512\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_\_VA\_ARGS\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00513\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ ::testing::internal::DefaultParamName<test\_suite\_name::ParamType>,\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ DUMMY\_PARAM\_))))(info);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00515\ \textcolor{preprocessor}{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00516\ \textcolor{preprocessor}{\ \ static\ int\ gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_dummy\_\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00517\ \textcolor{preprocessor}{\ \ \ \ \ \ GTEST\_ATTRIBUTE\_UNUSED\_\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ ::testing::UnitTest::GetInstance()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00519\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>parameterized\_test\_registry()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ .GetTestSuitePatternHolder<test\_suite\_name>(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(test\_suite\_name),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::testing::internal::CodeLocation(\_\_FILE\_\_,\ \_\_LINE\_\_))\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>AddTestSuiteInstantiation(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00524\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GTEST\_STRINGIFY\_(prefix),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00525\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerator\_,\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&gtest\_\#\#prefix\#\#test\_suite\_name\#\#\_EvalGenerateName\_,\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \_\_LINE\_\_)}}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \textcolor{comment}{//\ Allow\ Marking\ a\ Parameterized\ test\ class\ as\ not\ needing\ to\ be\ instantiated.}}
+\DoxyCodeLine{00530\ \textcolor{preprocessor}{\#define\ GTEST\_ALLOW\_UNINSTANTIATED\_PARAMETERIZED\_TEST(T)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\ \ namespace\ gtest\_do\_not\_use\_outside\_namespace\_scope\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00532\ \textcolor{preprocessor}{\ \ static\ const\ ::testing::internal::MarkAsIgnored\ gtest\_allow\_ignore\_\#\#T(\ \(\backslash\)}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\ \ \ \ \ \ GTEST\_STRINGIFY\_(T))}}
+\DoxyCodeLine{00534\ }
+\DoxyCodeLine{00535\ \textcolor{comment}{//\ Legacy\ API\ is\ deprecated\ but\ still\ available}}
+\DoxyCodeLine{00536\ \textcolor{preprocessor}{\#ifndef\ GTEST\_REMOVE\_LEGACY\_TEST\_CASEAPI\_}}
+\DoxyCodeLine{00537\ \textcolor{preprocessor}{\#define\ INSTANTIATE\_TEST\_CASE\_P\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\ \ static\_assert(::testing::internal::InstantiateTestCase\_P\_IsDeprecated(),\ \(\backslash\)}}
+\DoxyCodeLine{00539\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\ \ INSTANTIATE\_TEST\_SUITE\_P}}
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GTEST\_REMOVE\_LEGACY\_TEST\_CASEAPI\_}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLETEST\_INCLUDE\_GTEST\_GTEST\_PARAM\_TEST\_H\_}}
 
 \end{DoxyCode}

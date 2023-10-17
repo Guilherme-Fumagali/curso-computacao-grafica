@@ -1,5 +1,5 @@
 \doxysection{gmock-\/cardinalities.h}
-\hypertarget{gmock-cardinalities_8h_source}{}\label{gmock-cardinalities_8h_source}\index{tests/lib/googlemock/include/gmock/gmock-\/cardinalities.h@{tests/lib/googlemock/include/gmock/gmock-\/cardinalities.h}}
+\hypertarget{gmock-cardinalities_8h_source}{}\label{gmock-cardinalities_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/gmock-\/cardinalities.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/gmock-\/cardinalities.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2007,\ Google\ Inc.}}
@@ -69,7 +69,7 @@
 \DoxyCodeLine{00065\ \textcolor{comment}{//\ The\ implementation\ of\ a\ cardinality.}}
 \DoxyCodeLine{00066\ \textcolor{keyword}{class\ }CardinalityInterface\ \{}
 \DoxyCodeLine{00067\ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{virtual}\ \string~CardinalityInterface()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{virtual}\ \string~CardinalityInterface()\ \{\}}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ Conservative\ estimate\ on\ the\ lower/upper\ bound\ of\ the\ number\ of}}
 \DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ calls\ allowed.}}
@@ -96,7 +96,7 @@
 \DoxyCodeLine{00092\ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00093\ \ \ \textcolor{comment}{//\ Constructs\ a\ null\ cardinality.\ \ Needed\ for\ storing\ Cardinality}}
 \DoxyCodeLine{00094\ \ \ \textcolor{comment}{//\ objects\ in\ STL\ containers.}}
-\DoxyCodeLine{00095\ \ \ Cardinality()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00095\ \ \ Cardinality()\ \{\}}
 \DoxyCodeLine{00096\ }
 \DoxyCodeLine{00097\ \ \ \textcolor{comment}{//\ Constructs\ a\ Cardinality\ from\ its\ implementation.}}
 \DoxyCodeLine{00098\ \ \ \textcolor{keyword}{explicit}\ Cardinality(\textcolor{keyword}{const}\ CardinalityInterface*\ impl)\ :\ impl\_(impl)\ \{\}}

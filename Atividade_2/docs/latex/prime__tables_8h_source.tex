@@ -1,5 +1,5 @@
 \doxysection{prime\+\_\+tables.\+h}
-\hypertarget{prime__tables_8h_source}{}\label{prime__tables_8h_source}\index{tests/lib/googletest/samples/prime\_tables.h@{tests/lib/googletest/samples/prime\_tables.h}}
+\hypertarget{prime__tables_8h_source}{}\label{prime__tables_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/samples/prime\_tables.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/samples/prime\_tables.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2008\ Google\ Inc.}}
@@ -43,7 +43,7 @@
 \DoxyCodeLine{00039\ \textcolor{comment}{//\ The\ prime\ table\ interface.}}
 \DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPrimeTable}{PrimeTable}}\ \{}
 \DoxyCodeLine{00041\ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classPrimeTable}{\string~PrimeTable}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classPrimeTable}{\string~PrimeTable}}()\ \{\}}
 \DoxyCodeLine{00043\ }
 \DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ Returns\ true\ if\ and\ only\ if\ n\ is\ a\ prime\ number.}}
 \DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ IsPrime(\textcolor{keywordtype}{int}\ n)\ \textcolor{keyword}{const}\ =\ 0;}
@@ -82,50 +82,49 @@
 \DoxyCodeLine{00078\ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ 'max'\ specifies\ the\ maximum\ number\ the\ prime\ table\ holds.}}
 \DoxyCodeLine{00080\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classPreCalculatedPrimeTable}{PreCalculatedPrimeTable}}(\textcolor{keywordtype}{int}\ max)}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ :\ is\_prime\_size\_(std::max(1,\ max\ +\ 1)),}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ is\_prime\_(\textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(is\_prime\_size\_)])\ \{}
-\DoxyCodeLine{00083\ \ \ \ \ CalculatePrimesUpTo(is\_prime\_size\_\ -\/\ 1);}
-\DoxyCodeLine{00084\ \ \ \}}
-\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{classPreCalculatedPrimeTable}{\string~PreCalculatedPrimeTable}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keyword}{delete}[]\ is\_prime\_;\ \}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{bool}\ IsPrime(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ override\ }\{}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ 0\ <=\ n\ \&\&\ n\ <\ is\_prime\_size\_\ \&\&\ is\_prime\_[n];}
-\DoxyCodeLine{00089\ \ \ \}}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{int}\ GetNextPrime(\textcolor{keywordtype}{int}\ p)\textcolor{keyword}{\ const\ override\ }\{}
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ p\ +\ 1;\ n\ <\ is\_prime\_size\_;\ n++)\ \{}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_prime\_[n])\ \textcolor{keywordflow}{return}\ n;}
-\DoxyCodeLine{00094\ \ \ \ \ \}}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{00097\ \ \ \}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{void}\ CalculatePrimesUpTo(\textcolor{keywordtype}{int}\ max)\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ ::std::fill(is\_prime\_,\ is\_prime\_\ +\ is\_prime\_size\_,\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00102\ \ \ \ \ is\_prime\_[0]\ =\ is\_prime\_[1]\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ Checks\ every\ candidate\ for\ prime\ number\ (we\ know\ that\ 2\ is\ the\ only\ even}}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ prime).}}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ *\ i\ <=\ max;\ i\ +=\ i\ \%\ 2\ +\ 1)\ \{}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_prime\_[i])\ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \textcolor{comment}{//\ Marks\ all\ multiples\ of\ i\ (except\ i\ itself)\ as\ non-\/prime.}}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ starting\ here\ from\ i-\/th\ multiplier,\ because\ all\ smaller}}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{comment}{//\ complex\ numbers\ were\ already\ marked.}}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ *\ i;\ j\ <=\ max;\ j\ +=\ i)\ \{}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ is\_prime\_[j]\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00115\ \ \ \ \ \}}
-\DoxyCodeLine{00116\ \ \ \}}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ is\_prime\_size\_;}
-\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{bool}*\ \textcolor{keyword}{const}\ is\_prime\_;}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \ \ \textcolor{comment}{//\ Disables\ compiler\ warning\ "{}assignment\ operator\ could\ not\ be\ generated."{}}}
-\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPreCalculatedPrimeTable}{PreCalculatedPrimeTable}}\&\ rhs);}
-\DoxyCodeLine{00123\ \};}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLETEST\_SAMPLES\_PRIME\_TABLES\_H\_}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ :\ is\_prime\_size\_(max\ +\ 1),\ is\_prime\_(\textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[max\ +\ 1])\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ CalculatePrimesUpTo(max);}
+\DoxyCodeLine{00083\ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{classPreCalculatedPrimeTable}{\string~PreCalculatedPrimeTable}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keyword}{delete}[]\ is\_prime\_;\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{bool}\ IsPrime(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ 0\ <=\ n\ \&\&\ n\ <\ is\_prime\_size\_\ \&\&\ is\_prime\_[n];}
+\DoxyCodeLine{00088\ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{int}\ GetNextPrime(\textcolor{keywordtype}{int}\ p)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ p\ +\ 1;\ n\ <\ is\_prime\_size\_;\ n++)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_prime\_[n])\ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00096\ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ CalculatePrimesUpTo(\textcolor{keywordtype}{int}\ max)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ ::std::fill(is\_prime\_,\ is\_prime\_\ +\ is\_prime\_size\_,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00101\ \ \ \ \ is\_prime\_[0]\ =\ is\_prime\_[1]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ Checks\ every\ candidate\ for\ prime\ number\ (we\ know\ that\ 2\ is\ the\ only\ even}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ prime).}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ *\ i\ <=\ max;\ i\ +=\ i\ \%\ 2\ +\ 1)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_prime\_[i])\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \textcolor{comment}{//\ Marks\ all\ multiples\ of\ i\ (except\ i\ itself)\ as\ non-\/prime.}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \textcolor{comment}{//\ We\ are\ starting\ here\ from\ i-\/th\ multiplier,\ because\ all\ smaller}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \textcolor{comment}{//\ complex\ numbers\ were\ already\ marked.}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ *\ i;\ j\ <=\ max;\ j\ +=\ i)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ is\_prime\_[j]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ is\_prime\_size\_;}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{bool}*\ \textcolor{keyword}{const}\ is\_prime\_;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{comment}{//\ Disables\ compiler\ warning\ "{}assignment\ operator\ could\ not\ be\ generated."{}}}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPreCalculatedPrimeTable}{PreCalculatedPrimeTable}}\&\ rhs);}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLETEST\_SAMPLES\_PRIME\_TABLES\_H\_}}
 
 \end{DoxyCode}

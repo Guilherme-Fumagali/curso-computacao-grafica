@@ -1,5 +1,5 @@
 \doxysection{gtest-\/death-\/test.h}
-\hypertarget{gtest-death-test_8h_source}{}\label{gtest-death-test_8h_source}\index{tests/lib/googletest/include/gtest/gtest-\/death-\/test.h@{tests/lib/googletest/include/gtest/gtest-\/death-\/test.h}}
+\hypertarget{gtest-death-test_8h_source}{}\label{gtest-death-test_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/include/gtest/gtest-\/death-\/test.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/include/gtest/gtest-\/death-\/test.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2005,\ Google\ Inc.}}
@@ -55,7 +55,7 @@
 \DoxyCodeLine{00051\ }
 \DoxyCodeLine{00052\ \textcolor{keyword}{namespace\ }testing\ \{}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifdef\ GTEST\_HAS\_DEATH\_TEST}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#if\ GTEST\_HAS\_DEATH\_TEST}}
 \DoxyCodeLine{00055\ }
 \DoxyCodeLine{00056\ \textcolor{keyword}{namespace\ }internal\ \{}
 \DoxyCodeLine{00057\ }
@@ -207,7 +207,7 @@
 \DoxyCodeLine{00203\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ exit\_code\_;}
 \DoxyCodeLine{00204\ \};}
 \DoxyCodeLine{00205\ }
-\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#if\ !defined(GTEST\_OS\_WINDOWS)\ \&\&\ !defined(GTEST\_OS\_FUCHSIA)}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#if\ !GTEST\_OS\_WINDOWS\ \&\&\ !GTEST\_OS\_FUCHSIA}}
 \DoxyCodeLine{00207\ \textcolor{comment}{//\ Tests\ that\ an\ exit\ code\ describes\ an\ exit\ due\ to\ termination\ by\ a}}
 \DoxyCodeLine{00208\ \textcolor{comment}{//\ given\ signal.}}
 \DoxyCodeLine{00209\ \textcolor{keyword}{class\ }GTEST\_API\_\ KilledBySignal\ \{}
@@ -332,7 +332,7 @@
 \DoxyCodeLine{00328\ \textcolor{comment}{//\ death\ tests\ are\ supported;\ otherwise\ they\ just\ issue\ a\ warning.\ \ This\ is}}
 \DoxyCodeLine{00329\ \textcolor{comment}{//\ useful\ when\ you\ are\ combining\ death\ test\ assertions\ with\ normal\ test}}
 \DoxyCodeLine{00330\ \textcolor{comment}{//\ assertions\ in\ one\ test.}}
-\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#ifdef\ GTEST\_HAS\_DEATH\_TEST}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#if\ GTEST\_HAS\_DEATH\_TEST}}
 \DoxyCodeLine{00332\ \textcolor{preprocessor}{\#define\ EXPECT\_DEATH\_IF\_SUPPORTED(statement,\ regex)\ \(\backslash\)}}
 \DoxyCodeLine{00333\ \textcolor{preprocessor}{\ \ EXPECT\_DEATH(statement,\ regex)}}
 \DoxyCodeLine{00334\ \textcolor{preprocessor}{\#define\ ASSERT\_DEATH\_IF\_SUPPORTED(statement,\ regex)\ \(\backslash\)}}

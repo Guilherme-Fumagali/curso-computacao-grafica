@@ -118,7 +118,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a2359b446aa283a582efe48d1e2f3f75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">Base class for tests of Google Test's XML output functionality.</pre> </div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><pre class="fragment">Base class for tests of Google Test's XML output functionality.
+</pre> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2359b446aa283a582efe48d1e2f3f75a" name="a2359b446aa283a582efe48d1e2f3f75a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2359b446aa283a582efe48d1e2f3f75a">&#9670;&#160;</a></span>_GetChildren()</h2>
 
@@ -153,23 +154,16 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">Fetches all of the child nodes of element, a DOM Element object.
-
-Returns them as the values of a dictionary keyed by the IDs of the children.
-For &lt;testsuites&gt;, &lt;testsuite&gt;, &lt;testcase&gt;, and &lt;property&gt; elements, the ID
-is the value of their "name" attribute; for &lt;failure&gt; elements, it is the
-value of the "message" attribute; for &lt;properties&gt; elements, it is the value
-of their parent's "name" attribute plus the literal string "properties";
-CDATA sections and non-whitespace text nodes are concatenated into a single
-CDATA section with ID "detail".  An exception is raised if any element other
-than the above four is encountered, if two child elements with the same
-identifying attributes are encountered, or if any other type of node is
-encountered.
-
-Args:
-  element: DOM Element object
-
-Returns:
-  Dictionary where keys are the IDs of the children.
+Returns them as the values of a dictionary keyed by the IDs of the
+children.  For &lt;testsuites&gt;, &lt;testsuite&gt;, &lt;testcase&gt;, and &lt;property&gt;
+elements, the ID is the value of their "name" attribute; for &lt;failure&gt;
+elements, it is the value of the "message" attribute; for &lt;properties&gt;
+elements, it is the value of their parent's "name" attribute plus the
+literal string "properties"; CDATA sections and non-whitespace
+text nodes are concatenated into a single CDATA section with ID
+"detail".  An exception is raised if any element other than the above
+four is encountered, if two child elements with the same identifying
+attributes are encountered, or if any other type of node is encountered.
 </pre> 
 </div>
 </div>
@@ -204,9 +198,7 @@ Returns:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Asserts that actual_node is equivalent to expected_node.
-
-Asserts that actual_node (a DOM node object) is equivalent to
+<pre class="fragment">Asserts that actual_node (a DOM node object) is equivalent to
 expected_node (another DOM node object), in that either both of
 them are CDATA nodes and have the same value, or both are DOM
 elements and actual_node meets all of the following conditions:
@@ -221,10 +213,6 @@ elements and actual_node meets all of the following conditions:
    CDATA sections) as expected_node.  Note that we ignore the
    order of the children as they are not guaranteed to be in any
    particular order.
-
-Args:
-  expected_node: expected DOM node object
-  actual_node: actual DOM node object
 </pre> 
 </div>
 </div>
@@ -253,9 +241,7 @@ Args:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Normalizes XML that may change from run to run.
-
-Normalizes Google Test's XML output to eliminate references to transient
+<pre class="fragment">Normalizes Google Test's XML output to eliminate references to transient
 information that may change from run to run.
 
 *  The "time" attribute of &lt;testsuites&gt;, &lt;testsuite&gt; and &lt;testcase&gt;
@@ -271,9 +257,6 @@ information that may change from run to run.
    file's basename and a single asterisk for the line number.
 *  The directory names in file paths are removed.
 *  The stack traces are removed.
-
-Args:
-  element: DOM element to normalize
 </pre> 
 </div>
 </div>
@@ -309,7 +292,7 @@ Args:
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>tests/lib/googletest/test/<b>gtest_xml_test_utils.py</b></li>
+<li>cmake-build-debug/_deps/googletest-src/googletest/test/<b>gtest_xml_test_utils.py</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

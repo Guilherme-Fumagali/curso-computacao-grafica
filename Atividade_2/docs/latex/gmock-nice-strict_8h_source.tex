@@ -1,5 +1,5 @@
 \doxysection{gmock-\/nice-\/strict.h}
-\hypertarget{gmock-nice-strict_8h_source}{}\label{gmock-nice-strict_8h_source}\index{tests/lib/googlemock/include/gmock/gmock-\/nice-\/strict.h@{tests/lib/googlemock/include/gmock/gmock-\/nice-\/strict.h}}
+\hypertarget{gmock-nice-strict_8h_source}{}\label{gmock-nice-strict_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/gmock-\/nice-\/strict.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/gmock-\/nice-\/strict.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2008,\ Google\ Inc.}}
@@ -102,7 +102,7 @@
 \DoxyCodeLine{00098\ \textcolor{comment}{//\ deregistration.\ This\ guarantees\ that\ MockClass's\ constructor\ and\ destructor}}
 \DoxyCodeLine{00099\ \textcolor{comment}{//\ run\ with\ the\ same\ level\ of\ strictness\ as\ its\ instance\ methods.}}
 \DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#if\ defined(GTEST\_OS\_WINDOWS)\ \&\&\ !defined(GTEST\_OS\_WINDOWS\_MINGW)\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#if\ GTEST\_OS\_WINDOWS\ \&\&\ !GTEST\_OS\_WINDOWS\_MINGW\ \&\&\ \(\backslash\)}}
 \DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ (defined(\_MSC\_VER)\ ||\ defined(\_\_clang\_\_))}}
 \DoxyCodeLine{00103\ \textcolor{comment}{//\ We\ need\ to\ mark\ these\ classes\ with\ this\ declspec\ to\ ensure\ that}}
 \DoxyCodeLine{00104\ \textcolor{comment}{//\ the\ empty\ base\ class\ optimization\ is\ performed.}}

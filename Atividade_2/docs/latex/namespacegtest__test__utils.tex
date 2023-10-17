@@ -121,8 +121,8 @@ doesn't exist.
 
 Args:
   executable_name: name of the test binary that the test script runs.
-  build_dir:       directory where to look for executables, by default the
-    result of GetBuildDir().
+  build_dir:       directory where to look for executables, by default
+                   the result of GetBuildDir().
 
 Returns:
   The absolute path of the test binary.
@@ -152,9 +152,7 @@ Returns:
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ =\ \ \{}
-\DoxyCodeLine{00002\ \ \ \ \ \textcolor{stringliteral}{'source\_dir'}:\ os.path.dirname(sys.argv[0]),}
-\DoxyCodeLine{00003\ \ \ \ \ \textcolor{stringliteral}{'build\_dir'}:\ os.path.dirname(sys.argv[0]),}
-\DoxyCodeLine{00004\ \}}
+\DoxyCodeLine{00001\ =\ \ \{\textcolor{stringliteral}{'source\_dir'}:\ os.path.dirname(sys.argv[0]),}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'build\_dir'}:\ os.path.dirname(sys.argv[0])\}}
 
 \end{DoxyCode}

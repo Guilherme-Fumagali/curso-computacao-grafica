@@ -1,5 +1,5 @@
 \doxysection{gtest-\/assertion-\/result.h}
-\hypertarget{gtest-assertion-result_8h_source}{}\label{gtest-assertion-result_8h_source}\index{tests/lib/googletest/include/gtest/gtest-\/assertion-\/result.h@{tests/lib/googletest/include/gtest/gtest-\/assertion-\/result.h}}
+\hypertarget{gtest-assertion-result_8h_source}{}\label{gtest-assertion-result_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/include/gtest/gtest-\/assertion-\/result.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googletest/include/gtest/gtest-\/assertion-\/result.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2005,\ Google\ Inc.}}
@@ -185,7 +185,7 @@
 \DoxyCodeLine{00181\ \ \ \textcolor{comment}{//\ assertion's\ expectation).\ When\ nothing\ has\ been\ streamed\ into\ the}}
 \DoxyCodeLine{00182\ \ \ \textcolor{comment}{//\ object,\ returns\ an\ empty\ string.}}
 \DoxyCodeLine{00183\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ message()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ message\_\ !=\ \textcolor{keyword}{nullptr}\ ?\ message\_-\/>c\_str()\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ message\_.get()\ !=\ \textcolor{keyword}{nullptr}\ ?\ message\_-\/>c\_str()\ :\ \textcolor{stringliteral}{"{}"{}};}
 \DoxyCodeLine{00185\ \ \ \}}
 \DoxyCodeLine{00186\ \ \ \textcolor{comment}{//\ Deprecated;\ please\ use\ message()\ instead.}}
 \DoxyCodeLine{00187\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ failure\_message()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ message();\ \}}
@@ -208,7 +208,7 @@
 \DoxyCodeLine{00204\ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00205\ \ \ \textcolor{comment}{//\ Appends\ the\ contents\ of\ message\ to\ message\_.}}
 \DoxyCodeLine{00206\ \ \ \textcolor{keywordtype}{void}\ AppendMessage(\textcolor{keyword}{const}\ Message\&\ a\_message)\ \{}
-\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\_\ ==\ \textcolor{keyword}{nullptr})\ message\_\ =\ ::std::make\_unique<::std::string>();}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\_.get()\ ==\ \textcolor{keyword}{nullptr})\ message\_.reset(new\ ::std::string);}
 \DoxyCodeLine{00208\ \ \ \ \ message\_-\/>append(a\_message.GetString().c\_str());}
 \DoxyCodeLine{00209\ \ \ \}}
 \DoxyCodeLine{00210\ }

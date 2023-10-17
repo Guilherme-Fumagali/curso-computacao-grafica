@@ -193,13 +193,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="keyword">inline</span> <span class="keywordtype">double</span> cross(<span class="keyword">const</span> <a class="code hl_class" href="classvec2.html">vec2</a> &amp;u, <span class="keyword">const</span> <a class="code hl_class" href="classvec2.html">vec2</a> &amp;v) {</div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordflow">return</span> u.<a class="code hl_variable" href="classvec2.html#a64854c94ebaf66adeb77a44cf5c2ff98">e</a>[0] * v.<a class="code hl_variable" href="classvec2.html#a64854c94ebaf66adeb77a44cf5c2ff98">e</a>[1]</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>         - u.<a class="code hl_variable" href="classvec2.html#a64854c94ebaf66adeb77a44cf5c2ff98">e</a>[1] * v.<a class="code hl_variable" href="classvec2.html#a64854c94ebaf66adeb77a44cf5c2ff98">e</a>[0];</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="keyword">inline</span> <a class="code hl_class" href="classvec2.html">vec2</a> unit_vector(<a class="code hl_class" href="classvec2.html">vec2</a> v) {</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordflow">return</span> v / v.<a class="code hl_function" href="classvec2.html#ae30b6dfb3feb9aa9d6051fdb3b50ea90">length</a>();</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>}</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#endif </span><span class="comment">//VEC2_H</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>           - u.<a class="code hl_variable" href="classvec2.html#a64854c94ebaf66adeb77a44cf5c2ff98">e</a>[1] * v.<a class="code hl_variable" href="classvec2.html#a64854c94ebaf66adeb77a44cf5c2ff98">e</a>[0];</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>}</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="keyword">inline</span> <a class="code hl_class" href="classvec2.html">vec2</a> unit_vector(<a class="code hl_class" href="classvec2.html">vec2</a> v) {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> v / v.<a class="code hl_function" href="classvec2.html#ae30b6dfb3feb9aa9d6051fdb3b50ea90">length</a>();</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="preprocessor">#endif </span><span class="comment">//VEC2_H</span></div>
 <div class="ttc" id="aclassvec2_html"><div class="ttname"><a href="classvec2.html">vec2</a></div><div class="ttdoc">Class for 2D vector and its operations.</div><div class="ttdef"><b>Definition</b> vec2.h:12</div></div>
 <div class="ttc" id="aclassvec2_html_a3c1dffdb37446759a40164f61f62ea95"><div class="ttname"><a href="classvec2.html#a3c1dffdb37446759a40164f61f62ea95">vec2::operator[]</a></div><div class="ttdeci">double operator[](int i) const</div><div class="ttdoc">Returns the element at the given index.</div><div class="ttdef"><b>Definition</b> vec2.h:58</div></div>
 <div class="ttc" id="aclassvec2_html_a3e03510c7d57d60f39bda468e12be093"><div class="ttname"><a href="classvec2.html#a3e03510c7d57d60f39bda468e12be093">vec2::length_squared</a></div><div class="ttdeci">double length_squared() const</div><div class="ttdoc">Returns the squared length of the vector.</div><div class="ttdef"><b>Definition</b> vec2.h:115</div></div>

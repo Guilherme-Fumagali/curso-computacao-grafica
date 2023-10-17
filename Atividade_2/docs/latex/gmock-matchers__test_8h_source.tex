@@ -1,5 +1,5 @@
 \doxysection{gmock-\/matchers\+\_\+test.h}
-\hypertarget{gmock-matchers__test_8h_source}{}\label{gmock-matchers__test_8h_source}\index{tests/lib/googlemock/test/gmock-\/matchers\_test.h@{tests/lib/googlemock/test/gmock-\/matchers\_test.h}}
+\hypertarget{gmock-matchers__test_8h_source}{}\label{gmock-matchers__test_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/test/gmock-\/matchers\_test.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/test/gmock-\/matchers\_test.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2007,\ Google\ Inc.}}
@@ -92,7 +92,7 @@
 \DoxyCodeLine{00088\ \textcolor{keyword}{using\ }testing::internal::IsReadableTypeName;}
 \DoxyCodeLine{00089\ \textcolor{keyword}{using\ }testing::internal::MatchMatrix;}
 \DoxyCodeLine{00090\ \textcolor{keyword}{using\ }testing::internal::PredicateFormatterFromMatcher;}
-\DoxyCodeLine{00091\ \textcolor{keyword}{using\ }testing::internal::RE;}
+\DoxyCodeLine{00091\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classtesting_1_1internal_1_1RE}{testing::internal::RE}};}
 \DoxyCodeLine{00092\ \textcolor{keyword}{using\ }testing::internal::StreamMatchResultListener;}
 \DoxyCodeLine{00093\ \textcolor{keyword}{using\ }testing::internal::Strings;}
 \DoxyCodeLine{00094\ }
@@ -152,9 +152,9 @@
 \DoxyCodeLine{00148\ \};}
 \DoxyCodeLine{00149\ }
 \DoxyCodeLine{00150\ \textcolor{comment}{//\ Names\ and\ instantiates\ a\ new\ instance\ of\ GTestMatcherTestP.}}
-\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ INSTANTIATE\_GTEST\_MATCHER\_TEST\_P(TestSuite)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ using\ TestSuite\#\#P\ =\ GTestMatcherTestP;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ INSTANTIATE\_TEST\_SUITE\_P(MatcherInterface,\ TestSuite\#\#P,\ Values(false));\ \(\backslash\)}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ INSTANTIATE\_GTEST\_MATCHER\_TEST\_P(TestSuite)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ using\ TestSuite\#\#P\ =\ GTestMatcherTestP;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ INSTANTIATE\_TEST\_SUITE\_P(MatcherInterface,\ TestSuite\#\#P,\ Values(false));\ \ \(\backslash\)}}
 \DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ INSTANTIATE\_TEST\_SUITE\_P(GtestMatcher,\ TestSuite\#\#P,\ Values(true))}}
 \DoxyCodeLine{00155\ }
 \DoxyCodeLine{00156\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtesting_1_1gmock__matchers__test_1_1GTestMatcherTestP}{GTestMatcherTestP}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtesting_1_1TestWithParam}{testing::TestWithParam}}<bool>\ \{}

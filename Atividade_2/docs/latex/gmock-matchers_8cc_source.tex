@@ -1,5 +1,5 @@
 \doxysection{gmock-\/matchers.cc}
-\hypertarget{gmock-matchers_8cc_source}{}\label{gmock-matchers_8cc_source}\index{tests/lib/googlemock/src/gmock-\/matchers.cc@{tests/lib/googlemock/src/gmock-\/matchers.cc}}
+\hypertarget{gmock-matchers_8cc_source}{}\label{gmock-matchers_8cc_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/src/gmock-\/matchers.cc@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/src/gmock-\/matchers.cc}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2007,\ Google\ Inc.}}
@@ -57,7 +57,7 @@
 \DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ negation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ matcher\_name,}
 \DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ char*>\&\ param\_names,\ \textcolor{keyword}{const}\ Strings\&\ param\_values)\ \{}
 \DoxyCodeLine{00055\ \ \ std::string\ result\ =\ ConvertIdentifierNameToWords(matcher\_name);}
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordflow}{if}\ (!param\_values.empty())\ \{}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordflow}{if}\ (param\_values.size()\ >=\ 1)\ \{}
 \DoxyCodeLine{00057\ \ \ \ \ result\ +=\ \textcolor{stringliteral}{"{}\ "{}}\ +\ JoinAsKeyValueTuple(param\_names,\ param\_values);}
 \DoxyCodeLine{00058\ \ \ \}}
 \DoxyCodeLine{00059\ \ \ \textcolor{keywordflow}{return}\ negation\ ?\ \textcolor{stringliteral}{"{}not\ ("{}}\ +\ result\ +\ \textcolor{stringliteral}{"{})"{}}\ :\ result;}
@@ -124,7 +124,7 @@
 \DoxyCodeLine{00120\ \textcolor{comment}{//\ \ \ [1]\ Cormen,\ et\ al\ (2001).\ "{}Section\ 26.2:\ The\ Ford-\/Fulkerson\ method"{}.}}
 \DoxyCodeLine{00121\ \textcolor{comment}{//\ \ \ \ \ \ \ "{}Introduction\ to\ Algorithms\ (Second\ ed.)"{},\ pp.\ 651-\/664.}}
 \DoxyCodeLine{00122\ \textcolor{comment}{//\ \ \ [2]\ "{}Ford-\/Fulkerson\ algorithm"{},\ Wikipedia,}}
-\DoxyCodeLine{00123\ \textcolor{comment}{//\ \ \ \ \ \ \ 'https://en.wikipedia.org/wiki/Ford\%E2\%80\%93Fulkerson\_algorithm'}}
+\DoxyCodeLine{00123\ \textcolor{comment}{//\ \ \ \ \ \ \ 'http://en.wikipedia.org/wiki/Ford\%E2\%80\%93Fulkerson\_algorithm'}}
 \DoxyCodeLine{00124\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtesting_1_1internal_1_1MaxBipartiteMatchState}{MaxBipartiteMatchState}}\ \{}
 \DoxyCodeLine{00125\ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00126\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtesting_1_1internal_1_1MaxBipartiteMatchState}{MaxBipartiteMatchState}}(\textcolor{keyword}{const}\ MatchMatrix\&\ graph)}
@@ -374,112 +374,95 @@
 \DoxyCodeLine{00370\ \textcolor{keywordtype}{bool}\ UnorderedElementsAreMatcherImplBase::VerifyMatchMatrix(}
 \DoxyCodeLine{00371\ \ \ \ \ const\ ::std::vector<std::string>\&\ element\_printouts,}
 \DoxyCodeLine{00372\ \ \ \ \ \textcolor{keyword}{const}\ MatchMatrix\&\ matrix,\ MatchResultListener*\ listener)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00373\ \ \ \textcolor{keywordflow}{if}\ (matrix.LhsSize()\ ==\ 0\ \&\&\ matrix.RhsSize()\ ==\ 0)\ \{}
-\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00375\ \ \ \}}
+\DoxyCodeLine{00373\ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00374\ \ \ ::std::vector<char>\ element\_matched(matrix.LhsSize(),\ 0);}
+\DoxyCodeLine{00375\ \ \ ::std::vector<char>\ matcher\_matched(matrix.RhsSize(),\ 0);}
 \DoxyCodeLine{00376\ }
-\DoxyCodeLine{00377\ \ \ \textcolor{keywordflow}{if}\ (match\_flags()\ ==\ UnorderedMatcherRequire::ExactMatch)\ \{}
-\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{if}\ (matrix.LhsSize()\ !=\ matrix.RhsSize())\ \{}
-\DoxyCodeLine{00379\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ element\ count\ doesn't\ match.\ \ If\ the\ container\ is\ empty,}}
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \textcolor{comment}{//\ there's\ no\ need\ to\ explain\ anything\ as\ Google\ Mock\ already}}
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \textcolor{comment}{//\ prints\ the\ empty\ container.\ Otherwise\ we\ just\ need\ to\ show}}
-\DoxyCodeLine{00382\ \ \ \ \ \ \ \textcolor{comment}{//\ how\ many\ elements\ there\ actually\ are.}}
-\DoxyCodeLine{00383\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matrix.LhsSize()\ !=\ 0\ \&\&\ listener-\/>IsInterested())\ \{}
-\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ *listener\ <<\ \textcolor{stringliteral}{"{}which\ has\ "{}}\ <<\ Elements(matrix.LhsSize());}
-\DoxyCodeLine{00385\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00386\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00387\ \ \ \ \ \}}
-\DoxyCodeLine{00388\ \ \ \}}
-\DoxyCodeLine{00389\ }
-\DoxyCodeLine{00390\ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00391\ \ \ ::std::vector<char>\ element\_matched(matrix.LhsSize(),\ 0);}
-\DoxyCodeLine{00392\ \ \ ::std::vector<char>\ matcher\_matched(matrix.RhsSize(),\ 0);}
-\DoxyCodeLine{00393\ }
-\DoxyCodeLine{00394\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ilhs\ =\ 0;\ ilhs\ <\ matrix.LhsSize();\ ilhs++)\ \{}
-\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ irhs\ =\ 0;\ irhs\ <\ matrix.RhsSize();\ irhs++)\ \{}
-\DoxyCodeLine{00396\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ matched\ =\ matrix.HasEdge(ilhs,\ irhs);}
-\DoxyCodeLine{00397\ \ \ \ \ \ \ element\_matched[ilhs]\ |=\ matched;}
-\DoxyCodeLine{00398\ \ \ \ \ \ \ matcher\_matched[irhs]\ |=\ matched;}
-\DoxyCodeLine{00399\ \ \ \ \ \}}
-\DoxyCodeLine{00400\ \ \ \}}
-\DoxyCodeLine{00401\ }
-\DoxyCodeLine{00402\ \ \ \textcolor{keywordflow}{if}\ (match\_flags()\ \&\ UnorderedMatcherRequire::Superset)\ \{}
-\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sep\ =}
-\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}where\ the\ following\ matchers\ don't\ match\ any\ elements:\(\backslash\)n"{}};}
-\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ mi\ =\ 0;\ mi\ <\ matcher\_matched.size();\ ++mi)\ \{}
-\DoxyCodeLine{00406\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matcher\_matched[mi])\ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00407\ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00408\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
-\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ *listener\ <<\ sep\ <<\ \textcolor{stringliteral}{"{}matcher\ \#"{}}\ <<\ mi\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
-\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ matcher\_describers\_[mi]-\/>DescribeTo(listener-\/>stream());}
-\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ sep\ =\ \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
-\DoxyCodeLine{00412\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00413\ \ \ \ \ \}}
-\DoxyCodeLine{00414\ \ \ \}}
-\DoxyCodeLine{00415\ }
-\DoxyCodeLine{00416\ \ \ \textcolor{keywordflow}{if}\ (match\_flags()\ \&\ UnorderedMatcherRequire::Subset)\ \{}
-\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sep\ =}
-\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}where\ the\ following\ elements\ don't\ match\ any\ matchers:\(\backslash\)n"{}};}
-\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ outer\_sep\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordflow}{if}\ (!result)\ \{}
-\DoxyCodeLine{00421\ \ \ \ \ \ \ outer\_sep\ =\ \textcolor{stringliteral}{"{}\(\backslash\)nand\ "{}};}
-\DoxyCodeLine{00422\ \ \ \ \ \}}
-\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ei\ =\ 0;\ ei\ <\ element\_matched.size();\ ++ei)\ \{}
-\DoxyCodeLine{00424\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (element\_matched[ei])\ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00425\ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00426\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
-\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ *listener\ <<\ outer\_sep\ <<\ sep\ <<\ \textcolor{stringliteral}{"{}element\ \#"{}}\ <<\ ei\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
-\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ element\_printouts[ei];}
-\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ sep\ =\ \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
-\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ outer\_sep\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00431\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00432\ \ \ \ \ \}}
-\DoxyCodeLine{00433\ \ \ \}}
-\DoxyCodeLine{00434\ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00435\ \}}
-\DoxyCodeLine{00436\ }
-\DoxyCodeLine{00437\ \textcolor{keywordtype}{bool}\ UnorderedElementsAreMatcherImplBase::FindPairing(}
-\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keyword}{const}\ MatchMatrix\&\ matrix,\ MatchResultListener*\ listener)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00439\ \ \ ElementMatcherPairs\ matches\ =\ FindMaxBipartiteMatching(matrix);}
-\DoxyCodeLine{00440\ }
-\DoxyCodeLine{00441\ \ \ \textcolor{keywordtype}{size\_t}\ max\_flow\ =\ matches.size();}
-\DoxyCodeLine{00442\ \ \ \textcolor{keywordflow}{if}\ ((match\_flags()\ \&\ UnorderedMatcherRequire::Superset)\ \&\&}
-\DoxyCodeLine{00443\ \ \ \ \ \ \ max\_flow\ <\ matrix.RhsSize())\ \{}
-\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
-\DoxyCodeLine{00445\ \ \ \ \ \ \ *listener\ <<\ \textcolor{stringliteral}{"{}where\ no\ permutation\ of\ the\ elements\ can\ satisfy\ all\ "{}}}
-\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}matchers,\ and\ the\ closest\ match\ is\ "{}}}
-\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ max\_flow\ <<\ \textcolor{stringliteral}{"{}\ of\ "{}}\ <<\ matrix.RhsSize()}
-\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ matchers\ with\ the\ pairings:\(\backslash\)n"{}};}
-\DoxyCodeLine{00449\ \ \ \ \ \ \ LogElementMatcherPairVec(matches,\ listener-\/>stream());}
-\DoxyCodeLine{00450\ \ \ \ \ \}}
-\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00452\ \ \ \}}
-\DoxyCodeLine{00453\ \ \ \textcolor{keywordflow}{if}\ ((match\_flags()\ \&\ UnorderedMatcherRequire::Subset)\ \&\&}
-\DoxyCodeLine{00454\ \ \ \ \ \ \ max\_flow\ <\ matrix.LhsSize())\ \{}
-\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
-\DoxyCodeLine{00456\ \ \ \ \ \ \ *listener}
-\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}where\ not\ all\ elements\ can\ be\ matched,\ and\ the\ closest\ match\ is\ "{}}}
-\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ <<\ max\_flow\ <<\ \textcolor{stringliteral}{"{}\ of\ "{}}\ <<\ matrix.RhsSize()}
-\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ matchers\ with\ the\ pairings:\(\backslash\)n"{}};}
-\DoxyCodeLine{00460\ \ \ \ \ \ \ LogElementMatcherPairVec(matches,\ listener-\/>stream());}
-\DoxyCodeLine{00461\ \ \ \ \ \}}
-\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00463\ \ \ \}}
-\DoxyCodeLine{00464\ }
-\DoxyCodeLine{00465\ \ \ \textcolor{keywordflow}{if}\ (matches.size()\ >\ 1)\ \{}
-\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
-\DoxyCodeLine{00467\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sep\ =\ \textcolor{stringliteral}{"{}where:\(\backslash\)n"{}};}
-\DoxyCodeLine{00468\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ mi\ =\ 0;\ mi\ <\ matches.size();\ ++mi)\ \{}
-\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ *listener\ <<\ sep\ <<\ \textcolor{stringliteral}{"{}\ -\/\ element\ \#"{}}\ <<\ matches[mi].first}
-\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ is\ matched\ by\ matcher\ \#"{}}\ <<\ matches[mi].second;}
-\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ sep\ =\ \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
-\DoxyCodeLine{00472\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00473\ \ \ \ \ \}}
-\DoxyCodeLine{00474\ \ \ \}}
-\DoxyCodeLine{00475\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00476\ \}}
-\DoxyCodeLine{00477\ }
-\DoxyCodeLine{00478\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
-\DoxyCodeLine{00479\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
+\DoxyCodeLine{00377\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ilhs\ =\ 0;\ ilhs\ <\ matrix.LhsSize();\ ilhs++)\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ irhs\ =\ 0;\ irhs\ <\ matrix.RhsSize();\ irhs++)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ matched\ =\ matrix.HasEdge(ilhs,\ irhs);}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ element\_matched[ilhs]\ |=\ matched;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ matcher\_matched[irhs]\ |=\ matched;}
+\DoxyCodeLine{00382\ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \ \ \}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \textcolor{keywordflow}{if}\ (match\_flags()\ \&\ UnorderedMatcherRequire::Superset)\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sep\ =}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}where\ the\ following\ matchers\ don't\ match\ any\ elements:\(\backslash\)n"{}};}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ mi\ =\ 0;\ mi\ <\ matcher\_matched.size();\ ++mi)\ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matcher\_matched[mi])\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ *listener\ <<\ sep\ <<\ \textcolor{stringliteral}{"{}matcher\ \#"{}}\ <<\ mi\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ matcher\_describers\_[mi]-\/>DescribeTo(listener-\/>stream());}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ sep\ =\ \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00396\ \ \ \ \ \}}
+\DoxyCodeLine{00397\ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \textcolor{keywordflow}{if}\ (match\_flags()\ \&\ UnorderedMatcherRequire::Subset)\ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sep\ =}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}where\ the\ following\ elements\ don't\ match\ any\ matchers:\(\backslash\)n"{}};}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ outer\_sep\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{if}\ (!result)\ \{}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ outer\_sep\ =\ \textcolor{stringliteral}{"{}\(\backslash\)nand\ "{}};}
+\DoxyCodeLine{00405\ \ \ \ \ \}}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ei\ =\ 0;\ ei\ <\ element\_matched.size();\ ++ei)\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (element\_matched[ei])\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ *listener\ <<\ outer\_sep\ <<\ sep\ <<\ \textcolor{stringliteral}{"{}element\ \#"{}}\ <<\ ei\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ element\_printouts[ei];}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ sep\ =\ \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ outer\_sep\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00415\ \ \ \ \ \}}
+\DoxyCodeLine{00416\ \ \ \}}
+\DoxyCodeLine{00417\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00418\ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \textcolor{keywordtype}{bool}\ UnorderedElementsAreMatcherImplBase::FindPairing(}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keyword}{const}\ MatchMatrix\&\ matrix,\ MatchResultListener*\ listener)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00422\ \ \ ElementMatcherPairs\ matches\ =\ FindMaxBipartiteMatching(matrix);}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \textcolor{keywordtype}{size\_t}\ max\_flow\ =\ matches.size();}
+\DoxyCodeLine{00425\ \ \ \textcolor{keywordflow}{if}\ ((match\_flags()\ \&\ UnorderedMatcherRequire::Superset)\ \&\&}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ max\_flow\ <\ matrix.RhsSize())\ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ *listener\ <<\ \textcolor{stringliteral}{"{}where\ no\ permutation\ of\ the\ elements\ can\ satisfy\ all\ "{}}}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}matchers,\ and\ the\ closest\ match\ is\ "{}}}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ max\_flow\ <<\ \textcolor{stringliteral}{"{}\ of\ "{}}\ <<\ matrix.RhsSize()}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ matchers\ with\ the\ pairings:\(\backslash\)n"{}};}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ LogElementMatcherPairVec(matches,\ listener-\/>stream());}
+\DoxyCodeLine{00433\ \ \ \ \ \}}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00435\ \ \ \}}
+\DoxyCodeLine{00436\ \ \ \textcolor{keywordflow}{if}\ ((match\_flags()\ \&\ UnorderedMatcherRequire::Subset)\ \&\&}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ max\_flow\ <\ matrix.LhsSize())\ \{}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ *listener}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}where\ not\ all\ elements\ can\ be\ matched,\ and\ the\ closest\ match\ is\ "{}}}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ <<\ max\_flow\ <<\ \textcolor{stringliteral}{"{}\ of\ "{}}\ <<\ matrix.RhsSize()}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ matchers\ with\ the\ pairings:\(\backslash\)n"{}};}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ LogElementMatcherPairVec(matches,\ listener-\/>stream());}
+\DoxyCodeLine{00444\ \ \ \ \ \}}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00446\ \ \ \}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \textcolor{keywordflow}{if}\ (matches.size()\ >\ 1)\ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordflow}{if}\ (listener-\/>IsInterested())\ \{}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sep\ =\ \textcolor{stringliteral}{"{}where:\(\backslash\)n"{}};}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ mi\ =\ 0;\ mi\ <\ matches.size();\ ++mi)\ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ *listener\ <<\ sep\ <<\ \textcolor{stringliteral}{"{}\ -\/\ element\ \#"{}}\ <<\ matches[mi].first}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ is\ matched\ by\ matcher\ \#"{}}\ <<\ matches[mi].second;}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ sep\ =\ \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00456\ \ \ \ \ \}}
+\DoxyCodeLine{00457\ \ \ \}}
+\DoxyCodeLine{00458\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00459\ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00462\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
 
 \end{DoxyCode}

@@ -1,5 +1,5 @@
 \doxysection{gmock-\/more-\/actions.h}
-\hypertarget{gmock-more-actions_8h_source}{}\label{gmock-more-actions_8h_source}\index{tests/lib/googlemock/include/gmock/gmock-\/more-\/actions.h@{tests/lib/googlemock/include/gmock/gmock-\/more-\/actions.h}}
+\hypertarget{gmock-more-actions_8h_source}{}\label{gmock-more-actions_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/gmock-\/more-\/actions.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/gmock-\/more-\/actions.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2007,\ Google\ Inc.}}
@@ -530,135 +530,139 @@
 \DoxyCodeLine{00526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_\#\#value\_params))\{\})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
 \DoxyCodeLine{00527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_ACTION\_CLASS\_(name,\ value\_params)(const\ GMOCK\_ACTION\_CLASS\_(\ \(\backslash\)}}
 \DoxyCodeLine{00528\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name,\ value\_params)\ \&)\ noexcept\ GMOCK\_INTERNAL\_DEFN\_COPY\_\ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00529\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#\#value\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00530\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ GMOCK\_ACTION\_CLASS\_(name,\ value\_params)(GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ name,\ value\_params)\ \&\&)\ noexcept\ GMOCK\_INTERNAL\_DEFN\_COPY\_\ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00532\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#\#value\_params\ template\ <typename\ F>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00533\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ operator\ ::testing::Action<F>()\ const\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00534\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ GMOCK\_PP\_IF(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00535\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ GMOCK\_PP\_IS\_EMPTY(GMOCK\_INTERNAL\_COUNT\_\#\#value\_params),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00536\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ (::testing::internal::MakeAction<F,\ gmock\_Impl>()),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00537\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ (::testing::internal::MakeAction<F>(impl\_)));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00538\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00539\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00540\ \textcolor{preprocessor}{\ \ \ private:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00541\ \textcolor{preprocessor}{\ \ \ \ class\ gmock\_Impl\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00542\ \textcolor{preprocessor}{\ \ \ \ \ public:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00543\ \textcolor{preprocessor}{\ \ \ \ \ \ explicit\ gmock\_Impl\ GMOCK\_INTERNAL\_INIT\_\#\#value\_params\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00544\ \textcolor{preprocessor}{\ \ \ \ \ \ template\ <typename\ function\_type,\ typename\ return\_type,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00545\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ typename\ args\_type,\ GMOCK\_ACTION\_TEMPLATE\_ARGS\_NAMES\_>\ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00546\ \textcolor{preprocessor}{\ \ \ \ \ \ return\_type\ gmock\_PerformImpl(GMOCK\_ACTION\_ARG\_TYPES\_AND\_NAMES\_)\ const;\ \ \(\backslash\)}}
-\DoxyCodeLine{00547\ \textcolor{preprocessor}{\ \ \ \ \ \ GMOCK\_INTERNAL\_DEFN\_\#\#value\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00548\ \textcolor{preprocessor}{\ \ \ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00549\ \textcolor{preprocessor}{\ \ \ \ GMOCK\_PP\_IF(GMOCK\_PP\_IS\_EMPTY(GMOCK\_INTERNAL\_COUNT\_\#\#value\_params),\ ,\ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00550\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<const\ gmock\_Impl>\ impl\_;)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00551\ \textcolor{preprocessor}{\ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00552\ \textcolor{preprocessor}{\ \ template\ <GMOCK\_INTERNAL\_DECL\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00553\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_DECL\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00554\ \textcolor{preprocessor}{\ \ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00555\ \textcolor{preprocessor}{\ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00556\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00557\ \textcolor{preprocessor}{\ \ \ \ \ \ name(GMOCK\_INTERNAL\_DECL\_\#\#value\_params)\ GTEST\_MUST\_USE\_RESULT\_;\ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00558\ \textcolor{preprocessor}{\ \ template\ <GMOCK\_INTERNAL\_DECL\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00559\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_DECL\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00560\ \textcolor{preprocessor}{\ \ inline\ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00561\ \textcolor{preprocessor}{\ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00562\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00563\ \textcolor{preprocessor}{\ \ name(GMOCK\_INTERNAL\_DECL\_\#\#value\_params)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00564\ \textcolor{preprocessor}{\ \ \ \ return\ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00565\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00566\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>(\ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00567\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_\#\#value\_params);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00568\ \textcolor{preprocessor}{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00569\ \textcolor{preprocessor}{\ \ template\ <GMOCK\_INTERNAL\_DECL\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00570\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_DECL\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00571\ \textcolor{preprocessor}{\ \ template\ <typename\ function\_type,\ typename\ return\_type,\ typename\ args\_type,\ \ \(\backslash\)}}
-\DoxyCodeLine{00572\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_ACTION\_TEMPLATE\_ARGS\_NAMES\_>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00573\ \textcolor{preprocessor}{\ \ return\_type\ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00574\ \textcolor{preprocessor}{\ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00575\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>::\ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00576\ \textcolor{preprocessor}{\ \ \ \ \ \ gmock\_Impl::gmock\_PerformImpl(GMOCK\_ACTION\_ARG\_TYPES\_AND\_NAMES\_UNUSED\_)\ \ \(\backslash\)}}
-\DoxyCodeLine{00577\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ const}}
-\DoxyCodeLine{00578\ }
-\DoxyCodeLine{00579\ \textcolor{keyword}{namespace\ }testing\ \{}
-\DoxyCodeLine{00580\ }
-\DoxyCodeLine{00581\ \textcolor{comment}{//\ The\ ACTION*()\ macros\ trigger\ warning\ C4100\ (unreferenced\ formal}}
-\DoxyCodeLine{00582\ \textcolor{comment}{//\ parameter)\ in\ MSVC\ with\ -\/W4.\ \ Unfortunately\ they\ cannot\ be\ fixed\ in}}
-\DoxyCodeLine{00583\ \textcolor{comment}{//\ the\ macro\ definition,\ as\ the\ warnings\ are\ generated\ when\ the\ macro}}
-\DoxyCodeLine{00584\ \textcolor{comment}{//\ is\ expanded\ and\ macro\ expansion\ cannot\ contain\ \#pragma.\ \ Therefore}}
-\DoxyCodeLine{00585\ \textcolor{comment}{//\ we\ suppress\ them\ here.}}
-\DoxyCodeLine{00586\ GTEST\_DISABLE\_MSC\_WARNINGS\_PUSH\_(4100)}
-\DoxyCodeLine{00587\ }
-\DoxyCodeLine{00588\ namespace\ internal\ \{}
+\DoxyCodeLine{00529\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#\#value\_params\ GMOCK\_ACTION\_CLASS\_(name,\ value\_params)(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00530\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_ACTION\_CLASS\_(name,\ value\_params)\ \&\&)\ noexcept\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_DEFN\_COPY\_\#\#value\_params\ template\ <typename\ F>\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00532\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ operator\ ::testing::Action<F>()\ const\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ GMOCK\_PP\_IF(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00534\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ GMOCK\_PP\_IS\_EMPTY(GMOCK\_INTERNAL\_COUNT\_\#\#value\_params),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00535\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ (::testing::internal::MakeAction<F,\ gmock\_Impl>()),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00536\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ (::testing::internal::MakeAction<F>(impl\_)));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00537\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00539\ \textcolor{preprocessor}{\ \ \ private:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\ \ \ \ class\ gmock\_Impl\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\ \ \ \ \ public:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00542\ \textcolor{preprocessor}{\ \ \ \ \ \ explicit\ gmock\_Impl\ GMOCK\_INTERNAL\_INIT\_\#\#value\_params\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\ \ \ \ \ \ template\ <typename\ function\_type,\ typename\ return\_type,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ typename\ args\_type,\ GMOCK\_ACTION\_TEMPLATE\_ARGS\_NAMES\_>\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\ \ \ \ \ \ return\_type\ gmock\_PerformImpl(GMOCK\_ACTION\_ARG\_TYPES\_AND\_NAMES\_)\ const;\ \ \(\backslash\)}}
+\DoxyCodeLine{00546\ \textcolor{preprocessor}{\ \ \ \ \ \ GMOCK\_INTERNAL\_DEFN\_\#\#value\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00547\ \textcolor{preprocessor}{\ \ \ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\ \ \ \ GMOCK\_PP\_IF(GMOCK\_PP\_IS\_EMPTY(GMOCK\_INTERNAL\_COUNT\_\#\#value\_params),\ ,\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00549\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<const\ gmock\_Impl>\ impl\_;)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\ \ template\ <GMOCK\_INTERNAL\_DECL\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_DECL\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00553\ \textcolor{preprocessor}{\ \ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00554\ \textcolor{preprocessor}{\ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00555\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00556\ \textcolor{preprocessor}{\ \ \ \ \ \ name(GMOCK\_INTERNAL\_DECL\_\#\#value\_params)\ GTEST\_MUST\_USE\_RESULT\_;\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00557\ \textcolor{preprocessor}{\ \ template\ <GMOCK\_INTERNAL\_DECL\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00558\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_DECL\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00559\ \textcolor{preprocessor}{\ \ inline\ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00560\ \textcolor{preprocessor}{\ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00561\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\ \ name(GMOCK\_INTERNAL\_DECL\_\#\#value\_params)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\ \ \ \ return\ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00565\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>(\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_\#\#value\_params);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00567\ \textcolor{preprocessor}{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\ \ template\ <GMOCK\_INTERNAL\_DECL\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00569\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_DECL\_TYPE\_\#\#value\_params>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00570\ \textcolor{preprocessor}{\ \ template\ <typename\ function\_type,\ typename\ return\_type,\ typename\ args\_type,\ \ \(\backslash\)}}
+\DoxyCodeLine{00571\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_ACTION\_TEMPLATE\_ARGS\_NAMES\_>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00572\ \textcolor{preprocessor}{\ \ return\_type\ GMOCK\_ACTION\_CLASS\_(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00573\ \textcolor{preprocessor}{\ \ \ \ \ \ name,\ value\_params)<GMOCK\_INTERNAL\_LIST\_\#\#template\_params\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GMOCK\_INTERNAL\_LIST\_TYPE\_\#\#value\_params>::\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\ \ \ \ \ \ gmock\_Impl::gmock\_PerformImpl(GMOCK\_ACTION\_ARG\_TYPES\_AND\_NAMES\_UNUSED\_)\ \ \(\backslash\)}}
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ const}}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \textcolor{keyword}{namespace\ }testing\ \{}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ \textcolor{comment}{//\ The\ ACTION*()\ macros\ trigger\ warning\ C4100\ (unreferenced\ formal}}
+\DoxyCodeLine{00581\ \textcolor{comment}{//\ parameter)\ in\ MSVC\ with\ -\/W4.\ \ Unfortunately\ they\ cannot\ be\ fixed\ in}}
+\DoxyCodeLine{00582\ \textcolor{comment}{//\ the\ macro\ definition,\ as\ the\ warnings\ are\ generated\ when\ the\ macro}}
+\DoxyCodeLine{00583\ \textcolor{comment}{//\ is\ expanded\ and\ macro\ expansion\ cannot\ contain\ \#pragma.\ \ Therefore}}
+\DoxyCodeLine{00584\ \textcolor{comment}{//\ we\ suppress\ them\ here.}}
+\DoxyCodeLine{00585\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{00587\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4100)}}
+\DoxyCodeLine{00588\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00589\ }
-\DoxyCodeLine{00590\ \textcolor{comment}{//\ internal::InvokeArgument\ -\/\ a\ helper\ for\ InvokeArgument\ action.}}
-\DoxyCodeLine{00591\ \textcolor{comment}{//\ The\ basic\ overloads\ are\ provided\ here\ for\ generic\ functors.}}
-\DoxyCodeLine{00592\ \textcolor{comment}{//\ Overloads\ for\ other\ custom-\/callables\ are\ provided\ in\ the}}
-\DoxyCodeLine{00593\ \textcolor{comment}{//\ internal/custom/gmock-\/generated-\/actions.h\ header.}}
-\DoxyCodeLine{00594\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ F,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00595\ \textcolor{keyword}{auto}\ InvokeArgument(F\ f,\ Args...\ args)\ -\/>\ \textcolor{keyword}{decltype}(f(args...))\ \{}
-\DoxyCodeLine{00596\ \ \ \textcolor{keywordflow}{return}\ f(args...);}
-\DoxyCodeLine{00597\ \}}
-\DoxyCodeLine{00598\ }
-\DoxyCodeLine{00599\ \textcolor{keyword}{template}\ <std::size\_t\ index,\ \textcolor{keyword}{typename}...\ Params>}
-\DoxyCodeLine{00600\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtesting_1_1internal_1_1InvokeArgumentAction}{InvokeArgumentAction}}\ \{}
-\DoxyCodeLine{00601\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args,}
-\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<(index\ <\ \textcolor{keyword}{sizeof}...(Args))>::type>}
-\DoxyCodeLine{00603\ \ \ \textcolor{keyword}{auto}\ operator()(Args\ \&\&...args)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{decltype}(internal::InvokeArgument(}
-\DoxyCodeLine{00604\ \ \ \ \ \ \ std::get<index>(std::forward\_as\_tuple(std::forward<Args>(args)...)),}
-\DoxyCodeLine{00605\ \ \ \ \ \ \ std::declval<const\ Params\ \&>()...))\ \{}
-\DoxyCodeLine{00606\ \ \ \ \ \mbox{\hyperlink{classtesting_1_1internal_1_1FlatTuple}{internal::FlatTuple}}<Args\ \&\&...>\ args\_tuple(\mbox{\hyperlink{structtesting_1_1internal_1_1FlatTupleConstructTag}{FlatTupleConstructTag}}\{\},}
-\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Args>(args)...);}
-\DoxyCodeLine{00608\ \ \ \ \ \textcolor{keywordflow}{return}\ params.Apply([\&](\textcolor{keyword}{const}\ Params\ \&...unpacked\_params)\ \{}
-\DoxyCodeLine{00609\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&\&callable\ =\ args\_tuple.template\ Get<index>();}
-\DoxyCodeLine{00610\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ internal::InvokeArgument(}
-\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ std::forward<\textcolor{keyword}{decltype}(callable)>(callable),\ unpacked\_params...);}
-\DoxyCodeLine{00612\ \ \ \ \ \});}
-\DoxyCodeLine{00613\ \ \ \}}
-\DoxyCodeLine{00614\ }
-\DoxyCodeLine{00615\ \ \ \mbox{\hyperlink{classtesting_1_1internal_1_1FlatTuple}{internal::FlatTuple}}<Params...>\ params;}
-\DoxyCodeLine{00616\ \};}
-\DoxyCodeLine{00617\ }
-\DoxyCodeLine{00618\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00590\ \textcolor{keyword}{namespace\ }internal\ \{}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00592\ \textcolor{comment}{//\ internal::InvokeArgument\ -\/\ a\ helper\ for\ InvokeArgument\ action.}}
+\DoxyCodeLine{00593\ \textcolor{comment}{//\ The\ basic\ overloads\ are\ provided\ here\ for\ generic\ functors.}}
+\DoxyCodeLine{00594\ \textcolor{comment}{//\ Overloads\ for\ other\ custom-\/callables\ are\ provided\ in\ the}}
+\DoxyCodeLine{00595\ \textcolor{comment}{//\ internal/custom/gmock-\/generated-\/actions.h\ header.}}
+\DoxyCodeLine{00596\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ F,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00597\ \textcolor{keyword}{auto}\ InvokeArgument(F\ f,\ Args...\ args)\ -\/>\ \textcolor{keyword}{decltype}(f(args...))\ \{}
+\DoxyCodeLine{00598\ \ \ \textcolor{keywordflow}{return}\ f(args...);}
+\DoxyCodeLine{00599\ \}}
+\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00601\ \textcolor{keyword}{template}\ <std::size\_t\ index,\ \textcolor{keyword}{typename}...\ Params>}
+\DoxyCodeLine{00602\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtesting_1_1internal_1_1InvokeArgumentAction}{InvokeArgumentAction}}\ \{}
+\DoxyCodeLine{00603\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args,}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<(index\ <\ \textcolor{keyword}{sizeof}...(Args))>::type>}
+\DoxyCodeLine{00605\ \ \ \textcolor{keyword}{auto}\ operator()(Args\&\&...\ args)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{decltype}(internal::InvokeArgument(}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ std::get<index>(std::forward\_as\_tuple(std::forward<Args>(args)...)),}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ std::declval<const\ Params\&>()...))\ \{}
+\DoxyCodeLine{00608\ \ \ \ \ \mbox{\hyperlink{classtesting_1_1internal_1_1FlatTuple}{internal::FlatTuple}}<Args\&\&...>\ args\_tuple(\mbox{\hyperlink{structtesting_1_1internal_1_1FlatTupleConstructTag}{FlatTupleConstructTag}}\{\},}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Args>(args)...);}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordflow}{return}\ params.Apply([\&](\textcolor{keyword}{const}\ Params\&...\ unpacked\_params)\ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\&\ callable\ =\ args\_tuple.template\ Get<index>();}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ internal::InvokeArgument(}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ std::forward<\textcolor{keyword}{decltype}(callable)>(callable),\ unpacked\_params...);}
+\DoxyCodeLine{00614\ \ \ \ \ \});}
+\DoxyCodeLine{00615\ \ \ \}}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00617\ \ \ \mbox{\hyperlink{classtesting_1_1internal_1_1FlatTuple}{internal::FlatTuple}}<Params...>\ params;}
+\DoxyCodeLine{00618\ \};}
 \DoxyCodeLine{00619\ }
-\DoxyCodeLine{00620\ \textcolor{comment}{//\ The\ InvokeArgument<N>(a1,\ a2,\ ...,\ a\_k)\ action\ invokes\ the\ N-\/th}}
-\DoxyCodeLine{00621\ \textcolor{comment}{//\ (0-\/based)\ argument,\ which\ must\ be\ a\ k-\/ary\ callable,\ of\ the\ mock}}
-\DoxyCodeLine{00622\ \textcolor{comment}{//\ function,\ with\ arguments\ a1,\ a2,\ ...,\ a\_k.}}
-\DoxyCodeLine{00623\ \textcolor{comment}{//}}
-\DoxyCodeLine{00624\ \textcolor{comment}{//\ Notes:}}
+\DoxyCodeLine{00620\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \textcolor{comment}{//\ The\ InvokeArgument<N>(a1,\ a2,\ ...,\ a\_k)\ action\ invokes\ the\ N-\/th}}
+\DoxyCodeLine{00623\ \textcolor{comment}{//\ (0-\/based)\ argument,\ which\ must\ be\ a\ k-\/ary\ callable,\ of\ the\ mock}}
+\DoxyCodeLine{00624\ \textcolor{comment}{//\ function,\ with\ arguments\ a1,\ a2,\ ...,\ a\_k.}}
 \DoxyCodeLine{00625\ \textcolor{comment}{//}}
-\DoxyCodeLine{00626\ \textcolor{comment}{//\ \ \ 1.\ The\ arguments\ are\ passed\ by\ value\ by\ default.\ \ If\ you\ need\ to}}
-\DoxyCodeLine{00627\ \textcolor{comment}{//\ \ \ pass\ an\ argument\ by\ reference,\ wrap\ it\ inside\ std::ref().\ \ For}}
-\DoxyCodeLine{00628\ \textcolor{comment}{//\ \ \ example,}}
-\DoxyCodeLine{00629\ \textcolor{comment}{//}}
-\DoxyCodeLine{00630\ \textcolor{comment}{//\ \ \ \ \ InvokeArgument<1>(5,\ string("{}Hello"{}),\ std::ref(foo))}}
+\DoxyCodeLine{00626\ \textcolor{comment}{//\ Notes:}}
+\DoxyCodeLine{00627\ \textcolor{comment}{//}}
+\DoxyCodeLine{00628\ \textcolor{comment}{//\ \ \ 1.\ The\ arguments\ are\ passed\ by\ value\ by\ default.\ \ If\ you\ need\ to}}
+\DoxyCodeLine{00629\ \textcolor{comment}{//\ \ \ pass\ an\ argument\ by\ reference,\ wrap\ it\ inside\ std::ref().\ \ For}}
+\DoxyCodeLine{00630\ \textcolor{comment}{//\ \ \ example,}}
 \DoxyCodeLine{00631\ \textcolor{comment}{//}}
-\DoxyCodeLine{00632\ \textcolor{comment}{//\ \ \ passes\ 5\ and\ string("{}Hello"{})\ by\ value,\ and\ passes\ foo\ by}}
-\DoxyCodeLine{00633\ \textcolor{comment}{//\ \ \ reference.}}
-\DoxyCodeLine{00634\ \textcolor{comment}{//}}
-\DoxyCodeLine{00635\ \textcolor{comment}{//\ \ \ 2.\ If\ the\ callable\ takes\ an\ argument\ by\ reference\ but\ std::ref()\ is}}
-\DoxyCodeLine{00636\ \textcolor{comment}{//\ \ \ not\ used,\ it\ will\ receive\ the\ reference\ to\ a\ copy\ of\ the\ value,}}
-\DoxyCodeLine{00637\ \textcolor{comment}{//\ \ \ instead\ of\ the\ original\ value.\ \ For\ example,\ when\ the\ 0-\/th}}
-\DoxyCodeLine{00638\ \textcolor{comment}{//\ \ \ argument\ of\ the\ mock\ function\ takes\ a\ const\ string\&,\ the\ action}}
-\DoxyCodeLine{00639\ \textcolor{comment}{//}}
-\DoxyCodeLine{00640\ \textcolor{comment}{//\ \ \ \ \ InvokeArgument<0>(string("{}Hello"{}))}}
+\DoxyCodeLine{00632\ \textcolor{comment}{//\ \ \ \ \ InvokeArgument<1>(5,\ string("{}Hello"{}),\ std::ref(foo))}}
+\DoxyCodeLine{00633\ \textcolor{comment}{//}}
+\DoxyCodeLine{00634\ \textcolor{comment}{//\ \ \ passes\ 5\ and\ string("{}Hello"{})\ by\ value,\ and\ passes\ foo\ by}}
+\DoxyCodeLine{00635\ \textcolor{comment}{//\ \ \ reference.}}
+\DoxyCodeLine{00636\ \textcolor{comment}{//}}
+\DoxyCodeLine{00637\ \textcolor{comment}{//\ \ \ 2.\ If\ the\ callable\ takes\ an\ argument\ by\ reference\ but\ std::ref()\ is}}
+\DoxyCodeLine{00638\ \textcolor{comment}{//\ \ \ not\ used,\ it\ will\ receive\ the\ reference\ to\ a\ copy\ of\ the\ value,}}
+\DoxyCodeLine{00639\ \textcolor{comment}{//\ \ \ instead\ of\ the\ original\ value.\ \ For\ example,\ when\ the\ 0-\/th}}
+\DoxyCodeLine{00640\ \textcolor{comment}{//\ \ \ argument\ of\ the\ mock\ function\ takes\ a\ const\ string\&,\ the\ action}}
 \DoxyCodeLine{00641\ \textcolor{comment}{//}}
-\DoxyCodeLine{00642\ \textcolor{comment}{//\ \ \ makes\ a\ copy\ of\ the\ temporary\ string("{}Hello"{})\ object\ and\ passes\ a}}
-\DoxyCodeLine{00643\ \textcolor{comment}{//\ \ \ reference\ of\ the\ copy,\ instead\ of\ the\ original\ temporary\ object,}}
-\DoxyCodeLine{00644\ \textcolor{comment}{//\ \ \ to\ the\ callable.\ \ This\ makes\ it\ easy\ for\ a\ user\ to\ define\ an}}
-\DoxyCodeLine{00645\ \textcolor{comment}{//\ \ \ InvokeArgument\ action\ from\ temporary\ values\ and\ have\ it\ performed}}
-\DoxyCodeLine{00646\ \textcolor{comment}{//\ \ \ later.}}
-\DoxyCodeLine{00647\ \textcolor{keyword}{template}\ <std::size\_t\ index,\ \textcolor{keyword}{typename}...\ Params>}
-\DoxyCodeLine{00648\ \mbox{\hyperlink{structtesting_1_1internal_1_1InvokeArgumentAction}{internal::InvokeArgumentAction<index,\ typename\ std::decay<Params>::type}}...>}
-\DoxyCodeLine{00649\ InvokeArgument(Params\ \&\&...params)\ \{}
-\DoxyCodeLine{00650\ \ \ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{classtesting_1_1internal_1_1FlatTuple}{internal::FlatTuple<typename\ std::decay<Params>::type}}...>(}
-\DoxyCodeLine{00651\ \ \ \ \ \ \ \mbox{\hyperlink{structtesting_1_1internal_1_1FlatTupleConstructTag}{internal::FlatTupleConstructTag}}\{\},\ std::forward<Params>(params)...)\};}
-\DoxyCodeLine{00652\ \}}
-\DoxyCodeLine{00653\ }
-\DoxyCodeLine{00654\ GTEST\_DISABLE\_MSC\_WARNINGS\_POP\_()\ \ \textcolor{comment}{//\ 4100}}
+\DoxyCodeLine{00642\ \textcolor{comment}{//\ \ \ \ \ InvokeArgument<0>(string("{}Hello"{}))}}
+\DoxyCodeLine{00643\ \textcolor{comment}{//}}
+\DoxyCodeLine{00644\ \textcolor{comment}{//\ \ \ makes\ a\ copy\ of\ the\ temporary\ string("{}Hello"{})\ object\ and\ passes\ a}}
+\DoxyCodeLine{00645\ \textcolor{comment}{//\ \ \ reference\ of\ the\ copy,\ instead\ of\ the\ original\ temporary\ object,}}
+\DoxyCodeLine{00646\ \textcolor{comment}{//\ \ \ to\ the\ callable.\ \ This\ makes\ it\ easy\ for\ a\ user\ to\ define\ an}}
+\DoxyCodeLine{00647\ \textcolor{comment}{//\ \ \ InvokeArgument\ action\ from\ temporary\ values\ and\ have\ it\ performed}}
+\DoxyCodeLine{00648\ \textcolor{comment}{//\ \ \ later.}}
+\DoxyCodeLine{00649\ \textcolor{keyword}{template}\ <std::size\_t\ index,\ \textcolor{keyword}{typename}...\ Params>}
+\DoxyCodeLine{00650\ \mbox{\hyperlink{structtesting_1_1internal_1_1InvokeArgumentAction}{internal::InvokeArgumentAction<index,\ typename\ std::decay<Params>::type}}...>}
+\DoxyCodeLine{00651\ InvokeArgument(Params\&\&...\ params)\ \{}
+\DoxyCodeLine{00652\ \ \ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{classtesting_1_1internal_1_1FlatTuple}{internal::FlatTuple<typename\ std::decay<Params>::type}}...>(}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \mbox{\hyperlink{structtesting_1_1internal_1_1FlatTupleConstructTag}{internal::FlatTupleConstructTag}}\{\},\ std::forward<Params>(params)...)\};}
+\DoxyCodeLine{00654\ \}}
 \DoxyCodeLine{00655\ }
-\DoxyCodeLine{00656\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
-\DoxyCodeLine{00657\ }
-\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLEMOCK\_INCLUDE\_GMOCK\_GMOCK\_MORE\_ACTIONS\_H\_}}
+\DoxyCodeLine{00656\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00657\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00660\ \}\ \ \textcolor{comment}{//\ namespace\ testing}}
+\DoxyCodeLine{00661\ }
+\DoxyCodeLine{00662\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GOOGLEMOCK\_INCLUDE\_GMOCK\_GMOCK\_MORE\_ACTIONS\_H\_}}
 
 \end{DoxyCode}

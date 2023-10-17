@@ -1,5 +1,5 @@
 \doxysection{gmock-\/port.h}
-\hypertarget{gmock-port_8h_source}{}\label{gmock-port_8h_source}\index{tests/lib/googlemock/include/gmock/internal/gmock-\/port.h@{tests/lib/googlemock/include/gmock/internal/gmock-\/port.h}}
+\hypertarget{gmock-port_8h_source}{}\label{gmock-port_8h_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/internal/gmock-\/port.h@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/include/gmock/internal/gmock-\/port.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2008,\ Google\ Inc.}}
@@ -60,7 +60,7 @@
 \DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}gmock/internal/custom/gmock-\/port.h"{}}}
 \DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}gtest/internal/gtest-\/port.h"{}}}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifdef\ GTEST\_HAS\_ABSL}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#if\ GTEST\_HAS\_ABSL}}
 \DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}absl/flags/declare.h"{}}}
 \DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}absl/flags/flag.h"{}}}
 \DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
@@ -77,7 +77,7 @@
 \DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ GMOCK\_FLAG(name)\ FLAGS\_gmock\_\#\#name}}
 \DoxyCodeLine{00074\ }
 \DoxyCodeLine{00075\ \textcolor{comment}{//\ Pick\ a\ command\ line\ flags\ implementation.}}
-\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#ifdef\ GTEST\_HAS\_ABSL}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#if\ GTEST\_HAS\_ABSL}}
 \DoxyCodeLine{00077\ }
 \DoxyCodeLine{00078\ \textcolor{comment}{//\ Macros\ for\ defining\ flags.}}
 \DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ GMOCK\_DEFINE\_bool\_(name,\ default\_val,\ doc)\ \(\backslash\)}}

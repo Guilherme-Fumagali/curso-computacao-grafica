@@ -1,5 +1,5 @@
 \doxysection{gmock-\/nice-\/strict\+\_\+test.cc}
-\hypertarget{gmock-nice-strict__test_8cc_source}{}\label{gmock-nice-strict__test_8cc_source}\index{tests/lib/googlemock/test/gmock-\/nice-\/strict\_test.cc@{tests/lib/googlemock/test/gmock-\/nice-\/strict\_test.cc}}
+\hypertarget{gmock-nice-strict__test_8cc_source}{}\label{gmock-nice-strict__test_8cc_source}\index{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/test/gmock-\/nice-\/strict\_test.cc@{cmake-\/build-\/debug/\_deps/googletest-\/src/googlemock/test/gmock-\/nice-\/strict\_test.cc}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2008,\ Google\ Inc.}}
@@ -44,7 +44,7 @@
 \DoxyCodeLine{00040\ \textcolor{comment}{//\ clash\ with\ ::testing::Mock.}}
 \DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMock}{Mock}}\ \{}
 \DoxyCodeLine{00042\ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classMock}{Mock}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classMock}{Mock}}()\ \{\}}
 \DoxyCodeLine{00044\ }
 \DoxyCodeLine{00045\ \ \ MOCK\_METHOD0(DoThis,\ \textcolor{keywordtype}{void}());}
 \DoxyCodeLine{00046\ }
@@ -82,7 +82,7 @@
 \DoxyCodeLine{00078\ }
 \DoxyCodeLine{00079\ \textcolor{keyword}{class\ }Foo\ \{}
 \DoxyCodeLine{00080\ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{virtual}\ \string~Foo()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{virtual}\ \string~Foo()\ \{\}}
 \DoxyCodeLine{00082\ }
 \DoxyCodeLine{00083\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ DoThis()\ =\ 0;}
 \DoxyCodeLine{00084\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ DoThat(\textcolor{keywordtype}{bool}\ flag)\ =\ 0;}
@@ -90,7 +90,7 @@
 \DoxyCodeLine{00086\ }
 \DoxyCodeLine{00087\ \textcolor{keyword}{class\ }MockFoo\ :\ \textcolor{keyword}{public}\ Foo\ \{}
 \DoxyCodeLine{00088\ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00089\ \ \ MockFoo()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00089\ \ \ MockFoo()\ \{\}}
 \DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{void}\ Delete()\ \{\ \textcolor{keyword}{delete}\ \textcolor{keyword}{this};\ \}}
 \DoxyCodeLine{00091\ }
 \DoxyCodeLine{00092\ \ \ MOCK\_METHOD0(DoThis,\ \textcolor{keywordtype}{void}());}
@@ -113,7 +113,7 @@
 \DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ (a10\ ?\ \textcolor{charliteral}{'T'}\ :\ \textcolor{stringliteral}{'F'});}
 \DoxyCodeLine{00110\ \ \ \}}
 \DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{virtual}\ \string~MockBar()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{virtual}\ \string~MockBar()\ \{\}}
 \DoxyCodeLine{00113\ }
 \DoxyCodeLine{00114\ \ \ \textcolor{keyword}{const}\ std::string\&\ str()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ str\_;\ \}}
 \DoxyCodeLine{00115\ }

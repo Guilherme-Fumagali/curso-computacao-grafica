@@ -76,7 +76,8 @@ $(function() {
 <div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Visão geral</h1>
-<p>Esse projeto fornece uma biblioteca de vetores (<a class="el" href="classvec2.html" title="Class for 2D vector and its operations.">vec2</a>, <a class="el" href="classvec3.html" title="Class for 3D vector and its operations.">vec3</a> e <a class="el" href="classvec4.html" title="Class for 4D vector and its operations.">vec4</a>) e matrizes (<a class="el" href="classmat2.html" title="Class for 2x2 matrix and its operations.">mat2</a>, <a class="el" href="classmat3.html" title="Class for 3x3 matrix and its operations.">mat3</a> e <a class="el" href="classmat4.html" title="Class for 4x4 matrix and its operations.">mat4</a>) para C++. Consulta a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: <a href="https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_2/docs/html/index.html">https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_2/docs/html/index.html</a></p>
+<p>Esse projeto fornece uma biblioteca de vetores (<a class="el" href="classvec2.html" title="Class for 2D vector and its operations.">vec2</a>, <a class="el" href="classvec3.html" title="Class for 3D vector and its operations.">vec3</a> e <a class="el" href="classvec4.html" title="Class for 4D vector and its operations.">vec4</a>) e matrizes (<a class="el" href="classmat2.html" title="Class for 2x2 matrix and its operations.">mat2</a>, <a class="el" href="classmat3.html" title="Class for 3x3 matrix and its operations.">mat3</a> e <a class="el" href="classmat4.html" title="Class for 4x4 matrix and its operations.">mat4</a>) para C++.</p>
+<p>Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: <a href="https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_2/docs/html/index.html">https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_2/docs/html/index.html</a></p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Compilação</h1>
 <h3><a class="anchor" id="autotoc_md3"></a>
@@ -92,12 +93,12 @@ Dependências</h3>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Gerando documentação</h3>
 <p>Para gerar a documentação do código, execute o comando abaixo:</p>
-<div class="fragment"><div class="line">make docs</div>
+<div class="fragment"><div class="line">doxygen Doxyfile</div>
 </div><!-- fragment --><p>A documentação será gerada na pasta <code>./docs</code>.</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Testes</h1>
 <p>Com a biblioteca compilada, execute o comando abaixo para executar os testes:</p>
-<div class="fragment"><div class="line">./build/tests/Google_Tests_run</div>
+<div class="fragment"><div class="line">./build/tests/tests</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Exemplos</h1>
 <p>Em <a href="src/main.cpp"><code>main.cpp</code></a> há um código de exemplo exemplificado em <a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html#thevec3class">RayTracingInOneWeekend</a>, que em suma gerará uma imagem degradê utilizando o objeto <a class="el" href="classvec3.html" title="Class for 3D vector and its operations.">vec3</a> da biblioteca.</p>

@@ -21,6 +21,15 @@ TEST(Mat2, Constructor) {
     EXPECT_EQ(m2[1][1], 4);
 }
 
+TEST(Mat2, ConstructorWithNegativeValues) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+
+    EXPECT_EQ(m1[0][0], -1);
+    EXPECT_EQ(m1[0][1], -2);
+    EXPECT_EQ(m1[1][0], -3);
+    EXPECT_EQ(m1[1][1], -4);
+}
+
 /* Addition test "m1 = m1 + m2" */
 TEST(Mat2, Addition) {
     mat2 m1(vec2(1, 2), vec2(3, 4));
@@ -34,6 +43,30 @@ TEST(Mat2, Addition) {
     EXPECT_EQ(m1[1][1], 12);
 }
 
+TEST(Mat2, AdditionWithNegativeValues) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+    mat2 m2(vec2(-5, -6), vec2(-7, -8));
+
+    m1 += m2;
+
+    EXPECT_EQ(m1[0][0], -6);
+    EXPECT_EQ(m1[0][1], -8);
+    EXPECT_EQ(m1[1][0], -10);
+    EXPECT_EQ(m1[1][1], -12);
+}
+
+TEST(Mat2, AdditionWithPositiveAndNegativeValues) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+    mat2 m2(vec2(1, 2), vec2(3, 4));
+
+    m1 += m2;
+
+    EXPECT_EQ(m1[0][0], 0);
+    EXPECT_EQ(m1[0][1], 0);
+    EXPECT_EQ(m1[1][0], 0);
+    EXPECT_EQ(m1[1][1], 0);
+}
+
 /* Subtraction test "m1 = m1 - m2" */
 TEST(Mat2, Subtraction) {
     mat2 m1(vec2(1, 2), vec2(3, 4));
@@ -41,10 +74,31 @@ TEST(Mat2, Subtraction) {
 
     m1 -= m2;
 
-    EXPECT_EQ(m1[0][0], -4);
-    EXPECT_EQ(m1[0][1], -4);
-    EXPECT_EQ(m1[1][0], -4);
-    EXPECT_EQ(m1[1][1], -4);
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; i < 2; i++)
+            EXPECT_EQ(m1[i][j], -4);
+}
+
+TEST(Mat2, SubtractionWithNegativeValues) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+    mat2 m2(vec2(-5, -6), vec2(-7, -8));
+
+    m1 -= m2;
+
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; i < 2; i++)
+            EXPECT_EQ(m1[i][j], 4);
+}
+
+TEST(Mat2, SubtractionWithPositiveAndNegativeValues) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+    mat2 m2(vec2(1, 2), vec2(3, 4));
+
+    m1 -= m2;
+
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; i < 2; i++)
+            EXPECT_EQ(m1[i][j], -2*i*2 - 2*j - 2);
 }
 
 /* Multiplication test "m1 = m1 * t" */
@@ -59,6 +113,17 @@ TEST(Mat2, Multiplication) {
     EXPECT_EQ(m1[1][1], 8);
 }
 
+TEST(Mat2, MultiplicationWithNegativeValues) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+
+    m1 *= 2;
+
+    EXPECT_EQ(m1[0][0], -2);
+    EXPECT_EQ(m1[0][1], -4);
+    EXPECT_EQ(m1[1][0], -6);
+    EXPECT_EQ(m1[1][1], -8);
+}
+
 /* Division test "m1 = m1 / t" */
 TEST(Mat2, Division) {
     mat2 m1(vec2(1, 2), vec2(3, 4));
@@ -69,6 +134,27 @@ TEST(Mat2, Division) {
     EXPECT_EQ(m1[0][1], 1);
     EXPECT_EQ(m1[1][0], 1.5);
     EXPECT_EQ(m1[1][1], 2);
+}
+
+TEST(Mat2, DivisionWithNegativeValues) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+
+    m1 /= 2;
+
+    EXPECT_EQ(m1[0][0], -0.5);
+    EXPECT_EQ(m1[0][1], -1);
+    EXPECT_EQ(m1[1][0], -1.5);
+    EXPECT_EQ(m1[1][1], -2);
+}
+
+TEST(Mat2, DivisionByZero) {
+    mat2 m1(vec2(-1, -2), vec2(-3, -4));
+
+    m1 /= 0;
+
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; i < 2; i++)
+            EXPECT_TRUE(std::isinf(m1[i][j]));
 }
 
 /* ------------------------ */

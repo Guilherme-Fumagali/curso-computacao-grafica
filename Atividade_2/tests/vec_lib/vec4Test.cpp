@@ -21,6 +21,15 @@ TEST(Vec4, Constructor) {
     EXPECT_EQ(v2.w(), 4);
 }
 
+TEST(Vec4, ConstructorWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+
+    EXPECT_EQ(v1.x(), -1);
+    EXPECT_EQ(v1.y(), -2);
+    EXPECT_EQ(v1.z(), -3);
+    EXPECT_EQ(v1.w(), -4);
+}
+
 /* Negation test "-v1" */
 TEST(Vec4, Negation) {
     vec4 v1(1, 2, 3, 4);
@@ -31,6 +40,17 @@ TEST(Vec4, Negation) {
     EXPECT_EQ(v2.y(), -2);
     EXPECT_EQ(v2.z(), -3);
     EXPECT_EQ(v2.w(), -4);
+}
+
+TEST(Vec4, NegationWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+
+    vec4 v2 = -v1;
+
+    EXPECT_EQ(v2.x(), 1);
+    EXPECT_EQ(v2.y(), 2);
+    EXPECT_EQ(v2.z(), 3);
+    EXPECT_EQ(v2.w(), 4);
 }
 
 /* Subscript test "v1[i]" */
@@ -66,6 +86,30 @@ TEST(Vec4, Addition) {
     EXPECT_EQ(v1.w(), 12);
 }
 
+TEST(Vec4, AdditionWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+    vec4 v2(-5, -6, -7, -8);
+
+    v1 += v2;
+
+    EXPECT_EQ(v1.x(), -6);
+    EXPECT_EQ(v1.y(), -8);
+    EXPECT_EQ(v1.z(), -10);
+    EXPECT_EQ(v1.w(), -12);
+}
+
+TEST(Vec4, AdditionWithPositiveAndNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+    vec4 v2(1, 2, 3, 4);
+
+    v1 += v2;
+
+    EXPECT_EQ(v1.x(), 0);
+    EXPECT_EQ(v1.y(), 0);
+    EXPECT_EQ(v1.z(), 0);
+    EXPECT_EQ(v1.w(), 0);
+}
+
 /* Subtraction test "v1 = v1 - v2" */
 TEST(Vec4, Subtraction) {
     vec4 v1(1, 2, 3, 4);
@@ -77,6 +121,30 @@ TEST(Vec4, Subtraction) {
     EXPECT_EQ(v1.y(), -4);
     EXPECT_EQ(v1.z(), -4);
     EXPECT_EQ(v1.w(), -4);
+}
+
+TEST(Vec4, SubtractionWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+    vec4 v2(-5, -6, -7, -8);
+
+    v1 -= v2;
+
+    EXPECT_EQ(v1.x(), 4);
+    EXPECT_EQ(v1.y(), 4);
+    EXPECT_EQ(v1.z(), 4);
+    EXPECT_EQ(v1.w(), 4);
+}
+
+TEST(Vec4, SubtractionWithPositiveAndNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+    vec4 v2(1, 2, 3, 4);
+
+    v1 -= v2;
+
+    EXPECT_EQ(v1.x(), -2);
+    EXPECT_EQ(v1.y(), -4);
+    EXPECT_EQ(v1.z(), -6);
+    EXPECT_EQ(v1.w(), -8);
 }
 
 /* Multiplication test "v1 = v1 * t" */
@@ -91,6 +159,17 @@ TEST(Vec4, Multiplication) {
     EXPECT_EQ(v1.w(), 8);
 }
 
+TEST(Vec4, MultiplicationWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+
+    v1 *= 2;
+
+    EXPECT_EQ(v1.x(), -2);
+    EXPECT_EQ(v1.y(), -4);
+    EXPECT_EQ(v1.z(), -6);
+    EXPECT_EQ(v1.w(), -8);
+}
+
 /* Division test "v1 = v1 / t" */
 TEST(Vec4, Division) {
     vec4 v1(1, 2, 3, 4);
@@ -103,6 +182,27 @@ TEST(Vec4, Division) {
     EXPECT_EQ(v1.w(), 2);
 }
 
+TEST(Vec4, DivisionWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4);
+
+    v1 /= 2;
+
+    EXPECT_EQ(v1.x(), -0.5);
+    EXPECT_EQ(v1.y(), -1);
+    EXPECT_EQ(v1.z(), -1.5);
+    EXPECT_EQ(v1.w(), -2);
+}
+
+TEST(Vec4, DivisionByZero) {
+    vec4 v1(1, 2, 3, 4);
+
+    v1 /= 0;
+
+    ASSERT_TRUE(std::isinf(v1.x()));
+    ASSERT_TRUE(std::isinf(v1.y()));
+    ASSERT_TRUE(std::isinf(v1.z()));
+}
+
 /* Length test "v1.length()" */
 TEST(Vec4, Length) {
     vec4 v1(1, 2, 3, 4); // 1^2 + 2^2 + 3^2 + 4^2 = 30
@@ -110,11 +210,35 @@ TEST(Vec4, Length) {
     EXPECT_EQ(v1.length(), sqrt(30));
 }
 
+TEST(Vec4, LengthWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4); // 1^2 + 2^2 + 3^2 + 4^2 = 30
+
+    EXPECT_EQ(v1.length(), sqrt(30));
+}
+
+TEST(Vec4, LengthWithZeroValues) {
+    vec4 v1(0, 0, 0, 0); // 0^2 + 0^2 + 0^2 + 0^2 = 0
+
+    EXPECT_EQ(v1.length(), 0);
+}
+
 /* Length Squared test "v1.length_squared()" */
 TEST(Vec4, LengthSquared) {
     vec4 v1(1, 2, 3, 4); // 1^2 + 2^2 + 3^2 + 4^2 = 30
 
     EXPECT_EQ(v1.length_squared(), 30);
+}
+
+TEST(Vec4, LengthSquaredWithNegativeValues) {
+    vec4 v1(-1, -2, -3, -4); // 1^2 + 2^2 + 3^2 + 4^2 = 30
+
+    EXPECT_EQ(v1.length_squared(), 30);
+}
+
+TEST(Vec4, LengthSquaredWithZeroValues) {
+    vec4 v1(0, 0, 0, 0); // 0^2 + 0^2 + 0^2 + 0^2 = 0
+
+    EXPECT_EQ(v1.length_squared(), 0);
 }
 
 /* Point4 test "point4(x, y, z, w)" */

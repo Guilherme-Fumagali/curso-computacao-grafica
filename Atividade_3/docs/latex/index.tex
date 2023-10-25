@@ -1,0 +1,39 @@
+\chapter{Classe de leitura de modelos .obj}
+\hypertarget{index}{}\label{index}\index{Classe de leitura de modelos .obj@{Classe de leitura de modelos .obj}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Visão geral}{Visão geral}}\label{index_autotoc_md1}
+Esse projeto fornece uma classe para leitura de modelos .obj para C++.
+
+Essa classe, chamada de \href{src/Loader.h}{\texttt{ Loader}}, recebe o caminho para um arquivo .obj e ponteiros de vetores, que serão escritos com os dados de vértices, normais, índices do modelo e informações das faces dos triângulos.
+
+Para armazenar os dados das faces, foi criada a classe \href{src/Triangle.h}{\texttt{ Triangle}}, que armazena os índices dos vértices e normais de cada face.
+
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\#\# Compilação\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\hypertarget{index_autotoc_md2}{}\doxysubsubsection{\texorpdfstring{Dependências}{Dependências}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{https://gcc.gnu.org/}{\texttt{ gcc}}, compilador C++.
+\item \href{https://cmake.org/}{\texttt{ CMake}}, ferramenta para geração de arquivos de compilação.
+\item \href{https://www.doxygen.nl/index.html}{\texttt{ Doxygen}}, ferramenta para geração de documentação.
+\end{DoxyItemize}
+
+Compile o código-\/fonte com o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build\ CMakeLists.txt\ \&\&\ cmake\ -\/-\/build\ build}
+
+\end{DoxyCode}
+
+
+Os arquivos compilados serão gerados na pasta {\ttfamily ./build}.\hypertarget{index_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Gerando documentação}{Gerando documentação}}\label{index_autotoc_md3}
+Para gerar a documentação do código, execute o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen\ Doxyfile}
+
+\end{DoxyCode}
+
+
+A documentação será gerada na pasta {\ttfamily ./docs}. 

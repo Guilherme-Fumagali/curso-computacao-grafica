@@ -1,0 +1,29 @@
+\doxysection{Triangle.\+h}
+\hypertarget{Triangle_8h_source}{}\label{Triangle_8h_source}\index{src/Triangle.h@{src/Triangle.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TRIANGLE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TRIANGLE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vec3.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTriangle}{Triangle}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ vec3\ \mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}[3];}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classTriangle_aaefe4ed500c07918d30c6f0e286332c5}{Triangle}}()\ :\ \mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}\{vec3(0,0,0),\ vec3(0,0,0),\ vec3(0,0,0)\}\ \{\}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classTriangle_a8dad94f24aeb4556f10678824937e4c9}{Triangle}}(vec3\ v0,\ vec3\ v1,\ vec3\ v2)\ :\ \mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}\{v0,\ v1,\ v2\}\ \{\}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \ \ vec3\ \mbox{\hyperlink{classTriangle_ae3158fc610313549953ebde3725eb4c2}{operator[]}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}[i];\ \}}
+\DoxyCodeLine{00039\ \ \ \ \ vec3\&\ \mbox{\hyperlink{classTriangle_ae3158fc610313549953ebde3725eb4c2}{operator[]}}(\textcolor{keywordtype}{int}\ i)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}[i];\ \}}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{inline}\ std::ostream\ \&operator<<(std::ostream\ \&out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTriangle}{Triangle}}\ \&t)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Triangle:\ "{}}\ <<\ t.\mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ t.\mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ t.\mbox{\hyperlink{classTriangle_aab89e346709b3439491de2d6e029074b}{vertices}}[2];}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TRIANGLE\_H}}
+
+\end{DoxyCode}

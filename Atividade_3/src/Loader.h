@@ -25,6 +25,8 @@ public:
      * @brief Loads a .obj file.
      * @param source The path to the .obj file.
      * @param out_vertices A pointer to a vector of vertices.
+     * @param out_uvs A pointer to a vector of texture coordinates.
+     * @param out_normals A pointer to a vector of normals.
      * @param out_triangles A pointer to a vector of triangles.
      * @return True if the file was loaded successfully, false otherwise.
      */

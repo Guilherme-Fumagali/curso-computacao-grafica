@@ -1,0 +1,92 @@
+\doxysection{Loader.\+h}
+\hypertarget{Loader_8h_source}{}\label{Loader_8h_source}\index{src/Loader.h@{src/Loader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OBJREADER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OBJREADER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vec2.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}vec3.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Triangle.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLoader}{Loader}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLoader_a8f97ab2738195e9a4ce3a354093563f7}{loadObj}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *source,\ vector<vec3>*\ out\_vertices,\ vector<vec2>*\ out\_uvs,\ vector<vec3>*\ out\_normals,\ vector<Triangle>*\ out\_triangles)\ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Try\ to\ open\ the\ file}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ ifstream\ file(source);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!file.is\_open())\{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ file\ "{}}\ <<\ source\ <<\ std::endl;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ the\ file\ line\ by\ line}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.eof())\ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ end\ of\ file}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ getline(file,\ line);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vertex\ data}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.substr(0,\ 2)\ ==\ \textcolor{stringliteral}{"{}v\ "{}})\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ vertex;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ read\ the\ three\ doubles\ from\ the\ line\ and\ store\ them\ in\ the\ vec3}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sscanf(line.c\_str(),\ \textcolor{stringliteral}{"{}v\ \%lf\ \%lf\ \%lf\(\backslash\)n"{}},\ \&vertex[0],\ \&vertex[1],\ \&vertex[2]);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_vertices-\/>push\_back(vertex);\ \textcolor{comment}{//\ add\ the\ vertex\ to\ the\ vector}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ texture\ data}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.substr(0,\ 2)\ ==\ \textcolor{stringliteral}{"{}vt"{}})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vec2\ uv;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ read\ the\ two\ doubles\ from\ the\ line\ and\ store\ them\ in\ the\ vec2}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sscanf(line.c\_str(),\ \textcolor{stringliteral}{"{}vt\ \%lf\ \%lf\(\backslash\)n"{}},\ \&uv[0],\ \&uv[1]);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_uvs-\/>push\_back(uv);\ \textcolor{comment}{//\ add\ the\ uv\ to\ the\ vector}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ normal\ data}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.substr(0,\ 2)\ ==\ \textcolor{stringliteral}{"{}vn"{}})\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ normal;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ read\ the\ three\ doubles\ from\ the\ line\ and\ store\ them\ in\ the\ vec3}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sscanf(line.c\_str(),\ \textcolor{stringliteral}{"{}vn\ \%lf\ \%lf\ \%lf\(\backslash\)n"{}},\ \&normal[0],\ \&normal[1],\ \&normal[2]);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_normals-\/>push\_back(normal);\ \textcolor{comment}{//\ add\ the\ normal\ to\ the\ vector}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ face\ data}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.substr(0,\ 2)\ ==\ \textcolor{stringliteral}{"{}f\ "{}})\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ vertexIndex[3],\ uvIndex[3],\ normalIndex[3];}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ matches\ =\ sscanf(line.c\_str(),\ \textcolor{stringliteral}{"{}f\ \%d/\%d/\%d\ \%d/\%d/\%d\ \%d/\%d/\%d"{}},}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&vertexIndex[0],\ \&uvIndex[0],\ \&normalIndex[0],}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&vertexIndex[1],\ \&uvIndex[1],\ \&normalIndex[1],}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&vertexIndex[2],\ \&uvIndex[2],\ \&normalIndex[2]);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ the\ line\ was\ read\ correctly}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matches\ !=\ 9)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ read\ face\ data\ from\ line\ "{}}\ <<\ line\ <<\ std::endl;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector<vec3>\ faces;\ \textcolor{comment}{//\ vector\ for\ storing\ the\ faces}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ faces.emplace\_back(vertexIndex[i]\ -\/\ 1,\ uvIndex[i]\ -\/\ 1,\ normalIndex[i]\ -\/\ 1);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ the\ triangle\ to\ the\ vector}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_triangles-\/>emplace\_back(faces[0],\ faces[1],\ faces[2]);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//OBJREADER\_H}}
+
+\end{DoxyCode}

@@ -8,7 +8,9 @@ Essa classe, chamada de [Loader](src/Loader.h), recebe o caminho para um arquivo
 
 Para armazenar os dados das faces, foi criada a classe [Triangle](src/Triangle.h), que armazena os índices dos vértices e normais de cada face.
 
-## Compilação
+Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_3/docs/html/index.html
+
+**## Compilação**
 
 #### Dependências
 

@@ -1,0 +1,60 @@
+\doxysection{Loader Class Reference}
+\hypertarget{classLoader}{}\label{classLoader}\index{Loader@{Loader}}
+
+
+Class for loading .obj files.  
+
+
+
+
+{\ttfamily \#include $<$Loader.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classLoader_a8f97ab2738195e9a4ce3a354093563f7}{load\+Obj}} (const char \texorpdfstring{$\ast$}{*}source, vector$<$ vec3 $>$ \texorpdfstring{$\ast$}{*}out\+\_\+vertices, vector$<$ vec2 $>$ \texorpdfstring{$\ast$}{*}out\+\_\+uvs, vector$<$ vec3 $>$ \texorpdfstring{$\ast$}{*}out\+\_\+normals, vector$<$ \mbox{\hyperlink{classTriangle}{Triangle}} $>$ \texorpdfstring{$\ast$}{*}out\+\_\+triangles)
+\begin{DoxyCompactList}\small\item\em Loads a .obj file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for loading .obj files. 
+
+The class contains a static method for loading .obj files. The method takes a file path as argument and returns a vector of vertices and a vector of triangles. The vertices are stored as \{\begin{DoxySeeAlso}{See also}
+vec3\} vectors and the triangles are stored as \{
+
+\doxylink{classTriangle}{Triangle}\} objects. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLoader_a8f97ab2738195e9a4ce3a354093563f7}\label{classLoader_a8f97ab2738195e9a4ce3a354093563f7} 
+\index{Loader@{Loader}!loadObj@{loadObj}}
+\index{loadObj@{loadObj}!Loader@{Loader}}
+\doxysubsubsection{\texorpdfstring{loadObj()}{loadObj()}}
+{\footnotesize\ttfamily static bool Loader\+::load\+Obj (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{source,  }\item[{vector$<$ vec3 $>$ \texorpdfstring{$\ast$}{*}}]{out\+\_\+vertices,  }\item[{vector$<$ vec2 $>$ \texorpdfstring{$\ast$}{*}}]{out\+\_\+uvs,  }\item[{vector$<$ vec3 $>$ \texorpdfstring{$\ast$}{*}}]{out\+\_\+normals,  }\item[{vector$<$ \mbox{\hyperlink{classTriangle}{Triangle}} $>$ \texorpdfstring{$\ast$}{*}}]{out\+\_\+triangles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Loads a .obj file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The path to the .obj file. \\
+\hline
+{\em out\+\_\+vertices} & A pointer to a vector of vertices. \\
+\hline
+{\em out\+\_\+uvs} & A pointer to a vector of texture coordinates. \\
+\hline
+{\em out\+\_\+normals} & A pointer to a vector of normals. \\
+\hline
+{\em out\+\_\+triangles} & A pointer to a vector of triangles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the file was loaded successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Loader.\+h\end{DoxyCompactItemize}

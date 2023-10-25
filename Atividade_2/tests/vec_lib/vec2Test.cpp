@@ -171,6 +171,20 @@ TEST(Vec2, DivisionByZero) {
     EXPECT_TRUE(std::isinf(v1.y()));
 }
 
+TEST(Vec2, Equals) {
+    vec2 v1(1, 2);
+    vec2 v2(1, 2);
+
+    EXPECT_TRUE(v1 == v2);
+}
+
+TEST(Vec2, NotEquals) {
+    vec2 v1(1, 2);
+    vec2 v2(3, 4);
+
+    EXPECT_FALSE(v1 == v2);
+}
+
 /* Length test "v1.length()" */
 TEST(Vec2, Length) {
     vec2 v1(1, 2); // 1^2 + 2^2 = 5

@@ -185,6 +185,20 @@ TEST(Vec3, DivisionByZero) {
     ASSERT_TRUE(std::isinf(v1.z()));
 }
 
+TEST(Vec3, Equals) {
+    vec3 v1(1, 2, 3);
+    vec3 v2(1, 2, 3);
+
+    EXPECT_TRUE(v1 == v2);
+}
+
+TEST(Vec3, NotEquals) {
+    vec3 v1(1, 2, 3);
+    vec3 v2(4, 5, 6);
+
+    EXPECT_FALSE(v1 == v2);
+}
+
 /* Length test "v1.length()" */
 TEST(Vec3, Length) {
     vec3 v1(1, 2, 3); // 1^2 + 2^2 + 3^2 = 14

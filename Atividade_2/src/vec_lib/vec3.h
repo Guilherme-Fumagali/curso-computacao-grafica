@@ -111,6 +111,15 @@ public:
     }
 
     /**
+     * Compares two vectors.
+     * @param v The vector to be compared.
+     * @return True if the vectors are equal, false otherwise.
+     */
+    bool operator==(const vec3 &v) const {
+        return e[0] == v.e[0] && e[1] == v.e[1] && e[2] == v.e[2];
+    }
+
+    /**
      * @brief Returns the length of the vector.
      * @return The length of the vector.
      */

@@ -203,6 +203,20 @@ TEST(Vec4, DivisionByZero) {
     ASSERT_TRUE(std::isinf(v1.z()));
 }
 
+TEST(Vec4, Equals) {
+    vec4 v1(1, 2, 3, 4);
+    vec4 v2(1, 2, 3, 4);
+
+    EXPECT_TRUE(v1 == v2);
+}
+
+TEST(Vec4, NotEquals) {
+    vec4 v1(1, 2, 3, 4);
+    vec4 v2(-1, 2, 3, 4);
+
+    EXPECT_FALSE(v1 == v2);
+}
+
 /* Length test "v1.length()" */
 TEST(Vec4, Length) {
     vec4 v1(1, 2, 3, 4); // 1^2 + 2^2 + 3^2 + 4^2 = 30

@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(../Atividade_2/src/vec_lib)
+include_directories(../Atividade_2/src/mat_lib)
 
 add_executable(main
         src/Loader.h
-        src/main.cpp)
+        src/main.cpp
+        src/Triangle.h)

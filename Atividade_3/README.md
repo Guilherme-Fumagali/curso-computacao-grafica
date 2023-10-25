@@ -10,7 +10,7 @@ Para armazenar os dados das faces, foi criada a classe [Triangle](src/Triangle.h
 
 Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_3/docs/html/index.html
 
-**## Compilação**
+## Compilação
 
 #### Dependências
 

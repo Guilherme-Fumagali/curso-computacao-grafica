@@ -20,7 +20,9 @@ vec3 \mbox{\hyperlink{classTriangle_ae3158fc610313549953ebde3725eb4c2}{operator\
 \begin{DoxyCompactList}\small\item\em Returns the vertex at the given index. \end{DoxyCompactList}\item 
 \Hypertarget{classTriangle_adbc3d6f4012043fd89c84ffc9ec03a9c}\label{classTriangle_adbc3d6f4012043fd89c84ffc9ec03a9c} 
 vec3 \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i)
-\end{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classTriangle_a23d8d8a0e229bd07d67ccfbfad2e0e25}{operator==}} (const \mbox{\hyperlink{classTriangle}{Triangle}} \&t) const
+\begin{DoxyCompactList}\small\item\em Compare two triangles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -71,6 +73,24 @@ Constructor with three vec3 as arguments.
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classTriangle_a23d8d8a0e229bd07d67ccfbfad2e0e25}\label{classTriangle_a23d8d8a0e229bd07d67ccfbfad2e0e25} 
+\index{Triangle@{Triangle}!operator==@{operator==}}
+\index{operator==@{operator==}!Triangle@{Triangle}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Triangle\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTriangle}{Triangle}} \&}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare two triangles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \doxylink{classTriangle}{Triangle} to be compared.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the triangles are equal, false otherwise. 
+\end{DoxyReturn}
 \Hypertarget{classTriangle_ae3158fc610313549953ebde3725eb4c2}\label{classTriangle_ae3158fc610313549953ebde3725eb4c2} 
 \index{Triangle@{Triangle}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!Triangle@{Triangle}}

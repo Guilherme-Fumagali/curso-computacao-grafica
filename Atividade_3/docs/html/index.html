@@ -79,8 +79,10 @@ Visão geral</h1>
 <p>Esse projeto fornece uma classe para leitura de modelos .obj para C++.</p>
 <p>Essa classe, chamada de <a href="src/Loader.h">Loader</a>, recebe o caminho para um arquivo .obj e ponteiros de vetores, que serão escritos com os dados de vértices, normais, índices do modelo e informações das faces dos triângulos.</p>
 <p>Para armazenar os dados das faces, foi criada a classe <a href="src/Triangle.h">Triangle</a>, que armazena os índices dos vértices e normais de cada face.</p>
-<p>**## Compilação**</p>
-<h3><a class="anchor" id="autotoc_md2"></a>
+<p>Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: <a href="https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_3/docs/html/index.html">https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_3/docs/html/index.html</a></p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Compilação</h1>
+<h3><a class="anchor" id="autotoc_md3"></a>
 Dependências</h3>
 <ul>
 <li><a href="https://gcc.gnu.org/">gcc</a>, compilador C++.</li>
@@ -90,12 +92,16 @@ Dependências</h3>
 <p>Compile o código-fonte com o comando abaixo:</p>
 <div class="fragment"><div class="line">cmake -B build CMakeLists.txt &amp;&amp; cmake --build build</div>
 </div><!-- fragment --><p>Os arquivos compilados serão gerados na pasta <code>./build</code>.</p>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Gerando documentação</h3>
 <p>Para gerar a documentação do código, execute o comando abaixo:</p>
 <div class="fragment"><div class="line">doxygen Doxyfile</div>
-</div><!-- fragment --><p>A documentação será gerada na pasta <code>./docs</code>. </p>
-</div></div><!-- PageDoc -->
+</div><!-- fragment --><p>A documentação será gerada na pasta <code>./docs</code>.</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Testes</h1>
+<p>Com a aplicação compilada, execute o comando abaixo para executar os testes:</p>
+<div class="fragment"><div class="line">./build/src/tests/tests</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

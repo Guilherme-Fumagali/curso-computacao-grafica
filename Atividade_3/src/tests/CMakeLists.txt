@@ -10,8 +10,8 @@ enable_testing()
 include_directories(static)
 
 add_executable(tests
-        ../Loader.h
         LoaderTest.cpp
+        TriangleTest.cpp
 )
 
 target_link_libraries(tests GTest::gtest_main)

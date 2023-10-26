@@ -56,7 +56,7 @@ public:
  * @return The output stream.
  */
 inline std::ostream &operator<<(std::ostream &out, const Triangle &t) {
-    out << "Triangle: " << t.vertices[0] << ", " << t.vertices[1] << ", " << t.vertices[2];
+    out << "Triangle: " << '[' << t.vertices[0] << ']' << ", " << '[' << t.vertices[1]  << ']' << ", " << '[' << t.vertices[2]  << ']';
     return out;
 }
 

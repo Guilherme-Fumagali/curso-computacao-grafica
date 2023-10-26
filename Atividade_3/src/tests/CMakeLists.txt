@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.26)
-
 include(FetchContent)
 FetchContent_Declare(
         googletest
@@ -9,9 +7,15 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+include_directories(static)
+
 add_executable(tests
-        triangleTest.cpp
+        ../Loader.h
         LoaderTest.cpp
 )
 
 target_link_libraries(tests GTest::gtest_main)
+target_link_libraries(tests GTest::gmock_main)
+
+include(GoogleTest)
+gtest_discover_tests(tests)

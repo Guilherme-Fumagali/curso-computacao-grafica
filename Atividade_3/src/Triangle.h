@@ -37,6 +37,16 @@ public:
      */
     vec3 operator[](int i) const { return vertices[i]; }
     vec3& operator[](int i) { return vertices[i]; }
+
+    /**
+     * @brief Compare two triangles.
+     * @param t Triangle to be compared.
+     *
+     * @return True if the triangles are equal, false otherwise.
+     */
+    bool operator==(const Triangle &t) const {
+        return vertices[0] == t.vertices[0] && vertices[1] == t.vertices[1] && vertices[2] == t.vertices[2];
+    }
 };
 
 /**

@@ -16,6 +16,7 @@ using namespace std;
  * @details The class contains a static method for loading .obj files.
  * The method takes a file path as argument and returns a vector of vertices and a vector of triangles.
  * The vertices are stored as {@see vec3} vectors and the triangles are stored as {@see Triangle} objects.
+ * @Note In Triangle, if the index value is -1, it means that the value is not defined.
  */
 class Loader {
 
@@ -49,7 +50,14 @@ public:
             if (line.substr(0, 2) == "v ") {
                 vec3 vertex;
                 // read the three doubles from the line and store them in the vec3
-                sscanf(line.c_str(), "v %lf %lf %lf\n", &vertex[0], &vertex[1], &vertex[2]);
+                int matches = sscanf(line.c_str(), "v %lf %lf %lf\n", &vertex[0], &vertex[1], &vertex[2]);
+
+                // check if the line was read correctly
+                if (matches != 3) {
+                    std::cerr << "Error: Could not read vertex data from line " << line << std::endl;
+                    return false;
+                }
+
                 out_vertices->push_back(vertex); // add the vertex to the vector
             }
 
@@ -57,7 +65,14 @@ public:
             if (line.substr(0, 2) == "vt") {
                 vec2 uv;
                 // read the two doubles from the line and store them in the vec2
-                sscanf(line.c_str(), "vt %lf %lf\n", &uv[0], &uv[1]);
+                int matches = sscanf(line.c_str(), "vt %lf %lf\n", &uv[0], &uv[1]);
+
+                // check if the line was read correctly
+                if (matches != 2) {
+                    std::cerr << "Error: Could not read texture data from line " << line << std::endl;
+                    return false;
+                }
+
                 out_uvs->push_back(uv); // add the uv to the vector
             }
 
@@ -65,7 +80,14 @@ public:
             if (line.substr(0, 2) == "vn") {
                 vec3 normal;
                 // read the three doubles from the line and store them in the vec3
-                sscanf(line.c_str(), "vn %lf %lf %lf\n", &normal[0], &normal[1], &normal[2]);
+                int matches = sscanf(line.c_str(), "vn %lf %lf %lf\n", &normal[0], &normal[1], &normal[2]);
+
+                // check if the line was read correctly
+                if (matches != 3) {
+                    std::cerr << "Error: Could not read normal data from line " << line << std::endl;
+                    return false;
+                }
+
                 out_normals->push_back(normal); // add the normal to the vector
             }
 
@@ -84,8 +106,21 @@ public:
                 }
 
                 vector<vec3> faces; // vector for storing the faces
-                for (int i = 0; i < 3; i++)
-                    faces.emplace_back(vertexIndex[i] - 1, uvIndex[i] - 1, normalIndex[i] - 1);
+                for (int i = 0; i < 3; i++){
+                    // check if the indices are in range
+                    if (vertexIndex[i] > out_vertices->size() || uvIndex[i] > out_uvs->size() || normalIndex[i] > out_normals->size()){
+                        std::cerr << "Error: Index out of range in line " << line << std::endl;
+                        return false;
+                    }
+
+                    // check if the values are positive
+                    if (vertexIndex[i] < 0 || uvIndex[i] < 0 || normalIndex[i] < 0){
+                        std::cerr << "Error: Index must be positive in line " << line << std::endl;
+                        return false;
+                    }
+
+                    faces.emplace_back(vertexIndex[i] - 1, uvIndex[i] - 1.0, normalIndex[i] - 1.0);
+                }
 
                 // add the triangle to the vector
                 out_triangles->emplace_back(faces[0], faces[1], faces[2]);

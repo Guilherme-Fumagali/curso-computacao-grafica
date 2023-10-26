@@ -36,3 +36,11 @@ doxygen Doxyfile
 ```
 
 A documentação será gerada na pasta `./docs`.
+
+## Testes
+
+Com a aplicação compilada, execute o comando abaixo para executar os testes:
+
+```bash
+./build/src/tests/tests
+```

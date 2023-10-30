@@ -11,11 +11,12 @@ include_directories(../Atividade_2/src/mat_lib)
 include_directories(.)
 include_directories(./src)
 
-add_executable(main
+add_executable(sphere
     src/ray.h
-        src/sphere.cpp
+    src/sphere.cpp
 )
 
-set_target_properties(main PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED ON)
+add_executable(triangle
+    src/ray.h
+    src/triangle.cpp
+)

@@ -122,5 +122,9 @@ int main(int argc, char **argv) {
 
     MatrixIOImage::generateImageFromMatrix(matrix, image_width, image_height, argv[2]);
 
+    for (int i = 0; i < image_height; i++)
+        delete[] matrix[i];
+    delete[] matrix;
+
     std::clog << "\rDone.                 \n";
 }

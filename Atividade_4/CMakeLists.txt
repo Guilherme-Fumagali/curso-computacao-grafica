@@ -26,14 +26,15 @@ add_executable(sphere
         src/headers/ray.h
     src/sphere.cpp
 )
+target_link_libraries(sphere MatrixIOImage)
 
 add_executable(triangle
         src/headers/ray.h
     src/triangle.cpp
 )
+target_link_libraries(triangle MatrixIOImage)
 
 add_executable(render
     src/obj_render.cpp
 )
-
 target_link_libraries(render MatrixIOImage)

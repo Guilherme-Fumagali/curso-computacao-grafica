@@ -1,6 +1,6 @@
 #include "color.h"
 #include "src/headers/ray.h"
-#include "vec3.h"
+#include "MatrixIOImage.hpp"
 
 #include <iostream>
 
@@ -53,10 +53,11 @@ int main() {
                              - vec3(0, 0, focal_length) - viewport_u/2 - viewport_v/2;
     auto pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
+    int **matrix = new int *[image_height];
+    for (int i = 0; i < image_height; i++)
+        matrix[i] = new int[image_width * 3];
+
     // Render
-
-    std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
-
     for (int j = 0; j < image_height; ++j) {
         std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
         for (int i = 0; i < image_width; ++i) {
@@ -65,9 +66,17 @@ int main() {
             ray r(camera_center, ray_direction);
 
             color pixel_color = ray_color(r);
-            write_color(std::cout, pixel_color);
+            matrix[j][i * 3] = (int) (pixel_color.x() * 255);
+            matrix[j][i * 3 + 1] = (int) (pixel_color.y() * 255);
+            matrix[j][i * 3 + 2] = (int) (pixel_color.z() * 255);
         }
     }
+
+    MatrixIOImage::generateImageFromMatrix(matrix, image_width, image_height, "sphere.png");
+
+    for (int i = 0; i < image_height; i++)
+        delete[] matrix[i];
+    delete[] matrix;
 
     std::clog << "\rDone.                 \n";
 }

@@ -1,5 +1,5 @@
 #include "color.h"
-#include "ray.h"
+#include "src/headers/ray.h"
 #include "vec3.h"
 
 #include <iostream>

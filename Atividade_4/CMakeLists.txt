@@ -13,12 +13,12 @@ include_directories(.)
 include_directories(./src)
 
 add_executable(sphere
-    src/ray.h
+        src/headers/ray.h
     src/sphere.cpp
 )
 
 add_executable(triangle
-    src/ray.h
+        src/headers/ray.h
     src/triangle.cpp
 )
 

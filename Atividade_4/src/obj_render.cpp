@@ -1,5 +1,5 @@
 #include "color.h"
-#include "ray.h"
+#include "src/headers/ray.h"
 #include "vec3.h"
 #include "Loader.h"
 
@@ -56,10 +56,10 @@ color ray_color(const ray& r, vector<vec3> vertices, vector<Triangle> triangles)
 }
 
 int main(int argc, char **argv) {
-    /*if (argc < 2) {
+    if (argc < 2) {
         std::cerr << "Usage: " << argv[0] << " <input file>" << std::endl;
         return 1;
-    }*/
+    }
 
     // Image
     auto aspect_ratio = 16.0 / 9.0;
@@ -93,9 +93,9 @@ int main(int argc, char **argv) {
     vector<vec3> normals;
     vector<Triangle> triangles;
 
-    //const char *file = argv[1];
+    const char *file = argv[1];
 
-    bool res = Loader::loadObj("/home/gfumagali/Documents/PG/Atividade_4/piston_cup_trophy.obj", &vertices, &uvs, &normals, &triangles);
+    bool res = Loader::loadObj(file, &vertices, &uvs, &normals, &triangles);
     if (!res) {
         std::cerr << "Error: Could not load obj file " << argv[1] << std::endl;
         return 1;

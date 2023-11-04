@@ -1,6 +1,6 @@
 #include "color.h"
 #include "src/headers/ray.h"
-#include "vec3.h"
+#include "MatrixIOImage.hpp"
 #include "Loader.h"
 
 #include <iostream>
@@ -56,8 +56,8 @@ color ray_color(const ray& r, vector<vec3> vertices, vector<Triangle> triangles)
 }
 
 int main(int argc, char **argv) {
-    if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " <input file>" << std::endl;
+    if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " <input obj file>" << " <output image file>" << std::endl;
         return 1;
     }
 
@@ -101,9 +101,11 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    // Render
-    std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
+    int **matrix = new int *[image_height];
+    for (int i = 0; i < image_height; i++)
+        matrix[i] = new int[image_width * 3];
 
+    // Render
     for (int j = 0; j < image_height; ++j) {
         std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
         for (int i = 0; i < image_width; ++i) {
@@ -112,9 +114,13 @@ int main(int argc, char **argv) {
             ray r(camera_center, ray_direction);
 
             color pixel_color = ray_color(r, vertices, triangles);
-            write_color(std::cout, pixel_color);
+            matrix[j][i * 3] = (int) (pixel_color.x() * 255);
+            matrix[j][i * 3 + 1] = (int) (pixel_color.y() * 255);
+            matrix[j][i * 3 + 2] = (int) (pixel_color.z() * 255);
         }
     }
+
+    MatrixIOImage::generateImageFromMatrix(matrix, image_width, image_height, argv[2]);
 
     std::clog << "\rDone.                 \n";
 }

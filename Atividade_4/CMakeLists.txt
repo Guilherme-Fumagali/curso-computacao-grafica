@@ -23,6 +23,7 @@ include_directories(./src)
 add_library(MatrixIOImage ../Atividade_1/src/MatrixIOImage.cpp)
 
 add_executable(sphere
+        src/headers/HittableSphere.h
         src/headers/ray.h
     src/sphere.cpp
 )

@@ -6,7 +6,16 @@
 
 #include <iostream>
 
-color ray_color(const ray& r, vector<vec3> vertices, vector<Triangle> triangles) {
+/**
+ * @brief Calculates the color of a ray
+ * This function calculates the color of a ray by checking if it hits any of the triangles in the scene.
+ * If it hits a triangle, the color red is returned, otherwise the color of the sky is returned.
+ *
+ * @param r Ray to calculate the color of
+ * @param vertices Vertices at viewport
+ * @param triangles Indexes of vertices that form triangles
+ * */
+color ray_color(const ray& r, vector<vec3> vertices, const vector<Triangle>& triangles) {
     for (auto triangle : triangles) {
         vec3 A = vertices[(unsigned int)triangle[0].x()];
         vec3 B = vertices[(unsigned int)triangle[1].x()];
@@ -54,6 +63,7 @@ int main(int argc, char **argv) {
                                - vec3(0, 0, focal_length) - viewport_u/2 - viewport_v/2;
     auto pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
+    /*------------ Loading obj file ------------*/
     vector<vec3> vertices;
     vector<vec2> uvs; // texture coordinates
     vector<vec3> normals;
@@ -67,6 +77,7 @@ int main(int argc, char **argv) {
         return 1;
     }
 
+    /*------------ Rendering ------------*/
     int **matrix = new int *[image_height];
     for (int i = 0; i < image_height; i++)
         matrix[i] = new int[image_width * 3];

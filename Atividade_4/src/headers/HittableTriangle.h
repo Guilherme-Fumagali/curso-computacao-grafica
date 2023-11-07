@@ -4,6 +4,9 @@
 #include "vec3.h"
 #include "Hittable.h"
 
+/**
+ * @brief Class for hittable triangles
+ */
 class HittableTriangle : public Hittable {
     public:
         HittableTriangle() = default;
@@ -14,7 +17,12 @@ class HittableTriangle : public Hittable {
                 this->C = C;
         }
 
-        bool hit(const ray& r) {
+        /**
+         * Checks if a ray hits the triangle
+         * @param r Ray to check
+         * @return True if the ray hits the triangle, false otherwise
+         */
+        bool hit(const ray& r) override {
             vec3 AB = B - A;
             vec3 AC = C - A;
             vec3 N = cross(AB, AC); // Normal vector of the triangle

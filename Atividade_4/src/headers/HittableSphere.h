@@ -3,25 +3,37 @@
 
 #include "Hittable.h"
 
+/**
+ * @brief Class for hittable spheres
+ * */
 class HittableSphere : public Hittable {
     public:
-    HittableSphere() = default;
+        HittableSphere() = default;
 
-    HittableSphere(const point3& center, double radius) {
-            this->center = center;
-            this->radius = radius;
-        }
+        HittableSphere(const point3& center, double radius) {
+                this->center = center;
+                this->radius = radius;
+            }
 
-        virtual bool hit(const ray& r) {
-            vec3 oc = r.origin() - center;
+        /**
+         * Checks if a ray hits the sphere
+         * @param r Ray to check
+         * @return True if the ray hits the sphere, false otherwise
+         */
+        bool hit(const ray& r) override {
+            vec3 oc = r.origin() - center; // vector from center to origin
+
+            /* Calculating coefficients for quadratic equation */
             auto a = dot(r.direction(), r.direction());
             auto b = 2.0 * dot(oc, r.direction());
             auto c = dot(oc, oc) - radius*radius;
+
+            /* If discriminant is greater than or equal to 0, the ray hits the sphere */
             auto discriminant = b*b - 4*a*c;
             return (discriminant >= 0);
         }
 
-    public:
+    private:
         point3 center;
         double radius{};
 };

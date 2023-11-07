@@ -5,9 +5,17 @@
 
 #include <iostream>
 
+/**
+ * @brief Calculates the color of a ray
+ * This function calculates the color of a ray by checking if it hits in sphere in the scene.
+ * This sphere is centered at the origin and has a radius of 0.5.
+ * If it hits the sphere, the color red is returned, otherwise the color of the sky is returned.
+ *
+ * @param r Ray to calculate the color of
+ * */
 color ray_color(const ray& r) {
     if (HittableSphere(point3(0, 0, -1), 0.5).hit(r))
-        return color(1, 0, 0);
+        return {1, 0, 0};
 
     vec3 unit_direction = unit_vector(r.direction());
     auto a = 0.5*(unit_direction.y() + 1.0);
@@ -17,7 +25,6 @@ color ray_color(const ray& r) {
 int main() {
 
     // Image
-
     auto aspect_ratio = 16.0 / 9.0;
     int image_width = 400;
 
@@ -25,8 +32,7 @@ int main() {
     int image_height = static_cast<int>(image_width / aspect_ratio);
     image_height = (image_height < 1) ? 1 : image_height;
 
-    // Camera
-
+    /*------------ Camera ------------*/
     auto focal_length = 1.0;
     auto viewport_height = 2.0;
     auto viewport_width = viewport_height * (static_cast<double>(image_width)/image_height);
@@ -45,11 +51,11 @@ int main() {
                              - vec3(0, 0, focal_length) - viewport_u/2 - viewport_v/2;
     auto pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
+    /*------------ Rendering ------------*/
     int **matrix = new int *[image_height];
     for (int i = 0; i < image_height; i++)
         matrix[i] = new int[image_width * 3];
 
-    // Render
     for (int j = 0; j < image_height; ++j) {
         std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
         for (int i = 0; i < image_width; ++i) {

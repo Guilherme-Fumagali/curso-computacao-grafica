@@ -4,6 +4,8 @@
 
 Essa atividade consiste em implementar uma visualização de uma esfera, um triangulo, e um objeto 3D definido por um arquivo .obj. A visualização é feita com algoritmo de ray-tracing.
 
+Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_4/docs/html/index.html
+
 ## Implementação
 
 Foram implementados um código-fonte em C++ para cada uma das visualizações.

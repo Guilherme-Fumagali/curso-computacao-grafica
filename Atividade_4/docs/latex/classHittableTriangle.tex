@@ -1,0 +1,66 @@
+\doxysection{Hittable\+Triangle Class Reference}
+\hypertarget{classHittableTriangle}{}\label{classHittableTriangle}\index{HittableTriangle@{HittableTriangle}}
+
+
+Class for hittable triangles.  
+
+
+
+
+{\ttfamily \#include $<$Hittable\+Triangle.\+h$>$}
+
+Inheritance diagram for Hittable\+Triangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHittableTriangle}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classHittableTriangle_a06abb74b42a1b59ddbf15133a126226f}\label{classHittableTriangle_a06abb74b42a1b59ddbf15133a126226f} 
+{\bfseries Hittable\+Triangle} (const point3 \&A, const point3 \&B, const point3 \&C)
+\item 
+bool \mbox{\hyperlink{classHittableTriangle_a3b23dbdfa6254c19c2edf089f5abe2ca}{hit}} (const \mbox{\hyperlink{classray}{ray}} \&r) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classHittableTriangle_abef9cc46a27aad614e4ad6f9b1fada67}\label{classHittableTriangle_abef9cc46a27aad614e4ad6f9b1fada67} 
+point3 {\bfseries A}
+\item 
+\Hypertarget{classHittableTriangle_a2f7be96f8d7b9262795a670cfec681e8}\label{classHittableTriangle_a2f7be96f8d7b9262795a670cfec681e8} 
+point3 {\bfseries B}
+\item 
+\Hypertarget{classHittableTriangle_a75e77447e5ac4b76d6a59308f4802d00}\label{classHittableTriangle_a75e77447e5ac4b76d6a59308f4802d00} 
+point3 {\bfseries C}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for hittable triangles. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classHittableTriangle_a3b23dbdfa6254c19c2edf089f5abe2ca}\label{classHittableTriangle_a3b23dbdfa6254c19c2edf089f5abe2ca} 
+\index{HittableTriangle@{HittableTriangle}!hit@{hit}}
+\index{hit@{hit}!HittableTriangle@{HittableTriangle}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily bool Hittable\+Triangle\+::hit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if a ray hits the triangle 
+\begin{DoxyParams}{Parameters}
+{\em r} & Ray to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the ray hits the triangle, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classHittable_a4ff48b41527589e1e597dc7cd980bdbb}{Hittable}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/Hittable\+Triangle.\+h\end{DoxyCompactItemize}

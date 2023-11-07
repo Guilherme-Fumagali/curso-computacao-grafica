@@ -1,0 +1,54 @@
+\doxysection{Hittable\+Sphere Class Reference}
+\hypertarget{classHittableSphere}{}\label{classHittableSphere}\index{HittableSphere@{HittableSphere}}
+
+
+Class for hittable spheres.  
+
+
+
+
+{\ttfamily \#include $<$Hittable\+Sphere.\+h$>$}
+
+Inheritance diagram for Hittable\+Sphere\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHittableSphere}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classHittableSphere_ae24427f3302306569543adb12633c18e}\label{classHittableSphere_ae24427f3302306569543adb12633c18e} 
+{\bfseries Hittable\+Sphere} (const point3 \&center, double radius)
+\item 
+bool \mbox{\hyperlink{classHittableSphere_a7f0227e125d7d672641dc1009613e956}{hit}} (const \mbox{\hyperlink{classray}{ray}} \&r) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for hittable spheres. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classHittableSphere_a7f0227e125d7d672641dc1009613e956}\label{classHittableSphere_a7f0227e125d7d672641dc1009613e956} 
+\index{HittableSphere@{HittableSphere}!hit@{hit}}
+\index{hit@{hit}!HittableSphere@{HittableSphere}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily bool Hittable\+Sphere\+::hit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if a ray hits the sphere 
+\begin{DoxyParams}{Parameters}
+{\em r} & Ray to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the ray hits the sphere, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classHittable_a4ff48b41527589e1e597dc7cd980bdbb}{Hittable}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/Hittable\+Sphere.\+h\end{DoxyCompactItemize}

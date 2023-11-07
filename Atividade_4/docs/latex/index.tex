@@ -1,0 +1,95 @@
+\chapter{Visualização inicial}
+\hypertarget{index}{}\label{index}\index{Visualização inicial@{Visualização inicial}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Visão geral}{Visão geral}}\label{index_autotoc_md1}
+Essa atividade consiste em implementar uma visualização de uma esfera, um triangulo, e um objeto 3D definido por um arquivo .obj. A visualização é feita com algoritmo de ray-\/tracing.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Implementação}{Implementação}}\label{index_autotoc_md2}
+Foram implementados um código-\/fonte em C++ para cada uma das visualizações.
+
+Para encapsular a lógica de cada forma geométrica, foram criadas as classes \href{./src/headers/HittableSphere.h}{\texttt{ Hittable\+Sphere}} e \href{./src/headers/HittableTriangle.h}{\texttt{ Hittable\+Triangle}}, que implementam a interface \href{./src/headers/Hittable.h}{\texttt{ Hittable}}. A classe \doxylink{classHittable}{Hittable} é responsável por definir a interface que deve ser implementada por qualquer forma geométrica que possa ser atingida por um raio.
+
+Com isso, os códigos-\/fonte\+:
+
+
+\begin{DoxyItemize}
+\item \href{./src/sphere.cpp}{\texttt{ sphere.\+cpp}}\+: implementa a visualização de uma esfera usando \href{./src/headers/HittableSphere.h}{\texttt{ Hittable\+Sphere}}.
+\item \href{./src/triangle.cpp}{\texttt{ triangle.\+cpp}}\+: implementa a visualização de um triângulo usando \href{./src/headers/HittableTriangle.h}{\texttt{ Hittable\+Triangle}}.
+\item \href{./src/obj_render.cpp}{\texttt{ obj\+\_\+render.\+cpp}}\+: implementa a visualização de um objeto 3D definido por um arquivo .obj usando \href{./src/headers/HittableTriangle.h}{\texttt{ Hittable\+Triangle}}, o leitor de .obj \href{../Atividade_3/src/Loader.h}{\texttt{ Loader.\+h}}, e o conversor de imagens \href{../Atividade_1/src/MatrixIOImage.hpp}{\texttt{ Matrix\+IOImage.\+hpp}}.
+\end{DoxyItemize}
+
+Abaixo há as imagens geradas por cada uma das implementações.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Esfera   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Triângulo   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \href{./src/static/obj/piston_cup_trophy.obj}{\texttt{ .obj}}    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Esfera   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Triângulo   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \href{./src/static/obj/piston_cup_trophy.obj}{\texttt{ .obj}}    }\\\cline{1-3}
+\endhead
+\PBS\centering    &\PBS\centering    &\PBS\centering    \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Viewport e Câmera}{Viewport e Câmera}}\label{index_autotoc_md3}
+Em todas as implementações, o viewport, ou janela de visualização, é definida com uma altura de 2 unidades em um uma proporção de 16\+:9, resultando em uma largura aproximada de 3.\+56 unidades.
+
+A câmera, nas implementações estáticas {\ttfamily sphere.\+cpp} e {\ttfamily triangle.\+cpp}, é definida com uma posição inicial de (0, 0, 0), um ponto de foco em (0, 0, -\/1). Por outro lado, na implementação dinâmica {\ttfamily obj\+\_\+render.\+cpp}, a câmera é definida com uma posição inicial de (0, 0, 1), capturando assim todo viewport.\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Compilação e execução}{Compilação e execução}}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Dependências}{Dependências}}\label{index_autotoc_md5}
+
+\begin{DoxyItemize}
+\item \href{https://gcc.gnu.org/}{\texttt{ gcc}}, compilador C++.
+\item \href{https://cmake.org/}{\texttt{ CMake}}, ferramenta para geração de arquivos de compilação.
+\item \href{https://www.doxygen.nl/index.html}{\texttt{ Doxygen}}, ferramenta para geração de documentação.
+\end{DoxyItemize}
+
+Compile o código-\/fonte com o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build\ CMakeLists.txt\ \&\&\ cmake\ -\/-\/build\ build}
+
+\end{DoxyCode}
+
+
+Os arquivos compilados serão gerados na pasta {\ttfamily ./build}.\hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Gerando documentação}{Gerando documentação}}\label{index_autotoc_md6}
+Para gerar a documentação do código, execute o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen\ Doxyfile}
+
+\end{DoxyCode}
+
+
+A documentação será gerada na pasta {\ttfamily ./docs}.\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Executando}{Executando}}\label{index_autotoc_md7}
+Para executar o código, execute o comando abaixo\+:
+
+{\bfseries{Esfera}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/sphere}
+
+\end{DoxyCode}
+
+
+{\bfseries{Triângulo}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/triangle}
+
+\end{DoxyCode}
+
+
+{\bfseries{Objeto 3D}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/obj\_render\ <path\_to\_obj\_file>\ <path\_to\_output\_image>}
+
+\end{DoxyCode}
+
+
+Caso a extensão do arquivo de saída seja omitido, a imagem será salva com a extensão {\ttfamily .png}. 

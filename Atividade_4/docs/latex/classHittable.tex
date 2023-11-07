@@ -1,0 +1,51 @@
+\doxysection{Hittable Class Reference}
+\hypertarget{classHittable}{}\label{classHittable}\index{Hittable@{Hittable}}
+
+
+Abstract class for hittable objects This class is used to represent hittable objects in the scene.  
+
+
+
+
+{\ttfamily \#include $<$Hittable.\+h$>$}
+
+Inheritance diagram for Hittable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHittable}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classHittable_a4ff48b41527589e1e597dc7cd980bdbb}{hit}} (const \mbox{\hyperlink{classray}{ray}} \&r)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for hittable objects This class is used to represent hittable objects in the scene. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classHittable_a4ff48b41527589e1e597dc7cd980bdbb}\label{classHittable_a4ff48b41527589e1e597dc7cd980bdbb} 
+\index{Hittable@{Hittable}!hit@{hit}}
+\index{hit@{hit}!Hittable@{Hittable}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily virtual bool Hittable\+::hit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Checks if a ray hits the object 
+\begin{DoxyParams}{Parameters}
+{\em r} & Ray to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the ray hits the object, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classHittableSphere_a7f0227e125d7d672641dc1009613e956}{Hittable\+Sphere}}, and \mbox{\hyperlink{classHittableTriangle_a3b23dbdfa6254c19c2edf089f5abe2ca}{Hittable\+Triangle}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/Hittable.\+h\end{DoxyCompactItemize}

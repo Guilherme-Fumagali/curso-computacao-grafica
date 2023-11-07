@@ -1,0 +1,58 @@
+\doxysection{Hittable\+Triangle.\+h}
+\hypertarget{HittableTriangle_8h_source}{}\label{HittableTriangle_8h_source}\index{src/headers/HittableTriangle.h@{src/headers/HittableTriangle.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HITTABLE\_TRIANGLE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ HITTABLE\_TRIANGLE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vec3.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Hittable.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classHittableTriangle}{HittableTriangle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classHittable}{Hittable}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classHittableTriangle}{HittableTriangle}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classHittableTriangle}{HittableTriangle}}(\textcolor{keyword}{const}\ point3\&\ A,\ \textcolor{keyword}{const}\ point3\&\ B,\ \textcolor{keyword}{const}\ point3\&\ C)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>A\ =\ A;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>B\ =\ B;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>C\ =\ C;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classHittableTriangle_a3b23dbdfa6254c19c2edf089f5abe2ca}{hit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classray}{ray}}\&\ r)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ AB\ =\ B\ -\/\ A;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ AC\ =\ C\ -\/\ A;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ N\ =\ cross(AB,\ AC);\ \textcolor{comment}{//\ Normal\ vector\ of\ the\ triangle}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ AO\ =\ A\ -\/\ r.origin();\ \textcolor{comment}{//\ Vector\ from\ the\ ray\ origin\ to\ the\ triangle\ origin}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ dot(AO,\ N)\ /\ dot(r.direction(),\ N);\ \textcolor{comment}{//\ Distance\ from\ the\ ray\ origin\ to\ the\ triangle\ plane}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ <\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ The\ triangle\ is\ behind\ the\ ray\ origin,\ do\ not\ intersect}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ point3\ P\ =\ r.at(t);\ \textcolor{comment}{//\ Intersection\ point}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ AP\ =\ P\ -\/\ A;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ vpAB\ =\ cross(AB,\ AP);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dot(N,\ vpAB)\ <\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ P\ is\ on\ the\ right\ side\ of\ AB}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ BC\ =\ C\ -\/\ B;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ BP\ =\ P\ -\/\ B;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ vpBC\ =\ cross(BC,\ BP);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dot(N,\ vpBC)\ <\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ P\ is\ on\ the\ right\ side\ of\ BC}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ CA\ =\ A\ -\/\ C;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ CP\ =\ P\ -\/\ C;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ vec3\ vpCA\ =\ cross(CA,\ CP);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dot(N,\ vpCA)\ <\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ P\ is\ on\ the\ right\ side\ of\ CA}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ P\ is\ inside\ the\ triangle}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ point3\ A;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ point3\ B;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ point3\ C;}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HITTABLE\_TRIANGLE\_H}}
+
+\end{DoxyCode}

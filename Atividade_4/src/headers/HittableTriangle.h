@@ -2,9 +2,9 @@
 #define HITTABLE_TRIANGLE_H
 
 #include "vec3.h"
-#include "ray.h"
+#include "Hittable.h"
 
-class HittableTriangle {
+class HittableTriangle : public Hittable {
     public:
         HittableTriangle() = default;
 

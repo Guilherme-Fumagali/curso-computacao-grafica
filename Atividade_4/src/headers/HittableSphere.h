@@ -1,7 +1,9 @@
 #ifndef HITTABLE_SPHERE_H
 #define HITTABLE_SPHERE_H
 
-class HittableSphere {
+#include "Hittable.h"
+
+class HittableSphere : public Hittable {
     public:
     HittableSphere() = default;
 

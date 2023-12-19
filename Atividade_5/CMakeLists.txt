@@ -34,7 +34,17 @@ target_link_libraries(sphere_with_hittables_scene MatrixIOImage)
 add_executable(sphere_with_camera
         src/headers/hittable/HittableList.h
         src/headers/hittable/HittableSphere.h
+        src/headers/camera/camera.h
         src/utils/utils.h
         src/sphere_with_camera.cpp
 )
 target_link_libraries(sphere_with_camera MatrixIOImage)
+
+add_executable(sphere_with_sampled_camera
+        src/headers/hittable/HittableList.h
+        src/headers/hittable/HittableSphere.h
+        src/headers/camera/sampled_camera.h
+        src/utils/utils.h
+        src/sphere_with_sampled_camera.cpp
+)
+target_link_libraries(sphere_with_sampled_camera MatrixIOImage)

@@ -3,7 +3,7 @@
 
 #include "src/utils/utils.h"
 
-#include "color.h"
+#include "src/headers/color.h"
 #include "src/headers/hittable/Hittable.h"
 #include "MatrixIOImage.hpp"
 

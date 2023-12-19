@@ -42,6 +42,23 @@ public:
         return min < x && x < max;
     }
 
+    /**
+    * @brief Clamps a value within the interval.
+    *
+    * This method checks if a given value is less than the minimum or greater than the maximum of the interval.
+    * If the value is less than the minimum, it returns the minimum.
+    * If the value is greater than the maximum, it returns the maximum.
+    * Otherwise, it returns the original value.
+    *
+    * @param x The value to clamp.
+    * @return The clamped value.
+    */
+    double clamp(double x) const {
+        if (x < min) return min;
+        if (x > max) return max;
+        return x;
+    }
+
     static const interval empty, universe; // Static instances representing an empty and a universal interval.
 };
 

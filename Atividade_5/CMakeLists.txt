@@ -30,3 +30,11 @@ add_executable(sphere_with_hittables_scene
         src/sphere_with_hittables_scene.cpp
 )
 target_link_libraries(sphere_with_hittables_scene MatrixIOImage)
+
+add_executable(sphere_with_camera
+        src/headers/hittable/HittableList.h
+        src/headers/hittable/HittableSphere.h
+        src/utils/utils.h
+        src/sphere_with_camera.cpp
+)
+target_link_libraries(sphere_with_camera MatrixIOImage)

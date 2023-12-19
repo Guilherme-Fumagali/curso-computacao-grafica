@@ -66,3 +66,13 @@ add_executable(sphere_with_view_direction_camera
         src/sphere_with_view_direction_camera.cpp
 )
 target_link_libraries(sphere_with_view_direction_camera MatrixIOImage)
+
+add_executable(main
+        src/headers/hittable/HittableList.h
+        src/headers/hittable/HittableTriangle.h
+        src/headers/hittable/HittableSphere.h
+        src/headers/camera/view_direction_camera.h
+        src/utils/utils.h
+        src/main.cpp
+)
+target_link_libraries(main MatrixIOImage)

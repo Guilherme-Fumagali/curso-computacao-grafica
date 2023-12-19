@@ -41,6 +41,7 @@ inline double random_double(double min, double max) {
 #include "src/headers/Interval.h"
 #include "src/headers/ray.h"
 #include "vec3.h"
+#include "vec2.h"
 
 inline vec3 random_vec3() {
     return {random_double(), random_double(), random_double()};

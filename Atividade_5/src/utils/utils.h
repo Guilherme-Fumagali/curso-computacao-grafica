@@ -42,4 +42,32 @@ inline double random_double(double min, double max) {
 #include "src/headers/ray.h"
 #include "vec3.h"
 
+inline vec3 random_vec3() {
+    return {random_double(), random_double(), random_double()};
+}
+
+inline vec3 random_vec3(double min, double max) {
+    return {random_double(min,max), random_double(min,max), random_double(min,max)};
+}
+
+inline vec3 random_vec3_in_unit_sphere() {
+    while (true) {
+        auto p = random_vec3(-1,1);
+        if (p.length_squared() < 1)
+            return p;
+    }
+}
+
+inline vec3 random_vec3_unit_vector() {
+    return unit_vector(random_vec3_in_unit_sphere());
+}
+
+inline vec3  random_vec3_on_hemisphere(const vec3& normal) {
+    vec3 on_unit_sphere = random_vec3_unit_vector();
+    if (dot(on_unit_sphere, normal) > 0.0) // In the same hemisphere as the normal
+        return on_unit_sphere;
+    else
+        return -on_unit_sphere;
+}
+
 #endif //UTILS_H

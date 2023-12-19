@@ -57,3 +57,12 @@ add_executable(sphere_with_ray_bounced_sampled_camera
         src/sphere_with_ray_bounced_sampled_camera.cpp
 )
 target_link_libraries(sphere_with_ray_bounced_sampled_camera MatrixIOImage)
+
+add_executable(sphere_with_view_direction_camera
+        src/headers/hittable/HittableList.h
+        src/headers/hittable/HittableSphere.h
+        src/headers/camera/view_direction_camera.h
+        src/utils/utils.h
+        src/sphere_with_view_direction_camera.cpp
+)
+target_link_libraries(sphere_with_view_direction_camera MatrixIOImage)

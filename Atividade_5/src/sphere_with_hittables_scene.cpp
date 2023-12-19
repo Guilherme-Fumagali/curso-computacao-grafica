@@ -1,8 +1,8 @@
 
 #include "color.h"
-#include "headers/Hittable.h"
-#include "headers/HittableList.h"
-#include "headers/HittableSphere.h"
+#include "src/headers/hittable/Hittable.h"
+#include "src/headers/hittable/HittableList.h"
+#include "src/headers/hittable/HittableSphere.h"
 #include "utils/utils.h"
 #include "MatrixIOImage.hpp"
 
@@ -18,7 +18,7 @@
  * */
 color ray_color(const ray& r, const hittable& world) {
     hit_record rec;
-    if (world.hit(r, 0, infinity, rec)) {
+    if (world.hit(r, interval(0, infinity), rec)) {
         return 0.5 * (rec.normal + color(1,1,1));
     }
 

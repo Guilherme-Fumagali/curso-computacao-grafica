@@ -1,7 +1,8 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
-#include "ray.h"
+#include "src/headers/ray.h"
+#include "headers/Interval.h"
 
 /**
  * @brief This class represents a record of a hit. It contains the point of intersection,
@@ -33,12 +34,11 @@ class hittable {
         /**
          * Checks if a ray hits the object
          * @param r Ray to check
-         * @param ray_tmin Minimum value for the parameter t of the ray equation
-         * @param ray_tmax Maximum value for the parameter t of the ray equation
+         * @param ray_t Interval of the ray to check
          * @param rec Hit record
          * @return True if the ray hits the object, false otherwise
          */
-        virtual bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const = 0;
+        virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const = 0;
 };
 
 

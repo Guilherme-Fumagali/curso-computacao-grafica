@@ -35,18 +35,17 @@ public:
     /**
      * Checks if a ray hits any of the objects in the list
      * @param r Ray to check
-     * @param ray_tmin Minimum ray parameter
-     * @param ray_tmax Maximum ray parameter
+     * @param ray_t Interval of the ray to check
      * @param rec Hit record
      * @return True if the ray hits any of the objects, false otherwise
      */
-    bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const override {
+    bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         hit_record temp_rec;
         bool hit_anything = false;
-        auto closest_so_far = ray_tmax;
+        auto closest_so_far = ray_t.max;
 
         for (const auto& object : objects) {
-            if (object->hit(r, ray_tmin, closest_so_far, temp_rec)) {
+            if (object->hit(r, interval(ray_t.min, closest_so_far), temp_rec)) {
                 hit_anything = true;
                 closest_so_far = temp_rec.t;
                 rec = temp_rec;

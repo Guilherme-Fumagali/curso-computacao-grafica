@@ -23,9 +23,9 @@ include_directories(./src)
 add_library(MatrixIOImage ../Atividade_1/src/MatrixIOImage.cpp)
 
 add_executable(sphere_with_hittables_scene
-        src/headers/Hittable.h
-        src/headers/HittableList.h
-        src/headers/HittableSphere.h
+        src/headers/hittable/Hittable.h
+        src/headers/hittable/HittableList.h
+        src/headers/hittable/HittableSphere.h
         src/utils/utils.h
         src/sphere_with_hittables_scene.cpp
 )

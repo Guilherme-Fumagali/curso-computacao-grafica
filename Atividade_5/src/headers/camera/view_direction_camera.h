@@ -52,9 +52,9 @@ public:
                 }
 
                 pixel_color = write_color_gamma(pixel_color, samples_per_pixel);
-                matrix[j][i * 3] = (int) (pixel_color.x() * 255);
-                matrix[j][i * 3 + 1] = (int) (pixel_color.y() * 255);
-                matrix[j][i * 3 + 2] = (int) (pixel_color.z() * 255);
+                matrix[j][i * 3] = (int) (pixel_color.x());
+                matrix[j][i * 3 + 1] = (int) (pixel_color.y());
+                matrix[j][i * 3 + 2] = (int) (pixel_color.z());
             }
         }
 
@@ -135,15 +135,14 @@ private:
     }
 
     color ray_color(const ray& r, int depth, const hittable& world) const {
-        hit_record rec;
-
         // If we've exceeded the ray bounce limit, no more light is gathered.
         if (depth <= 0)
             return color(0,0,0);
 
+        hit_record rec;
         if (world.hit(r, interval(0.001, infinity), rec)) {
             vec3 direction = rec.normal + random_vec3_unit_vector();
-            return 0.2 * ray_color(ray(rec.p, direction), depth-1, world);
+            return 0.4 * ray_color(ray(rec.p, direction), depth-1, world);
         }
 
         vec3 unit_direction = unit_vector(r.direction());

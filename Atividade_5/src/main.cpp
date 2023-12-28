@@ -1,8 +1,9 @@
 #include "src/utils/utils.h"
 
 #include "src/headers/camera/view_direction_camera.h"
-#include "src/headers/hittable/HittableList.h"
 #include "src/headers/hittable/HittableTriangle.h"
+#include "headers/hittable/HittableSphere.h"
+#include "src/headers/hittable/HittableList.h"
 #include "Triangle.h"
 #include "Loader.h"
 
@@ -20,6 +21,7 @@ int main() {
     }
 
     hittable_list world;
+    //world.add(make_shared<sphere>(point3(0,-100.5,-1), 99));
 
     for (auto & t : triangles) {
         point3 vertice_a = vertices[(unsigned int)t[0].x()];
@@ -35,11 +37,11 @@ int main() {
         world.add(make_shared<triangle>(hittable_triangle));
     }
 
-    camera cam(1000, 16.0 / 9.0, 1, 10);
+    camera cam(1200, 4.0 / 3.0, 10, 5);
 
-    cam.vfov     = 30;
-    cam.lookfrom = point3(4,3,-5);
-    cam.lookat   = point3(0,0,-1);
+    cam.vfov     = 40;
+    cam.lookfrom = point3(4,-2,-3);
+    cam.lookat   = point3(1,0,-1);
     cam.vup      = vec3(0,1,0);
 
     cam.render(world, "main.png");

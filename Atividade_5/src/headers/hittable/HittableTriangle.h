@@ -1,5 +1,5 @@
-#ifndef SPHERE_H
-#define SPHERE_H
+#ifndef HITTABLE_TRIANGLE_H
+#define HITTABLE_TRIANGLE_H
 
 #include "vec3.h"
 #include "Hittable.h"
@@ -28,13 +28,11 @@ public:
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         vec3 ab = b - a;
         vec3 ac = c - a;
-
         vec3 normal = cross(ab, ac); // Normal vector of the triangle
 
-        vec3 ao = a - r.origin(); // Vector from the ray origin to the triangle origin
-
-        double t = dot(ao, normal) / dot(r.direction(), normal); // Distance from the ray origin to the triangle plane
-        if (t < 0) return false; // The triangle is behind the ray origin, do not intersect
+        double d = -dot(normal, a);
+        double t = -(dot(normal, r.origin()) + d) / dot(normal, r.direction()); // Distance from the ray origin to the triangle plane
+        if (t < ray_t.min || t > ray_t.max) return false; // The ray does not hit the triangle
 
         point3 p = r.at(t); // Intersection point
 
@@ -56,11 +54,11 @@ public:
         double w1 = dot(cross(ab, ac), cross(ab, ap)) / dot(cross(ab, ac), cross(ab, ac));
         double w2 = dot(cross(ab, ac), cross(ac, ap)) / dot(cross(ab, ac), cross(ab, ac));
         double w3 = 1 - w1 - w2;
+        vec3 outward_normal = w1 * normal_a + w2 * normal_b + w3 * normal_c;
+        outward_normal = unit_vector(outward_normal);
 
         rec.t = t;
         rec.p = p;
-        vec3 outward_normal = w1 * normal_a + w2 * normal_b + w3 * normal_c;
-        outward_normal = unit_vector(outward_normal);
         rec.set_face_normal(r, outward_normal);
 
         return true; // P is inside the triangle

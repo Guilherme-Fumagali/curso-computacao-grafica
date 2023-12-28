@@ -35,7 +35,7 @@ color write_color(color pixel_color, int samples_per_pixel) {
     // Write the translated [0,255] value of each color component.
     static const interval intensity(0.000, 0.999);
 
-    return {intensity.clamp(r), intensity.clamp(g), intensity.clamp(b)};
+    return {256 * intensity.clamp(r), 256 * intensity.clamp(g), 256 * intensity.clamp(b)};
 }
 
 /**
@@ -78,8 +78,7 @@ color write_color_gamma(color pixel_color, int samples_per_pixel) {
     b = linear_to_gamma(b);
 
     static const interval intensity(0.000, 0.999);
-    return {intensity.clamp(r), intensity.clamp(g), intensity.clamp(b)};
+    return {256 * intensity.clamp(r), 256 * intensity.clamp(g), 256 * intensity.clamp(b)};
 }
-
 
 #endif

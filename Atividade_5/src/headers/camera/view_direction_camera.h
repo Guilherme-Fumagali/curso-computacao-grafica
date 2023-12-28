@@ -19,6 +19,12 @@ public:
     point3 lookfrom = point3(0,0,-1);  // Point camera is looking from
     point3 lookat   = point3(0,0,0);   // Point camera is looking at
     vec3   vup      = vec3(0,1,0);     // Camera-relative "up" direction
+    double aspect_ratio = 4.0/3.0;   // Ratio of image width over height
+    int    image_width = 500;    // Rendered image width in pixel count
+    int    samples_per_pixel = 10; // Number of samples per pixel
+    int    max_depth = 10;      // Maximum number of ray bounces
+
+    camera() = default;
 
     camera(int image_width, double aspect_ratio, int samples_per_pixel, int max_depth) {
         this->image_width = image_width;
@@ -67,10 +73,6 @@ public:
     }
 
 private:
-    double aspect_ratio;   // Ratio of image width over height
-    int    image_width;    // Rendered image width in pixel count
-    int    samples_per_pixel; // Number of samples per pixel
-    int    max_depth;      // Maximum number of ray bounces
     int    image_height;   // Rendered image height
     point3 center;         // Camera center
     point3 pixel00_loc;    // Location of pixel 0, 0
@@ -142,7 +144,7 @@ private:
         hit_record rec;
         if (world.hit(r, interval(0.001, infinity), rec)) {
             vec3 direction = rec.normal + random_vec3_unit_vector();
-            return 0.4 * ray_color(ray(rec.p, direction), depth-1, world);
+            return 0.2 * ray_color(ray(rec.p, direction), depth-1, world);
         }
 
         vec3 unit_direction = unit_vector(r.direction());

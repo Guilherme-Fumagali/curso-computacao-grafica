@@ -7,7 +7,6 @@
 #include "src/headers/hittable/Hittable.h"
 #include "MatrixIOImage.hpp"
 
-
 #include <iostream>
 
 /**
@@ -97,6 +96,15 @@ private:
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
     }
 
+    /**
+     * @brief Calculates the color of a ray
+     * This function calculates the color of a ray by checking if it hits an object in the scene. If it does, it
+     * returns the color of the object. If it doesn't, it returns the background color.
+     *
+     * @param r Ray to calculate the color of
+     * @param world List of hittable objects @ref hittable_list
+     * @return Color of the ray
+     * */
     color ray_color(const ray& r, const hittable& world) const {
         hit_record rec;
 

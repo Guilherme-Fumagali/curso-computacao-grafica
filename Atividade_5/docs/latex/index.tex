@@ -1,0 +1,133 @@
+\chapter{Materiais difusos}
+\hypertarget{index}{}\label{index}\index{Materiais difusos@{Materiais difusos}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ O objeto dessa atividade é seguir as seções 6, 7, 8, 9 e 12 do \href{https://raytracing.github.io/books/RayTracingInOneWeekend.html\#diffusematerials}{\texttt{ tutorial}} para implementar um material difuso, que utilize a normal do modelo para os saltos do raio.
+
+Em seguida, deve-\/se criar uma visualização de cena com pelo menos três objetos, e com pelo menos duas posições de câmera diferentes.\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Implementação}{Implementação}}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Materiais difusos}{Materiais difusos}}\label{index_autotoc_md2}
+A partir da seção 7 do \href{https://raytracing.github.io/books/RayTracingInOneWeekend.html\#diffusematerials}{\texttt{ tutorial}}, foi implementada incrementalmente várias classes de câmeras, estas mantidas no repositório e organizadas da seguinte forma\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nome do Arquivo   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descrição    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Nome do Arquivo   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descrição    }\\\cline{1-2}
+\endhead
+\href{src/headers/camera/camera.h}{\texttt{ {\ttfamily camera.\+h}}}   &Renderiza uma cena dada uma lista de objetos e um tamanho de imagem    \\\cline{1-2}
+\href{src/headers/camera/sampled_camera.h}{\texttt{ {\ttfamily sampled\+\_\+camera.\+h}}}   &Implementação com amostragem de raios para antialiasing    \\\cline{1-2}
+\href{src/headers/camera/ray_bounced_sampled_camera.h}{\texttt{ {\ttfamily ray\+\_\+bounced\+\_\+sampled\+\_\+camera.\+h}}}   &Cena com raios refletidos para uma imagem com objetos difusos    \\\cline{1-2}
+\href{src/headers/camera/view_direction_camera.h}{\texttt{ {\ttfamily view\+\_\+direction\+\_\+camera.\+h}}}   &Implementação anterior com posição e direção da câmera definidas   \\\cline{1-2}
+\end{longtabu}
+
+
+Ademais, também foram mantidas todas as imagens geradas seguindo o tutorial\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Imagem   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descrição   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Código-\/fonte    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Imagem   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descrição   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Código-\/fonte    }\\\cline{1-3}
+\endhead
+   &Esfera com normais coloridas   &\href{src/sphere_with_hittables_scene.cpp}{\texttt{ {\ttfamily sphere\+\_\+with\+\_\+hittables\+\_\+scene.\+cpp}}}    \\\cline{1-3}
+   &Esfera com normais coloridas, do ponto de vista da \href{src/headers/camera/camera.h}{\texttt{ {\ttfamily camera.\+h}}}   &\href{src/sphere_with_camera.cpp}{\texttt{ {\ttfamily sphere\+\_\+with\+\_\+camera.\+cpp}}}    \\\cline{1-3}
+   &Esfera com normais coloridas, do ponto de vista da \href{src/headers/camera/sampled_camera.h}{\texttt{ {\ttfamily sampled\+\_\+camera.\+h}}}   &\href{src/sphere_with_sampled_camera.cpp}{\texttt{ {\ttfamily sphere\+\_\+with\+\_\+sampled\+\_\+camera.\+cpp}}}    \\\cline{1-3}
+   &Esfera com coloração difusa, do ponto de vista da \href{src/headers/camera/ray_bounced_sampled_camera.h}{\texttt{ {\ttfamily ray\+\_\+bounced\+\_\+sampled\+\_\+camera.\+h}}}   &\href{src/sphere_with_ray_bounced_sampled_camera.cpp}{\texttt{ {\ttfamily sphere\+\_\+with\+\_\+ray\+\_\+bounced\+\_\+sampled\+\_\+camera.\+cpp}}}    \\\cline{1-3}
+   &Esferas com colorações difusas, do ponto de vista da \href{src/headers/camera/view_direction_camera.h}{\texttt{ {\ttfamily view\+\_\+direction\+\_\+camera.\+h}}}   &\href{src/sphere_with_view_direction_camera.cpp}{\texttt{ {\ttfamily sphere\+\_\+with\+\_\+view\+\_\+direction\+\_\+camera.\+cpp}}}   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Visualização de cena}{Visualização de cena}}\label{index_autotoc_md3}
+Para a visualização de cena, foram importados os seguintes objetos\+:
+
+
+\begin{DoxyItemize}
+\item \href{src/static/objects/cube.obj}{\texttt{ Cube}}
+\item \href{src/static/objects/pyramid.obj}{\texttt{ Pyramid}}
+\end{DoxyItemize}
+
+A câmera utilizada foi a \href{src/headers/camera/view_direction_camera.h}{\texttt{ {\ttfamily view\+\_\+direction\+\_\+camera.\+h}}}, em quatro diferentes configurações.
+
+O código-\/fonte da visualização de cena pode ser encontrado em \href{src/main.cpp}{\texttt{ {\ttfamily main.\+cpp}}}\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Resultados}{Resultados}}\label{index_autotoc_md4}
+A fim de experimentos, existem três configurações de "{}qualidade de imagem"{}, que interferem no efeito de antialiasing e na difusão da luz\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Configuração   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Número de raios por pixel   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Número de reflexões de raios    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Configuração   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Número de raios por pixel   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Número de reflexões de raios    }\\\cline{1-3}
+\endhead
+{\ttfamily low}   &10   &5    \\\cline{1-3}
+{\ttfamily medium}   &40   &20    \\\cline{1-3}
+{\ttfamily high}   &100   &50   \\\cline{1-3}
+\end{longtabu}
+
+
+E os resultados são\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Qualidade   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 1   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 2   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 3   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 4    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Qualidade   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 1   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 2   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 3   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Posição de câmera 4    }\\\cline{1-5}
+\endhead
+{\ttfamily low}   &   &   &   &    \\\cline{1-5}
+{\ttfamily medium}   &   &   &   &    \\\cline{1-5}
+{\ttfamily high}   &   &   &   &   \\\cline{1-5}
+\end{longtabu}
+\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Compilação e execução}{Compilação e execução}}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Dependências}{Dependências}}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item \href{https://gcc.gnu.org/}{\texttt{ gcc}}, compilador C++.
+\item \href{https://cmake.org/}{\texttt{ CMake}}, ferramenta para geração de arquivos de compilação.
+\item \href{https://www.doxygen.nl/index.html}{\texttt{ Doxygen}}, ferramenta para geração de documentação.
+\item \href{https://imagemagick.org/index.php}{\texttt{ Image\+Magick}}, ferramenta para conversão de imagens.
+\end{DoxyItemize}
+
+Compile o código-\/fonte com o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/B\ build\ CMakeLists.txt\ \&\&\ cmake\ -\/-\/build\ build}
+
+\end{DoxyCode}
+
+
+Os arquivos compilados serão gerados na pasta {\ttfamily ./build}.\hypertarget{index_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Gerando documentação}{Gerando documentação}}\label{index_autotoc_md7}
+Para gerar a documentação do código, execute o comando abaixo\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen\ Doxyfile}
+
+\end{DoxyCode}
+
+
+A documentação será gerada na pasta {\ttfamily ./docs}.\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Executando}{Executando}}\label{index_autotoc_md8}
+O único executável com parâmetros é o {\ttfamily main}, que recebe como parâmetros\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/main\ <camera\ position\ (0\ at\ 3)>\ <quality\ ('l',\ 'm',\ 'h')>}
+
+\end{DoxyCode}
+
+
+sendo \textquotesingle{}l\textquotesingle{} para {\ttfamily low}, \textquotesingle{}m\textquotesingle{} para {\ttfamily medium} e \textquotesingle{}h\textquotesingle{} para {\ttfamily high}.
+
+Os artefatos de saída serão salvos no diretório raiz do projeto. 

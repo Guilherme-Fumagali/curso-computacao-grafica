@@ -1,0 +1,149 @@
+\doxysection{camera Class Reference}
+\hypertarget{classcamera}{}\label{classcamera}\index{camera@{camera}}
+
+
+Defines a camera with a given image width and aspect ratio.  
+
+
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcamera_a146af04c326c07381d9c8e09d4178946}\label{classcamera_a146af04c326c07381d9c8e09d4178946} 
+{\bfseries camera} (int image\+\_\+width, double aspect\+\_\+ratio)
+\item 
+void \mbox{\hyperlink{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}{render}} (const \mbox{\hyperlink{classhittable}{hittable}} \&world, const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. \end{DoxyCompactList}\item 
+\Hypertarget{classcamera_a002948c5dc54f50619b4c613e9da0c91}\label{classcamera_a002948c5dc54f50619b4c613e9da0c91} 
+{\bfseries camera} (int image\+\_\+width, double aspect\+\_\+ratio, int samples\+\_\+per\+\_\+pixel, int max\+\_\+depth)
+\item 
+void \mbox{\hyperlink{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}{render}} (const \mbox{\hyperlink{classhittable}{hittable}} \&world, const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. \end{DoxyCompactList}\item 
+\Hypertarget{classcamera_ac1df89498d40c66eb5d45bcad2265e65}\label{classcamera_ac1df89498d40c66eb5d45bcad2265e65} 
+{\bfseries camera} (int image\+\_\+width, double aspect\+\_\+ratio, int samples\+\_\+per\+\_\+pixel)
+\item 
+void \mbox{\hyperlink{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}{render}} (const \mbox{\hyperlink{classhittable}{hittable}} \&world, const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. \end{DoxyCompactList}\item 
+\Hypertarget{classcamera_a002948c5dc54f50619b4c613e9da0c91}\label{classcamera_a002948c5dc54f50619b4c613e9da0c91} 
+{\bfseries camera} (int image\+\_\+width, double aspect\+\_\+ratio, int samples\+\_\+per\+\_\+pixel, int max\+\_\+depth)
+\item 
+void \mbox{\hyperlink{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}{render}} (const \mbox{\hyperlink{classhittable}{hittable}} \&world, const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcamera_ae0cd3560962c14125194fe750d4a6069}\label{classcamera_ae0cd3560962c14125194fe750d4a6069} 
+double {\bfseries vfov} = 90
+\item 
+\Hypertarget{classcamera_a863d9a5365123a24d9c4e6fe6d7b9fd6}\label{classcamera_a863d9a5365123a24d9c4e6fe6d7b9fd6} 
+point3 {\bfseries lookfrom} = point3(0,0,-\/1)
+\item 
+\Hypertarget{classcamera_ad336339a62c4097201f3d47f40ab7d06}\label{classcamera_ad336339a62c4097201f3d47f40ab7d06} 
+point3 {\bfseries lookat} = point3(0,0,0)
+\item 
+\Hypertarget{classcamera_a57073c102fb3fb3f1777ce3663ed1c96}\label{classcamera_a57073c102fb3fb3f1777ce3663ed1c96} 
+vec3 {\bfseries vup} = vec3(0,1,0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a camera with a given image width and aspect ratio. 
+
+This camera render a diffuse object with a given image width and aspect ratio. Also, it avoids the aliasing effect by sampling multiple rays per pixel. Setting the public variables before calling the render function will change the camera settings. The configuration of the camera is as follows\+:
+
+Defines a camera with a given image width and aspect ratio This camera avoids the aliasing effect by sampling multiple rays per pixel.
+
+This camera render a diffuse object with a given image width and aspect ratio. Also, it avoids the aliasing effect by sampling multiple rays per pixel.
+
+
+\begin{DoxyItemize}
+\item vfov\+: Vertical view angle (field of view)
+\item lookfrom\+: Point camera is looking from
+\item lookat\+: Point camera is looking at
+\item vup\+: Camera-\/relative "{}up"{} direction
+\item aspect\+\_\+ratio\+: Ratio of image width over height
+\item image\+\_\+width\+: Rendered image width in pixel count
+\item samples\+\_\+per\+\_\+pixel\+: Number of samples per pixel
+\item max\+\_\+depth\+: Maximum number of ray bounces 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}\label{classcamera_ad0e50f60e911420c14fb6dee2ff83f68} 
+\index{camera@{camera}!render@{render}}
+\index{render@{render}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void camera\+::render (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classhittable}{hittable}} \&}]{world,  }\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & List of hittable objects \doxylink{classhittable__list}{hittable\+\_\+list} \\
+\hline
+{\em filename} & Name of the file to save the image to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}\label{classcamera_ad0e50f60e911420c14fb6dee2ff83f68} 
+\index{camera@{camera}!render@{render}}
+\index{render@{render}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void camera\+::render (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classhittable}{hittable}} \&}]{world,  }\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & List of hittable objects \doxylink{classhittable__list}{hittable\+\_\+list} \\
+\hline
+{\em filename} & Name of the file to save the image to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}\label{classcamera_ad0e50f60e911420c14fb6dee2ff83f68} 
+\index{camera@{camera}!render@{render}}
+\index{render@{render}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void camera\+::render (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classhittable}{hittable}} \&}]{world,  }\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & List of hittable objects \doxylink{classhittable__list}{hittable\+\_\+list} \\
+\hline
+{\em filename} & Name of the file to save the image to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}\label{classcamera_ad0e50f60e911420c14fb6dee2ff83f68} 
+\index{camera@{camera}!render@{render}}
+\index{render@{render}!camera@{camera}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void camera\+::render (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classhittable}{hittable}} \&}]{world,  }\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Renders the scene This function renders the scene by calculating the color of each pixel and saving it to a matrix, which is then saved to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & List of hittable objects \doxylink{classhittable__list}{hittable\+\_\+list} \\
+\hline
+{\em filename} & Name of the file to save the image to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/camera/camera.\+h\item 
+src/headers/camera/ray\+\_\+bounced\+\_\+sampled\+\_\+camera.\+h\item 
+src/headers/camera/sampled\+\_\+camera.\+h\item 
+src/headers/camera/view\+\_\+direction\+\_\+camera.\+h\end{DoxyCompactItemize}

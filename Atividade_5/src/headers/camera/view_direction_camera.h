@@ -11,7 +11,18 @@
 #include <iostream>
 
 /**
- * @brief Defines a camera with a given image width and aspect ratio
+ * @brief This camera render a diffuse object with a given image width and aspect ratio.
+ * Also, it avoids the aliasing effect by sampling multiple rays per pixel.
+ * Setting the public variables before calling the render function will change the camera settings.
+ * The configuration of the camera is as follows:
+ * - vfov: Vertical view angle (field of view)
+ * - lookfrom: Point camera is looking from
+ * - lookat: Point camera is looking at
+ * - vup: Camera-relative "up" direction
+ * - aspect_ratio: Ratio of image width over height
+ * - image_width: Rendered image width in pixel count
+ * - samples_per_pixel: Number of samples per pixel
+ * - max_depth: Maximum number of ray bounces
  * */
 class camera {
 public:
@@ -117,6 +128,15 @@ private:
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
     }
 
+    /**
+    * @brief Returns a ray from the camera to the pixel at location i,j
+    * This function returns a ray from the camera to the pixel at location i,j. The ray is randomly sampled within the
+    * pixel.
+    *
+    * @param i Pixel row
+    * @param j Pixel column
+    * @return Ray from the camera to the pixel at location i,j
+    * */
     ray get_ray(int i, int j) const {
         // Get a randomly sampled camera ray for the pixel at location i,j.
 
@@ -129,6 +149,15 @@ private:
         return ray(ray_origin, ray_direction);
     }
 
+    /**
+    * @brief Returns a random point in the square surrounding a pixel at the origin.
+    *
+    * This function generates a random point within the square surrounding a pixel at the origin.
+    * The random point is calculated by generating a random double for both x and y coordinates,
+    * then scaling and shifting them by the pixel delta vectors.
+    *
+    * @return A vec3 representing the random point in the square surrounding a pixel at the origin.
+    */
     vec3 pixel_sample_square() const {
         // Returns a random point in the square surrounding a pixel at the origin.
         auto px = -0.5 + random_double();
@@ -136,6 +165,15 @@ private:
         return (px * pixel_delta_u) + (py * pixel_delta_v);
     }
 
+    /**
+    * @brief Calculates the color of a ray
+    * This function calculates the color of a ray by checking if it hits an object in the scene. If it does, it
+    * returns the color of the object. If it doesn't, it returns the background color.
+    *
+    * @param r Ray to calculate the color of
+    * @param world List of hittable objects @ref hittable_list
+    * @return Color of the ray
+    * */
     color ray_color(const ray& r, int depth, const hittable& world) const {
         // If we've exceeded the ray bounce limit, no more light is gathered.
         if (depth <= 0)

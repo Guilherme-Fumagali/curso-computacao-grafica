@@ -1,0 +1,85 @@
+\doxysection{hittable\+\_\+list Class Reference}
+\hypertarget{classhittable__list}{}\label{classhittable__list}\index{hittable\_list@{hittable\_list}}
+
+
+This class represents a list of \doxylink{classhittable}{hittable} objects.  
+
+
+
+
+{\ttfamily \#include $<$Hittable\+List.\+h$>$}
+
+Inheritance diagram for hittable\+\_\+list\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhittable__list}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhittable__list_a6d9d2cda6092972cb38ed9eb9a53d613}\label{classhittable__list_a6d9d2cda6092972cb38ed9eb9a53d613} 
+{\bfseries hittable\+\_\+list} (shared\+\_\+ptr$<$ \mbox{\hyperlink{classhittable}{hittable}} $>$ object)
+\item 
+void \mbox{\hyperlink{classhittable__list_a74cf8b7ee9846ac7bbbb634863e253f6}{clear}} ()
+\item 
+void \mbox{\hyperlink{classhittable__list_a6f51233df1bf18c6665a9ec36e475f39}{add}} (shared\+\_\+ptr$<$ \mbox{\hyperlink{classhittable}{hittable}} $>$ object)
+\item 
+bool \mbox{\hyperlink{classhittable__list_ac83866480d07afc962f5686dc1866295}{hit}} (const \mbox{\hyperlink{classray}{ray}} \&r, \mbox{\hyperlink{classinterval}{interval}} ray\+\_\+t, \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&rec) const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhittable__list_a4de3045519f5de1f5d20e53c52b916be}\label{classhittable__list_a4de3045519f5de1f5d20e53c52b916be} 
+std\+::vector$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{classhittable}{hittable}} $>$ $>$ {\bfseries objects}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a list of \doxylink{classhittable}{hittable} objects. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classhittable__list_a6f51233df1bf18c6665a9ec36e475f39}\label{classhittable__list_a6f51233df1bf18c6665a9ec36e475f39} 
+\index{hittable\_list@{hittable\_list}!add@{add}}
+\index{add@{add}!hittable\_list@{hittable\_list}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void hittable\+\_\+list\+::add (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{classhittable}{hittable}} $>$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new object to the list 
+\begin{DoxyParams}{Parameters}
+{\em object} & Object to add \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classhittable__list_a74cf8b7ee9846ac7bbbb634863e253f6}\label{classhittable__list_a74cf8b7ee9846ac7bbbb634863e253f6} 
+\index{hittable\_list@{hittable\_list}!clear@{clear}}
+\index{clear@{clear}!hittable\_list@{hittable\_list}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void hittable\+\_\+list\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clears the list \Hypertarget{classhittable__list_ac83866480d07afc962f5686dc1866295}\label{classhittable__list_ac83866480d07afc962f5686dc1866295} 
+\index{hittable\_list@{hittable\_list}!hit@{hit}}
+\index{hit@{hit}!hittable\_list@{hittable\_list}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily bool hittable\+\_\+list\+::hit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r,  }\item[{\mbox{\hyperlink{classinterval}{interval}}}]{ray\+\_\+t,  }\item[{\mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&}]{rec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if a ray hits any of the objects in the list 
+\begin{DoxyParams}{Parameters}
+{\em r} & Ray to check \\
+\hline
+{\em ray\+\_\+t} & Interval of the ray to check \\
+\hline
+{\em rec} & Hit record \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the ray hits any of the objects, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classhittable_ad74f3720b6de850be47b14a9e21e1c01}{hittable}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/hittable/Hittable\+List.\+h\end{DoxyCompactItemize}

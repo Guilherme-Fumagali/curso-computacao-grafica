@@ -37,7 +37,7 @@ void loadObjectInWorld(hittable_list& world, const char* source, const vec3& pos
 
 int main(int argc, char **argv) {
     if (argc != 3 || (argv[1][0] != '0' && argv[1][0] != '1' && argv[1][0] != '2' && argv[1][0] != '3') || (argv[2][0] != 'l' && argv[2][0] != 'm' && argv[2][0] != 'h')) {
-        std::cerr << "Usage: " << argv[0] << " <camera position (0 at 2)>" << " <quality ('l', 'm', 'h')>" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <camera position (0 at 3)>" << " <quality ('l', 'm', 'h')>" << std::endl;
         return 1;
     }
 

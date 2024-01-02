@@ -1,0 +1,41 @@
+\doxysection{Interval.\+h}
+\hypertarget{Interval_8h_source}{}\label{Interval_8h_source}\index{src/headers/Interval.h@{src/headers/Interval.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INTERVAL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INTERVAL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}src/utils/utils.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classinterval}{interval}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ min,\ max;\ \textcolor{comment}{//\ The\ minimum\ and\ maximum\ values\ of\ the\ interval.}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classinterval_acbedd1641f77c0c8007c75ff3f10bb11}{interval}}()\ :\ min(+infinity),\ max(-\/infinity)\ \{\}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classinterval_ac7cd712129b0217cd8a466ccb6e03f6d}{interval}}(\textcolor{keywordtype}{double}\ \_min,\ \textcolor{keywordtype}{double}\ \_max)\ :\ min(\_min),\ max(\_max)\ \{\}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classinterval_aa981e5b35d830ef5525c479e9724250a}{contains}}(\textcolor{keywordtype}{double}\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\ <=\ x\ \&\&\ x\ <=\ max;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classinterval_a2b78c560ddb82a10ba138471a631cbcc}{surrounds}}(\textcolor{keywordtype}{double}\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\ <\ x\ \&\&\ x\ <\ max;}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classinterval_add5a3a1a969cf4b7a11ccc33dd861042}{clamp}}(\textcolor{keywordtype}{double}\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ min)\ \textcolor{keywordflow}{return}\ min;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ max)\ \textcolor{keywordflow}{return}\ max;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classinterval}{interval}}\ empty,\ universe;\ \textcolor{comment}{//\ Static\ instances\ representing\ an\ empty\ and\ a\ universal\ interval.}}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classinterval}{interval}}\ empty\ (+infinity,\ -\/infinity);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classinterval}{interval}}\ universe\ (-\/infinity,\ +infinity);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

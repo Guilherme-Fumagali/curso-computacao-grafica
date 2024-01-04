@@ -48,9 +48,9 @@ public:
                 }
 
                 pixel_color = write_color_gamma(pixel_color, samples_per_pixel);
-                matrix[j][i * 3] = (int) (pixel_color.x() * 255);
-                matrix[j][i * 3 + 1] = (int) (pixel_color.y() * 255);
-                matrix[j][i * 3 + 2] = (int) (pixel_color.z() * 255);
+                matrix[j][i * 3] = (int) (pixel_color.x());
+                matrix[j][i * 3 + 1] = (int) (pixel_color.y());
+                matrix[j][i * 3 + 2] = (int) (pixel_color.z());
             }
         }
 

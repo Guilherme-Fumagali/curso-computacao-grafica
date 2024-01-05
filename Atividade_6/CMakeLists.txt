@@ -41,3 +41,14 @@ add_executable(dieletrics_spheres
         src/dieletrics_spheres.cpp
 )
 target_link_libraries(dieletrics_spheres MatrixIOImage)
+
+add_executable(main
+        src/headers/material.h
+        src/headers/hittable/HittableList.h
+        src/headers/hittable/HittableSphere.h
+        src/headers/hittable/HittableTriangle.h
+        src/headers/camera/view_direction_camera.h
+        src/utils/utils.h
+        src/main.cpp
+)
+target_link_libraries(main MatrixIOImage)

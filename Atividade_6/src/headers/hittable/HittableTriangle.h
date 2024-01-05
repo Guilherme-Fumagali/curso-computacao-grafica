@@ -9,14 +9,8 @@
  * */
 class triangle : public hittable {
 public:
-    triangle(point3 _vertice_a, point3 _vertice_b, point3 _vertice_c, vec3 _normal_a, vec3 _normal_b, vec3 _normal_c) {
-        a = _vertice_a;
-        b = _vertice_b;
-        c = _vertice_c;
-        normal_a = _normal_a;
-        normal_b = _normal_b;
-        normal_c = _normal_c;
-    }
+    triangle(point3 _vertice_a, point3 _vertice_b, point3 _vertice_c, vec3 _normal_a, vec3 _normal_b, vec3 _normal_c,  shared_ptr<material> _material)
+            : a(_vertice_a), b(_vertice_b), c(_vertice_c), normal_a(_normal_a), normal_b(_normal_b), normal_c(_normal_c), mat(std::move(_material)) {};
 
     /**
      * Checks if a ray hits the triangle
@@ -60,6 +54,7 @@ public:
         rec.t = t;
         rec.p = p;
         rec.set_face_normal(r, outward_normal);
+        rec.mat = mat;
 
         return true; // P is inside the triangle
     }
@@ -67,6 +62,7 @@ public:
 private:
     point3 a, b, c;
     vec3 normal_a, normal_b, normal_c;
+    shared_ptr<material> mat;
 };
 
 #endif

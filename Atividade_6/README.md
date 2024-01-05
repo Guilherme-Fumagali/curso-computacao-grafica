@@ -1,62 +1,58 @@
-# Materiais difusos
+# Metal e vidro
 
-O objeto dessa atividade é seguir as seções 6, 7, 8, 9 e 12 do [tutorial](https://raytracing.github.io/books/RayTracingInOneWeekend.html#diffusematerials) para implementar um material difuso, que utilize a normal do modelo para os saltos do raio.
+O objeto dessa atividade é seguir as seções 10 e 11 do [tutorial](https://raytracing.github.io/books/RayTracingInOneWeekend.html#diffusematerials) para implementar os materiais com reflexão e refração.
 
-Em seguida, deve-se criar uma visualização de cena com pelo menos três objetos, e com pelo menos duas posições de câmera diferentes.
+Com isso, visualizar em seguida uma cena com um objeto metálico e outro de vidro.
 
-Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_5/docs/html/index.html
+Consulte a documentação do código-fonte para mais detalhes sobre as classes e as funções implementadas: https://guilherme-fumagali.github.io/curso-computacao-grafica/Atividade_6/docs/html/index.html
 
 ## Implementação
 
-### Materiais difusos
+### Lambertian, metal e vidro
+ 
+Ao longo da seção 10 do [tutorial](https://raytracing.github.io/books/RayTracingInOneWeekend.html#diffusematerials), é implementado na classe [`material.h`](src/headers/material.h) que define a interface para os materiais, que inclui a função `scatter` que calcula o espalhamento de um raio de luz em um objeto. Além de, neste mesmo arquivo, serem implementados os materiais `lambertian`, `metal` e `dielectric`.
 
-A partir da seção 7 do [tutorial](https://raytracing.github.io/books/RayTracingInOneWeekend.html#diffusematerials), foi implementada incrementalmente várias classes de câmeras, estas mantidas no repositório e organizadas da seguinte forma:
+#### Resultados
 
-| Nome do Arquivo                                                                   | Descrição                                                           |
-|-----------------------------------------------------------------------------------|---------------------------------------------------------------------|
-| [`camera.h`](src/headers/camera/camera.h)                                         | Renderiza uma cena dada uma lista de objetos e um tamanho de imagem |
-| [`sampled_camera.h`](src/headers/camera/sampled_camera.h)                         | Implementação com amostragem de raios para antialiasing             |
-| [`ray_bounced_sampled_camera.h`](src/headers/camera/ray_bounced_sampled_camera.h) | Cena com raios refletidos para uma imagem com objetos difusos       |
-| [`view_direction_camera.h`](src/headers/camera/view_direction_camera.h)           | Implementação anterior com posição e direção da câmera definidas    |
+As imagens abaixo foram geradas com o código-fonte em:
+- [`material_spheres.cpp`](src/material_spheres.cpp), que cria uma cena com três esferas, duas de material `metal` e uma de material `lambertian`;
+- [`dialectrics_spheres.cpp`](src/dialectrics_spheres.cpp), que cria uma cena com três esferas, uma de material `dielectric`, uma de material `lambertian` e uma de material `metal`.
 
-Ademais, também foram mantidas todas as imagens geradas seguindo o tutorial:
 
-| Imagem                                                                                 | Descrição                                                                                                                           | Código-fonte                                                                                   |
-|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| <img src="src/static/images/sphere_with_normals.png" width="200">                      | Esfera com normais coloridas                                                                                                        | [`sphere_with_hittables_scene.cpp`](src/sphere_with_hittables_scene.cpp)                       |
-| <img src="src/static/images/sphere_with_camera.png" width="200">                       | Esfera com normais coloridas, do ponto de vista da [`camera.h`](src/headers/camera/camera.h)                                        | [`sphere_with_camera.cpp`](src/sphere_with_camera.cpp)                                         |
-| <img src="src/static/images/sphere_with_sampled_camera.png" width="200">               | Esfera com normais coloridas, do ponto de vista da [`sampled_camera.h`](src/headers/camera/sampled_camera.h)                        | [`sphere_with_sampled_camera.cpp`](src/sphere_with_sampled_camera.cpp)                         |
-| <img src="src/static/images/sphere_with_ray_bounced_sampled_camera.png" width="200">   | Esfera com coloração difusa, do ponto de vista da [`ray_bounced_sampled_camera.h`](src/headers/camera/ray_bounced_sampled_camera.h) | [`sphere_with_ray_bounced_sampled_camera.cpp`](src/sphere_with_ray_bounced_sampled_camera.cpp) |
-| <img src="src/static/images/sphere_with_view_direction_camera_fov_20.png" width="200"> | Esferas com colorações difusas, do ponto de vista da [`view_direction_camera.h`](src/headers/camera/view_direction_camera.h)        | [`sphere_with_view_direction_camera.cpp`](src/material_spheres.cpp)           |
+| `material_spheres.cpp`                                         | `dialectrics_spheres.cpp`                                        |
+|----------------------------------------------------------------|------------------------------------------------------------------|
+| <img src="src/static/images/material_spheres.png" width="300"> | <img src="src/static/images/dieletrics_spheres.png" width="300"> |
 
-### Visualização de cena
+## Visualização de cena
 
 Para a visualização de cena, foram importados os seguintes objetos:
     
 - [Cube](src/static/objects/cube.obj)
 - [Pyramid](src/static/objects/pyramid.obj)
+- [Sphere](src/headers/hittable/HittableSphere.h)
 
-A câmera utilizada foi a [`view_direction_camera.h`](src/headers/camera/view_direction_camera.h), em quatro diferentes configurações.
+O código-fonte da visualização de cena pode ser encontrado em [`main.cpp`](src/main.cpp), e consiste em uma geração aleatória de 484 objetos, sendo que:
 
-O código-fonte da visualização de cena pode ser encontrado em [`main.cpp`](src/main.cpp)
+- A probabilidade de um objeto ser um cubo, ou uma pirâmide, ou uma esfera é de 1/3 (33.3%);
+- A probabilidade de um objeto ser lambertiano é 80%;
+- A probabilidade de um objeto ser metálico é 15%;
+- A probabilidade de um objeto ser de vidro é 5%.
 
 #### Resultados
 
-A fim de experimentos, existem três configurações de "qualidade de imagem", que interferem no efeito de antialiasing e na difusão da luz:
+Foram feitas duas configurações de câmera, uma de menor qualidade para teste e outra de maior qualidade para visualização.
 
-| Configuração | Número de raios por pixel | Número de reflexões de raios |
-|--------------|---------------------------|------------------------------|
-| `low`        | 10                        | 5                            |
-| `medium`     | 40                        | 20                           |
-| `high`       | 100                       | 50                           |
+| Configuração | Tamanho da imagem | Número de raios por pixel | Número de reflexões de raios |
+|--------------|-------------------|---------------------------|------------------------------|
+| `low`        | 500               | 50                        | 5                            |
+| `high`       | 1200              | 500                       | 50                           |
 
 E os resultados são:
 
-| Qualidade | Posição de câmera 1                                                              | Posição de câmera 2                                                              | Posição de câmera 3                                                              | Posição de câmera 4                                                              |
-|-----------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| `low`     | <img src="src/static/images/main/low/main_camera_position_0.png" width="200">    | <img src="src/static/images/main/low/main_camera_position_1.png" width="200">    | <img src="src/static/images/main/low/main_camera_position_2.png" width="200">    | <img src="src/static/images/main/low/main_camera_position_3.png" width="200">    |
-| `medium`  | <img src="src/static/images/main/medium/main_camera_position_0.png" width="200"> | <img src="src/static/images/main/medium/main_camera_position_1.png" width="200"> | <img src="src/static/images/main/medium/main_camera_position_2.png" width="200"> | <img src="src/static/images/main/medium/main_camera_position_3.png" width="200"> |
-| `high`    | <img src="src/static/images/main/high/main_camera_position_0.png" width="200">   | <img src="src/static/images/main/high/main_camera_position_1.png" width="200">   | <img src="src/static/images/main/high/main_camera_position_2.png" width="200">   | <img src="src/static/images/main/high/main_camera_position_3.png" width="200">   |
+| Qualidade | Imagem                                                        |
+|-----------|---------------------------------------------------------------|
+| `low`     | <img src="src/static/images/main_500_50_5.png" width="500">   |
+| `high`    | <img src="src/static/images/main/high/main.png" width="1200"> |
 
 ## Compilação e execução
 
@@ -87,12 +83,10 @@ A documentação será gerada na pasta `./docs`.
 
 ### Executando
 
-O único executável com parâmetros é o `main`, que recebe como parâmetros:
-
 ```bash
- ./build/main <camera position (0 at 3)> <quality ('l', 'm', 'h')>
+./build/material_spheres
+./build/dialectrics_spheres
+./build/main
 ```
-
-sendo 'l' para `low`, 'm' para `medium` e 'h' para `high`.
 
 Os artefatos de saída serão salvos no diretório raiz do projeto.

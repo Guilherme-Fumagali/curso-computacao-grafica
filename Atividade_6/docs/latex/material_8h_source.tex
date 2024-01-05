@@ -1,0 +1,96 @@
+\doxysection{material.\+h}
+\hypertarget{material_8h_source}{}\label{material_8h_source}\index{src/headers/material.h@{src/headers/material.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MATERIAL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MATERIAL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}src/utils/utils.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmaterial}{material}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classmaterial}{\string~material}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmaterial_ada24c67820c20d312f336b3fa0a672d8}{scatter}}(}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classray}{ray}}\&\ r\_in,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classhit__record}{hit\_record}}\&\ rec,\ color\&\ attenuation,\ \mbox{\hyperlink{classray}{ray}}\&\ scattered}
+\DoxyCodeLine{00028\ \ \ \ \ )\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlambertian}{lambertian}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmaterial}{material}}\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classlambertian_af8e58b324776397a6598b2ec85a0b887}{lambertian}}(\textcolor{keyword}{const}\ color\&\ a)\ :\ albedo(a)\ \{\}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlambertian_addbce7ba60f1ff30067ee9de362b12a7}{scatter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classray}{ray}}\&\ r\_in,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classhit__record}{hit\_record}}\&\ rec,\ color\&\ attenuation,\ \mbox{\hyperlink{classray}{ray}}\&\ scattered)\textcolor{keyword}{}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{\ \ \ \ const\ override\ }\{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ scatter\_direction\ =\ rec.normal\ +\ random\_vec3\_unit\_vector();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Catch\ degenerate\ scatter\ direction}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (near\_zero(scatter\_direction))}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ scatter\_direction\ =\ rec.normal;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ scattered\ =\ \mbox{\hyperlink{classray}{ray}}(rec.p,\ scatter\_direction);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ attenuation\ =\ albedo;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ color\ albedo;}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmetal}{metal}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmaterial}{material}}\ \{}
+\DoxyCodeLine{00073\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmetal_ac27c387dc67625c2f7967c23ccf1aa81}{metal}}(\textcolor{keyword}{const}\ color\&\ a,\ \textcolor{keywordtype}{double}\ f)\ :\ albedo(a),\ fuzz(f\ <\ 1\ ?\ f\ :\ 1)\ \{\}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmetal_a7e934504e51b2c6bad3f073021ea696d}{scatter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classray}{ray}}\&\ r\_in,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classhit__record}{hit\_record}}\&\ rec,\ color\&\ attenuation,\ \mbox{\hyperlink{classray}{ray}}\&\ scattered)\textcolor{keyword}{}}
+\DoxyCodeLine{00086\ \textcolor{keyword}{\ \ \ \ const\ override\ }\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ vec3\ reflected\ =\ reflect(unit\_vector(r\_in.direction()),\ rec.normal);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ scattered\ =\ \mbox{\hyperlink{classray}{ray}}(rec.p,\ reflected\ +\ fuzz*random\_vec3\_in\_unit\_sphere());}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ attenuation\ =\ albedo;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (dot(scattered.direction(),\ rec.normal)\ >\ 0);}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00094\ \ \ \ \ color\ albedo;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{double}\ fuzz;}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdielectric}{dielectric}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmaterial}{material}}\ \{}
+\DoxyCodeLine{00106\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classdielectric_a41d64928c380a59555750a928ae92a63}{dielectric}}(\textcolor{keywordtype}{double}\ index\_of\_refraction)\ :\ ir(index\_of\_refraction)\ \{\}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdielectric_aefd3b900c7e10ab92ecb127659a83d6e}{scatter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classray}{ray}}\&\ r\_in,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classhit__record}{hit\_record}}\&\ rec,\ color\&\ attenuation,\ \mbox{\hyperlink{classray}{ray}}\&\ scattered)\textcolor{keyword}{}}
+\DoxyCodeLine{00118\ \textcolor{keyword}{\ \ \ \ const\ override\ }\{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ attenuation\ =\ color(1.0,\ 1.0,\ 1.0);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ refraction\_ratio\ =\ rec.front\_face\ ?\ (1.0/ir)\ :\ ir;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ vec3\ unit\_direction\ =\ unit\_vector(r\_in.direction());}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ cos\_theta\ =\ fmin(dot(-\/unit\_direction,\ rec.normal),\ 1.0);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sin\_theta\ =\ sqrt(1.0\ -\/\ cos\_theta*cos\_theta);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ cannot\_refract\ =\ refraction\_ratio\ *\ sin\_theta\ >\ 1.0;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ vec3\ direction;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cannot\_refract\ ||\ reflectance(cos\_theta,\ refraction\_ratio)\ >\ random\_double())}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ direction\ =\ reflect(unit\_direction,\ rec.normal);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ direction\ =\ refract(unit\_direction,\ rec.normal,\ refraction\_ratio);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ scattered\ =\ \mbox{\hyperlink{classray}{ray}}(rec.p,\ direction);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{double}\ ir;\ \textcolor{comment}{//\ Index\ of\ Refraction}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ reflectance(\textcolor{keywordtype}{double}\ cosine,\ \textcolor{keywordtype}{double}\ ref\_idx)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ Schlick's\ approximation\ for\ reflectance.}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r0\ =\ (1-\/ref\_idx)\ /\ (1+ref\_idx);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ r0\ =\ r0*r0;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r0\ +\ (1-\/r0)*pow((1\ -\/\ cosine),5);}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \};}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

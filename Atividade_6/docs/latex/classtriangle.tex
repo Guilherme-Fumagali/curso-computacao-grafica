@@ -1,0 +1,58 @@
+\doxysection{triangle Class Reference}
+\hypertarget{classtriangle}{}\label{classtriangle}\index{triangle@{triangle}}
+
+
+Class for hittable triangles.  
+
+
+
+
+{\ttfamily \#include $<$Hittable\+Triangle.\+h$>$}
+
+Inheritance diagram for triangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtriangle}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtriangle_aedf893c018dacfdf7b8a5493a9746d10}\label{classtriangle_aedf893c018dacfdf7b8a5493a9746d10} 
+{\bfseries triangle} (point3 \+\_\+vertice\+\_\+a, point3 \+\_\+vertice\+\_\+b, point3 \+\_\+vertice\+\_\+c, vec3 \+\_\+normal\+\_\+a, vec3 \+\_\+normal\+\_\+b, vec3 \+\_\+normal\+\_\+c, shared\+\_\+ptr$<$ \mbox{\hyperlink{classmaterial}{material}} $>$ \+\_\+material)
+\item 
+bool \mbox{\hyperlink{classtriangle_afa941d88c78e0a14e3d4e3136ecc92ed}{hit}} (const \mbox{\hyperlink{classray}{ray}} \&r, \mbox{\hyperlink{classinterval}{interval}} ray\+\_\+t, \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&rec) const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for hittable triangles. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtriangle_afa941d88c78e0a14e3d4e3136ecc92ed}\label{classtriangle_afa941d88c78e0a14e3d4e3136ecc92ed} 
+\index{triangle@{triangle}!hit@{hit}}
+\index{hit@{hit}!triangle@{triangle}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily bool triangle\+::hit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r,  }\item[{\mbox{\hyperlink{classinterval}{interval}}}]{ray\+\_\+t,  }\item[{\mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&}]{rec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if a ray hits the triangle 
+\begin{DoxyParams}{Parameters}
+{\em r} & Ray to check \\
+\hline
+{\em ray\+\_\+t} & Interval of the ray to check \\
+\hline
+{\em rec} & Hit record \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the ray hits the sphere, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classhittable_ad74f3720b6de850be47b14a9e21e1c01}{hittable}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/hittable/Hittable\+Triangle.\+h\end{DoxyCompactItemize}

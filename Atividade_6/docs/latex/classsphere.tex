@@ -1,0 +1,58 @@
+\doxysection{sphere Class Reference}
+\hypertarget{classsphere}{}\label{classsphere}\index{sphere@{sphere}}
+
+
+Class for hittable spheres.  
+
+
+
+
+{\ttfamily \#include $<$Hittable\+Sphere.\+h$>$}
+
+Inheritance diagram for sphere\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsphere}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classsphere_afb5f0ae0d487c21a08c4741bc736664c}\label{classsphere_afb5f0ae0d487c21a08c4741bc736664c} 
+{\bfseries sphere} (point3 \+\_\+center, double \+\_\+radius, shared\+\_\+ptr$<$ \mbox{\hyperlink{classmaterial}{material}} $>$ \+\_\+material)
+\item 
+bool \mbox{\hyperlink{classsphere_ae829560b28cd8ad4c47be224adc10c3d}{hit}} (const \mbox{\hyperlink{classray}{ray}} \&r, \mbox{\hyperlink{classinterval}{interval}} ray\+\_\+t, \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&rec) const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for hittable spheres. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsphere_ae829560b28cd8ad4c47be224adc10c3d}\label{classsphere_ae829560b28cd8ad4c47be224adc10c3d} 
+\index{sphere@{sphere}!hit@{hit}}
+\index{hit@{hit}!sphere@{sphere}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily bool sphere\+::hit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r,  }\item[{\mbox{\hyperlink{classinterval}{interval}}}]{ray\+\_\+t,  }\item[{\mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&}]{rec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if a ray hits the sphere 
+\begin{DoxyParams}{Parameters}
+{\em r} & Ray to check \\
+\hline
+{\em ray\+\_\+t} & Interval of the ray to check \\
+\hline
+{\em rec} & Hit record \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the ray hits the sphere, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classhittable_ad74f3720b6de850be47b14a9e21e1c01}{hittable}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/hittable/Hittable\+Sphere.\+h\end{DoxyCompactItemize}

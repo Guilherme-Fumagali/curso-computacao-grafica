@@ -1,0 +1,55 @@
+\doxysection{hittable Class Reference}
+\hypertarget{classhittable}{}\label{classhittable}\index{hittable@{hittable}}
+
+
+This class represents a hittable object.  
+
+
+
+
+{\ttfamily \#include $<$Hittable.\+h$>$}
+
+Inheritance diagram for hittable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhittable}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classhittable_ad74f3720b6de850be47b14a9e21e1c01}{hit}} (const \mbox{\hyperlink{classray}{ray}} \&r, \mbox{\hyperlink{classinterval}{interval}} ray\+\_\+t, \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&rec) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a hittable object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classhittable_ad74f3720b6de850be47b14a9e21e1c01}\label{classhittable_ad74f3720b6de850be47b14a9e21e1c01} 
+\index{hittable@{hittable}!hit@{hit}}
+\index{hit@{hit}!hittable@{hittable}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily virtual bool hittable\+::hit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r,  }\item[{\mbox{\hyperlink{classinterval}{interval}}}]{ray\+\_\+t,  }\item[{\mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&}]{rec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Checks if a ray hits the object 
+\begin{DoxyParams}{Parameters}
+{\em r} & Ray to check \\
+\hline
+{\em ray\+\_\+t} & Interval of the ray to check \\
+\hline
+{\em rec} & Hit record \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the ray hits the object, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classhittable__list_ac83866480d07afc962f5686dc1866295}{hittable\+\_\+list}}, \mbox{\hyperlink{classsphere_ae829560b28cd8ad4c47be224adc10c3d}{sphere}}, and \mbox{\hyperlink{classtriangle_afa941d88c78e0a14e3d4e3136ecc92ed}{triangle}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/hittable/Hittable.\+h\end{DoxyCompactItemize}

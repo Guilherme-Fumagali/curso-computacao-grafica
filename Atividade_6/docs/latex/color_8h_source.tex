@@ -1,0 +1,58 @@
+\doxysection{color.\+h}
+\hypertarget{color_8h_source}{}\label{color_8h_source}\index{src/headers/color.h@{src/headers/color.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COLOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COLOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vec3.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Interval.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ }color\ =\ vec3;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00024\ color\ write\_color(color\ pixel\_color,\ \textcolor{keywordtype}{int}\ samples\_per\_pixel)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{auto}\ r\ =\ pixel\_color.x();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{auto}\ g\ =\ pixel\_color.y();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{auto}\ b\ =\ pixel\_color.z();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Divide\ the\ color\ by\ the\ number\ of\ samples.}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{auto}\ scale\ =\ 1.0\ /\ samples\_per\_pixel;}
+\DoxyCodeLine{00031\ \ \ \ \ r\ *=\ scale;}
+\DoxyCodeLine{00032\ \ \ \ \ g\ *=\ scale;}
+\DoxyCodeLine{00033\ \ \ \ \ b\ *=\ scale;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Write\ the\ translated\ [0,255]\ value\ of\ each\ color\ component.}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classinterval}{interval}}\ intensity(0.000,\ 0.999);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ \{256\ *\ intensity.clamp(r),\ 256\ *\ intensity.clamp(g),\ 256\ *\ intensity.clamp(b)\};}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ linear\_to\_gamma(\textcolor{keywordtype}{double}\ linear\_component)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(linear\_component);}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00064\ color\ write\_color\_gamma(color\ pixel\_color,\ \textcolor{keywordtype}{int}\ samples\_per\_pixel)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{auto}\ r\ =\ pixel\_color.x();}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{auto}\ g\ =\ pixel\_color.y();}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{auto}\ b\ =\ pixel\_color.z();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Divide\ the\ color\ by\ the\ number\ of\ samples.}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{auto}\ scale\ =\ 1.0\ /\ samples\_per\_pixel;}
+\DoxyCodeLine{00071\ \ \ \ \ r\ *=\ scale;}
+\DoxyCodeLine{00072\ \ \ \ \ g\ *=\ scale;}
+\DoxyCodeLine{00073\ \ \ \ \ b\ *=\ scale;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Apply\ the\ linear\ to\ gamma\ transform.}}
+\DoxyCodeLine{00076\ \ \ \ \ r\ =\ linear\_to\_gamma(r);}
+\DoxyCodeLine{00077\ \ \ \ \ g\ =\ linear\_to\_gamma(g);}
+\DoxyCodeLine{00078\ \ \ \ \ b\ =\ linear\_to\_gamma(b);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classinterval}{interval}}\ intensity(0.000,\ 0.999);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ \{256\ *\ intensity.clamp(r),\ 256\ *\ intensity.clamp(g),\ 256\ *\ intensity.clamp(b)\};}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

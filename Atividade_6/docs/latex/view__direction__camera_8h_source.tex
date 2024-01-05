@@ -1,0 +1,151 @@
+\doxysection{view\+\_\+direction\+\_\+camera.\+h}
+\hypertarget{view__direction__camera_8h_source}{}\label{view__direction__camera_8h_source}\index{src/headers/camera/view\_direction\_camera.h@{src/headers/camera/view\_direction\_camera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CAMERA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CAMERA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}src/utils/utils.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}src/headers/color.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}src/headers/hittable/Hittable.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}src/headers/material.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}MatrixIOImage.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcamera}{camera}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ vfov\ \ \ \ \ =\ 90;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vertical\ view\ angle\ (field\ of\ view)}}
+\DoxyCodeLine{00032\ \ \ \ \ point3\ lookfrom\ =\ point3(0,0,-\/2);\ \ \textcolor{comment}{//\ Point\ camera\ is\ looking\ from}}
+\DoxyCodeLine{00033\ \ \ \ \ point3\ lookat\ \ \ =\ point3(0,0,0);\ \ \ \textcolor{comment}{//\ Point\ camera\ is\ looking\ at}}
+\DoxyCodeLine{00034\ \ \ \ \ vec3\ \ \ vup\ \ \ \ \ \ =\ vec3(0,1,0);\ \ \ \ \ \textcolor{comment}{//\ Camera-\/relative\ "{}up"{}\ direction}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ aspect\_ratio\ =\ 4.0/3.0;\ \ \ \textcolor{comment}{//\ Ratio\ of\ image\ width\ over\ height}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ image\_width\ =\ 500;\ \ \ \ \textcolor{comment}{//\ Rendered\ image\ width\ in\ pixel\ count}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ samples\_per\_pixel\ =\ 10;\ \textcolor{comment}{//\ Number\ of\ samples\ per\ pixel}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ max\_depth\ =\ 10;\ \ \ \ \ \ \textcolor{comment}{//\ Maximum\ number\ of\ ray\ bounces}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classcamera}{camera}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classcamera}{camera}}(\textcolor{keywordtype}{int}\ image\_width,\ \textcolor{keywordtype}{double}\ aspect\_ratio,\ \textcolor{keywordtype}{int}\ samples\_per\_pixel,\ \textcolor{keywordtype}{int}\ max\_depth)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ this-\/>image\_width\ =\ image\_width;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ this-\/>aspect\_ratio\ =\ aspect\_ratio;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ this-\/>samples\_per\_pixel\ =\ samples\_per\_pixel;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ this-\/>max\_depth\ =\ max\_depth;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcamera_ad0e50f60e911420c14fb6dee2ff83f68}{render}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classhittable}{hittable}}\&\ world,\ \textcolor{keyword}{const}\ std::string\&\ filename)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ **matrix\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}\ *[image\_height];}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ image\_height;\ i++)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ matrix[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[image\_width\ *\ 3];}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ image\_height;\ ++j)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ std::clog\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)rScanlines\ remaining:\ "{}}\ <<\ (image\_height\ -\/\ j)\ <<\ \textcolor{charliteral}{'\ '}\ <<\ std::flush;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ image\_width;\ ++i)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\ pixel\_color(0,0,0);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ sample\ =\ 0;\ sample\ <\ samples\_per\_pixel;\ ++sample)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classray}{ray}}\ r\ =\ get\_ray(i,\ j);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel\_color\ +=\ ray\_color(r,\ max\_depth,\ world);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel\_color\ =\ write\_color\_gamma(pixel\_color,\ samples\_per\_pixel);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matrix[j][i\ *\ 3]\ =\ (int)\ (pixel\_color.x());}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matrix[j][i\ *\ 3\ +\ 1]\ =\ (int)\ (pixel\_color.y());}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matrix[j][i\ *\ 3\ +\ 2]\ =\ (int)\ (pixel\_color.z());}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ MatrixIOImage::generateImageFromMatrix(matrix,\ image\_width,\ image\_height,\ filename);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ image\_height;\ i++)}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ matrix[i];}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ matrix;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::clog\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)rDone.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ image\_height;\ \ \ \textcolor{comment}{//\ Rendered\ image\ height}}
+\DoxyCodeLine{00090\ \ \ \ \ point3\ center;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Camera\ center}}
+\DoxyCodeLine{00091\ \ \ \ \ point3\ pixel00\_loc;\ \ \ \ \textcolor{comment}{//\ Location\ of\ pixel\ 0,\ 0}}
+\DoxyCodeLine{00092\ \ \ \ \ vec3\ \ \ pixel\_delta\_u;\ \ \textcolor{comment}{//\ Offset\ to\ pixel\ to\ the\ right}}
+\DoxyCodeLine{00093\ \ \ \ \ vec3\ \ \ pixel\_delta\_v;\ \ \textcolor{comment}{//\ Offset\ to\ pixel\ below}}
+\DoxyCodeLine{00094\ \ \ \ \ vec3\ \ \ u,\ v,\ w;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Camera\ frame\ basis\ vectors}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ initialize()\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ image\_height\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(image\_width\ /\ aspect\_ratio);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ image\_height\ =\ (image\_height\ <\ 1)\ ?\ 1\ :\ image\_height;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ center\ =\ lookfrom;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Determine\ viewport\ dimensions.}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ focal\_length\ =\ (lookfrom\ -\/\ lookat).length();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ theta\ =\ degrees\_to\_radians(vfov);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ h\ =\ tan(theta/2);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ viewport\_height\ =\ 2\ *\ h\ *\ focal\_length;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ viewport\_width\ =\ viewport\_height\ *\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(image\_width)/image\_height);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ u,v,w\ unit\ basis\ vectors\ for\ the\ camera\ coordinate\ frame.}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ w\ =\ unit\_vector(lookfrom\ -\/\ lookat);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ u\ =\ unit\_vector(cross(vup,\ w));}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ v\ =\ cross(w,\ u);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ vectors\ across\ the\ horizontal\ and\ down\ the\ vertical\ viewport\ edges.}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ vec3\ viewport\_u\ =\ viewport\_width\ *\ u;\ \ \ \ \textcolor{comment}{//\ Vector\ across\ viewport\ horizontal\ edge}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ vec3\ viewport\_v\ =\ viewport\_height\ *\ -\/v;\ \ \textcolor{comment}{//\ Vector\ down\ viewport\ vertical\ edge}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ horizontal\ and\ vertical\ delta\ vectors\ from\ pixel\ to\ pixel.}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ pixel\_delta\_u\ =\ viewport\_u\ /\ image\_width;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ pixel\_delta\_v\ =\ viewport\_v\ /\ image\_height;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ location\ of\ the\ upper\ left\ pixel.}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ viewport\_upper\_left\ =\ center\ -\/\ (focal\_length\ *\ w)\ -\/\ viewport\_u/2\ -\/\ viewport\_v/2;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ pixel00\_loc\ =\ viewport\_upper\_left\ +\ 0.5\ *\ (pixel\_delta\_u\ +\ pixel\_delta\_v);}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classray}{ray}}\ get\_ray(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ a\ randomly\ sampled\ camera\ ray\ for\ the\ pixel\ at\ location\ i,j.}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pixel\_center\ =\ pixel00\_loc\ +\ (i\ *\ pixel\_delta\_u)\ +\ (j\ *\ pixel\_delta\_v);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pixel\_sample\ =\ pixel\_center\ +\ pixel\_sample\_square();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ray\_origin\ =\ center;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ray\_direction\ =\ pixel\_sample\ -\/\ ray\_origin;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classray}{ray}}(ray\_origin,\ ray\_direction);}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00163\ \ \ \ \ vec3\ pixel\_sample\_square()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Returns\ a\ random\ point\ in\ the\ square\ surrounding\ a\ pixel\ at\ the\ origin.}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ px\ =\ -\/0.5\ +\ random\_double();}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ py\ =\ -\/0.5\ +\ random\_double();}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (px\ *\ pixel\_delta\_u)\ +\ (py\ *\ pixel\_delta\_v);}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00179\ \ \ \ \ color\ ray\_color(\textcolor{keyword}{const}\ \mbox{\hyperlink{classray}{ray}}\&\ r,\ \textcolor{keywordtype}{int}\ depth,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classhittable}{hittable}}\&\ world)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we've\ exceeded\ the\ ray\ bounce\ limit,\ no\ more\ light\ is\ gathered.}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (depth\ <=\ 0)}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ color(0,0,0);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classhit__record}{hit\_record}}\ rec;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (world.\mbox{\hyperlink{classhittable_ad74f3720b6de850be47b14a9e21e1c01}{hit}}(r,\ \mbox{\hyperlink{classinterval}{interval}}(0.001,\ infinity),\ rec))\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classray}{ray}}\ scattered;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ color\ attenuation;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rec.mat-\/>scatter(r,\ rec,\ attenuation,\ scattered))}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ attenuation\ *\ ray\_color(scattered,\ depth-\/1,\ world);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ color(0,0,0);}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ vec3\ unit\_direction\ =\ unit\_vector(r.direction());}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ a\ =\ 0.5*(unit\_direction.y()\ +\ 1.0);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (1.0-\/a)*color(1.0,\ 1.0,\ 1.0)\ +\ a*color(0.5,\ 0.7,\ 1.0);}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CAMERA\_H}}
+
+\end{DoxyCode}

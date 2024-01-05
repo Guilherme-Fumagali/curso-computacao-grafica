@@ -1,0 +1,132 @@
+\doxysection{interval Class Reference}
+\hypertarget{classinterval}{}\label{classinterval}\index{interval@{interval}}
+
+
+This class represents an interval with a minimum and maximum value.  
+
+
+
+
+{\ttfamily \#include $<$Interval.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classinterval_acbedd1641f77c0c8007c75ff3f10bb11}\label{classinterval_acbedd1641f77c0c8007c75ff3f10bb11} 
+{\bfseries interval} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. Creates an empty interval. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classinterval_ac7cd712129b0217cd8a466ccb6e03f6d}{interval}} (double \+\_\+min, double \+\_\+max)
+\begin{DoxyCompactList}\small\item\em Constructor that sets the min and max values of the interval. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classinterval_aa981e5b35d830ef5525c479e9724250a}{contains}} (double x) const
+\begin{DoxyCompactList}\small\item\em Checks if a value is contained within the interval. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classinterval_a2b78c560ddb82a10ba138471a631cbcc}{surrounds}} (double x) const
+\begin{DoxyCompactList}\small\item\em Checks if a value is surrounded by the interval. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classinterval_add5a3a1a969cf4b7a11ccc33dd861042}{clamp}} (double x) const
+\begin{DoxyCompactList}\small\item\em Clamps a value within the interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classinterval_ab325ada0296eefdc208d49862aa01175}\label{classinterval_ab325ada0296eefdc208d49862aa01175} 
+double {\bfseries min}
+\item 
+\Hypertarget{classinterval_a02eac6f97ae4212f8b2bbeea12f4874e}\label{classinterval_a02eac6f97ae4212f8b2bbeea12f4874e} 
+double {\bfseries max}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classinterval_a6e23ba90dce932166d37f871b5ffc3e4}\label{classinterval_a6e23ba90dce932166d37f871b5ffc3e4} 
+static const \mbox{\hyperlink{classinterval}{interval}} {\bfseries empty}
+\item 
+\Hypertarget{classinterval_ade23700267da88e2d1a5b470aff38de6}\label{classinterval_ade23700267da88e2d1a5b470aff38de6} 
+static const \mbox{\hyperlink{classinterval}{interval}} {\bfseries universe}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents an interval with a minimum and maximum value. 
+
+An interval is defined by two values, min and max. The class provides methods to check if a value is contained within the interval or if it surrounds a value. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classinterval_ac7cd712129b0217cd8a466ccb6e03f6d}\label{classinterval_ac7cd712129b0217cd8a466ccb6e03f6d} 
+\index{interval@{interval}!interval@{interval}}
+\index{interval@{interval}!interval@{interval}}
+\doxysubsubsection{\texorpdfstring{interval()}{interval()}}
+{\footnotesize\ttfamily interval\+::interval (\begin{DoxyParamCaption}\item[{double}]{\+\_\+min,  }\item[{double}]{\+\_\+max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that sets the min and max values of the interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+min} & The minimum value of the interval. \\
+\hline
+{\em \+\_\+max} & The maximum value of the interval. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classinterval_add5a3a1a969cf4b7a11ccc33dd861042}\label{classinterval_add5a3a1a969cf4b7a11ccc33dd861042} 
+\index{interval@{interval}!clamp@{clamp}}
+\index{clamp@{clamp}!interval@{interval}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
+{\footnotesize\ttfamily double interval\+::clamp (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clamps a value within the interval. 
+
+This method checks if a given value is less than the minimum or greater than the maximum of the interval. If the value is less than the minimum, it returns the minimum. If the value is greater than the maximum, it returns the maximum. Otherwise, it returns the original value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The value to clamp. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The clamped value. 
+\end{DoxyReturn}
+\Hypertarget{classinterval_aa981e5b35d830ef5525c479e9724250a}\label{classinterval_aa981e5b35d830ef5525c479e9724250a} 
+\index{interval@{interval}!contains@{contains}}
+\index{contains@{contains}!interval@{interval}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily bool interval\+::contains (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a value is contained within the interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the value is within the interval, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classinterval_a2b78c560ddb82a10ba138471a631cbcc}\label{classinterval_a2b78c560ddb82a10ba138471a631cbcc} 
+\index{interval@{interval}!surrounds@{surrounds}}
+\index{surrounds@{surrounds}!interval@{interval}}
+\doxysubsubsection{\texorpdfstring{surrounds()}{surrounds()}}
+{\footnotesize\ttfamily bool interval\+::surrounds (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a value is surrounded by the interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the value is strictly within the interval, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/Interval.\+h\end{DoxyCompactItemize}

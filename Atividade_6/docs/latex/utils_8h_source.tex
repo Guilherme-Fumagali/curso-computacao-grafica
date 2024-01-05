@@ -1,0 +1,104 @@
+\doxysection{utils.\+h}
+\hypertarget{utils_8h_source}{}\label{utils_8h_source}\index{src/utils/utils.h@{src/utils/utils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ gfumagali\ on\ 18/12/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ UTILS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ UTILS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Using}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }std::shared\_ptr;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{using\ }std::make\_shared;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ }std::sqrt;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Constants}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ infinity\ =\ std::numeric\_limits<double>::infinity();}
+\DoxyCodeLine{00021\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ pi\ =\ 3.1415926535897932385;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Utility\ Functions}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ degrees\_to\_radians(\textcolor{keywordtype}{double}\ degrees)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ degrees\ *\ pi\ /\ 180.0;}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ random\_double()\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ std::uniform\_real\_distribution<double>\ distribution(0.0,\ 1.0);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ generator;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ distribution(generator);}
+\DoxyCodeLine{00032\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ random\_double(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Returns\ a\ random\ real\ in\ [min,max).}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ min\ +\ (max-\/min)*random\_double();}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Common\ Headers}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}src/headers/Interval.h"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}src/headers/ray.h"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}vec3.h"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}vec2.h"{}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{inline}\ vec3\ random\_vec3()\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ \{random\_double(),\ random\_double(),\ random\_double()\};}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{inline}\ vec3\ random\_vec3(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ \{random\_double(min,max),\ random\_double(min,max),\ random\_double(min,max)\};}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{inline}\ vec3\ random\_vec3\_in\_unit\_sphere()\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p\ =\ random\_vec3(-\/1,1);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.length\_squared()\ <\ 1)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{inline}\ vec3\ random\_in\_unit\_disk()\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p\ =\ vec3(random\_double(-\/1,1),\ random\_double(-\/1,1),\ 0);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.length\_squared()\ >=\ 1)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{inline}\ vec3\ random\_vec3\_unit\_vector()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ unit\_vector(random\_vec3\_in\_unit\_sphere());}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{inline}\ vec3\ \ random\_vec3\_on\_hemisphere(\textcolor{keyword}{const}\ vec3\&\ normal)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ vec3\ on\_unit\_sphere\ =\ random\_vec3\_unit\_vector();}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (dot(on\_unit\_sphere,\ normal)\ >\ 0.0)\ \textcolor{comment}{//\ In\ the\ same\ hemisphere\ as\ the\ normal}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ on\_unit\_sphere;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/on\_unit\_sphere;}
+\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ near\_zero(vec3\ e)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Return\ true\ if\ the\ vector\ is\ close\ to\ zero\ in\ all\ dimensions.}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{auto}\ s\ =\ 1e-\/8;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ (fabs(e[0])\ <\ s)\ \&\&\ (fabs(e[1])\ <\ s)\ \&\&\ (fabs(e[2])\ <\ s);}
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{inline}\ vec3\ reflect(\textcolor{keyword}{const}\ vec3\&\ v,\ \textcolor{keyword}{const}\ vec3\&\ n)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ v\ -\/\ 2*dot(v,n)*n;}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{inline}\ vec3\ refract(\textcolor{keyword}{const}\ vec3\&\ uv,\ \textcolor{keyword}{const}\ vec3\&\ n,\ \textcolor{keywordtype}{double}\ etai\_over\_etat)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{auto}\ cos\_theta\ =\ fmin(dot(-\/uv,\ n),\ 1.0);}
+\DoxyCodeLine{00093\ \ \ \ \ vec3\ r\_out\_perp\ =\ \ etai\_over\_etat\ *\ (uv\ +\ cos\_theta*n);}
+\DoxyCodeLine{00094\ \ \ \ \ vec3\ r\_out\_parallel\ =\ -\/sqrt(fabs(1.0\ -\/\ r\_out\_perp.length\_squared()))\ *\ n;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ r\_out\_perp\ +\ r\_out\_parallel;}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UTILS\_H}}
+
+\end{DoxyCode}

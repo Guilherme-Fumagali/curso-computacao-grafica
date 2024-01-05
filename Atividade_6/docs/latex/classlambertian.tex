@@ -1,0 +1,69 @@
+\doxysection{lambertian Class Reference}
+\hypertarget{classlambertian}{}\label{classlambertian}\index{lambertian@{lambertian}}
+
+
+This class represents a lambertian material.  
+
+
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+Inheritance diagram for lambertian\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classlambertian}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlambertian_af8e58b324776397a6598b2ec85a0b887}{lambertian}} (const color \&a)
+\begin{DoxyCompactList}\small\item\em Constructor for the lambertian class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlambertian_addbce7ba60f1ff30067ee9de362b12a7}{scatter}} (const \mbox{\hyperlink{classray}{ray}} \&r\+\_\+in, const \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&rec, color \&attenuation, \mbox{\hyperlink{classray}{ray}} \&scattered) const override
+\begin{DoxyCompactList}\small\item\em Scatter function for the lambertian material. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a lambertian material. 
+
+A lambertian material scatters light in all directions equally. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classlambertian_af8e58b324776397a6598b2ec85a0b887}\label{classlambertian_af8e58b324776397a6598b2ec85a0b887} 
+\index{lambertian@{lambertian}!lambertian@{lambertian}}
+\index{lambertian@{lambertian}!lambertian@{lambertian}}
+\doxysubsubsection{\texorpdfstring{lambertian()}{lambertian()}}
+{\footnotesize\ttfamily lambertian\+::lambertian (\begin{DoxyParamCaption}\item[{const color \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the lambertian class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The albedo of the material. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classlambertian_addbce7ba60f1ff30067ee9de362b12a7}\label{classlambertian_addbce7ba60f1ff30067ee9de362b12a7} 
+\index{lambertian@{lambertian}!scatter@{scatter}}
+\index{scatter@{scatter}!lambertian@{lambertian}}
+\doxysubsubsection{\texorpdfstring{scatter()}{scatter()}}
+{\footnotesize\ttfamily bool lambertian\+::scatter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r\+\_\+in,  }\item[{const \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&}]{rec,  }\item[{color \&}]{attenuation,  }\item[{\mbox{\hyperlink{classray}{ray}} \&}]{scattered }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Scatter function for the lambertian material. 
+
+
+
+Implements \mbox{\hyperlink{classmaterial_ada24c67820c20d312f336b3fa0a672d8}{material}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/material.\+h\end{DoxyCompactItemize}

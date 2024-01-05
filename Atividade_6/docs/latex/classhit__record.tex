@@ -1,0 +1,43 @@
+\doxysection{hit\+\_\+record Class Reference}
+\hypertarget{classhit__record}{}\label{classhit__record}\index{hit\_record@{hit\_record}}
+
+
+This class represents a record of a hit. It contains the point of intersection, the normal at the intersection point, and the parameter t from the ray equation.  
+
+
+
+
+{\ttfamily \#include $<$Hittable.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhit__record_abda3ea71df27b6c13d09411aff577c3d}\label{classhit__record_abda3ea71df27b6c13d09411aff577c3d} 
+void {\bfseries set\+\_\+face\+\_\+normal} (const \mbox{\hyperlink{classray}{ray}} \&r, const vec3 \&outward\+\_\+normal)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhit__record_ab3d1fd7e2890aee96fe01aac7b51f835}\label{classhit__record_ab3d1fd7e2890aee96fe01aac7b51f835} 
+point3 {\bfseries p}
+\item 
+\Hypertarget{classhit__record_a13e119913532f25f57679403759bccfa}\label{classhit__record_a13e119913532f25f57679403759bccfa} 
+vec3 {\bfseries normal}
+\item 
+\Hypertarget{classhit__record_aead063745ddabd283dc15594c926814c}\label{classhit__record_aead063745ddabd283dc15594c926814c} 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{classmaterial}{material}} $>$ {\bfseries mat}
+\item 
+\Hypertarget{classhit__record_a9e8098f3146460e4ed40cb91e74a1e30}\label{classhit__record_a9e8098f3146460e4ed40cb91e74a1e30} 
+double {\bfseries t}
+\item 
+\Hypertarget{classhit__record_a99c797f34fef8b1f4a0c548a9f9c2433}\label{classhit__record_a99c797f34fef8b1f4a0c548a9f9c2433} 
+bool {\bfseries front\+\_\+face}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a record of a hit. It contains the point of intersection, the normal at the intersection point, and the parameter t from the ray equation. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/hittable/Hittable.\+h\end{DoxyCompactItemize}

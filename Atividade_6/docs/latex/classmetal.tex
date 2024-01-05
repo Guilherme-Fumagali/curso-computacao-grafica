@@ -1,0 +1,71 @@
+\doxysection{metal Class Reference}
+\hypertarget{classmetal}{}\label{classmetal}\index{metal@{metal}}
+
+
+This class represents a metallic material.  
+
+
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+Inheritance diagram for metal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmetal}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmetal_ac27c387dc67625c2f7967c23ccf1aa81}{metal}} (const color \&a, double f)
+\begin{DoxyCompactList}\small\item\em Constructor for the metal class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmetal_a7e934504e51b2c6bad3f073021ea696d}{scatter}} (const \mbox{\hyperlink{classray}{ray}} \&r\+\_\+in, const \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&rec, color \&attenuation, \mbox{\hyperlink{classray}{ray}} \&scattered) const override
+\begin{DoxyCompactList}\small\item\em Scatter function for the metallic material. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a metallic material. 
+
+A metallic material reflects light in a single direction. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmetal_ac27c387dc67625c2f7967c23ccf1aa81}\label{classmetal_ac27c387dc67625c2f7967c23ccf1aa81} 
+\index{metal@{metal}!metal@{metal}}
+\index{metal@{metal}!metal@{metal}}
+\doxysubsubsection{\texorpdfstring{metal()}{metal()}}
+{\footnotesize\ttfamily metal\+::metal (\begin{DoxyParamCaption}\item[{const color \&}]{a,  }\item[{double}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the metal class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The albedo of the material. \\
+\hline
+{\em f} & The fuzziness of the material. If the value is greater than 1, it is clamped to 1. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmetal_a7e934504e51b2c6bad3f073021ea696d}\label{classmetal_a7e934504e51b2c6bad3f073021ea696d} 
+\index{metal@{metal}!scatter@{scatter}}
+\index{scatter@{scatter}!metal@{metal}}
+\doxysubsubsection{\texorpdfstring{scatter()}{scatter()}}
+{\footnotesize\ttfamily bool metal\+::scatter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r\+\_\+in,  }\item[{const \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&}]{rec,  }\item[{color \&}]{attenuation,  }\item[{\mbox{\hyperlink{classray}{ray}} \&}]{scattered }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Scatter function for the metallic material. 
+
+
+
+Implements \mbox{\hyperlink{classmaterial_ada24c67820c20d312f336b3fa0a672d8}{material}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/material.\+h\end{DoxyCompactItemize}

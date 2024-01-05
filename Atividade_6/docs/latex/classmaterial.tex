@@ -1,0 +1,65 @@
+\doxysection{material Class Reference}
+\hypertarget{classmaterial}{}\label{classmaterial}\index{material@{material}}
+
+
+This class represents a generic material.  
+
+
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+Inheritance diagram for material\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmaterial}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classmaterial_ada24c67820c20d312f336b3fa0a672d8}{scatter}} (const \mbox{\hyperlink{classray}{ray}} \&r\+\_\+in, const \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&rec, color \&attenuation, \mbox{\hyperlink{classray}{ray}} \&scattered) const =0
+\begin{DoxyCompactList}\small\item\em Scatter function for the material. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a generic material. 
+
+This class is an abstract base class for different types of material, that can be applied to objects in the scene. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmaterial_ada24c67820c20d312f336b3fa0a672d8}\label{classmaterial_ada24c67820c20d312f336b3fa0a672d8} 
+\index{material@{material}!scatter@{scatter}}
+\index{scatter@{scatter}!material@{material}}
+\doxysubsubsection{\texorpdfstring{scatter()}{scatter()}}
+{\footnotesize\ttfamily virtual bool material\+::scatter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classray}{ray}} \&}]{r\+\_\+in,  }\item[{const \mbox{\hyperlink{classhit__record}{hit\+\_\+record}} \&}]{rec,  }\item[{color \&}]{attenuation,  }\item[{\mbox{\hyperlink{classray}{ray}} \&}]{scattered }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Scatter function for the material. 
+
+This function calculates the scattering of a ray when it hits an object made of this material.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r\+\_\+in} & The ray. \\
+\hline
+{\em rec} & The \doxylink{classhit__record}{hit\+\_\+record} of the ray. \\
+\hline
+{\em attenuation} & The attenuation of the ray after it hits the object. \\
+\hline
+{\em scattered} & The scattered ray after it hits the object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value indicating whether the ray was scattered or not. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classlambertian_addbce7ba60f1ff30067ee9de362b12a7}{lambertian}}, \mbox{\hyperlink{classmetal_a7e934504e51b2c6bad3f073021ea696d}{metal}}, and \mbox{\hyperlink{classdielectric_aefd3b900c7e10ab92ecb127659a83d6e}{dielectric}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/material.\+h\end{DoxyCompactItemize}

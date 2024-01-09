@@ -1,6 +1,6 @@
 # Metal e vidro
 
-O objeto dessa atividade é seguir as seções 10 e 11 do [tutorial](https://raytracing.github.io/books/RayTracingInOneWeekend.html#diffusematerials) para implementar os materiais com reflexão e refração.
+O objetivo dessa atividade é seguir as seções 10 e 11 do [tutorial](https://raytracing.github.io/books/RayTracingInOneWeekend.html#diffusematerials) para implementar os materiais com reflexão e refração.
 
 Com isso, visualizar em seguida uma cena com um objeto metálico e outro de vidro.
 

@@ -49,10 +49,10 @@ Foram feitas duas configurações de câmera, uma de menor qualidade para teste 
 
 E os resultados são:
 
-| Qualidade | Imagem                                                        |
-|-----------|---------------------------------------------------------------|
-| `low`     | <img src="src/static/images/main_500_50_5.png" width="500">   |
-| `high`    | <img src="src/static/images/main/high/main.png" width="1200"> |
+| Qualidade | Imagem                                                   |
+|-----------|----------------------------------------------------------|
+| `low`     | <img src="src/static/images/main_500_50_5.png" width="500"> |
+| `high`    | <img src="src/static/images/main.png" width="1200"> |
 
 ## Compilação e execução
 
